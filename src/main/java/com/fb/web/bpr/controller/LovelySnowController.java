@@ -70,11 +70,16 @@ public class LovelySnowController extends SimpController {
     @ResponseBody
     public String deleteCategory(String uid){
         if(DataUtils.isUid(uid)){
-            int count = getService().getCategoryService().delete(uid);
-            if(count > 0)
-                return "success";
-            else
-                return "fail";
+            int productCount = getService().getProductService().getProductByUCategoryId(uid);
+            if(productCount > 0)
+                return "have";
+            else{
+                int count = getService().getCategoryService().delete(uid);
+                if(count > 0)
+                    return "success";
+                else
+                    return "fail";
+            }
         }
         return "fail";
     }

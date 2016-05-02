@@ -66,6 +66,7 @@ function submitForm(_form){
 						$.ligerDialog.error("保存失败!");
 					else{
 						_ligerDialog.hide();
+						$.ligerDialog.success("保存成功!");
 						_categoryTableTr.loadData();
 					}
 				});
@@ -163,7 +164,26 @@ function _deleteCategory(){
 	if(rows != null && rows != ""){
 		$.ligerDialog.confirm("确定要删除吗?",function(yes){
 			if(yes){
-				alert("删除");
+				var waitting = $.ligerDialog.waitting('数据删除中,请稍候...');
+				$.ajax({
+					type:"post",
+					async:false,
+					cache:false,
+					url:contextPath+"/bpr/lovelysnow/deleteCategory",
+					data:{'uid':rows[0].uid},
+					dataType:"html",
+					success:function(data){
+						waitting.close();
+						if(data == "fail")
+							$.ligerDialog.error("数据删除失败!");
+						else if(data == "have"){
+							$.ligerDialog.error("此类别下已包含有产品信息,不能删除此类别!");
+						}else{
+							$.ligerDialog.success("数据删除成功!");
+							_categoryTableTr.loadData();
+						}
+					}
+				});
 			}
 		});
 	}else{

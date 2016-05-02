@@ -39,6 +39,9 @@ public class ServiceContainer {
     @Autowired
     private CategoryService categoryService;
     
+    @Autowired
+    private ProductService productService;
+    
     public LoginService getLoginService() {
         return loginService;
     }
@@ -109,6 +112,14 @@ public class ServiceContainer {
     
     public void setCategoryService(CategoryService categoryService) {
         this.categoryService = categoryService;
+    }
+    
+    public ProductService getProductService() {
+        return productService;
+    }
+    
+    public void setProductService(ProductService productService) {
+        this.productService = productService;
     }
     
 }
