@@ -110,7 +110,11 @@ function _modifyCategory(){
 function _deleteCategory(){
 	var rows = _categoryTableTr.getCheckedRows();
 	if(rows != null && rows != ""){
-		alert(1);
+		$.ligerDialog.confirm("确定要删除吗?",function(yes){
+			if(yes){
+				alert("删除");
+			}
+		});
 	}else{
 		$.ligerDialog.warn("请选择需要删除的类别!");
 	}
