@@ -3,9 +3,12 @@
  */
 var _ligerDialog = null;//弹出框
 var _categoryTableTr = null;//类别表格行数据
+var _old_cno = null;//原有编码
+var _old_cname = null;//原有名称
 
 $(function(){
 	$("#addForm").validationEngine();
+	$("#modifyForm").validationEngine();
 	_categoryTableTr = $("#maingrid").ligerGrid({
             				height:'100%',
 				            columns: [
@@ -44,16 +47,15 @@ $(function(){
  */
 function _addCategory(){
 	_ligerDialog = $.ligerDialog.open({ target: $("#addDiv"),title:"新增产品类别",width:480,height:240,
-		buttons:[{text:"保存",onclick:function(i,d){submitForm();}},{text:"关闭",onclick:function(i,d){d.hide();}}]
+		buttons:[{text:"保存",onclick:function(i,d){submitForm($("#addForm"));}},{text:"关闭",onclick:function(i,d){d.hide();}}]
 	});
 }
 
 /**
- * 提交产品类别新增表单
- * @param item
+ * 提交产品类别新增/修改表单
+ * @param _form 表单id
  */
-function submitForm(){
-	var _form = $("#addForm");
+function submitForm(_form){
 	if(_form.validationEngine("validate")){
 		$.ligerDialog.confirm("确定要保存吗？",function(yes){
 			if(yes){
@@ -93,17 +95,66 @@ function ajaxCName(field,rules,i,options){
 }
 
 /**
- * 修改
+ * 修改时验证编码
  * @param item
+ */
+function ajaxModifyCNo(field,rules,i,options){
+	if(field.val().length > 0){
+		if(field.val() != _old_cno)
+			return checkData('t_category','cno',field.val(),'*编码重复');
+	}
+}
+
+/**
+ * 修改时验证名称
+ * @param item
+ */
+function ajaxModifyCName(field,rules,i,options){
+	if(field.val().length > 0){
+		if(field.val() != _old_cname)
+			return checkData('t_category','cname',field.val(),'*名称重复');
+	}
+}
+
+/**
+ * 修改
+ * @param item 
  */
 function _modifyCategory(){
 	var rows = _categoryTableTr.getCheckedRows();
 	if(rows != null && rows != ""){
-		alert(1);
+		_ligerDialog = $.ligerDialog.open({ target: $("#modifyDiv"),title:"修改产品类别",width:480,height:240,
+			buttons:[{text:"保存",onclick:function(i,d){submitForm($("#modifyForm"));}},{text:"关闭",onclick:function(i,d){d.hide();resetModifyItem();}}]
+		});
+		setModifyItem(rows[0].uid,rows[0].cno,rows[0].cname);
 	}else{
 		$.ligerDialog.warn("请选择需要修改的类别!");
 	}
 }
+/**
+ * 设置修改时表单数据
+ * @param uid
+ * @param cno
+ * @param cname
+ */
+function setModifyItem(uid,cno,cname){
+	_old_cno = cno;
+	_old_cname = cname;
+	$("#modify_uid").val(uid);
+	$("#modify_cno").val(cno);
+	$("#modify_cname").val(cname);
+}
+/**
+ * 重置修改时表单数据
+ */
+function resetModifyItem(){
+	_old_cno = null;
+	_old_cname = null;
+	$("#modify_uid").val("");
+	$("#modify_cno").val("");
+	$("#modify_cname").val("");
+}
+
 /**
  * 删除
  */

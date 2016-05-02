@@ -52,4 +52,30 @@ public class LovelySnowController extends SimpController {
         }
         return "fail";
     }
+    
+    @RequestMapping("modifyCategory")
+    @ResponseBody
+    public String modifyCategory(TCategory category){
+        if(category != null){
+            int count = getService().getCategoryService().update(category);
+            if(count > 0)
+                return "success";
+            else
+                return "fail";
+        }
+        return "fail";
+    }
+    
+    @RequestMapping("deleteCategory")
+    @ResponseBody
+    public String deleteCategory(String uid){
+        if(DataUtils.isUid(uid)){
+            int count = getService().getCategoryService().delete(uid);
+            if(count > 0)
+                return "success";
+            else
+                return "fail";
+        }
+        return "fail";
+    }
 }

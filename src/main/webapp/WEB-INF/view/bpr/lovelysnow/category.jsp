@@ -35,6 +35,21 @@
   			</table>
   		</form>
   	</div>
+  	<div id="modifyDiv" style="display: none;">
+  		<form id="modifyForm" name="modifyForm" method="post" action="${contextPath }/bpr/lovelysnow/modifyCategory">
+  			<input type="hidden" id="modify_uid" name="uid"/>
+  			<table class="add_update_table">
+  				<tr>
+	  				<th><span style="color: red;">*</span>编号：</th>
+	  				<td><input type="text" id="modify_cno" name="cno" class="l-text validate[required,funcCall[ajaxModifyCNo]]"/></td>
+	  			</tr>
+	  			<tr>
+	  				<th><span style="color: red;">*</span>名称：</th>
+	  				<td><input type="text" id="modify_cname" name="cname" class="l-text validate[required,funcCall[ajaxModifyCName]]"/></td>
+	  			</tr>
+  			</table>
+  		</form>
+  	</div>
 	<!-- javascript文件引用 -->
 	<script type="text/javascript">var contextPath = '${contextPath}';</script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/jquery-1.8.3.js"></script>
