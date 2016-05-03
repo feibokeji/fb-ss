@@ -3,6 +3,7 @@ package com.fb.domain.po;
 import java.util.Date;
 
 import com.fb.core.base.domain.BaseDomain;
+import com.fb.core.base.persistence.NotFieldMapper;
 import com.fb.core.base.persistence.PrimaryKeyMapper;
 import com.fb.core.base.persistence.TableMapper;
 
@@ -39,6 +40,12 @@ public class TOperateLog extends BaseDomain {
      * 操作人ID
      */
     private String uuserid;
+    
+    /**
+     * 操作人名称
+     */
+    @NotFieldMapper
+    private String cusername;
     
     /**
      * 操作IP地址

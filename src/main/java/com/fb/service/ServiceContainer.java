@@ -11,115 +11,186 @@ import org.springframework.stereotype.Service;
 @Service
 public class ServiceContainer {
     
-    
+    /**
+     * 登录操作控制
+     */
     @Autowired
     private LoginService loginService;
     
+    /**
+     * 用户操作控制
+     */
     @Autowired
     private UserService userService;
     
+    /**
+     * 部门操作控制
+     */
     @Autowired
     private DeptService deptService;
     
+    /**
+     * 公司操作控制
+     */
     @Autowired
     private CorpService corpService;
     
+    /**
+     * 验证数据操作控制
+     */
     @Autowired
     private AuxiliaryService auxiliaryService;
     
+    /**
+     * 角色数据控制
+     */
     @Autowired
     private RoleService roleService;
     
+    /**
+     * 功能模块控制
+     */
     @Autowired
     private ModuleService moduleService;
     
+    /**
+     * 功能模块组控制
+     */
     @Autowired
     private ModuleGroupModuleService moduleGroupModuleService;
     
+    /**
+     * 产品类别控制
+     */
     @Autowired
     private CategoryService categoryService;
     
+    /**
+     * 产品控制
+     */
     @Autowired
     private ProductService productService;
     
+    /**
+     * 物料控制
+     */
+    @Autowired
+    private MaterialService materialService;
+    
+    /**
+     * 产品物料关联控制
+     */
+    @Autowired
+    private ProductMaterialService productMaterialService;
+    
+    /**
+     * 操作日志控制
+     */
+    @Autowired
+    private OperateLogService operateLogService;
+    
+    /**
+     * 获取 登录操作控制
+     * @return loginService
+     */
     public LoginService getLoginService() {
         return loginService;
     }
     
-    public void setLoginService(LoginService loginService) {
-        this.loginService = loginService;
-    }
-    
+    /**
+     * 获取 用户操作控制
+     * @return userService
+     */
     public UserService getUserService() {
         return userService;
     }
     
-    public void setUserService(UserService userService) {
-        this.userService = userService;
-    }
-    
+    /**
+     * 获取 部门操作控制
+     * @return deptService
+     */
     public DeptService getDeptService() {
         return deptService;
     }
     
-    public void setDeptService(DeptService deptService) {
-        this.deptService = deptService;
-    }
-    
+    /**
+     * 获取 公司操作控制
+     * @return corpService
+     */
     public CorpService getCorpService() {
         return corpService;
     }
     
-    public void setCorpService(CorpService corpService) {
-        this.corpService = corpService;
-    }
-    
+    /**
+     * 获取 验证数据操作控制
+     * @return auxiliaryService
+     */
     public AuxiliaryService getAuxiliaryService() {
         return auxiliaryService;
     }
     
-    public void setAuxiliaryService(AuxiliaryService auxiliaryService) {
-        this.auxiliaryService = auxiliaryService;
-    }
-    
+    /**
+     * 获取 角色数据控制
+     * @return roleService
+     */
     public RoleService getRoleService() {
         return roleService;
     }
     
-    public void setRoleService(RoleService roleService) {
-        this.roleService = roleService;
-    }
-    
+    /**
+     * 获取 功能模块控制
+     * @return moduleService
+     */
     public ModuleService getModuleService() {
         return moduleService;
     }
     
-    public void setModuleService(ModuleService moduleService) {
-        this.moduleService = moduleService;
-    }
-    
+    /**
+     * 获取 功能模块组控制
+     * @return moduleGroupModuleService
+     */
     public ModuleGroupModuleService getModuleGroupModuleService() {
         return moduleGroupModuleService;
     }
     
-    public void setModuleGroupModuleService(ModuleGroupModuleService moduleGroupModuleService) {
-        this.moduleGroupModuleService = moduleGroupModuleService;
-    }
-    
+    /**
+     * 获取 产品类别控制
+     * @return categoryService
+     */
     public CategoryService getCategoryService() {
         return categoryService;
     }
     
-    public void setCategoryService(CategoryService categoryService) {
-        this.categoryService = categoryService;
-    }
-    
+    /**
+     * 获取 产品控制
+     * @return productService
+     */
     public ProductService getProductService() {
         return productService;
     }
     
-    public void setProductService(ProductService productService) {
-        this.productService = productService;
+    /**
+     * 获取 物料控制
+     * @return materialService
+     */
+    public MaterialService getMaterialService() {
+        return materialService;
+    }
+    
+    /**
+     * 获取 产品物料关联控制
+     * @return productMaterialService
+     */
+    public ProductMaterialService getProductMaterialService() {
+        return productMaterialService;
+    }
+    
+    /**
+     * 获取 操作日志控制
+     * @return operateLogService
+     */
+    public OperateLogService getOperateLogService() {
+        return operateLogService;
     }
     
 }
