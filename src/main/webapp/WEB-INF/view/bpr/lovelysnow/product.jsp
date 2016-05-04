@@ -14,14 +14,19 @@
 <script type="text/javascript" src="${contextPath}/common/js/base/html5.js"></script>
 <![endif]-->
 </head>
-<!-- /bpr/lovelysnow/material.jsp -->
+<!-- /bpr/lovelysnow/product.jsp -->
 <body>
 	<div class="l-clear"></div>
     <div id="maingrid"></div>
   	<div style="display:none;"></div>
   	<div id="addDiv" style="display: none;">
-  		<form id="addForm" name="addForm" method="post" action="${contextPath }/bpr/lovelysnow/addMaterial">
+  		<form id="addForm" name="addForm" method="post" action="${contextPath }/bpr/lovelysnow/addProduct">
+  			<input type="hidden" id="add_ucategoryid" name="ucategoryid"/>
   			<table class="add_update_table">
+  				<tr>
+	  				<th><span style="color: red;">*</span>类别：</th>
+	  				<td><input type="text" id="add_box_ucategoryid" class="l-text validate[required]"/></td>
+	  			</tr>
 	  			<tr>
 	  				<th><span style="color: red;">*</span>编号：</th>
 	  				<td><input type="text" id="add_cno" name="cno" class="l-text validate[required,funcCall[ajaxCNo]]"/></td>
@@ -31,10 +36,6 @@
 	  				<td><input type="text" id="add_cname" name="cname" class="l-text validate[required,funcCall[ajaxCName]]"/></td>
 	  			</tr>
 	  			<tr>
-	  				<th>规格：</th>
-	  				<td><input type="text" id="add_cspecifications" name="cspecifications" class="l-text"/></td>
-	  			</tr>
-	  			<tr>
 	  				<th><span style="color: red;">*</span>价格：</th>
 	  				<td><input type="text" id="add_nprice" name="nprice" class="l-text validate[required,custom[number],min[0]]"/></td>
 	  			</tr>
@@ -42,9 +43,14 @@
   		</form>
   	</div>
   	<div id="modifyDiv" style="display: none;">
-  		<form id="modifyForm" name="modifyForm" method="post" action="${contextPath }/bpr/lovelysnow/modifyMaterial">
+  		<form id="modifyForm" name="modifyForm" method="post" action="${contextPath }/bpr/lovelysnow/modifyProduct">
   			<input type="hidden" id="modify_uid" name="uid"/>
+  			<input type="hidden" id="modify_ucategoryid" name="ucategoryid"/>
   			<table class="add_update_table">
+  				<tr>
+	  				<th><span style="color: red;">*</span>类别：</th>
+	  				<td><input type="text" id="modify_box_ucategoryid" class="l-text validate[required]"/></td>
+	  			</tr>
   				<tr>
 	  				<th><span style="color: red;">*</span>编号：</th>
 	  				<td><input type="text" id="modify_cno" name="cno" class="l-text validate[required,funcCall[ajaxModifyCNo]]"/></td>
@@ -54,12 +60,44 @@
 	  				<td><input type="text" id="modify_cname" name="cname" class="l-text validate[required,funcCall[ajaxModifyCName]]"/></td>
 	  			</tr>
 	  			<tr>
+	  				<th><span style="color: red;">*</span>价格：</th>
+	  				<td><input type="text" id="modify_nprice" name="nprice" class="l-text validate[required,custom[number],min[0]]"/></td>
+	  			</tr>
+  			</table>
+  		</form>
+  	</div>
+  	<div id="addCategoryDiv" style="display: none;">
+  		<form id="addCategoryForm" name="addCategoryForm" method="post" action="${contextPath }/bpr/lovelysnow/addCategory">
+  			<table class="add_update_table">
+	  			<tr>
+	  				<th><span style="color: red;">*</span>编号：</th>
+	  				<td><input type="text" id="add_category_cno" name="cno" class="l-text validate[required,funcCall[ajaxCategoryCNo]]"/></td>
+	  			</tr>
+	  			<tr>
+	  				<th><span style="color: red;">*</span>名称：</th>
+	  				<td><input type="text" id="add_category_cname" name="cname" class="l-text validate[required,funcCall[ajaxCategoryCName]]"/></td>
+	  			</tr>
+  			</table>
+  		</form>
+  	</div>
+  	<div id="addMaterialDiv" style="display: none;">
+  		<form id="addMaterialForm" name="addMaterialForm" method="post" action="${contextPath }/bpr/lovelysnow/addMaterial">
+  			<table class="add_update_table">
+	  			<tr>
+	  				<th><span style="color: red;">*</span>编号：</th>
+	  				<td><input type="text" id="add_material_cno" name="cno" class="l-text validate[required,funcCall[ajaxMaterialCNo]]"/></td>
+	  			</tr>
+	  			<tr>
+	  				<th><span style="color: red;">*</span>名称：</th>
+	  				<td><input type="text" id="add_material_cname" name="cname" class="l-text validate[required,funcCall[ajaxMaterialCName]]"/></td>
+	  			</tr>
+	  			<tr>
 	  				<th>规格：</th>
-	  				<td><input type="text" id="modify_cspecifications" name="cspecifications" class="l-text"/></td>
+	  				<td><input type="text" id="add_material_cspecifications" name="cspecifications" class="l-text"/></td>
 	  			</tr>
 	  			<tr>
 	  				<th><span style="color: red;">*</span>价格：</th>
-	  				<td><input type="text" id="modify_nprice" name="nprice" class="l-text validate[required,custom[number],min[0]]"/></td>
+	  				<td><input type="text" id="add_material_nprice" name="nprice" class="l-text validate[required,custom[number],min[0]]"/></td>
 	  			</tr>
   			</table>
   		</form>
@@ -73,6 +111,6 @@
 	<script type="text/javascript" src="${contextPath}/common/formValidator2.2.4/jquery.validationEngine-zh_CN.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/formValidator2.2.4/jquery.validationEngine.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/js/bpr/base.js"></script>
-	<script type="text/javascript" src="${contextPath}/common/js/bpr/lovelysnow/material.js"></script>
+	<script type="text/javascript" src="${contextPath}/common/js/bpr/lovelysnow/product.js"></script>
 </body>
 </html>

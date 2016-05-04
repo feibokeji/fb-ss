@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.fb.core.utils.DataUtils;
 import com.fb.domain.po.TCategory;
 import com.fb.domain.po.TMaterial;
+import com.fb.domain.po.TProduct;
 import com.fb.web.SimpController;
 import net.sf.json.JSONObject;
 
@@ -47,6 +48,17 @@ public class LovelySnowController extends SimpController {
     }
     
     /**
+     * 打开产品页面
+     * @param map
+     * @return
+     * @author Liu bo
+     */
+    @RequestMapping("product")
+    public String product(ModelMap map) {
+        return customPage();
+    }
+    
+    /**
      * 获取产品类别分页数据
      * @return
      * @author Liu bo
@@ -73,7 +85,23 @@ public class LovelySnowController extends SimpController {
         List<TMaterial> list = getService().getMaterialService().getMaterialList();
         Map<Object, Object> map = new HashMap<Object, Object>();
         map.put("Rows", list);
-        map.put("Rows", list.size());
+        map.put("Total", list.size());
+        JSONObject _jsonObject = JSONObject.fromObject(map);
+        return _jsonObject.toString();
+    }
+    
+    /**
+     * 获取产品分页数据
+     * @return
+     * @author Liu bo
+     */
+    @RequestMapping("listProduct")
+    @ResponseBody
+    public String listProduct() {
+        List<TProduct> list = getService().getProductService().getProductList();
+        Map<Object, Object> map = new HashMap<Object, Object>();
+        map.put("Rows", list);
+        map.put("Total", list.size());
         JSONObject _jsonObject = JSONObject.fromObject(map);
         return _jsonObject.toString();
     }
@@ -90,9 +118,10 @@ public class LovelySnowController extends SimpController {
         if (category != null) {
             category.setUid(DataUtils.newUUID());
             int count = getService().getCategoryService().add(category);
-            if (count > 0)
+            if (count > 0) {
+                addOperateLog("新增", "t_category", category.getUid(), null, null, null, "新增产品类别数据成功");
                 return "success";
-            else
+            } else
                 return "fail";
         }
         return "fail";
@@ -111,6 +140,28 @@ public class LovelySnowController extends SimpController {
             material.setUid(DataUtils.newUUID());
             int count = getService().getMaterialService().add(material);
             if (count > 0) {
+                addOperateLog("新增", "t_material", material.getUid(), null, null, null, "新增物料数据成功");
+                return "success";
+            } else
+                return "fail";
+        }
+        return "fail";
+    }
+    
+    /**
+     * 新增产品信息
+     * @param product
+     * @return
+     * @author Liu bo
+     */
+    @RequestMapping("addProduct")
+    @ResponseBody
+    public String addProduct(TProduct product) {
+        if (product != null) {
+            product.setUid(DataUtils.newUUID());
+            int count = getService().getProductService().addProduct(product);
+            if (count > 0) {
+                addOperateLog("新增", "t_product", product.getUid(), null, null, null, "新增产品数据成功");
                 return "success";
             } else
                 return "fail";
@@ -129,9 +180,10 @@ public class LovelySnowController extends SimpController {
     public String modifyCategory(TCategory category) {
         if (category != null) {
             int count = getService().getCategoryService().update(category);
-            if (count > 0)
+            if (count > 0) {
+                addOperateLog("修改", "t_category", category.getUid(), null, null, null, "修改产品类别数据成功");
                 return "success";
-            else
+            } else
                 return "fail";
         }
         return "fail";
@@ -149,6 +201,27 @@ public class LovelySnowController extends SimpController {
         if (material != null) {
             int count = getService().getMaterialService().update(material);
             if (count > 0) {
+                addOperateLog("修改", "t_material", material.getUid(), null, null, null, "修改物料数据成功");
+                return "success";
+            } else
+                return "fail";
+        }
+        return "fail";
+    }
+    
+    /**
+     * 修改产品信息
+     * @param product
+     * @return
+     * @author Liu bo
+     */
+    @RequestMapping("modifyProduct")
+    @ResponseBody
+    public String modifyProduct(TProduct product) {
+        if (product != null) {
+            int count = getService().getProductService().updateProduct(product);
+            if (count > 0) {
+                addOperateLog("修改", "t_product", product.getUid(), null, null, null, "修改产品信息成功");
                 return "success";
             } else
                 return "fail";
@@ -171,15 +244,22 @@ public class LovelySnowController extends SimpController {
                 return "have";
             else {
                 int count = getService().getCategoryService().delete(uid);
-                if (count > 0)
+                if (count > 0) {
+                    addOperateLog("删除", "t_category", uid, null, null, null, "删除类别数据成功");
                     return "success";
-                else
+                } else
                     return "fail";
             }
         }
         return "fail";
     }
     
+    /**
+     * 删除物料信息
+     * @param uid
+     * @return
+     * @author Liu bo
+     */
     @RequestMapping("deleteMaterial")
     @ResponseBody
     public String deleteMaterial(String uid) {
@@ -188,11 +268,38 @@ public class LovelySnowController extends SimpController {
             if (productMaterialCount > 0)
                 return "have";
             else {
-                int count = getService().getProductMaterialService().deleteProductMaterial(uid);
+                int count = getService().getMaterialService().delete(uid);
                 if (count > 0) {
+                    addOperateLog("删除", "t_material", uid, null, null, null, "删除物料数据成功");
                     return "success";
                 } else
                     return "fail";
+            }
+        }
+        return "fail";
+    }
+    
+    /**
+     * 删除产品信息
+     * @param uid
+     * @return
+     * @author Liu bo
+     */
+    @RequestMapping("deleteProduct")
+    @ResponseBody
+    public String deleteProduct(String uid) {
+        if (DataUtils.isUid(uid)) {
+            int productMaterialCount = getService().getProductMaterialService().getProductMaterialByUMaterialId(uid);
+            if (productMaterialCount > 0) {
+                return "have";
+            } else {// 此处需要添加验证是否有产品订单信息
+                int count = getService().getProductService().deleteProduct(uid);
+                if (count > 0) {
+                    addOperateLog("删除", "t_product", uid, null, null, null, "删除产品信息成功");
+                    return "success";
+                } else {
+                    return "fail";
+                }
             }
         }
         return "fail";

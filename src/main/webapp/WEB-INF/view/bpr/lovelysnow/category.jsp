@@ -16,7 +16,7 @@
 <script type="text/javascript" src="${contextPath}/common/js/base/html5.js"></script>
 <![endif]-->
 </head>
-<!-- /bpr/lovelysnow/category -->
+<!-- /bpr/lovelysnow/category.jsp -->
 <body>
 	<div class="l-clear"></div>
     <div id="maingrid"></div>

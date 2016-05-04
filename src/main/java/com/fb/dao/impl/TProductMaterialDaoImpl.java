@@ -44,7 +44,7 @@ public class TProductMaterialDaoImpl extends SimpMapper<TProductMaterial>impleme
      */
     public int getProductMaterialByUMaterialId(String umaterialid) {
         String sql = "select count(*) from t_product_material t where t.umaterialid = :umaterialid";
-        return super.getInt(sql, new QMap("umaterial",umaterialid));
+        return super.getInt(sql, new QMap("umaterialid",umaterialid));
     }
     
 }

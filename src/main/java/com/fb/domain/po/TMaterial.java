@@ -1,6 +1,7 @@
 package com.fb.domain.po;
 
 import com.fb.core.base.domain.BaseDomain;
+import com.fb.core.base.persistence.NotFieldMapper;
 import com.fb.core.base.persistence.PrimaryKeyMapper;
 import com.fb.core.base.persistence.TableMapper;
 
@@ -42,6 +43,12 @@ public class TMaterial extends BaseDomain {
      * 价格
      */
     private Double nprice;
+    
+    /**
+     * 数量
+     */
+    @NotFieldMapper
+    private Double nqty;
     
     /**
      * 获取 主键
@@ -121,6 +128,22 @@ public class TMaterial extends BaseDomain {
      */
     public void setNprice(Double nprice) {
         this.nprice = nprice;
+    }
+    
+    /**
+     * 获取 数量
+     * @return nqty
+     */
+    public Double getNqty() {
+        return nqty;
+    }
+    
+    /**
+     * 设置 数量
+     * @param nqty 数量
+     */
+    public void setNqty(Double nqty) {
+        this.nqty = nqty;
     }
     
 }

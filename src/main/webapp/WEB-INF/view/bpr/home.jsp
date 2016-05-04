@@ -15,7 +15,7 @@
 <!-- /bpr/home.jsp -->
 <body>
 	<div id="uploadExcelDialog">
-		<form action="${contextPath }/bpr/product/uploadExcel" method="post" id="uploadForm" name="uploadForm" enctype="multipart/form-data" onsubmit="return false;">
+		<form action="${contextPath }/bpr/uploadExcel" method="post" id="uploadForm" name="uploadForm" enctype="multipart/form-data" onsubmit="return false;">
 			<table class="homeTable">
 				<tr>
 					<td colspan="2" align="center">

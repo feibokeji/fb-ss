@@ -43,10 +43,10 @@
 			</div>
 			<div title="可爱雪门店" class="l-scroll">
 				<ul class="m-ul">
-					<li><a href="javascript:openPage('lovelysnowCategory','可爱雪-产品类别','${contextPath }/bpr/lovelysnow/category')">产品类别</a></li>
+					<li><a href="javascript:openPage('lovelysnowCategory','可爱雪-类别','${contextPath }/bpr/lovelysnow/category')">类别</a></li>
 					<li><a href="javascript:openPage('lovelysnowMaterial','可爱雪-物料','${contextPath }/bpr/lovelysnow/material')">物料</a></li>
 					<li><a href="javascript:openPage('lovelysnowProduct','可爱雪-产品','${contextPath }/bpr/lovelysnow/product')">产品</a></li>
-					<li><a href="javascript:openPage('lovelysnowProcurement','可爱雪-采购入库','${contextPath }/bpr/lovelysnow/procurement')">采购入库</a></li>
+					<li><a href="javascript:openPage('lovelysnowProcurement','可爱雪-采购','${contextPath }/bpr/lovelysnow/procurement')">采购</a></li>
 				</ul>
 			</div>
 			<div title="可爱雪账务" class="l-scroll">

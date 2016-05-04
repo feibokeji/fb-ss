@@ -1,6 +1,8 @@
 package com.fb.domain.po;
 
 import com.fb.core.base.domain.BaseDomain;
+import com.fb.core.base.persistence.NotFieldMapper;
+import com.fb.core.base.persistence.PrimaryKeyMapper;
 import com.fb.core.base.persistence.TableMapper;
 
 /**
@@ -19,12 +21,19 @@ public class TProduct extends BaseDomain {
     /**
      * 主键
      */
+    @PrimaryKeyMapper
     private String uid;
     
     /**
      * 类别外键
      */
     private String ucategoryid;
+    
+    /**
+     * 类别名称
+     */
+    @NotFieldMapper
+    private String ccategoryname;
     
     /**
      * 编码
@@ -119,6 +128,22 @@ public class TProduct extends BaseDomain {
      */
     public void setNprice(Double nprice) {
         this.nprice = nprice;
+    }
+    
+    /**
+     * 获取 类别名称
+     * @return ccategoryname
+     */
+    public String getCcategoryname() {
+        return ccategoryname;
+    }
+    
+    /**
+     * 设置 类别名称
+     * @param ccategoryname 类别名称
+     */
+    public void setCcategoryname(String ccategoryname) {
+        this.ccategoryname = ccategoryname;
     }
     
 }

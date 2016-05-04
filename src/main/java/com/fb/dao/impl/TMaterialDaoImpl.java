@@ -29,7 +29,7 @@ public class TMaterialDaoImpl extends SimpMapper<TMaterial>implements TMaterialD
     }
     
     public List<TMaterial> getMaterialList() {
-        String sql = "select * from t_material";
+        String sql = "select * from t_material order by cno";
         return super.findList(sql, null);
     }
     

@@ -2,6 +2,7 @@ package com.fb.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,6 +19,7 @@ import com.fb.service.SimpServiceAbstract;
 @Service
 public class MaterialServiceImpl extends SimpServiceAbstract implements MaterialService {
     
+    @Autowired
     private TMaterialDao materialDao;
     
     @Transactional
