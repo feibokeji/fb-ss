@@ -128,7 +128,7 @@ function f_showMaterial(row, detailPanel,callback){
                     { display: '数量', name: 'nqty', width: 60,minWidth: 60,type:'float',editor:{type:'float',value:0} }
                     ], 
                     toolbar: { items: [{ text: '保存',click:_saveProductMaterial, icon: 'save' },{ line: true },{ text: '新增',click: _addMaterial, icon: 'add' }]},
-                    url:contextPath + "/bpr/lovelysnow/listMaterial",
+                    url:contextPath + "/bpr/lovelysnow/listMaterialByUProductId?uproductid=" + row.uid,
                     isScroll: false, showToggleColBtn: false, width: '90%',showTitle: false,
                     pageSize:5 ,rownumbers:true,pageSizeOptions:[5],frozen: false,
             	    onReload:false,dataAction:"local",checkbox:true,selectRowButtonOnly:true,enabledSort:false,

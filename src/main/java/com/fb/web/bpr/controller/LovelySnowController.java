@@ -90,6 +90,18 @@ public class LovelySnowController extends SimpController {
         return _jsonObject.toString();
     }
     
+    @RequestMapping("listMaterialByUProductId")
+    @ResponseBody
+    public String listMaterialByUProductId(String uproductid){
+        System.out.println(uproductid);
+        List<TMaterial> list = getService().getMaterialService().getMaterialList();
+        Map<Object, Object> map = new HashMap<Object, Object>();
+        map.put("Rows", list);
+        map.put("Total", list.size());
+        JSONObject _jsonObject = JSONObject.fromObject(map);
+        return _jsonObject.toString();
+    }
+    
     /**
      * 获取产品分页数据
      * @return

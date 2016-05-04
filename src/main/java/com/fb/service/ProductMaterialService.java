@@ -1,5 +1,7 @@
 package com.fb.service;
 
+import java.util.List;
+
 import com.fb.domain.po.TProductMaterial;
 
 /**
@@ -40,4 +42,12 @@ public interface ProductMaterialService {
      * @author Liu bo
      */
     public int getProductMaterialByUMaterialId(String umaterialid);
+    
+    /**
+     * 获取指定产品所包含的物料关系
+     * @param uproductid
+     * @return
+     * @author Liu bo
+     */
+    public List<TProductMaterial> getProductMaterialByUProductId(String uproductid);
 }
