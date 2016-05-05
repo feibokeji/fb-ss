@@ -105,7 +105,7 @@ function getGridOptions(checkbox){
 			            dataAction:"local",
 			            selectRowButtonOnly:true,
 			            enabledSort:false,
-			            checkbox:false,
+			            checkbox:checkbox
 	};
 	return options;
 }

@@ -60,6 +60,18 @@ public class LovelySnowController extends SimpController {
     }
     
     /**
+     * 采购
+     * @param map
+     * @return
+     * @author Liu bo
+     */
+    @RequestMapping("procurement")
+    public String procurement(ModelMap map){
+        map.put("user", getRoleContainer().getUser());
+        return customPage();
+    }
+    
+    /**
      * 获取产品类别分页数据
      * @return
      * @author Liu bo

@@ -17,12 +17,14 @@ body,html{height:100%;padding:0px; margin:0;}
 .l-topmenu-welcome a{color:#E7E7E7; text-decoration:underline} 
 .redStar{color: red;}
 /* 查询列表表格样式class:listTable */
-.listTable{width:99%;border: 1px solid #bbbbbb;border-collapse:collapse;margin: 0 auto;line-height: 24px;text-align: center;}
+.listTable{width:99%;border: 1px solid #bbbbbb;border-collapse:collapse;margin: 0 auto;line-height: 20px;text-align: center;}
 .listTable tr th{border-right:1px solid #bbbbbb;text-align: center;background: #ececec;font-weight: bold;}
 .listTable tr td{border:1px solid #bbbbbb;}
+
 .listTableAll{width:99%;border: 1px solid #bbbbbb;border-collapse:collapse;margin: 0 auto;line-height: 24px;text-align: center;}
 .listTableAll tr th{border-right:1px solid #bbbbbb;text-align: center;background: #ececec;font-weight: bold;}
 .listTableAll tr td{border:1px solid #bbbbbb;}
+
 .list-table-tr-td1{background: #f7f7f7;}
 .list-table-tr-even{background: #f7f7f7;}
 .list-table-tr-hover{background:#E0EDFF;}
