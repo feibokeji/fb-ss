@@ -25,6 +25,18 @@ public class TMaterial extends BaseDomain {
     private String uid;
     
     /**
+     * 关联的产品外键
+     */
+    @NotFieldMapper
+    private String uproductid;
+    
+    /**
+     * 物料是否已关联产品
+     */
+    @NotFieldMapper
+    private Integer haveProduct;
+    
+    /**
      * 编码
      */
     private String cno;
@@ -48,7 +60,7 @@ public class TMaterial extends BaseDomain {
      * 数量
      */
     @NotFieldMapper
-    private Double nqty;
+    private Double nqty = 1.0;
     
     /**
      * 获取 主键
@@ -144,6 +156,38 @@ public class TMaterial extends BaseDomain {
      */
     public void setNqty(Double nqty) {
         this.nqty = nqty;
+    }
+    
+    /**
+     * 获取 物料是否已关联产品
+     * @return haveProduct
+     */
+    public Integer getHaveProduct() {
+        return haveProduct;
+    }
+    
+    /**
+     * 设置 物料是否已关联产品
+     * @param haveProduct 物料是否已关联产品
+     */
+    public void setHaveProduct(Integer haveProduct) {
+        this.haveProduct = haveProduct;
+    }
+    
+    /**
+     * 获取 关联的产品外键
+     * @return uproductid
+     */
+    public String getUproductid() {
+        return uproductid;
+    }
+    
+    /**
+     * 设置 关联的产品外键
+     * @param uproductid 关联的产品外键
+     */
+    public void setUproductid(String uproductid) {
+        this.uproductid = uproductid;
     }
     
 }

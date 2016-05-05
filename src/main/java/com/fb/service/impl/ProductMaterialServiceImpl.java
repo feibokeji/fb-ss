@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fb.core.utils.DataUtils;
 import com.fb.dao.TProductMaterialDao;
 import com.fb.domain.po.TProductMaterial;
 import com.fb.service.ProductMaterialService;
@@ -40,9 +41,52 @@ public class ProductMaterialServiceImpl extends SimpServiceAbstract implements P
     public int getProductMaterialByUMaterialId(String umaterialid) {
         return productMaterialDao.getProductMaterialByUMaterialId(umaterialid);
     }
-
+    
     public List<TProductMaterial> getProductMaterialByUProductId(String uproductid) {
         return productMaterialDao.getProductMaterialByUProductId(uproductid);
+    }
+    
+    @Transactional
+    public synchronized int deleteProductMaterialByUProductId(String uproductid) {
+        return productMaterialDao.deleteProductMaterialByUProductId(uproductid);
+    }
+    
+    @Transactional
+    public synchronized boolean saveProductMaterial(String uproductid, String umaterialids) {
+        if (DataUtils.isUid(uproductid) && !DataUtils.isNullOrEmpty(umaterialids)) {
+            if (umaterialids.contains(",")) {// 物料外键集合
+                String[] ids = umaterialids.split(",");
+                for (String id : ids) {
+                    if (!DataUtils.isUid(id)) {
+                        return false;
+                    }
+                }
+                productMaterialDao.deleteProductMaterialByUProductId(uproductid);
+                for (String id : ids) {
+                    TProductMaterial productMaterial = new TProductMaterial();
+                    productMaterial.setUid(DataUtils.newUUID());
+                    productMaterial.setUproductid(uproductid);
+                    productMaterial.setUmaterialid(id);
+                    productMaterial.setNqty(1.0);
+                    productMaterial.setIenablesign(0);
+                    productMaterialDao.addProductMaterial(productMaterial);
+                }
+                return true;
+            } else if (DataUtils.isUid(umaterialids)) {// 一个物料外键
+                productMaterialDao.deleteProductMaterialByUProductId(uproductid);
+                TProductMaterial productMaterial = new TProductMaterial();
+                productMaterial.setUid(DataUtils.newUUID());
+                productMaterial.setUproductid(uproductid);
+                productMaterial.setUmaterialid(umaterialids);
+                productMaterial.setNqty(1.0);
+                productMaterial.setIenablesign(0);
+                productMaterialDao.addProductMaterial(productMaterial);
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return false;
     }
     
 }

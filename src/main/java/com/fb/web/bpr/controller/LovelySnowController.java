@@ -13,6 +13,7 @@ import com.fb.core.utils.DataUtils;
 import com.fb.domain.po.TCategory;
 import com.fb.domain.po.TMaterial;
 import com.fb.domain.po.TProduct;
+import com.fb.domain.po.TProductMaterial;
 import com.fb.web.SimpController;
 import net.sf.json.JSONObject;
 
@@ -92,14 +93,24 @@ public class LovelySnowController extends SimpController {
     
     @RequestMapping("listMaterialByUProductId")
     @ResponseBody
-    public String listMaterialByUProductId(String uproductid){
-        System.out.println(uproductid);
-        List<TMaterial> list = getService().getMaterialService().getMaterialList();
+    public String listMaterialByUProductId(String uproductid) {
+        List<TMaterial> list = getService().getMaterialService().getMaterialByUProductId(uproductid);
+        for (TMaterial item : list) {
+            item.setUproductid(uproductid);
+        }
         Map<Object, Object> map = new HashMap<Object, Object>();
         map.put("Rows", list);
         map.put("Total", list.size());
         JSONObject _jsonObject = JSONObject.fromObject(map);
         return _jsonObject.toString();
+    }
+    
+    @RequestMapping("saveProductMaterial")
+    @ResponseBody
+    public String saveProductMaterial(String uproductid, String umaterialids) {
+        boolean result = getService().getProductMaterialService().saveProductMaterial(uproductid, umaterialids);
+        if (result) return "success";
+        return "fail";
     }
     
     /**

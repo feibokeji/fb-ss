@@ -13,6 +13,7 @@ var _productTableTr = null;
 var _addCategoryComboBox = null;
 var _modifyCategoryComboBox = null;
 var _showMaterialGrid = null;
+var map = {};
 /**
  * 原有编码
  */
@@ -44,7 +45,7 @@ $(function(){
             ]
         },
 		url:contextPath + "/bpr/lovelysnow/listProduct",
-	    pageSize:30 ,rownumbers:true,pageSizeOptions:[10,20,30],frozen: false,fixedCellHeight:false,
+	    pageSize:20 ,rownumbers:true,pageSizeOptions:[10,20],frozen: false,fixedCellHeight:false,
 	    onReload:false,dataAction:"local",checkbox:true,selectRowButtonOnly:true,enabledSort:false,
 	    onBeforeCheckAllRow:function(checked, grid ,element){
 	    	return false;//禁用全选
@@ -115,6 +116,7 @@ function getGridOptions(checkbox){
  * @param callback
  */
 function f_showMaterial(row, detailPanel,callback){
+	map[row.uid] = new Array();
 	var grid = document.createElement('div');
 	$(detailPanel).append(grid);
 	_showMaterialGrid = $(grid).css('margin',10).ligerGrid({
@@ -125,15 +127,98 @@ function f_showMaterial(row, detailPanel,callback){
                     { display: '名称', name: 'cname', width: 60,minWidth: 60 },
                     { display: '规格', name: 'cspecifications', width: 60,minWidth: 60 },
                     { display: '价格', name: 'nprice', width: 60,minWidth: 60 },
-                    { display: '数量', name: 'nqty', width: 60,minWidth: 60,type:'float',editor:{type:'float',value:0} }
+                    { display: '数量', name: 'nqty', width: 60,minWidth: 60,type:'float',editor:{type:'float',value:1},hide:true },
+                    { display: '关系数', name: 'haveProduct', width: 60,minWidth: 60,hide:true }
                     ], 
-                    toolbar: { items: [{ text: '保存',click:_saveProductMaterial, icon: 'save' },{ line: true },{ text: '新增',click: _addMaterial, icon: 'add' }]},
+                    toolbar: { items: [{ text: '保存',click:_saveProductMaterial, icon: 'save',id:row.uid },{ line: true },{ text: '新增',click: _addMaterial, icon: 'add' }]},
                     url:contextPath + "/bpr/lovelysnow/listMaterialByUProductId?uproductid=" + row.uid,
                     isScroll: false, showToggleColBtn: false, width: '90%',showTitle: false,
                     pageSize:5 ,rownumbers:true,pageSizeOptions:[5],frozen: false,
             	    onReload:false,dataAction:"local",checkbox:true,selectRowButtonOnly:true,enabledSort:false,
-            	    enabledEdit: true, clickToEdit: true
+            	    enabledEdit: true, clickToEdit: true,onSuccess:f_success,isChecked: f_isChecked,onCheckRow: f_onCheckRow,onCheckAllRow: f_onCheckAllRow
     });  
+}
+function findCheckedUID(uproductid,uid){
+	for(var i = 0;i < map[uproductid].length;i++){
+		if(map[uproductid][i] == uid) return i;
+	}
+	return -1;
+}
+function addCheckedUID(uproductid,uid){
+	if(findCheckedUID(uproductid,uid) == -1)
+		map[uproductid].push(uid);
+}
+function removeCheckedUID(uproductid,uid){
+	var i = findCheckedUID(uproductid,uid);
+	if(i == -1) return;
+	map[uproductid].splice(i,1);
+}
+function f_success(data){
+	$.each(data,function(key,value){
+		if(key == "Rows"){
+			for(var i = 0; i < value.length; i++){
+				if(value[i].haveProduct > 0 && findCheckedUID(value[i].uproductid,value[i].uid) == -1){
+					map[value[i].uproductid].push(value[i].uid);
+				}
+			}
+		}
+	});
+}
+function f_onCheckAllRow(checked){
+    for (var rowid in this.records){
+        if(checked)
+        	addCheckedUID(this.records[rowid]['uproductid'],this.records[rowid]['uid']);
+        else
+        	removeCheckedUID(this.records[rowid]['uproductid'],this.records[rowid]['uid']);
+    }
+}
+/**
+ * 产品物料关联默认是否选中
+ * @param row
+ * @returns {Boolean}
+ */
+function f_isChecked(row){
+	if(findCheckedUID(row.uproductid,row.uid) == -1)
+		return false;
+	return true;
+}
+/**
+ * 选中行事件
+ * @param checked
+ * @param data
+ */
+function f_onCheckRow(checked, row)
+{
+    if (checked) addCheckedUID(row.uproductid,row.uid);
+    else removeCheckedUID(row.uproductid,row.uid);
+}
+function _saveProductMaterial(element){
+    if (map[element.id] != null && map[element.id].length > 0) {
+    	$.ligerDialog.confirm("确定要保存吗？",function(yes){
+			if(yes){
+				var waitting = $.ligerDialog.waitting('数据保存中,请稍候...');
+				$.ajax({
+					type:"post",
+					async:false,
+					cache:false,
+					url:contextPath+"/bpr/lovelysnow/saveProductMaterial",
+					data:{'uproductid':element.id,"umaterialids":map[element.id].toString()},
+					dataType:"html",
+					success:function(data){
+						waitting.close();
+						if(data == "fail")
+							$.ligerDialog.error("数据保存失败!");
+						else{
+							$.ligerDialog.success("数据保存成功!");
+							_showMaterialGrid.loadData();
+						}
+					}
+				});
+			}
+		});
+    }else{
+    	$.ligerDialog.warn("请选择需要关联的物料!");
+    }
 }
 /**
  * 新增产品类别
@@ -150,14 +235,6 @@ function _addMaterial(){
 	$.ligerDialog.open({ target: $("#addMaterialDiv"),title:"新增物料",width:480,height:340,
 		buttons:[{text:"保存",onclick:function(i,d){submitForm("addMaterialForm");}},{text:"关闭",onclick:function(i,d){d.hide();}}]
 	});
-}
-function _saveProductMaterial(){
-	var rows = _showMaterialGrid.getCheckedRows();
-    if (rows != null && rows != "") {
-    	alert(JSON.stringify(rows));
-    }else{
-    	$.ligerDialog.warn("请选择需要关联的物料!");
-    }
 }
 /**
  * 新增类别时验证编码

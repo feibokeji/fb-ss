@@ -53,5 +53,10 @@ public class TProductMaterialDaoImpl extends SimpMapper<TProductMaterial> implem
         String sql = "select * from t_product_material t where t.uproductid = :uproductid";
         return findList(sql, new QMap("uproductid", uproductid));
     }
+
+    public int deleteProductMaterialByUProductId(String uproductid) {
+        String sql = "delete from t_product_material  where uproductid = :uproductid";
+        return execute(sql, new QMap("uproductid",uproductid));
+    }
     
 }

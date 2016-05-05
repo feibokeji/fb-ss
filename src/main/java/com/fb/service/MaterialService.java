@@ -42,4 +42,12 @@ public interface MaterialService {
      * @author Liu bo
      */
     public List<TMaterial> getMaterialList();
+    
+    /**
+     * 获取物料并同时获取物料关联的产品关系
+     * @param uproductid
+     * @return
+     * @author Liu bo
+     */
+    public List<TMaterial> getMaterialByUProductId(String uproductid);
 }

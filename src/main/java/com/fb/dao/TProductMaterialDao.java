@@ -28,6 +28,14 @@ public interface TProductMaterialDao {
     public int deleteProductMaterial(String uid);
     
     /**
+     * 删除产品物料关联数据
+     * @param uproductid
+     * @return
+     * @author Liu bo
+     */
+    public int deleteProductMaterialByUProductId(String uproductid);
+    
+    /**
      * 更新产品物料关联数据
      * @param productMaterial
      * @return

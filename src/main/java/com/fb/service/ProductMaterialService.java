@@ -28,6 +28,14 @@ public interface ProductMaterialService {
     public int deleteProductMaterial(String uid);
     
     /**
+     * 删除产品物料关联数据
+     * @param uproductid
+     * @return
+     * @author Liu bo
+     */
+    public int deleteProductMaterialByUProductId(String uproductid);
+    
+    /**
      * 更新产品物料关联数据
      * @param productMaterial
      * @return
@@ -50,4 +58,13 @@ public interface ProductMaterialService {
      * @author Liu bo
      */
     public List<TProductMaterial> getProductMaterialByUProductId(String uproductid);
+    
+    /**
+     * 保存产品物料关系数据
+     * @param uproductid
+     * @param umaterialids
+     * @return
+     * @author Liu bo
+     */
+    public boolean saveProductMaterial(String uproductid, String umaterialids);
 }
