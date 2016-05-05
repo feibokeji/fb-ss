@@ -28,7 +28,7 @@ $(function(){
     //添加日历控件
 	$("#dcreatetime").ligerDateEditor();
     //默认加载10行数据
-	totalNumber = 20;
+	totalNumber = 10;
 	loadLine("detailsTable",totalNumber);
 });
 /**
@@ -86,11 +86,11 @@ function createLine(i){
 	var _line = "<tr id='dataLineTr"+i+"'>" +
 					"<td><label>"+i+"</label></td>" +//:序号
 					"<td><input type='hidden' id='addOrderDetail_"+i+"_umaterialid' name='orderMaterialDetailList["+i+"].umaterialid'/><input type='text' id='addOrderDetail_"+i+"_cmaterialname' name='orderMaterialDetailList["+i+"].cmaterialname' style='width: 100px;'/></td>" +//:名称
-					"<td><input type='text' id='addOrderDetail_"+i+"_cspecifications' disabled='disabled' style='width: 100px;'/></td>" +//:规格
-					"<td><input type='text' style='width: 60px;' id='addOrderDetail_"+i+"_nprice' name='orderMaterialDetailList["+i+"].nprice'/></td>" +//:价格
-					"<td><input type='text' style='width: 60px;' id='addOrderDetail_"+i+"_nqty' name='orderMaterialDetailList["+i+"].nqty'/></td>" +//:数量
-					"<td><input type='text' style='width: 60px;' id='addOrderDetail_"+i+"_namount' name='orderMaterialDetailList["+i+"].namount'/></td>" +//:金额
+					"<td><input type='text' style='width: 60px;height:18px;text-align:right;border:none;' id='addOrderDetail_"+i+"_nprice' name='orderMaterialDetailList["+i+"].nprice'/></td>" +//:价格
+					"<td><input type='text' style='width: 60px;height:18px;text-align:right;border:none;' id='addOrderDetail_"+i+"_nqty' name='orderMaterialDetailList["+i+"].nqty' align='right'/></td>" +//:数量
+					"<td><input type='text' style='width: 60px;height:18px;text-align:right;border:none;' id='addOrderDetail_"+i+"_namount' name='orderMaterialDetailList["+i+"].namount' align='right'/></td>" +//:金额
 					"<td><a href='javascript:deleteLine(\"detailsTable\",\"dataLineTr"+i+"\")' title='删除'><img src='"+contextPath+"/common/images/delete-row.gif'/></a></td>" +//:操作
+					"<td></td><td></td><td></td><td></td><td></td>" +
 				"</tr>";
 	return _line;
 }
@@ -103,9 +103,9 @@ function loadAutoComplete(elementId,_number){
 	$("#" + elementId).ligerComboBox({
 		slide: false,
 		width:100,
-		height:25,
-        selectBoxWidth: 600, 
-        selectBoxHeight: 380,
+		height:18,
+        selectBoxWidth: 400, 
+        selectBoxHeight: 220,
         valueField:'uid',
         textField:'cname',
         grid:getGridOptions(false),
@@ -115,7 +115,6 @@ function loadAutoComplete(elementId,_number){
         			if(box_data["Rows"][i].uid == value){
         				$("#addOrderDetail_" + _number + "_umaterialid").val(value);//:物料主键
         				$("#addOrderDetail_" + _number + "_cmaterialname").val(box_data["Rows"][i].cname);//:物料名称
-        				$("#addOrderDetail_" + _number + "_cspecifications").val(box_data["Rows"][i].cspecifications);//:物料规格
         				$("#addOrderDetail_" + _number + "_nprice").val(box_data["Rows"][i].nprice);//:物料价格
         				$("#addOrderDetail_" + _number + "_nqty").val(1);//:物料数量
         				$("#addOrderDetail_" + _number + "_namount").val(box_data["Rows"][i].nprice);//:物料金额
@@ -133,11 +132,11 @@ function loadAutoComplete(elementId,_number){
 function getGridOptions(checkbox){
 	var options = {
 			columns: [
-			            { dispaly:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
-			            { display: '编码', name: 'cno', align: 'left', width: 100, minWidth: 60 },
-			            { display: '名称', name: 'cname', width: 200,minWidth: 120 },
-			            { display: '规格', name: 'cspecifications', width: 200,minWidth: 120 },
-			            { display: '价格', name: 'nprice', width: 100,minWidth: 60 }
+			            { dispaly:'主键', name : 'uid', align: 'left', width:60, minWidth: 60,hide: true},
+			            { display: '编码', name: 'cno', align: 'left', width: 60, minWidth: 60 },
+			            { display: '名称', name: 'cname', width: 60,minWidth: 60 },
+			            { display: '规格', name: 'cspecifications', width: 60,minWidth: 60 },
+			            { display: '价格', name: 'nprice', width: 60,minWidth: 60 }
 			            ], 
 			            switchPageSizeApplyComboBox: false,
 			            url:contextPath + "/bpr/lovelysnow/listMaterial",

@@ -25,13 +25,13 @@
         <div position="center" title="新增物料采购入库单" style="overflow: scroll;">
         	<!-- 订单详细内容 -->
         	<form>
-        		<table style="margin: 0 auto;border: 1px solid #eeeeee;width: 98%;line-height: 50px;">
+        		<table style="margin: 0 auto;border: 1px solid #eeeeee;width: 98%;line-height: 45px;">
         			<tr>
         				<td colspan="8" align="center"><h2>物料采购入库单</h2></td>
         			</tr>
         			<tr>
         				<td align="right" width="60px">日期：</td>
-        				<td align="left" width="100px"><input type="text" id="dcreatetime" name="dcreatetime"/></td>
+        				<td align="left" width="100px"><input type="text" id="dcreatetime" name="dcreatetime" /></td>
         				<td align="right" width="60px">操作人：</td>
         				<td align="left" width="100px"><label style="border-bottom: 1px solid #bbbbbb;">&nbsp;&nbsp;&nbsp;${user.cname }&nbsp;&nbsp;&nbsp;</label></td>
         				<td></td>
@@ -48,9 +48,8 @@
         						<tr>
         							<th width="40px">序号</th>
         							<th width="100px">物料</th>
-        							<th width="100px">规格</th>
         							<th width="60px">价格(元)</th>
-        							<th width="60px">数量</th>
+        							<th width="60px">数量(小)</th>
         							<th width="60px">金额(元)</th>
         							<th width="60px">操作</th>
         							<th></th>

@@ -64,21 +64,19 @@ $(function(){
 	//类别下拉框
 	_addCategoryComboBox = $("#add_box_ucategoryid").ligerComboBox({
 		slide: false,
-        selectBoxWidth: 600, 
-        selectBoxHeight: 380,
+        selectBoxWidth: 300, 
+        selectBoxHeight: 240,
         valueField:'uid',
         textField:'cname',
-        condition:{fields: [{ name: 'cname', label: '名称', width: 90, type: 'text' }]},
         grid:getGridOptions(false),
         onSelected: function (value){$("#add_ucategoryid").val(value);}
 	});
 	_modifyCategoryComboBox = $("#modify_box_ucategoryid").ligerComboBox({
 		slide: false,
-        selectBoxWidth: 600, 
-        selectBoxHeight: 380,
+        selectBoxWidth: 300, 
+        selectBoxHeight: 240,
         valueField:'uid',
         textField: 'cname',
-        condition:{fields: [{ name: 'cname', label: '名称', width: 90, type: 'text' }]},
         grid:getGridOptions(false),
         onSelected: function (value){$("#modify_ucategoryid").val(value);}
 	});
@@ -93,7 +91,7 @@ function getGridOptions(checkbox){
 			columns: [
 			            { dispaly:'主键', name : 'uid', align: 'left', width:60, minWidth: 60,hide: true},
 			            { display: '编码', name: 'cno', align: 'left', width: 60, minWidth: 60 },
-			            { display: '名称', name: 'cname', width: 100,minWidth: 100 }
+			            { display: '名称', name: 'cname', width: 60,minWidth: 60 }
 			            ], 
 			            toolbar: { items: [{ text: '增加', click: _addCategory, icon: 'add' }]},
 			            switchPageSizeApplyComboBox: false,

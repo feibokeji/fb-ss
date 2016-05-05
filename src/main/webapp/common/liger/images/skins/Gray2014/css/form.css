@@ -24,7 +24,7 @@ font-size: 12px;border-bottom: solid 2px #ebebeb; font-weight:bold;
 .l-text
 {
     position:relative; 
-    border:1px solid #D0D0D0;height: 28px; line-height:28px;
+    border:1px solid #D0D0D0;height: 18px; line-height:18px;
     width:130px; 
 }
 /* 文本框得到焦点的样式*/
@@ -60,7 +60,7 @@ color: #999;
 .l-text-field
 {
     position:absolute; top:0px; left:0px;
-    height: 28px; line-height:28px; padding-left:2px; padding-top:0px; padding-bottom:0px;
+    height: 18px; line-height:18px; padding-left:2px; padding-top:0px; padding-bottom:0px;
     vertical-align: middle;
     background-color: #fff;
     width:110px;  
