@@ -116,7 +116,7 @@ function createLine(i){
 					"<td><input type='text' style='width: 60px;height:18px;text-align:right;border:none;' id='addOrderDetail_"+i+"_nprice' name='orderMaterialDetailList["+i+"].nprice' onchange='updateLineAmount("+i+")' class='validate[custom[number],min[0]]'/></td>" +//:价格
 					"<td><input type='text' style='width: 60px;height:18px;text-align:right;border:none;' id='addOrderDetail_"+i+"_nqty' name='orderMaterialDetailList["+i+"].nqty' onchange='updateLineAmount("+i+")' class='validate[custom[number],min[0]]'/></td>" +//:数量
 					"<td><input type='text' style='width: 60px;height:18px;text-align:right;border:none;' id='addOrderDetail_"+i+"_namount' name='orderMaterialDetailList["+i+"].namount' onchange='updateLinePrice("+i+")' class='validate[custom[number],min[0]]'/></td>" +//:金额
-					"<td><a href='javascript:deleteLine(\"detailsTable\",\"dataLineTr"+i+"\")' title='删除'><img src='"+contextPath+"/common/images/delete-row.gif'/></a></td>" +//:操作
+					"<td><a href='javascript:deleteLine(\"detailsTable\",\"dataLineTr"+i+"\")' title='删除' style='text-decoration:none;color:black;'>-</a></td>" +//:操作
 					"<td></td><td></td><td></td><td></td><td></td>" +
 				"</tr>";
 	return _line;
@@ -162,7 +162,7 @@ function getGridOptions(checkbox){
 			columns: [
 			            { dispaly:'主键', name : 'uid', align: 'left', width:60, minWidth: 60,hide: true},
 			            { display: '编码', name: 'cno', align: 'left', width: 60, minWidth: 60 },
-			            { display: '名称', name: 'cname', width: 60,minWidth: 60 },
+			            { display: '名称', name: 'cname', width: 100,minWidth: 60 },
 			            { display: '规格', name: 'cspecifications', width: 60,minWidth: 60 },
 			            { display: '价格', name: 'nprice', width: 60,minWidth: 60 }
 			            ], 

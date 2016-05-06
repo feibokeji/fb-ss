@@ -85,7 +85,7 @@
         			</tr>
         			<tr>
         				<td colspan="11" style="border-top: 1px solid #eeeeee;line-height: 45px;">
-        					<input type="button" value="添加数据行" onclick="addLine('detailsTable')" class="l-button"/>
+        					<input type="button" value="+添加数据行" onclick="addLine('detailsTable')" class="l-button"/>
         					<input type="button" value="保存" class="l-button" onclick="submitForm('addOrderForm')"/>
         				</td>
         			</tr>
