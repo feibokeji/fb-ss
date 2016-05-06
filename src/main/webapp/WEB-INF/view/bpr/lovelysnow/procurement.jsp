@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>可爱雪-物料采购</title>
+<title>可爱雪-物料入库</title>
 <link type="text/css" href="${contextPath}/common/liger/css/ligerui-all.css" rel="stylesheet" />
 <link type="text/css" href="${contextPath}/common/liger/images/skins/ligerui-icons.css" rel="stylesheet" />
 <link type="text/css" href="${contextPath}/common/liger/images/skins/Gray2014/css/all.css" rel="stylesheet" />
@@ -19,31 +19,34 @@
 <!-- /bpr/lovelysnow/procurement.jsp -->
 <body>
 	<div id="layout1">
-    	<div position="left">
+    	<div position="left" title="单据">
     		<ul id="tree1"></ul>
     	</div>
-        <div position="center" title="新增物料采购入库单" style="overflow: scroll;">
+        <div position="center" title="新增物料入库单" style="overflow: scroll;">
         	<!-- 订单详细内容 -->
-        	<form>
+        	<form id="addOrderForm" name="addOrderForm" method="post" action="${contextPath }/bpr/lovelysnow/saveOrderMaterial">
         		<table style="margin: 0 auto;border: 1px solid #eeeeee;width: 98%;line-height: 45px;">
         			<tr>
-        				<td colspan="8" align="center"><h2>物料采购入库单</h2></td>
+        				<td colspan="11" align="center"><h2>物料入库单</h2></td>
         			</tr>
         			<tr>
         				<td align="right" width="60px">日期：</td>
-        				<td align="left" width="100px"><input type="text" id="dcreatetime" name="dcreatetime" /></td>
+        				<td align="left" width="100px"><input type="text" id="dordertime" name="dordertime" class="validate[required]"/></td>
         				<td align="right" width="60px">操作人：</td>
         				<td align="left" width="100px"><label style="border-bottom: 1px solid #bbbbbb;">&nbsp;&nbsp;&nbsp;${user.cname }&nbsp;&nbsp;&nbsp;</label></td>
         				<td></td>
         				<td></td>
         				<td></td>
         				<td></td>
+        				<td></td>
+        				<td></td>
+        				<td></td>
         			</tr>
         			<tr>
-        				<td colspan="8" align="center" style="border-bottom: 1px solid #eeeeee;"></td>
+        				<td colspan="11" align="center" style="border-bottom: 1px solid #eeeeee;"></td>
         			</tr>
         			<tr>
-        				<td colspan="8">
+        				<td colspan="11">
         					<table id="detailsTable" style="margin: 0 auto;width: 100%;" class="listTable">
         						<tr>
         							<th width="40px">序号</th>
@@ -61,11 +64,29 @@
         					</table>
         				</td>
         			</tr>
+        			<tr style="line-height: 18px;">
+        				<td colspan="11">
+        					<table style="margin: 0 auto;width: 100%;" class="listTable">
+        						<tr>
+        							<td width="40px"></td>
+			        				<td width="101px"></td>
+			        				<td width="61px"></td>
+			        				<td width="60px" align="right">合计:</td>
+			        				<td width="60px" align="right"><label id="totalAmount">0</label></td>
+			        				<td width="60px"></td>
+			        				<td></td>
+			        				<td></td>
+			        				<td></td>
+			        				<td></td>
+			        				<td></td>
+        						</tr>
+        					</table>
+        				</td>
+        			</tr>
         			<tr>
-        				<td colspan="8" style="border-top: 1px solid #eeeeee;line-height: 45px;">
+        				<td colspan="11" style="border-top: 1px solid #eeeeee;line-height: 45px;">
         					<input type="button" value="添加数据行" onclick="addLine('detailsTable')" class="l-button"/>
-        					<input type="submit" value="保存" class="l-button"/>
-        					<input type="submit" value="审核" class="l-button"/>
+        					<input type="button" value="保存" class="l-button" onclick="submitForm('addOrderForm')"/>
         				</td>
         			</tr>
         		</table>

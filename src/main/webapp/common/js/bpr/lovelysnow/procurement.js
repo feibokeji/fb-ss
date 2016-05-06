@@ -1,5 +1,5 @@
 /**
- * 可爱雪-采购
+ * 可爱雪-物料入库单
  */
 var data = [];
 var totalNumber = 0;//记录数据数量[包含已被删除的数据量]
@@ -25,12 +25,36 @@ $(function(){
     treeManager = $("#tree1").ligerGetTreeManager();
     treeManager.collapseAll();
     
+    $("#addOrderForm").validationEngine();
     //添加日历控件
-	$("#dcreatetime").ligerDateEditor();
+	$("#dordertime").ligerDateEditor();
     //默认加载10行数据
 	totalNumber = 10;
 	loadLine("detailsTable",totalNumber);
 });
+/**
+ * 提交产品类别新增/修改表单
+ * @param _form 表单id
+ */
+function submitForm(_form){
+	var form = $("#"+_form);
+	if(form.validationEngine("validate")){
+		$.ligerDialog.confirm("确定要保存吗？",function(yes){
+			if(yes){
+				var waitting = $.ligerDialog.waitting('数据保存中,请稍候...');
+				form.ajaxSubmit(function(data){
+					waitting.close();
+					if(data == "fail")
+						$.ligerDialog.error("保存失败!");
+					else{
+						$.ligerDialog.success("保存成功!");
+						clearLine();
+					}
+				});
+			}
+		});
+	}
+}
 /**
  * 加载数据行
  * 
@@ -42,6 +66,7 @@ function loadLine(elementId, number) {
 		$("#" + elementId).append(createLine(i));
 		var _element = "addOrderDetail_" + i + "_cmaterialname";
 		loadAutoComplete(_element,i);
+		calculateTotalAmount();
 	}
 }
 /**
@@ -58,6 +83,7 @@ function addLine(elementId){
 	loadAutoComplete(_element,totalNumber);
 	//更新序号
 	updateLineSerialNumber(elementId);
+	calculateTotalAmount();
 }
 /**
  * 更新数据行序号
@@ -76,6 +102,7 @@ function updateLineSerialNumber(elementId){
 function deleteLine(parentElementId,elementId){
 	$("#" + elementId).remove();
 	updateLineSerialNumber(parentElementId);
+	calculateTotalAmount();
 }
 /**
  * 创建数据行
@@ -86,9 +113,9 @@ function createLine(i){
 	var _line = "<tr id='dataLineTr"+i+"'>" +
 					"<td><label>"+i+"</label></td>" +//:序号
 					"<td><input type='hidden' id='addOrderDetail_"+i+"_umaterialid' name='orderMaterialDetailList["+i+"].umaterialid'/><input type='text' id='addOrderDetail_"+i+"_cmaterialname' name='orderMaterialDetailList["+i+"].cmaterialname' style='width: 100px;'/></td>" +//:名称
-					"<td><input type='text' style='width: 60px;height:18px;text-align:right;border:none;' id='addOrderDetail_"+i+"_nprice' name='orderMaterialDetailList["+i+"].nprice'/></td>" +//:价格
-					"<td><input type='text' style='width: 60px;height:18px;text-align:right;border:none;' id='addOrderDetail_"+i+"_nqty' name='orderMaterialDetailList["+i+"].nqty' align='right'/></td>" +//:数量
-					"<td><input type='text' style='width: 60px;height:18px;text-align:right;border:none;' id='addOrderDetail_"+i+"_namount' name='orderMaterialDetailList["+i+"].namount' align='right'/></td>" +//:金额
+					"<td><input type='text' style='width: 60px;height:18px;text-align:right;border:none;' id='addOrderDetail_"+i+"_nprice' name='orderMaterialDetailList["+i+"].nprice' onchange='updateLineAmount("+i+")' class='validate[custom[number],min[0]]'/></td>" +//:价格
+					"<td><input type='text' style='width: 60px;height:18px;text-align:right;border:none;' id='addOrderDetail_"+i+"_nqty' name='orderMaterialDetailList["+i+"].nqty' onchange='updateLineAmount("+i+")' class='validate[custom[number],min[0]]'/></td>" +//:数量
+					"<td><input type='text' style='width: 60px;height:18px;text-align:right;border:none;' id='addOrderDetail_"+i+"_namount' name='orderMaterialDetailList["+i+"].namount' onchange='updateLinePrice("+i+")' class='validate[custom[number],min[0]]'/></td>" +//:金额
 					"<td><a href='javascript:deleteLine(\"detailsTable\",\"dataLineTr"+i+"\")' title='删除'><img src='"+contextPath+"/common/images/delete-row.gif'/></a></td>" +//:操作
 					"<td></td><td></td><td></td><td></td><td></td>" +
 				"</tr>";
@@ -118,6 +145,7 @@ function loadAutoComplete(elementId,_number){
         				$("#addOrderDetail_" + _number + "_nprice").val(box_data["Rows"][i].nprice);//:物料价格
         				$("#addOrderDetail_" + _number + "_nqty").val(1);//:物料数量
         				$("#addOrderDetail_" + _number + "_namount").val(box_data["Rows"][i].nprice);//:物料金额
+        				calculateTotalAmount();
         			}
         		}
         	}
@@ -158,4 +186,55 @@ function getGridOptions(checkbox){
  */
 function f_boxSuccess(data){
 	box_data = data;
+}
+/**
+ * 更新金额
+ * @param number
+ */
+function updateLineAmount(number){
+	var nprice = $("#addOrderDetail_" + number + "_nprice");//:价格
+	var nqty = $("#addOrderDetail_" + number + "_nqty");//:数量
+	var namount = $("#addOrderDetail_" + number + "_namount");//:金额
+	_amount = parseFloat(parseFloat(nprice.val()) * parseFloat(nqty.val())).toFixed(2);
+	namount.val(_amount);
+	calculateTotalAmount();
+}
+/**
+ * 更新价格
+ * @param number
+ */
+function updateLinePrice(number){
+	var nprice = $("#addOrderDetail_" + number + "_nprice");//:价格
+	var nqty = $("#addOrderDetail_" + number + "_nqty");//:数量
+	var namount = $("#addOrderDetail_" + number + "_namount");//:金额
+	_price = parseFloat(parseFloat(namount.val()) / parseFloat(nqty.val())).toFixed(2);
+	nprice.val(_price);
+	calculateTotalAmount();
+}
+/**
+ * 计算总金额
+ */
+function calculateTotalAmount(){
+	var totalAmount = 0;
+	for(var i = 1; i <= totalNumber; i++){
+		var _amount = $("#addOrderDetail_" + i + "_namount").val();
+		if(_amount == undefined || _amount == "" || isNaN(_amount))
+			_amount = 0;
+		totalAmount += parseFloat(_amount);
+	}
+	$("#totalAmount").text(totalAmount.toFixed(2));
+}
+/**
+ * 初始化页面数据
+ */
+function clearLine(){
+	$("#dordertime").val("");
+	for(var i = 1;i <= totalNumber;i++){
+		$("#addOrderDetail_" + i + "_umaterialid").val("");//:物料主键
+		$("#addOrderDetail_" + i + "_cmaterialname").val("");//:物料名称
+		$("#addOrderDetail_" + i + "_nprice").val("");//:物料价格
+		$("#addOrderDetail_" + i + "_nqty").val("");//:物料数量
+		$("#addOrderDetail_" + i + "_namount").val("");//:物料金额
+		calculateTotalAmount();
+	}
 }

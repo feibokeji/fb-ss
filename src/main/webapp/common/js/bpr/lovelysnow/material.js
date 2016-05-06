@@ -22,8 +22,7 @@ var _old_cname = null;
  * 页面加载
  */
 $(function(){
-	$("#addForm").validationEngine();
-	$("#modifyForm").validationEngine();
+	$("#addForm,#modifyForm").validationEngine();
 	_materialTableTr = $("#maingrid").ligerGrid({
 		height:'100%',
         columns: [

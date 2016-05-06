@@ -25,7 +25,6 @@ import com.fb.web.base.BaseController;
 
 public class SimpController extends BaseController {
     
-    
     @Autowired
     private ServiceContainer service;
     
@@ -120,5 +119,33 @@ public class SimpController extends BaseController {
         operateLog.setCcancel(ccancel);
         operateLog.setCmemo(cmemo);
         getService().getOperateLogService().addOperateLog(operateLog);
+    }
+    
+    /**
+     * 创建操作日志对象
+     * @param ctype 操作类型
+     * @param clinktable 关联数据表
+     * @param ulinktableid 关联数据表主键
+     * @param cstatus 状态
+     * @param cchoice 操作选项
+     * @param ccancel 取消标志
+     * @param cmemo 日志说明
+     * @author Liu bo
+     */
+    protected TOperateLog createOperateLog() {
+        TOperateLog operateLog = new TOperateLog();
+        operateLog.setUid(DataUtils.newUUID());
+        operateLog.setDoperatetime(new Date());
+        operateLog.setUuserid(getSessionContainer().getUser().getUid());
+        String ip = "";
+        String[] temp = {getRequest().getHeader("x-forwarded-for"), getRequest().getHeader("Proxy-Client-IP"), getRequest().getHeader("WL-Proxy-Client-IP"), getRequest().getRemoteAddr()};
+        for (int i = 0; i < temp.length; i++) {
+            if (!"".equals(DataUtils.defaultString(temp[i])) && !"unknown".equalsIgnoreCase(temp[i])) {
+                ip += temp[i] + "|";
+            }
+        }
+        operateLog.setCoperateip(ip);
+        operateLog.setCoperateurl(getRequest().getRequestURI().toString());
+        return operateLog;
     }
 }

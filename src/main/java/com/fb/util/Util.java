@@ -8,6 +8,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -37,6 +38,7 @@ public class Util {
      *      map.add("uroleid", uroleid);
      * }
      * </pre>
+     * 
      * @param alias 表别名
      * @param uroleid 当前角色ID在SQL中的预处理名字
      * @return
@@ -190,4 +192,23 @@ public class Util {
         return theDate;
     }
     
+    /**
+     * 验证字符串是否为日期格式
+     * @param str
+     * @return
+     * @author Liu bo
+     */
+    public static boolean isValidDate(String str) {
+        if (str == null) return false;
+        if (str.equals("")) return false;
+        boolean convertSuccess = true;
+        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+        try {
+            format.setLenient(false);
+            format.parse(str);
+        } catch (ParseException e) {
+            convertSuccess = false;
+        }
+        return convertSuccess;
+    }
 }

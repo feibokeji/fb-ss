@@ -90,6 +90,24 @@ public class ServiceContainer {
     private OperateLogService operateLogService;
     
     /**
+     * 订单控制
+     */
+    @Autowired
+    private OrderService orderService;
+    
+    /**
+     * 物料订单明细控制
+     */
+    @Autowired
+    private OrderMaterialService orderMaterialService;
+    
+    /**
+     * 产品订单明细控制
+     */
+    @Autowired
+    private OrderProductService orderProductService;
+    
+    /**
      * 获取 登录操作控制
      * @return loginService
      */
@@ -191,6 +209,30 @@ public class ServiceContainer {
      */
     public OperateLogService getOperateLogService() {
         return operateLogService;
+    }
+    
+    /**
+     * 获取 订单控制
+     * @return orderService
+     */
+    public OrderService getOrderService() {
+        return orderService;
+    }
+    
+    /**
+     * 获取 物料订单明细控制
+     * @return orderMaterialService
+     */
+    public OrderMaterialService getOrderMaterialService() {
+        return orderMaterialService;
+    }
+    
+    /**
+     * 获取 产品订单明细控制
+     * @return orderProductService
+     */
+    public OrderProductService getOrderProductService() {
+        return orderProductService;
     }
     
 }

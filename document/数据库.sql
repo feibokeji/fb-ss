@@ -236,6 +236,8 @@ CREATE TABLE [dbo].[t_order](
 	[uid] [uniqueidentifier] NOT NULL,
 	[cno] [varchar](36) NOT NULL,
 	[ctype] [varchar](50) NOT NULL,
+	[cstatus] [varchar](10) NOT NULL,
+	[dordertime] [datetime] NOT NULL,
 	[dcreatetime] [datetime] NOT NULL,
 	[dupdatetime] [datetime] NOT NULL
 ) ON [PRIMARY]
@@ -246,10 +248,13 @@ CREATE TABLE [dbo].[t_order_material](
 	[uorderid] [uniqueidentifier] NOT NULL,
 	[umaterialid] [uniqueidentifier] NOT NULL,
 	[cmaterialname] [varchar](50) NOT NULL,
+	[nprice] [decimal](18, 2) NOT NULL,
 	[nqty] [decimal](18, 2) NOT NULL,
-	[namount] [decimal](18, 2) NOT NULL
+	[namount] [decimal](18, 2) NOT NULL,
+	[isort] [int] NOT NULL
 ) ON [PRIMARY]
 alter table t_order_material add constraint t_order_material_pk	primary key (uid);
+alter table t_order_material alter column nprice decimal(18,2)
 
 ALTER TABLE [dbo].[t_order_material]  WITH CHECK ADD  CONSTRAINT [FK_t_order_material_t_material] FOREIGN KEY([umaterialid])
 REFERENCES [dbo].[t_material] ([uid])
@@ -266,10 +271,13 @@ CREATE TABLE [dbo].[t_order_product](
 	[uorderid] [uniqueidentifier] NOT NULL,
 	[uproductid] [uniqueidentifier] NOT NULL,
 	[cproductname] [varchar](50) NOT NULL,
+	[nprice] [decimal](18, 2) NOT NULL,
 	[nqty] [decimal](18, 2) NOT NULL,
-	[namount] [decimal](18, 2) NOT NULL
+	[namount] [decimal](18, 2) NOT NULL,
+	[isort] [int] NOT NULL
 ) ON [PRIMARY]
 alter table t_order_product add constraint t_order_product_pk	primary key (uid);
+alter table t_order_product alter column nprice decimal(18,2)
 
 ALTER TABLE [dbo].[t_order_product]  WITH CHECK ADD  CONSTRAINT [FK_t_order_product_t_order] FOREIGN KEY([uorderid])
 REFERENCES [dbo].[t_order] ([uid])

@@ -22,4 +22,5 @@ public class SimpServiceAbstract extends BaseServiceAbstract {
     public static int getDefaultPagesize() {
         return default_pagesize;
     }
+    
 }

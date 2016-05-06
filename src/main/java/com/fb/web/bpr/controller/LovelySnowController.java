@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.fb.core.utils.DataUtils;
 import com.fb.domain.po.TCategory;
 import com.fb.domain.po.TMaterial;
+import com.fb.domain.po.TOrder;
+import com.fb.domain.po.TOrderMaterial;
 import com.fb.domain.po.TProduct;
-import com.fb.domain.po.TProductMaterial;
 import com.fb.web.SimpController;
 import net.sf.json.JSONObject;
 
@@ -66,7 +67,7 @@ public class LovelySnowController extends SimpController {
      * @author Liu bo
      */
     @RequestMapping("procurement")
-    public String procurement(ModelMap map){
+    public String procurement(ModelMap map) {
         map.put("user", getRoleContainer().getUser());
         return customPage();
     }
@@ -336,6 +337,33 @@ public class LovelySnowController extends SimpController {
                     return "fail";
                 }
             }
+        }
+        return "fail";
+    }
+    
+    /**
+     * 保存物料订单
+     * @param order
+     * @return
+     * @author Liu bo
+     */
+    @RequestMapping("saveOrderMaterial")
+    @ResponseBody
+    public String saveOrderMaterial(TOrder order) {
+        for(TOrderMaterial item : order.getOrderMaterialDetailList()){
+            System.out.println(item.getCmaterialname() + "===" + item.getNprice());
+        }
+        if (order != null) {
+            boolean isHaveData = false;
+            for (TOrderMaterial item : order.getOrderMaterialDetailList()) {
+                if (DataUtils.isUid(item.getUmaterialid())) // 验证是否有数据
+                    isHaveData = true;
+            }
+            if (isHaveData) {
+                boolean result = getService().getOrderService().addOrderMaterial(order, getRoleContainer().getUser(), this.createOperateLog());
+                if (result) return "success";
+            } else
+                return "nHave";
         }
         return "fail";
     }
