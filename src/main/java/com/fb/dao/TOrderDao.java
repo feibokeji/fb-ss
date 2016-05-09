@@ -50,4 +50,13 @@ public interface TOrderDao {
      * @author Liu bo
      */
     public List<TOrder> getOrderList(TOrder order);
+    
+    /**
+     * 
+     * @param uid
+     * @param cstatus
+     * @return
+     * @author Liu bo
+     */
+    public int auditOrder(String uid,String cstatus);
 }

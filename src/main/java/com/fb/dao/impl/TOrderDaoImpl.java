@@ -46,7 +46,16 @@ public class TOrderDaoImpl extends SimpMapper<TOrder>implements TOrderDao {
                 map.put("endtime", order.getEndtime());
             }
         }
+        sql.append(" order by t.dordertime");
         return findList(sql.toString(), map);
+    }
+    
+    public int auditOrder(String uid, String cstatus) {
+        String sql = "update t_order set cstatus = :cstatus where uid = :uid";
+        QMap map = new QMap();
+        map.put("cstatus", cstatus);
+        map.put("uid", uid);
+        return execute(sql, map);
     }
     
 }

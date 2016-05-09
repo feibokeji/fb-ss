@@ -1,37 +1,174 @@
 /**
  * 可爱雪-物料入库单
  */
-var data = [];
 var totalNumber = 0;//记录数据数量[包含已被删除的数据量]
 var box_data = null;
+var actionNodeID = null;
 $(function(){
-	$("#layout1").ligerLayout({ leftWidth: 150});
-	data.push({ id: 1, pid: 0, text: '2016-05-01' });
-    data.push({ id: 2, pid: 1, text: '01' });
-    data.push({ id: 3, pid: 1, text: '02' });
-    data.push({ id: 4, pid: 1, text: '03' });      
-
-    data.push({ id: 5, pid: 0, text: '2016-05-02' });
-    data.push({ id: 6, pid: 5, text: '04' });
-    data.push({ id: 7, pid: 5, text: '05' });
-
-    var tree = $("#tree1").ligerTree({  
-    	data:data, 
+	//页面布局
+	$("#layout1").ligerLayout({ leftWidth: 220});
+	//左侧树形数据
+	menu1 = $.ligerMenu({//未审核单据右键菜单 
+		top: 100,
+		left: 100, 
+		width: 120, 
+		items:[{ text:'审核',click:f_Audit,icon:'right'},{ text:'修改',click:f_Modify,icon:'modify'},{text:'查看',click:f_View,icon:'view'}]
+    });
+	menu2 = $.ligerMenu({//已审核单据右键菜单 
+		top: 100,
+		left: 100, 
+		width: 120, 
+		items:[{ text: '反审核',click:f_n_Audit, icon: 'right'},{ text:'查看',click:f_View,icon:'view'}]
+    });
+    var tree = $("#tree1").ligerTree({
+    	url:contextPath+"/bpr/lovelysnow/getOrderMaterialGroup",
+    	nodeWidth:180,
         idFieldName :'id',
         slide : false,
         parentIDFieldName :'pid',
-        checkbox: false
+        checkbox: false,
+        onContextmenu: function (node, e){
+        	actionNodeID = node.data.id;
+        	var isAudit = node.data.text.indexOf('未审核');
+        	if(node.data.pid != '0'){
+        		if(isAudit > 0)
+        			menu1.show({ top: e.pageY, left: e.pageX });
+        		else
+        			menu2.show({ top: e.pageY, left: e.pageX });
+        	}
+            return false;
+        }
     });
-    treeManager = $("#tree1").ligerGetTreeManager();
-    treeManager.collapseAll();
+    manager = $("#tree1").ligerGetTreeManager();
     
-    $("#addOrderForm").validationEngine();
-    //添加日历控件
-	$("#dordertime").ligerDateEditor();
-    //默认加载10行数据
-	totalNumber = 10;
-	loadLine("detailsTable",totalNumber);
+    ////////////////////////右侧
+    if(type == "add"){
+    	$("#add_div").show();
+    	//添加表单验证
+        $("#addOrderForm").validationEngine();
+        //添加日历控件
+    	$("#dordertime").ligerDateEditor();
+        //默认加载10行数据
+    	totalNumber = 10;
+    	//加载数据行
+    	loadLine("detailsTable",totalNumber);
+    }else if(type == "view"){
+    	$("#view_div").show();
+    	var v_cstatus = $("#v_h_cstatus").val();
+    	var img_url = "";
+    	if(v_cstatus == "00"){
+    		img_url = contextPath+"/common/images/not_audit.png";
+    	}else if(v_cstatus == "01"){
+    		img_url = contextPath+"/common/images/audit.png";
+    	}
+    	$("#seal").attr("src",img_url).show();
+    }
 });
+/**
+ * 审核订单
+ * @param item
+ * @param i
+ */
+function f_Audit(item,i){
+	$.ligerDialog.confirm("确定要审核吗？",function(yes){
+		if(yes){
+			if(audit(actionNodeID,'01')){
+				$.ligerDialog.success("审核成功!");
+				manager.reload();
+			}
+			else
+				$.ligerDialog.error("审核失败!");
+		}
+	});
+}
+/**
+ * 反审核
+ * @param item
+ * @param i
+ */
+function f_n_Audit(item,i){
+	$.ligerDialog.confirm("确定要反审核吗？",function(yes){
+		if(yes){
+			if(audit(actionNodeID,'00')){
+				$.ligerDialog.success("反审核成功!");
+				manager.reload();
+			}
+			else
+				$.ligerDialog.error("反审核失败!");
+		}
+	});
+}
+/**
+ * 查看页面审核功能
+ * @param uid
+ */
+function f_v_audit(uid){
+	$.ligerDialog.confirm("确定要审核吗？",function(yes){
+		if(yes){
+			if(audit(uid,'01')){
+				$.ligerDialog.success("审核成功!");
+				window.location.href = contextPath + "/bpr/lovelysnow/procurement?type=view&uid="+uid;
+			}
+			else
+				$.ligerDialog.error("审核失败!");
+		}
+	});
+}
+/**
+ * 查看页面反审核功能
+ * @param uid
+ */
+function f_v_not_audit(uid){
+	$.ligerDialog.confirm("确定要反审核吗？",function(yes){
+		if(yes){
+			if(audit(uid,'00')){
+				$.ligerDialog.success("反审核成功!");
+				window.location.href = contextPath + "/bpr/lovelysnow/procurement?type=view&uid="+uid;
+			}
+			else
+				$.ligerDialog.error("反审核失败!");
+		}
+	});
+}
+function audit(uid,cstatus){
+	var result = false;
+	var waitting;
+	$.ajax({
+		type:"post",
+		async:false,
+		cache:false,
+		url:contextPath+"/bpr/lovelysnow/auditOrder",
+		data:{'uid':uid,'cstatus':cstatus},
+		dataType:"html",
+		beforeSend:function(){
+			waitting = $.ligerDialog.waitting('数据保存中,请稍候...');
+		},
+		success:function(data){
+			waitting.close();
+			result = data;
+		}
+	});
+	return result;
+}
+/**
+ * 修改订单
+ * @param item
+ * @param i
+ */
+function f_Modify(item,i){
+	
+}
+/**
+ * 查看
+ * @param item
+ * @param i
+ */
+function f_View(item,i){
+	window.location.href = contextPath + "/bpr/lovelysnow/procurement?type=view&uid="+actionNodeID;
+}
+function openAdd(){
+	window.location.href = contextPath + "/bpr/lovelysnow/procurement?type=add";
+}
 /**
  * 提交产品类别新增/修改表单
  * @param _form 表单id
@@ -41,15 +178,23 @@ function submitForm(_form){
 	if(form.validationEngine("validate")){
 		$.ligerDialog.confirm("确定要保存吗？",function(yes){
 			if(yes){
-				var waitting = $.ligerDialog.waitting('数据保存中,请稍候...');
-				form.ajaxSubmit(function(data){
-					waitting.close();
-					if(data == "fail")
-						$.ligerDialog.error("保存失败!");
-					else{
-						$.ligerDialog.success("保存成功!");
-						clearLine();
+				$.ligerDialog.confirm("如果您确定此单据正确无误，您可以选择\'是\'直接审核；\n如您不确定是否正确无误，您可以选择\'否\'不审核保存。",function(y){
+					if(y){
+						$("#cstatus").val("01");
 					}
+					var waitting = $.ligerDialog.waitting('数据保存中,请稍候...');
+					form.ajaxSubmit(function(data){
+						waitting.close();
+						if(data == "fail")
+							$.ligerDialog.error("保存失败!");
+						else if(data == "nHave"){
+							$.ligerDialog.error("无数据无法保存!");
+						}else{
+							$.ligerDialog.success("保存成功!");
+							clearLine();
+							manager.reload();
+						}
+					});
 				});
 			}
 		});

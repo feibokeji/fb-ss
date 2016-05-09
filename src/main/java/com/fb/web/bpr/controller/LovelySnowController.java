@@ -1,8 +1,12 @@
 package com.fb.web.bpr.controller;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -10,12 +14,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fb.core.utils.DataUtils;
+import com.fb.core.utils.FormatUtils;
 import com.fb.domain.po.TCategory;
 import com.fb.domain.po.TMaterial;
 import com.fb.domain.po.TOrder;
 import com.fb.domain.po.TOrderMaterial;
 import com.fb.domain.po.TProduct;
+import com.fb.domain.vo.Tree;
 import com.fb.web.SimpController;
+
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 /**
@@ -61,14 +69,23 @@ public class LovelySnowController extends SimpController {
     }
     
     /**
-     * 采购
+     * 物料采购
      * @param map
      * @return
      * @author Liu bo
      */
     @RequestMapping("procurement")
-    public String procurement(ModelMap map) {
+    public String procurement(String type, String uid, ModelMap map) {
         map.put("user", getRoleContainer().getUser());
+        map.put("type", type);
+        TOrder order = new TOrder();
+        List<TOrderMaterial> orderMaterialList = new ArrayList<TOrderMaterial>();
+        if (!DataUtils.isNullOrEmpty(type) && DataUtils.isUid(uid)) {
+            order = getService().getOrderService().getOrder(uid);
+            orderMaterialList = getService().getOrderMaterialService().getOrderMaterialList(uid);
+        }
+        map.put("order", order);
+        map.put("orderMaterialList", orderMaterialList);
         return customPage();
     }
     
@@ -342,6 +359,57 @@ public class LovelySnowController extends SimpController {
     }
     
     /**
+     * 获取物料订单分组tree
+     * @return
+     * @author Liu bo
+     */
+    @RequestMapping("getOrderMaterialGroup")
+    @ResponseBody
+    public String getOrderMaterialGroup(TOrder order) {
+        order.setCtype("00");
+        List<TOrder> list = getService().getOrderService().getOrderList(order);
+        Map<String, List<TOrder>> map = new TreeMap<String, List<TOrder>>(new Comparator<String>() {
+            
+            public int compare(String o1, String o2) {
+                return o2.compareTo(o1);
+            }
+        });
+        for (TOrder item : list) {
+            String key = FormatUtils.formatDate(item.getDordertime(), "yyyy-MM");
+            if (map.get(key) == null) {
+                List<TOrder> l = new ArrayList<TOrder>();
+                l.add(item);
+                map.put(key, l);
+            } else {
+                map.get(key).add(item);
+            }
+        }
+        List<Tree> treeList = new ArrayList<Tree>();
+        Iterator<Map.Entry<String, List<TOrder>>> entries = map.entrySet().iterator();
+        int i = 0;
+        while (entries.hasNext()) {
+            Map.Entry<String, List<TOrder>> entry = entries.next();
+            i++;
+            Tree p = new Tree();
+            p.setId(String.valueOf(i));
+            p.setPid("0");
+            p.setText(entry.getKey());
+            treeList.add(p);
+            for (TOrder item : entry.getValue()) {
+                Tree e = new Tree();
+                e.setId(item.getUid());
+                e.setPid(p.getId());
+                String audit = item.getCstatus().equals("00") ? "未审核" : "已审核";
+                String color = item.getCstatus().equals("00") ? "red" : "green";
+                e.setText((item.getCno() + "[<label style=\'color:" + color + "\'>" + audit + "</label>]"));
+                treeList.add(e);
+            }
+        }
+        JSONArray arry = JSONArray.fromObject(treeList);
+        return arry.toString();
+    }
+    
+    /**
      * 保存物料订单
      * @param order
      * @return
@@ -350,9 +418,6 @@ public class LovelySnowController extends SimpController {
     @RequestMapping("saveOrderMaterial")
     @ResponseBody
     public String saveOrderMaterial(TOrder order) {
-        for(TOrderMaterial item : order.getOrderMaterialDetailList()){
-            System.out.println(item.getCmaterialname() + "===" + item.getNprice());
-        }
         if (order != null) {
             boolean isHaveData = false;
             for (TOrderMaterial item : order.getOrderMaterialDetailList()) {
@@ -368,4 +433,24 @@ public class LovelySnowController extends SimpController {
         return "fail";
     }
     
+    /**
+     * 审核订单
+     * @param uid 主键
+     * @param cstatus 状态
+     * @return
+     * @author Liu bo
+     */
+    @RequestMapping("auditOrder")
+    @ResponseBody
+    public boolean auditOrder(String uid, String cstatus) {
+        if (DataUtils.isUid(uid)) {
+            int count = getService().getOrderService().auditOrder(uid, cstatus);
+            if (count > 0) {
+                this.addOperateLog("审核", "t_order", uid, cstatus, null, null, "审核/反审核成功!");
+                return true;
+            } else
+                return false;
+        }
+        return false;
+    }
 }

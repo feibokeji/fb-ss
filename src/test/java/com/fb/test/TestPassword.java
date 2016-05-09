@@ -14,7 +14,7 @@ public class TestPassword {
     public void test() {
         System.out.println(EncryptionUtils.MD5("123456"));
         System.out.println(DataUtils.newUUID());
-        String cno = FormatUtils.formatDate(new Date(), "yyyyMMddHHmmss");
+        String cno = FormatUtils.formatDate(new Date(), "yyyy-MM");
         int i = (int)(1+Math.random()*(10-1+1));
         System.out.println(cno);
         System.out.println(i);

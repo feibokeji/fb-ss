@@ -43,13 +43,14 @@ public class OrderServiceImpl extends SimpServiceAbstract implements OrderServic
         String cno = FormatUtils.formatDate(new Date(), "yyyyMMddHHmmss");
         order.setCno(cno);
         order.setCtype("00");
-        order.setCstatus("00");
+        //order.setCstatus("00");
         order.setDcreatetime(new Date());
         order.setDupdatetime(new Date());
         log.setCtype("00");
         log.setClinktable("t_order");
         log.setUlinktableid(order.getUid());
-        log.setCstatus("00");
+        //log.setCstatus("00");
+        log.setCstatus(order.getCstatus());
         log.setCmemo("新增物料入库数据");
         List<TOrderMaterial> list = new ArrayList<TOrderMaterial>();
         int i = 0;
@@ -130,6 +131,11 @@ public class OrderServiceImpl extends SimpServiceAbstract implements OrderServic
     
     public List<TOrder> getOrderList(TOrder order) {
         return orderDao.getOrderList(order);
+    }
+
+    @Transactional
+    public synchronized int auditOrder(String uid, String cstatus) {
+        return orderDao.auditOrder(uid, cstatus);
     }
     
 }

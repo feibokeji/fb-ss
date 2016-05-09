@@ -53,3 +53,5 @@ body,html{height:100%;padding:0px; margin:0;}
 .add_update_table{width: 100%;line-height: 35px;margin: 50px auto auto auto;}
 .add_update_table tr th{text-align: right;}
 .add_update_table tr td{line-height: 35px;}
+/*印章*/
+.seal_img{display: none;position: absolute;z-index: 10000;margin-left: 400px;margin-top: 100px;}
