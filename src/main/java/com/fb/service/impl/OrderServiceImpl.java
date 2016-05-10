@@ -40,16 +40,14 @@ public class OrderServiceImpl extends SimpServiceAbstract implements OrderServic
     @Transactional
     public synchronized boolean addOrderMaterial(TOrder order, TUser user, TOperateLog log) {
         order.setUid(DataUtils.newUUID());
-        String cno = FormatUtils.formatDate(new Date(), "yyyyMMddHHmmss");
+        String cno = FormatUtils.formatDate(order.getDordertime(), "yyyyMMdd") + FormatUtils.formatDate(new Date(), "HHmmss");
         order.setCno(cno);
         order.setCtype("00");
-        //order.setCstatus("00");
         order.setDcreatetime(new Date());
         order.setDupdatetime(new Date());
-        log.setCtype("00");
+        log.setCtype("新增");
         log.setClinktable("t_order");
         log.setUlinktableid(order.getUid());
-        //log.setCstatus("00");
         log.setCstatus(order.getCstatus());
         log.setCmemo("新增物料入库数据");
         List<TOrderMaterial> list = new ArrayList<TOrderMaterial>();
@@ -67,6 +65,39 @@ public class OrderServiceImpl extends SimpServiceAbstract implements OrderServic
         try {
             orderDao.addOrder(order);
             for (TOrderMaterial item : list) {
+                orderMaterialDao.addOrderMaterial(item);
+            }
+            operateLogDao.addOperateLog(log);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+    
+    @Transactional
+    public synchronized boolean updateOrderMaterial(TOrder order, TUser user, TOperateLog log) {
+        order.setDupdatetime(new Date());
+        log.setCtype("修改");
+        log.setClinktable("t_order");
+        log.setUlinktableid(order.getUid());
+        log.setCstatus(order.getCstatus());
+        log.setCmemo("修改物料入库数据");
+        List<TOrderMaterial> addList = new ArrayList<TOrderMaterial>();
+        int i = 0;
+        for (TOrderMaterial item : order.getOrderMaterialDetailList()) {
+            if (DataUtils.isUid(item.getUmaterialid()) && !DataUtils.isNullOrEmpty(item.getCmaterialname())) {
+                i++;
+                item.setUid(DataUtils.newUUID());
+                item.setUorderid(order.getUid());
+                item.setIsort(i);
+                addList.add(item);
+            }
+        }
+        try {
+            orderDao.updateOrder(order);
+            orderMaterialDao.deleteOrderMaterialByUOrderId(order.getUid());
+            for (TOrderMaterial item : addList) {
                 orderMaterialDao.addOrderMaterial(item);
             }
             operateLogDao.addOperateLog(log);

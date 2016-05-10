@@ -4,6 +4,7 @@
 var totalNumber = 0;//记录数据数量[包含已被删除的数据量]
 var box_data = null;
 var actionNodeID = null;
+var lineNumber = 1;
 $(function(){
 	//页面布局
 	$("#layout1").ligerLayout({ leftWidth: 220});
@@ -42,14 +43,20 @@ $(function(){
     manager = $("#tree1").ligerGetTreeManager();
     
     ////////////////////////右侧
-    if(type == "add"){
+    if(type == "add" || type == "modify"){
     	$("#add_div").show();
     	//添加表单验证
         $("#addOrderForm").validationEngine();
         //添加日历控件
-    	$("#dordertime").ligerDateEditor();
+        var oldDate = $("#dordertime").val();
+        if(oldDate != null && oldDate != ""){
+        	oldDate = oldDate.substring(0,oldDate.indexOf(" "));
+        }
+    	$("#dordertime").ligerDateEditor({initValue:oldDate});
+    	lineNumber = parseInt($("#listSize").val());
+    	totalNumber = lineNumber;
         //默认加载10行数据
-    	totalNumber = 10;
+    	totalNumber = totalNumber + 10;
     	//加载数据行
     	loadLine("detailsTable",totalNumber);
     }else if(type == "view"){
@@ -74,7 +81,8 @@ function f_Audit(item,i){
 		if(yes){
 			if(audit(actionNodeID,'01')){
 				$.ligerDialog.success("审核成功!");
-				manager.reload();
+				//manager.reload();
+				window.location.href = window.location.href;
 			}
 			else
 				$.ligerDialog.error("审核失败!");
@@ -91,7 +99,8 @@ function f_n_Audit(item,i){
 		if(yes){
 			if(audit(actionNodeID,'00')){
 				$.ligerDialog.success("反审核成功!");
-				manager.reload();
+				//manager.reload();
+				window.location.href = window.location.href;
 			}
 			else
 				$.ligerDialog.error("反审核失败!");
@@ -130,6 +139,12 @@ function f_v_not_audit(uid){
 		}
 	});
 }
+/**
+ * 审核方法
+ * @param uid
+ * @param cstatus
+ * @returns {Boolean}
+ */
 function audit(uid,cstatus){
 	var result = false;
 	var waitting;
@@ -156,7 +171,7 @@ function audit(uid,cstatus){
  * @param i
  */
 function f_Modify(item,i){
-	
+	window.location.href = contextPath + "/bpr/lovelysnow/procurement?type=modify&uid="+actionNodeID;
 }
 /**
  * 查看
@@ -173,15 +188,19 @@ function openAdd(){
  * 提交产品类别新增/修改表单
  * @param _form 表单id
  */
-function submitForm(_form){
+function submitForm(type,_form){
 	var form = $("#"+_form);
+	if(type == "modify"){
+		form.attr("action",contextPath + "/bpr/lovelysnow/updateOrderMaterial")
+	}
 	if(form.validationEngine("validate")){
 		$.ligerDialog.confirm("确定要保存吗？",function(yes){
 			if(yes){
 				$.ligerDialog.confirm("如果您确定此单据正确无误，您可以选择\'是\'直接审核；\n如您不确定是否正确无误，您可以选择\'否\'不审核保存。",function(y){
-					if(y){
+					if(y)
 						$("#cstatus").val("01");
-					}
+					else
+						$("#cstatus").val("00");
 					var waitting = $.ligerDialog.waitting('数据保存中,请稍候...');
 					form.ajaxSubmit(function(data){
 						waitting.close();
@@ -191,6 +210,9 @@ function submitForm(_form){
 							$.ligerDialog.error("无数据无法保存!");
 						}else{
 							$.ligerDialog.success("保存成功!");
+							if(type == "modify"){
+								window.location.href = contextPath + "/bpr/lovelysnow/procurement?type=add";
+							}
 							clearLine();
 							manager.reload();
 						}
@@ -207,7 +229,7 @@ function submitForm(_form){
  * @param number 行数
  */
 function loadLine(elementId, number) {
-	for(var i = 1; i <= number; i++){
+	for(var i = lineNumber + 1; i <= number; i++){
 		$("#" + elementId).append(createLine(i));
 		var _element = "addOrderDetail_" + i + "_cmaterialname";
 		loadAutoComplete(_element,i);

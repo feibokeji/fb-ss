@@ -1,5 +1,7 @@
 @charset "utf-8";
 body,html{height:100%;padding:0px; margin:0;}
+a{text-decoration: none;}
+
 .l-link{display:block; height:26px; line-height:26px; padding-left:10px; text-decoration:underline; color:#333;}
 .l-link2{text-decoration:underline; color:white; margin-left:2px;margin-right:2px;}
 .l-layout-top{background:#102A49; color:White;}
@@ -37,8 +39,9 @@ body,html{height:100%;padding:0px; margin:0;}
 .add-table tr th{border: 1px solid #bbbbbb;text-align: right;background: #ececec;}
 .add-table tr td{border:1px solid #bbbbbb;}
 /*左侧菜单样式*/
-.m-ul li{line-height: 24px;border-bottom: 1px dashed #e1e1e1;}
-.m-ul li a{cursor: pointer;margin-left: 30px;color: #333;}
+.m-ul li{line-height: 24px;border-bottom: 1px dashed #e1e1e1;text-align: left;}
+.m-ul li img{margin-left: 20px;}
+.m-ul li a{cursor: pointer;color: #333;}
 .l-button-small{width:40px;}
 /*文本框样式*/
 .i-text-80{width: 80px;}

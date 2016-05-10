@@ -90,6 +90,16 @@ public class LovelySnowController extends SimpController {
     }
     
     /**
+     * 产品销售单据查询
+     * @return
+     * @author Liu bo
+     */
+    @RequestMapping("productSell")
+    public String productSell() {
+        return customPage();
+    }
+    
+    /**
      * 获取产品类别分页数据
      * @return
      * @author Liu bo
@@ -426,6 +436,39 @@ public class LovelySnowController extends SimpController {
             }
             if (isHaveData) {
                 boolean result = getService().getOrderService().addOrderMaterial(order, getRoleContainer().getUser(), this.createOperateLog());
+                if (result) return "success";
+            } else
+                return "nHave";
+        }
+        return "fail";
+    }
+    
+    /**
+     * 修改物料订单
+     * @param order
+     * @return
+     * @author Liu bo
+     */
+    @RequestMapping("updateOrderMaterial")
+    @ResponseBody
+    public String updateOrderMaterial(TOrder order) {
+        if (order != null) {
+            System.out.println(order.getOrderMaterialDetailList().size());
+            boolean isHaveData = false;
+            for (TOrderMaterial item : order.getOrderMaterialDetailList()) {
+                System.out.println("----------------------");
+                System.out.println(item.getUid());
+                System.out.println(item.getUmaterialid());
+                System.out.println("**********************");
+                if (DataUtils.isUid(item.getUmaterialid())) // 验证是否有数据
+                    isHaveData = true;
+            }
+            if (isHaveData) {
+                System.out.println("☆☆☆☆☆☆☆☆☆☆☆☆☆☆");
+                System.out.println(order.getDcreatetime());
+                TOrder temp = getService().getOrderService().getOrder(order.getUid());
+                order.setDcreatetime(temp.getDcreatetime());
+                boolean result = getService().getOrderService().updateOrderMaterial(order, getRoleContainer().getUser(), this.createOperateLog());
                 if (result) return "success";
             } else
                 return "nHave";

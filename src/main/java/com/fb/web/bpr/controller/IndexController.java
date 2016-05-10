@@ -2,7 +2,9 @@ package com.fb.web.bpr.controller;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -18,6 +20,8 @@ import com.fb.util.PoiExcel2k7Helper;
 import com.fb.util.PoiExcelHelper;
 import com.fb.web.SimpController;
 import com.fb.web.exception.PoiErrorException;
+
+import net.sf.json.JSONObject;
 
 @Controller
 @RequestMapping("/bpr")
@@ -51,10 +55,9 @@ public class IndexController extends SimpController {
      */
     @RequestMapping("uploadExcel")
     @ResponseBody
-    public String uploadExcel(MultipartFile excelFrontDeskSalesProduct, String uploadTime) throws PoiErrorException {
+    public JSONObject uploadExcel(MultipartFile excelFrontDeskSalesProduct, String uploadTime) throws PoiErrorException {
         // 存储上传结果
-        StringBuilder strExcel = new StringBuilder();
-        System.out.println(uploadTime);
+        Map<String, String> result = new HashMap<String, String>();
         // 验证是否为空
         if (excelFrontDeskSalesProduct != null && !excelFrontDeskSalesProduct.isEmpty()) {
             String fileName = excelFrontDeskSalesProduct.getOriginalFilename();
@@ -68,24 +71,25 @@ public class IndexController extends SimpController {
                     try {
                         this.copy(excelFrontDeskSalesProduct, dist);
                         // 开始读取文件
-                        PoiExcelHelper helper = getPoiExcelHelper(path + "\\" + fileName);
-                        List<String> sheetNameList = helper.getSheetList(path + "\\" + fileName);
-                        for (int k = 0; k < sheetNameList.size(); k++) {
-                            ArrayList<ArrayList<String>> dataList = helper.readExcel(path + "\\" + fileName, k);
+                        String filePath = path + "\\" + fileName;
+                        PoiExcelHelper helper = getPoiExcelHelper(filePath);
+                        // 此系统暂且只支持读取一页的EXCEL文档
+                        ArrayList<ArrayList<String>> dataList = helper.readExcel(filePath, 0);
+                        if (dataList.size() > 0) {
+                            result.put("success", "读取成功!");
+                        } else {
+                            result.put("fail", "请不要上传空白文档!");
                         }
-                        strExcel.append("读取成功！");
                     } catch (Exception e) {
-                        strExcel.append("上传的文件不符合规范!请重新查看修改后再进行上传。");
+                        result.put("fail", "上传的文件不符合规范!请重新查看修改后再进行上传.");
                         e.printStackTrace();
-                        throw new PoiErrorException("上传的文件不符合规范!");
+                        throw new PoiErrorException("上传的文件不符合规范！");
                     }
-                    /*
-                     * if (dist.exists()) { dist.delete(); }
-                     */
                 }
             }
         }
-        return strExcel.toString();
+        JSONObject object = JSONObject.fromObject(result);
+        return object;
     }
     
     // 获取Excel处理类
@@ -98,4 +102,6 @@ public class IndexController extends SimpController {
         }
         return helper;
     }
+    
+    
 }

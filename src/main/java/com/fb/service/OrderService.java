@@ -22,6 +22,14 @@ public interface OrderService {
     public boolean addOrderMaterial(TOrder order, TUser user, TOperateLog log);
     
     /**
+     * 修改物料订单
+     * @param order
+     * @return
+     * @author Liu bo
+     */
+    public boolean updateOrderMaterial(TOrder order, TUser user, TOperateLog log);
+    
+    /**
      * 新增产品订单
      * @param order
      * @return

@@ -16,29 +16,34 @@
 <body>
 	<div id="uploadExcelDialog">
 		<form action="${contextPath }/bpr/uploadExcel" method="post" id="uploadForm" name="uploadForm" enctype="multipart/form-data" onsubmit="return false;">
-			<table class="homeTable">
+			<table class="homeTable" width="400">
 				<tr>
 					<td colspan="2" align="center">
-						<b>前台销售按商品汇总.XLS</b>
+						<h2>产品销售</h2>
 					</td>
 				</tr>
 				<tr>
-					<th>日期：</th>
+					<td colspan="2" align="center">
+						<b>上传：前台销售按商品汇总.XLS文件</b>
+					</td>
+				</tr>
+				<tr>
+					<td align="right"><label style="color: red">*</label>日期：</td>
 					<td><input type="text" id="uploadTime" name="uploadTime"/></td>
 				</tr>
 				<tr>
-					<th align="right">文件：</th>
+					<td align="right"><label style="color: red">*</label>文件：</td>
 					<td>
 						<input type="file" id="excelFrontDeskSalesProduct" name="excelFrontDeskSalesProduct"/>
 					</td>
 				</tr>
 				<tr>
-					<th align="right"><span style="color: red;">提示：</span></th>
+					<td align="right"><span style="color: red;">提示：</span></td>
 					<td align="left"><span style="color: red;">*只能上传.xls/.xlsx格式的Excel文件</span></td>
 				</tr>
 				<tr>
-					<td colspan="2" align="center">
-						<input type="submit" value="上传" class="l-button" style="margin: 5px auto 5px auto;"/>
+					<td colspan="2" align="center" height="45">
+						<input type="submit" value="上传" class="l-button"/>
 					</td>
 				</tr>
 			</table>

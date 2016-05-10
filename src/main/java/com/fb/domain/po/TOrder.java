@@ -29,6 +29,16 @@ public class TOrder extends BaseDomain {
     private String uid;
     
     /**
+     * 账户外键
+     */
+    private String uuserid;
+    
+    /**
+     * 账户名称
+     */
+    private String cusername;
+    
+    /**
      * 编号
      */
     private String cno;
@@ -256,6 +266,38 @@ public class TOrder extends BaseDomain {
      */
     public void setEndtime(String endtime) {
         this.endtime = endtime;
+    }
+    
+    /**
+     * 获取 账户外键
+     * @return uuserid
+     */
+    public String getUuserid() {
+        return uuserid;
+    }
+    
+    /**
+     * 设置 账户外键
+     * @param uuserid 账户外键
+     */
+    public void setUuserid(String uuserid) {
+        this.uuserid = uuserid;
+    }
+    
+    /**
+     * 获取 账户名称
+     * @return cusername
+     */
+    public String getCusername() {
+        return cusername;
+    }
+    
+    /**
+     * 设置 账户名称
+     * @param cusername 账户名称
+     */
+    public void setCusername(String cusername) {
+        this.cusername = cusername;
     }
     
 }

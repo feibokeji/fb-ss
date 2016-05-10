@@ -234,6 +234,8 @@ ALTER TABLE [dbo].[t_product_material] ADD  CONSTRAINT [DF_t_product_material_ie
 
 CREATE TABLE [dbo].[t_order](
 	[uid] [uniqueidentifier] NOT NULL,
+	[uuserid] [uniqueidentifier] NOT NULL,
+	[cusername] [varchar](50) NOT NULL,
 	[cno] [varchar](36) NOT NULL,
 	[ctype] [varchar](50) NOT NULL,
 	[cstatus] [varchar](10) NOT NULL,

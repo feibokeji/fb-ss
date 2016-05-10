@@ -26,18 +26,31 @@
         	<div id="add_div" style="display: none;">
 	        	<!-- 订单详细内容 -->
 	        	<form id="addOrderForm" name="addOrderForm" method="post" action="${contextPath }/bpr/lovelysnow/saveOrderMaterial">
-	        		<input type="hidden" id="cstatus" name="cstatus" value="00"/>
+	        		<input type="hidden" id="uid" name="uid" value="${order.uid }"/>
+	        		<c:if test="${type eq 'add' }">
+	        			<input type="hidden" id="uuserid" name="uuserid" value="${user.uid }"/>
+	        			<input type="hidden" id="cusername" name="cusername" value="${user.cname }"/>
+	        		</c:if>
+	        		<c:if test="${type eq 'modify' }">
+	        			<input type="hidden" id="uuserid" name="uuserid" value="${order.uuserid }"/>
+	        			<input type="hidden" id="cusername" name="cusername" value="${order.cusername }"/>
+	        		</c:if>
+	        		<input type="hidden" id="cno" name="cno" value="${order.cno }"/>
+	        		<input type="hidden" id="ctype" name="ctype" value="${order.ctype }"/>
+	        		<input type="hidden" id="cstatus" name="cstatus" value="${order.cstatus }"/>
+	        		<input type="hidden" id="dcreatetime" name="dcreatetime" value="${order.dcreatetime }"/>
+	        		<input type="hidden" id="listSize" value="${fn:length(orderMaterialList)}"/>
 	        		<table style="margin: 0 auto;border: 1px solid #eeeeee;width: 98%;line-height: 45px;">
 	        			<tr>
 	        				<td colspan="11" align="center"><h2>物料入库单</h2></td>
 	        			</tr>
 	        			<tr>
 	        				<td align="right" width="60px">日期：</td>
-	        				<td align="left" width="100px"><input type="text" id="dordertime" name="dordertime" class="validate[required]"/></td>
+	        				<td align="left" width="100px"><input type="text" id="dordertime" name="dordertime" class="validate[required]" value="${order.dordertime }"/></td>
 	        				<td align="right" width="60px">操作人：</td>
 	        				<td align="left" width="100px"><label style="border-bottom: 1px solid #bbbbbb;">&nbsp;&nbsp;&nbsp;${user.cname }&nbsp;&nbsp;&nbsp;</label></td>
-	        				<td></td>
-	        				<td></td>
+	        				<td align="right" width="60px"><c:if test="${type eq 'modify'}">编码：</c:if></td>
+	        				<td align="left" width="100px"><c:if test="${type eq 'modify'}"><label style="border-bottom: 1px solid #bbbbbb;">${order.cno }</label></c:if></td>
 	        				<td></td>
 	        				<td></td>
 	        				<td></td>
@@ -63,6 +76,31 @@
 	        							<th></th>
 	        							<th></th>
 	        						</tr>
+	        						<c:forEach items="${orderMaterialList }" var="detail">
+	        							<tr id="dataLineTr${detail.isort }">
+	        								<td><label>${detail.isort }</label></td>
+	        								<td>
+	        									<input type='hidden' id='addOrderDetail_${detail.isort }_uid' name='orderMaterialDetailList[${detail.isort }].uid' value="${detail.uid }"/>
+	        									<input type='hidden' id='addOrderDetail_${detail.isort }_umaterialid' name='orderMaterialDetailList[${detail.isort }].umaterialid' value="${detail.umaterialid }"/>
+	        									<input type='text' id='addOrderDetail_${detail.isort }_cmaterialname' name='orderMaterialDetailList[${detail.isort }].cmaterialname' value="${detail.cmaterialname }" style='width: 100px;'/>
+	        								</td>
+	        								<td align="right">
+	        									<input type='text' style='width: 60px;height:18px;text-align:right;border:none;' id='addOrderDetail_${detail.isort }_nprice' name='orderMaterialDetailList[${detail.isort }].nprice' value="${detail.nprice }" onchange='updateLineAmount(${detail.isort })' class='validate[custom[number],min[0]]'/>
+	        								</td>
+	        								<td align="right">
+	        									<input type='text' style='width: 60px;height:18px;text-align:right;border:none;' id='addOrderDetail_${detail.isort }_nqty' name='orderMaterialDetailList[${detail.isort }].nqty' onchange='updateLineAmount(${detail.isort })' value="${detail.nqty }" class='validate[custom[number],min[0]]'/>
+	        								</td>
+	        								<td align="right">
+	        									<input type='text' style='width: 60px;height:18px;text-align:right;border:none;' id='addOrderDetail_${detail.isort }_namount' name='orderMaterialDetailList[${detail.isort }].namount' onchange='updateLinePrice(${detail.isort })' value="${detail.namount }" class='validate[custom[number],min[0]]'/>
+	        								</td>
+	        								<td><a href='javascript:deleteLine("detailsTable","dataLineTr${detail.isort }")' title='删除' style='text-decoration:none;color:black;'>-</a></td>
+	        								<td></td>
+	        								<td></td>
+	        								<td></td>
+	        								<td></td>
+	        								<td></td>
+	        							</tr>
+	        						</c:forEach>
 	        					</table>
 	        				</td>
 	        			</tr>
@@ -88,7 +126,7 @@
 	        			<tr>
 	        				<td colspan="11" style="border-top: 1px solid #eeeeee;line-height: 45px;">
 	        					<input type="button" value="+添加数据行" onclick="addLine('detailsTable')" class="l-button"/>
-	        					<input type="button" value="保存" class="l-button" onclick="submitForm('addOrderForm')"/>
+	        					<input type="button" value="保存" class="l-button" onclick="submitForm('${type}','addOrderForm')"/>
 	        				</td>
 	        			</tr>
 	        		</table>
@@ -105,9 +143,9 @@
 	        				<td align="right" width="60px">日期：</td>
 	        				<td align="left" width="100px"><fmt:formatDate value="${order.dordertime }" pattern="yyyy-MM-dd"/></td>
 	        				<td align="right" width="60px">操作人：</td>
-	        				<td align="left" width="100px">${user.cname }</td>
+	        				<td align="left" width="100px"><label style="border-bottom: 1px solid #bbbbbb;">&nbsp;&nbsp;&nbsp;${user.cname }&nbsp;&nbsp;&nbsp;</label></td>
 	        				<td align="right" width="60px">编号：</td>
-	        				<td align="left" width="100px">${order.cno }</td>
+	        				<td align="left" width="100px"><label style="border-bottom: 1px solid #bbbbbb;">${order.cno }</label></td>
 	        				<td><input type="hidden" id="v_h_cstatus" value="${order.cstatus }"/></td>
 	        				<td></td>
 	        				<td></td>
@@ -188,6 +226,7 @@
 	<script type="text/javascript" src="${contextPath}/common/js/base/jquery.form.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/formValidator2.2.4/jquery.validationEngine-zh_CN.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/formValidator2.2.4/jquery.validationEngine.js"></script>
+	<script type="text/javascript" src="${contextPath}/common/js/base/common.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/js/bpr/base.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/js/bpr/lovelysnow/procurement.js"></script>
 </body>

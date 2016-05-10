@@ -42,7 +42,6 @@ public class PoiExcel2k3Helper extends PoiExcelHelper {
         try {
             HSSFWorkbook wb = new HSSFWorkbook(new FileInputStream(filePath));
             HSSFSheet sheet = wb.getSheetAt(sheetIndex);
-            
             dataList = readExcel(sheet, rows, getColumnNumber(sheet, columns));
         } catch (Exception e) {
             e.printStackTrace();
@@ -57,7 +56,6 @@ public class PoiExcel2k3Helper extends PoiExcelHelper {
         try {
             HSSFWorkbook wb = new HSSFWorkbook(new FileInputStream(filePath));
             HSSFSheet sheet = wb.getSheetAt(sheetIndex);
-            
             dataList = readExcel(sheet, rows, cols);
         } catch (Exception e) {
             e.printStackTrace();
