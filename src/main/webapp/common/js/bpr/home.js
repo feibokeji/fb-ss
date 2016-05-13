@@ -25,7 +25,7 @@ $(function(){
 							file.remove();
 							time.val("");
 						}else if(typeof(data.fail != undefined && data.fail != null && data.fail != "")){
-							$.ligerDialog.error(data.fail);
+							$.ligerDialog.open({title:'错误',width:400,target:data.fail});
 						}
 					});
 				}
