@@ -14,10 +14,12 @@ import com.fb.dao.TOperateLogDao;
 import com.fb.dao.TOrderDao;
 import com.fb.dao.TOrderMaterialDao;
 import com.fb.dao.TOrderProductDao;
+import com.fb.dao.TProductDao;
 import com.fb.domain.po.TOperateLog;
 import com.fb.domain.po.TOrder;
 import com.fb.domain.po.TOrderMaterial;
 import com.fb.domain.po.TOrderProduct;
+import com.fb.domain.po.TProduct;
 import com.fb.domain.po.TUser;
 import com.fb.service.OrderService;
 import com.fb.service.SimpServiceAbstract;
@@ -36,6 +38,9 @@ public class OrderServiceImpl extends SimpServiceAbstract implements OrderServic
     
     @Autowired
     private TOperateLogDao operateLogDao;
+    
+    @Autowired
+    private TProductDao productDao;
     
     @Transactional
     public synchronized boolean addOrderMaterial(TOrder order, TUser user, TOperateLog log) {
@@ -113,6 +118,8 @@ public class OrderServiceImpl extends SimpServiceAbstract implements OrderServic
         order.setUid(DataUtils.newUUID());
         String cno = FormatUtils.formatDate(new Date(), "yyyyMMddHHmmss");
         order.setCno(cno);
+        order.setUuserid(user.getUid());
+        order.setCusername(user.getCname());
         order.setCtype("00");
         order.setCstatus("00");
         order.setDcreatetime(new Date());
@@ -123,13 +130,13 @@ public class OrderServiceImpl extends SimpServiceAbstract implements OrderServic
         log.setCstatus("00");
         log.setCmemo("新增产品入库数据");
         List<TOrderProduct> list = new ArrayList<TOrderProduct>();
-        int i = 0;
         for(TOrderProduct item : order.getOrderProductDetailList()){
-            if (DataUtils.isUid(item.getUproductid()) && !DataUtils.isNullOrEmpty(item.getCproductname())) {
-                i++;
+            if (!DataUtils.isNullOrEmpty(item.getCproductname())) {
+                TProduct product = new TProduct();
+                ////////////////开发到这里
+                
                 item.setUid(DataUtils.newUUID());
                 item.setUorderid(order.getUid());
-                item.setIsort(i);
                 list.add(item);
             }
         }

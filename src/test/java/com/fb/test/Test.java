@@ -4,11 +4,13 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import com.fb.core.utils.DataUtils;
+
 public class Test {
     
     @org.junit.Test
     public void testCon() {
-        System.out.println("开始测试连接...");
+        /*System.out.println("开始测试连接...");
         try {
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
             System.out.println("00000000000000000000000000");
@@ -28,6 +30,8 @@ public class Test {
             conn.close();
         } catch (Exception e) {
             throw new IllegalArgumentException(e);
-        }
+        }*/
+        System.out.println(DataUtils.isInteger("-1"));
+        System.out.println(DataUtils.isUInteger("-1"));
     }
 }

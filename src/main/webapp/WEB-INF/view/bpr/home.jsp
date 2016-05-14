@@ -19,7 +19,7 @@
 			<table class="homeTable" width="400">
 				<tr>
 					<td colspan="2" align="center">
-						<h2>产品销售</h2>
+						<h2>可爱雪门店产品销售</h2>
 					</td>
 				</tr>
 				<tr>
@@ -51,6 +51,7 @@
 	</div>
 	<script type="text/javascript">var contextPath = '${contextPath}';</script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/jquery-1.8.3.js"></script>
+	<script type="text/javascript" src="${contextPath}/common/js/base/common.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/liger/js/ligerui.all.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/jquery.form.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/uploadPreview.min.js"></script>

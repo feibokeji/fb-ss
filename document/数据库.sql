@@ -270,16 +270,27 @@ ALTER TABLE [dbo].[t_order_material] CHECK CONSTRAINT [FK_t_order_material_t_ord
 
 CREATE TABLE [dbo].[t_order_product](
 	[uid] [uniqueidentifier] NOT NULL,
-	[uorderid] [uniqueidentifier] NOT NULL,
-	[uproductid] [uniqueidentifier] NOT NULL,
-	[cproductname] [varchar](50) NOT NULL,
-	[nprice] [decimal](18, 2) NOT NULL,
-	[nqty] [decimal](18, 2) NOT NULL,
-	[namount] [decimal](18, 2) NOT NULL,
-	[isort] [int] NOT NULL
+	[isort] [int] NOT NULL, --序号
+	[uorderid] [uniqueidentifier] NOT NULL, --订单外键
+	[uproductid] [uniqueidentifier] NOT NULL, --产品外键
+	[cproductno] [varchar](50) NOT NULL, --产品编码
+	[cproductname] [varchar](50) NOT NULL, --产品名称
+	[ccategoryname] [varchar](50) NOT NULL, --类别名称
+	[nsqty] [decimal](18, 2) NOT NULL, --销售数量 
+	[nsamount] [decimal](18, 2) NOT NULL, --销售金额
+	[nbqty] [decimal](18, 2) NOT NULL, --退货数量 
+	[nbamount] [decimal](18, 2) NOT NULL, --退货金额
+	[ngqty] [decimal](18, 2) NOT NULL, --赠送数量 
+	[ngamount] [decimal](18, 2) NOT NULL, --赠送金额
+	[nqtysubtotal] [decimal](18, 2) NOT NULL, --数量小计
+	[namountsubtotal] [decimal](18, 2) NOT NULL, --金额小计
+	[nreferenceprice] [decimal](18, 2) NOT NULL, --参考进价
+	[npurchaseprice] [decimal](18, 2) NOT NULL, --进价金额
+	[nreferenceprofits] [decimal](18, 2) NOT NULL, --参考利润
+	[cmainsupplier] [varchar](50) NULL, --主供应商
+	[cbrand] [varchar](50) NULL --品牌
 ) ON [PRIMARY]
 alter table t_order_product add constraint t_order_product_pk	primary key (uid);
-alter table t_order_product alter column nprice decimal(18,2)
 
 ALTER TABLE [dbo].[t_order_product]  WITH CHECK ADD  CONSTRAINT [FK_t_order_product_t_order] FOREIGN KEY([uorderid])
 REFERENCES [dbo].[t_order] ([uid])
