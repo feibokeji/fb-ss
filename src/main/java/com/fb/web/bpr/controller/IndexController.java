@@ -91,17 +91,17 @@ public class IndexController extends SimpController {
                                     if(ok){
                                         result.put("success", printBody(map.get(key), columnName));
                                     }else{
-                                        result.put("fail", "excel文件上传失败,请联系管理员!");
+                                        result.put("fail", "<label>excel文件上传失败,请联系管理员!</label>");
                                     }
                                 } else {
                                     result.put("fail", key);
                                 }
                             }
                         } else {
-                            result.put("fail", "请不要上传空白文档!");
+                            result.put("fail", "<label>请不要上传空白文档!</label>");
                         }
                     } catch (Exception e) {
-                        result.put("fail", "上传的文件不符合规范!请重新查看修改后再进行上传.");
+                        result.put("fail", "<label>上传的文件不符合规范!请重新查看修改后再进行上传.</label>");
                         e.printStackTrace();
                         throw new PoiErrorException("上传的文件不符合规范！");
                     }
@@ -136,7 +136,7 @@ public class IndexController extends SimpController {
         try {
             if (dataList.get(0) != null) {// 获取第一行数据验证表头
                 if (dataList.get(0).size() < columnName.length) {
-                    result.append("上传的文档不是正确的【前台销售按商品汇总】文件!<br/>");
+                    result.append("<label>上传的文档不是正确的【前台销售按商品汇总】文件!</label><br/>");
                 } else {
                     if (DataUtils.isNullOrEmpty(result.toString())) {// 详细判断
                         int i = 0;// 验证数据正确性时的列数
@@ -145,7 +145,7 @@ public class IndexController extends SimpController {
                             if (i == 0) {// 验证第一行表头的准确性
                                 for (int a = 1; a <= columnName.length; a++) {
                                     if (DataUtils.isNullOrEmpty(data.get(a).trim()) || !data.get(a).trim().equals(columnName[a - 1])) {
-                                        result.append("[第1行]的[第" + (a + 1) + "列]存在问题!必须为：" + columnName[a - 1] + "<br/>");
+                                        result.append("<label>[第1行]的[第" + (a + 1) + "列]存在问题!必须为：" + columnName[a - 1] + "</label><br/>");
                                     }
                                 }
                             } else if (i != 0 && i != (dataList.size() - 1)) {// 验证文档中的数据
@@ -153,17 +153,17 @@ public class IndexController extends SimpController {
                                     for (int a = 1; a <= columnName.length; a++) {
                                         // 找出所有单元数据中的空单元<不包含类别列>
                                         if (a != 2 && DataUtils.isNullOrEmpty(data.get(a).trim())) {
-                                            result.append("[序号:" + i + "]的[" + columnName[a - 1] + "]存在问题,不能为空!<br/>");
+                                            result.append("<label>[序号:" + i + "]的[" + columnName[a - 1] + "]存在问题,不能为空!</label><br/>");
                                         } else if (a != 2 && !DataUtils.isNullOrEmpty(data.get(a).trim())) {// 找出所有单元数据中的不为空单元<不包含类别列>
                                             // 验证所有数据单元的有效性
                                             if (a == 1) {// 验证[序号]是否正确<只能为正整数>
                                                 if (!DataUtils.isUInteger(data.get(a).trim())) {
-                                                    result.append("[序号:" + i + "]的[" + columnName[a - 1] + "]存在问题,不是正整数!<br/>");
+                                                    result.append("<label>[序号:" + i + "]的[" + columnName[a - 1] + "]存在问题,不是正整数!</label><br/>");
                                                 }
                                             }
                                             if (a >= 5 && a <= 15) {// 验证["销售数量", "销售金额", "退货数量", "退货金额", "赠送数量", "赠送金额", "数量小计", "金额小计", "参考进价", "进价金额", "参考利润"]列数据正确性
                                                 if (!DataUtils.isUFloat(data.get(a).trim())) {
-                                                    result.append("[序号:" + i + "]的[" + columnName[a - 1] + "]存在问题,不是正小数!<br/>");
+                                                    result.append("<label>[序号:" + i + "]的[" + columnName[a - 1] + "]存在问题,不是正小数!</label><br/>");
                                                 }
                                             }
                                         }
@@ -181,7 +181,7 @@ public class IndexController extends SimpController {
                                     excel.setIsort(DataUtils.toInteger(data.get(1).trim()));
                                     if (DataUtils.isNullOrEmpty(data.get(2).trim())) {// 类别列为空
                                         if (DataUtils.isNullOrEmpty(_category)) {// 记录类别也为空
-                                            result.append("[序号:" + j + "]的[" + columnName[2] + "]存在问题,不能为空!<br/>");
+                                            result.append("<label>[序号:" + j + "]的[" + columnName[2] + "]存在问题,不能为空!</label><br/>");
                                         }
                                     } else {// 类别列不为空
                                         _category = data.get(2).trim();
@@ -210,7 +210,7 @@ public class IndexController extends SimpController {
                     }
                 }
             } else {
-                result.append("上传的文档不是正确的【前台销售按商品汇总】文件!<br/>");
+                result.append("<label>上传的文档不是正确的【前台销售按商品汇总】文件!</label><br/>");
             }
             map.put(result.toString(), list);
         } catch (Exception e) {
