@@ -1,4 +1,6 @@
 package com.fb.test;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -33,5 +35,6 @@ public class Test {
         }*/
         System.out.println(DataUtils.isInteger("-1"));
         System.out.println(DataUtils.isUInteger("-1"));
+        System.out.println((new BigDecimal(1.161876832844575)).setScale(0, BigDecimal.ROUND_UP).doubleValue());
     }
 }

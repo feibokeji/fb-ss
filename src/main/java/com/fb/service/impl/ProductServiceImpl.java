@@ -45,5 +45,9 @@ public class ProductServiceImpl extends SimpServiceAbstract implements ProductSe
     public List<TProduct> getProductList() {
         return productDao.getProductList();
     }
+
+    public List<TProduct> getProductByName(String cname) {
+        return productDao.getProductByName(cname);
+    }
     
 }

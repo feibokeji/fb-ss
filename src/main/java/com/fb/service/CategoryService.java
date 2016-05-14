@@ -36,4 +36,12 @@ public interface CategoryService {
      * @author Liu bo
      */
     public List<TCategory> getCategoryList();
+    
+    /**
+     * 根据名称获取类别数据
+     * @param cname
+     * @return
+     * @author Liu bo
+     */
+    public TCategory getCategoryByName(String cname);
 }

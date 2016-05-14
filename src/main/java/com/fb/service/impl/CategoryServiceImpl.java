@@ -35,5 +35,9 @@ public class CategoryServiceImpl extends SimpServiceAbstract implements Category
     public List<TCategory> getCategoryList() {
         return categoryDao.getCategoryList();
     }
+
+    public TCategory getCategoryByName(String cname) {
+        return categoryDao.getCategoryByName(cname);
+    }
     
 }

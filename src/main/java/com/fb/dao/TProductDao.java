@@ -49,4 +49,12 @@ public interface TProductDao {
      * @author Liu bo
      */
     public List<TProduct> getProductList();
+    
+    /**
+     * 根据名称查询产品数据
+     * @param cname
+     * @return
+     * @author Liu bo
+     */
+    public List<TProduct> getProductByName(String cname);
 }

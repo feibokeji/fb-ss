@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fb.core.utils.DataUtils;
+import com.fb.core.utils.FormatUtils;
 import com.fb.domain.po.TModule;
+import com.fb.domain.po.TOrder;
 import com.fb.domain.po.TOrderProduct;
 import com.fb.util.PoiExcel2k3Helper;
 import com.fb.util.PoiExcel2k7Helper;
@@ -82,7 +84,15 @@ public class IndexController extends SimpController {
                             Map<String, List<TOrderProduct>> map = validationReadExcel(dataList, columnName);
                             for (String key : map.keySet()) {
                                 if (DataUtils.isNullOrEmpty(key)) {
-                                    result.put("success", printBody(map.get(key), columnName));
+                                    TOrder order = new TOrder();
+                                    order.setDordertime(FormatUtils.toDate(uploadTime));
+                                    order.setOrderProductDetailList(map.get(key));
+                                    boolean ok = getService().getOrderService().addOrderProduct(order, getSessionContainer().getUser(), this.createOperateLog());
+                                    if(ok){
+                                        result.put("success", printBody(map.get(key), columnName));
+                                    }else{
+                                        result.put("fail", "excel文件上传失败,请联系管理员!");
+                                    }
                                 } else {
                                     result.put("fail", key);
                                 }
