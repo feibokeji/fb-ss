@@ -51,4 +51,12 @@ public interface TMaterialDao {
      */
     public List<TMaterial> getMaterialByUProductId(String uproductid);
     
+    /**
+     * 获取物料库存数据
+     * @param material
+     * @return
+     * @author Liu bo
+     */
+    public List<TMaterial> getMaterialInventory(TMaterial material);
+    
 }

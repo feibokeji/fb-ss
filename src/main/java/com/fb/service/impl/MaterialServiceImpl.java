@@ -44,5 +44,9 @@ public class MaterialServiceImpl extends SimpServiceAbstract implements Material
     public List<TMaterial> getMaterialByUProductId(String uproductid) {
         return materialDao.getMaterialByUProductId(uproductid);
     }
+
+    public List<TMaterial> getMaterialInventory(TMaterial material) {
+        return materialDao.getMaterialInventory(material);
+    }
     
 }

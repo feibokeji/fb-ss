@@ -35,4 +35,12 @@ public interface TAccountOrderDetailDao {
      * @author Liu bo
      */
     public List<TAccountOrderDetail> getAccountOrderDetailByUAccountOrderId(String uaccountorderid);
+    
+    /**
+     * 删除财务单据明细
+     * @param uaccountorderid
+     * @return
+     * @author Liu bo
+     */
+    public int deleteAccountOrderDetailByUAccountOrderId(String uaccountorderid);
 }

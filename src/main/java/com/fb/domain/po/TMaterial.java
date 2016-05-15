@@ -57,10 +57,22 @@ public class TMaterial extends BaseDomain {
     private Double nprice;
     
     /**
-     * 数量
+     * 库存数量
      */
     @NotFieldMapper
     private Double nqty = 1.0;
+    
+    /**
+     * 销售数量
+     */
+    @NotFieldMapper
+    private Double nsqty = 0.0;
+    
+    /**
+     * 库存数量
+     */
+    @NotFieldMapper
+    private Double inventory = 0.0;
     
     /**
      * 获取 主键
@@ -188,6 +200,38 @@ public class TMaterial extends BaseDomain {
      */
     public void setUproductid(String uproductid) {
         this.uproductid = uproductid;
+    }
+    
+    /**
+     * 获取 销售数量
+     * @return nsqty
+     */
+    public Double getNsqty() {
+        return nsqty;
+    }
+    
+    /**
+     * 设置 销售数量
+     * @param nsqty 销售数量
+     */
+    public void setNsqty(Double nsqty) {
+        this.nsqty = nsqty;
+    }
+    
+    /**
+     * 获取 库存数量
+     * @return inventory
+     */
+    public Double getInventory() {
+        return (this.nqty == null ? 0.0 : this.nqty) - (this.nsqty == null ? 0.0 : this.nsqty);
+    }
+    
+    /**
+     * 设置 库存数量
+     * @param inventory 库存数量
+     */
+    public void setInventory(Double inventory) {
+        this.inventory = inventory;
     }
     
 }

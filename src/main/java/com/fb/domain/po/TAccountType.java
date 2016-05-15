@@ -12,7 +12,6 @@ import com.fb.core.base.persistence.TableMapper;
 @TableMapper("t_account_type")
 public class TAccountType extends BaseDomain {
     
-    
     /**
      * 
      */
@@ -25,14 +24,9 @@ public class TAccountType extends BaseDomain {
     private String uid;
     
     /**
-     * 父级类型主键
-     */
-    private String uparentid;
-    
-    /**
      * 类型代码
      */
-    private String ccode;
+    private String cno;
     
     /**
      * 类型名称
@@ -43,16 +37,6 @@ public class TAccountType extends BaseDomain {
      * 类型所属类别
      */
     private String ctype;
-    
-    /**
-     * 父级代码
-     */
-    private String cparent;
-    
-    /**
-     * 序号
-     */
-    private Integer isort;
     
     /**
      * 备注
@@ -76,35 +60,19 @@ public class TAccountType extends BaseDomain {
     }
     
     /**
-     * 获取 父级类型主键
-     * @return uparentid
-     */
-    public String getUparentid() {
-        return uparentid;
-    }
-    
-    /**
-     * 设置 父级类型主键
-     * @param uparentid 父级类型主键
-     */
-    public void setUparentid(String uparentid) {
-        this.uparentid = uparentid;
-    }
-    
-    /**
      * 获取 类型代码
-     * @return ccode
+     * @return cno
      */
-    public String getCcode() {
-        return ccode;
+    public String getCno() {
+        return cno;
     }
     
     /**
      * 设置 类型代码
-     * @param ccode 类型代码
+     * @param cno 类型代码
      */
-    public void setCcode(String ccode) {
-        this.ccode = ccode;
+    public void setCno(String cno) {
+        this.cno = cno;
     }
     
     /**
@@ -137,38 +105,6 @@ public class TAccountType extends BaseDomain {
      */
     public void setCtype(String ctype) {
         this.ctype = ctype;
-    }
-    
-    /**
-     * 获取 父级代码
-     * @return cparent
-     */
-    public String getCparent() {
-        return cparent;
-    }
-    
-    /**
-     * 设置 父级代码
-     * @param cparent 父级代码
-     */
-    public void setCparent(String cparent) {
-        this.cparent = cparent;
-    }
-    
-    /**
-     * 获取 序号
-     * @return isort
-     */
-    public Integer getIsort() {
-        return isort;
-    }
-    
-    /**
-     * 设置 序号
-     * @param isort 序号
-     */
-    public void setIsort(Integer isort) {
-        this.isort = isort;
     }
     
     /**

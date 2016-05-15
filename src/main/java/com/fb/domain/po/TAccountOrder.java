@@ -17,7 +17,6 @@ import com.fb.core.base.persistence.TableMapper;
 @TableMapper("t_account_order")
 public class TAccountOrder extends BaseDomain {
     
-    
     /**
      * 
      */
@@ -35,6 +34,11 @@ public class TAccountOrder extends BaseDomain {
     private String ccode;
     
     /**
+     * 名称
+     */
+    private String cname;
+    
+    /**
      * 单据类别
      */
     private String ctype;
@@ -43,6 +47,12 @@ public class TAccountOrder extends BaseDomain {
      * 单据类别的类型
      */
     private String uaccounttypeid;
+    
+    /**
+     * 单据类别的类型名称
+     */
+    @NotFieldMapper
+    private String caccounttypename;
     
     /**
      * 公司主键
@@ -58,6 +68,12 @@ public class TAccountOrder extends BaseDomain {
      * 用户主键
      */
     private String uuserid;
+    
+    /**
+     * 用户名称
+     */
+    @NotFieldMapper
+    private String cusername;
     
     /**
      * 备注
@@ -339,6 +355,54 @@ public class TAccountOrder extends BaseDomain {
      */
     public void setAccountOrderDetailList(List<TAccountOrderDetail> accountOrderDetailList) {
         this.accountOrderDetailList = accountOrderDetailList;
+    }
+    
+    /**
+     * 获取 单据类别的类型名称
+     * @return caccounttypename
+     */
+    public String getCaccounttypename() {
+        return caccounttypename;
+    }
+    
+    /**
+     * 设置 单据类别的类型名称
+     * @param caccounttypename 单据类别的类型名称
+     */
+    public void setCaccounttypename(String caccounttypename) {
+        this.caccounttypename = caccounttypename;
+    }
+    
+    /**
+     * 获取 用户名称
+     * @return cusername
+     */
+    public String getCusername() {
+        return cusername;
+    }
+    
+    /**
+     * 设置 用户名称
+     * @param cusername 用户名称
+     */
+    public void setCusername(String cusername) {
+        this.cusername = cusername;
+    }
+    
+    /**
+     * 获取 名称
+     * @return cname
+     */
+    public String getCname() {
+        return cname;
+    }
+    
+    /**
+     * 设置 名称
+     * @param cname 名称
+     */
+    public void setCname(String cname) {
+        this.cname = cname;
     }
     
 }

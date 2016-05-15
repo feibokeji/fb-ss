@@ -20,7 +20,8 @@ public class TOrderProductDaoImpl extends SimpMapper<TOrderProduct>implements TO
     }
     
     public int deleteOrderProductByUOrderId(String uorderid) {
-        return super.delete("uorderid", uorderid);
+        String sql = "delete from t_order_product where uorderid = :uorderid";
+        return execute(sql, new QMap("uorderid", uorderid));
     }
     
     public int updateOrderProduct(TOrderProduct orderProduct) {

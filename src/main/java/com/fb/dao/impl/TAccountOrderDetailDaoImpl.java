@@ -14,8 +14,7 @@ import com.fb.domain.po.TAccountOrderDetail;
  * @author Liu bo
  */
 @Service
-public class TAccountOrderDetailDaoImpl extends SimpMapper<TAccountOrderDetail> implements TAccountOrderDetailDao {
-    
+public class TAccountOrderDetailDaoImpl extends SimpMapper<TAccountOrderDetail>implements TAccountOrderDetailDao {
     
     public int addAccountOrderDetail(TAccountOrderDetail accountOrderDetail) {
         return this.save(accountOrderDetail);
@@ -24,10 +23,15 @@ public class TAccountOrderDetailDaoImpl extends SimpMapper<TAccountOrderDetail> 
     public int updateAccountOrderDetail(TAccountOrderDetail accountOrderDetail) {
         return this.update(accountOrderDetail);
     }
-
+    
     public List<TAccountOrderDetail> getAccountOrderDetailByUAccountOrderId(String uaccountorderid) {
         String sql = "select * from t_account_order_detail t where t.uaccountorderid = :uaccountorderid order by t.isort asc";
-        return findList(sql, new QMap("uaccountorderid",uaccountorderid));
+        return findList(sql, new QMap("uaccountorderid", uaccountorderid));
+    }
+    
+    public int deleteAccountOrderDetailByUAccountOrderId(String uaccountorderid) {
+        String sql = "delete from t_account_order_detail where uaccountorderid = :uaccountorderid";
+        return super.execute(sql, new QMap("uaccountorderid", uaccountorderid));
     }
     
 }

@@ -38,6 +38,11 @@ a{text-decoration: none;}
 .add-table{width: 99%;border:1px solid #bbbbbb;border-collapse: collapse;margin: 0 auto;line-height: 40px;margin-top: 5px;}
 .add-table tr th{border: 1px solid #bbbbbb;text-align: right;background: #ececec;}
 .add-table tr td{border:1px solid #bbbbbb;}
+/*单据表格样式*/
+.order-table{width: 99%;border:1px solid #bbbbbb;border-collapse: collapse;margin: 0 auto;line-height: 30px;background-color: #eaf2fe;}
+.order-table tr th{border-bottom: 1px solid #bbbbbb;text-align:center;}
+/* .order-table tr td{border:1px solid #bbbbbb;} */
+/* .order-table tr td input{height: 30px;} */
 /*左侧菜单样式*/
 .m-ul li{line-height: 24px;border-bottom: 1px dashed #e1e1e1;text-align: left;}
 .m-ul li img{margin-left: 20px;}

@@ -142,12 +142,9 @@ alter table t_user add constraint t_user_pk	primary key (uid);
 ----------------------------------------------------------
 CREATE TABLE [dbo].[t_account_type](
 	[uid] [uniqueidentifier] NOT NULL,
-	[uparentid] [uniqueidentifier] NULL,
-	[ccode] [varchar](30) NOT NULL,
+	[cno] [varchar](30) NOT NULL,
 	[cname] [varchar](30) NOT NULL,
 	[ctype] [varchar](30) NOT NULL,
-	[cparent] [varchar](30) NULL,
-	[isort] [int] NOT NULL,
 	[cmemo] [varchar](100) NULL
 ) ON [PRIMARY]
 alter table t_account_type add constraint t_account_type_pk	primary key (uid);
@@ -155,6 +152,7 @@ alter table t_account_type add constraint t_account_type_pk	primary key (uid);
 CREATE TABLE [dbo].[t_account_order](
 	[uid] [uniqueidentifier] NOT NULL,
 	[ccode] [varchar](30) NOT NULL,
+	[cname] [varchar](100) NOT NULL,
 	[ctype] [varchar](30) NOT NULL,
 	[uaccounttypeid] [uniqueidentifier] NULL,
 	[ucorpid] [uniqueidentifier] NOT NULL,

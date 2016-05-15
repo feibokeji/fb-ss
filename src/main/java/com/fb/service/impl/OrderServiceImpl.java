@@ -51,7 +51,7 @@ public class OrderServiceImpl extends SimpServiceAbstract implements OrderServic
     @Transactional
     public synchronized boolean addOrderMaterial(TOrder order, TUser user, TOperateLog log) {
         order.setUid(DataUtils.newUUID());
-        String cno = FormatUtils.formatDate(order.getDordertime(), "yyyyMMdd") + FormatUtils.formatDate(new Date(), "HHmmss");
+        String cno = FormatUtils.formatDate(order.getDordertime(), "yyyy-MM-dd") + "-" + FormatUtils.formatDate(new Date(), "HH-mm-ss");
         order.setCno(cno);
         order.setCtype("00");
         order.setDcreatetime(new Date());
@@ -122,7 +122,7 @@ public class OrderServiceImpl extends SimpServiceAbstract implements OrderServic
     @Transactional
     public synchronized boolean addOrderProduct(TOrder order, TUser user, TOperateLog log) {
         order.setUid(DataUtils.newUUID());
-        order.setCno(FormatUtils.formatDate(new Date(), "yyyyMMddHHmmss"));
+        order.setCno(FormatUtils.formatDate(new Date(), "yyyy-MM-dd-HH-mm-ss"));
         order.setUuserid(user.getUid());
         order.setCusername(user.getCname());
         order.setCtype("01");
@@ -239,6 +239,8 @@ public class OrderServiceImpl extends SimpServiceAbstract implements OrderServic
     
     @Transactional
     public synchronized int deleteOrder(String uid) {
+        orderMaterialDao.deleteOrderMaterialByUOrderId(uid);
+        orderProductDao.deleteOrderProductByUOrderId(uid);
         return orderDao.deleteOrder(uid);
     }
     

@@ -54,11 +54,14 @@
 			<div title="可爱雪账务" class="l-scroll">
 				<ul class="m-ul">
 					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowAccounting','可爱雪-账务类型','${contextPath }/bpr/lovelysnow/accountType')">账务类型</a></li>
-					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowDisbursement','可爱雪-支出单','${contextPath }/bpr/lovelysnow/lovelysnowDisbursement')">支出单</a></li>
-					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowIncome','可爱雪-收入单','${contextPath }/bpr/lovelysnow/lovelysnowIncome')">收入单</a></li>
-					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowBorrowing','可爱雪-借款单','${contextPath }/bpr/lovelysnow/lovelysnowBorrowing')">借款单</a></li>
-					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowInvestment','可爱雪-投资单','${contextPath }/bpr/lovelysnow/lovelysnowInvestment')">投资单</a></li>
-					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowLoss','可爱雪-报损单','${contextPath }/bpr/lovelysnow/lovelysnowLoss')">报损单</a></li>
+					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowDisbursement','可爱雪-支出单','${contextPath }/bpr/lovelysnow/accountOrder?ctype=支出')">支出单</a></li>
+					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowIncome','可爱雪-收入单','${contextPath }/bpr/lovelysnow/accountOrder?ctype=收入')">收入单</a></li>
+					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowBorrowing','可爱雪-借款单','${contextPath }/bpr/lovelysnow/accountOrder?ctype=借款')">借款单</a></li>
+					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowInvestment','可爱雪-投资单','${contextPath }/bpr/lovelysnow/accountOrder?ctype=投资')">投资单</a></li>
+				</ul>
+			</div>
+			<div title="可爱雪报表" class="l-scroll">
+				<ul class="m-ul">
 				</ul>
 			</div>
 		</div>

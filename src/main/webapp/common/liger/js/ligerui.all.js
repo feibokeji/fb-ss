@@ -10725,7 +10725,7 @@
             }
         },
         _searchData: function (data, clause)
-        {
+        { 
             var g = this, p = this.options;
             var newData = new Array();
             for (var i = 0; i < data.length; i++)

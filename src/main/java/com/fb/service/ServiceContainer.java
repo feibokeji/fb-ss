@@ -108,6 +108,24 @@ public class ServiceContainer {
     private OrderProductService orderProductService;
     
     /**
+     * 财务类型
+     */
+    @Autowired
+    private AccountTypeService accountTypeService;
+    
+    /**
+     * 财务单据
+     */
+    @Autowired
+    private AccountOrderService accountOrderService;
+    
+    /**
+     * 财务单据明细
+     */
+    @Autowired
+    private AccountOrderDetailService accountOrderDetailService;
+    
+    /**
      * 获取 登录操作控制
      * @return loginService
      */
@@ -233,6 +251,30 @@ public class ServiceContainer {
      */
     public OrderProductService getOrderProductService() {
         return orderProductService;
+    }
+    
+    /**
+     * 获取 财务类型
+     * @return accountTypeService
+     */
+    public AccountTypeService getAccountTypeService() {
+        return accountTypeService;
+    }
+    
+    /**
+     * 获取 财务单据
+     * @return accountOrderService
+     */
+    public AccountOrderService getAccountOrderService() {
+        return accountOrderService;
+    }
+    
+    /**
+     * 获取 财务单据明细
+     * @return accountOrderDetailService
+     */
+    public AccountOrderDetailService getAccountOrderDetailService() {
+        return accountOrderDetailService;
     }
     
 }

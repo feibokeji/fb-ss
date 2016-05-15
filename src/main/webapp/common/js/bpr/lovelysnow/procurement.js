@@ -7,7 +7,7 @@ var actionNodeID = null;
 var lineNumber = 1;
 $(function(){
 	//页面布局
-	$("#layout1").ligerLayout({ leftWidth: 220});
+	$("#layout1").ligerLayout({ leftWidth: 240});
 	//左侧树形数据
 	menu1 = $.ligerMenu({//未审核单据右键菜单 
 		top: 100,
@@ -181,8 +181,52 @@ function f_Modify(item,i){
 function f_View(item,i){
 	window.location.href = contextPath + "/bpr/lovelysnow/procurement?type=view&uid="+actionNodeID;
 }
+/**
+ * 新增
+ */
 function openAdd(){
 	window.location.href = contextPath + "/bpr/lovelysnow/procurement?type=add";
+}
+/**
+ * 删除订单
+ */
+function f_Delete(uid){
+	$.ligerDialog.confirm("确定要删除吗？",function(yes){
+		if(yes){
+			if(_delete(uid)){
+				$.ligerDialog.success("删除成功!");
+				openAdd();
+			}
+			else
+				$.ligerDialog.error("删除失败!");
+		}
+	});
+}
+/**
+ * 删除方法
+ * @param uid
+ * @param cstatus
+ * @returns {Boolean}
+ */
+function _delete(uid){
+	var result = false;
+	var waitting;
+	$.ajax({
+		type:"post",
+		async:false,
+		cache:false,
+		url:contextPath+"/bpr/lovelysnow/deleteOrder",
+		data:{'uid':uid},
+		dataType:"html",
+		beforeSend:function(){
+			waitting = $.ligerDialog.waitting('删除数据中,请稍候...');
+		},
+		success:function(data){
+			waitting.close();
+			result = data;
+		}
+	});
+	return result;
 }
 /**
  * 提交产品类别新增/修改表单

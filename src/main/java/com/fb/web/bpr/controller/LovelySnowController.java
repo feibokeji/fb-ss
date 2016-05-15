@@ -19,6 +19,7 @@ import com.fb.domain.po.TCategory;
 import com.fb.domain.po.TMaterial;
 import com.fb.domain.po.TOrder;
 import com.fb.domain.po.TOrderMaterial;
+import com.fb.domain.po.TOrderProduct;
 import com.fb.domain.po.TProduct;
 import com.fb.domain.vo.Tree;
 import com.fb.web.SimpController;
@@ -95,7 +96,15 @@ public class LovelySnowController extends SimpController {
      * @author Liu bo
      */
     @RequestMapping("productSell")
-    public String productSell() {
+    public String productSell(String uid, ModelMap map) {
+        TOrder order = new TOrder();
+        List<TOrderProduct> list = new ArrayList<TOrderProduct>();
+        if (DataUtils.isUid(uid)) {
+            order = getService().getOrderService().getOrder(uid);
+            list = getService().getOrderProductService().getOrderProductList(uid);
+        }
+        map.put("order", order);
+        map.put("list", list);
         return customPage();
     }
     
@@ -145,6 +154,13 @@ public class LovelySnowController extends SimpController {
         return _jsonObject.toString();
     }
     
+    /**
+     * 保存产品物料关系数据
+     * @param uproductid
+     * @param umaterialids
+     * @return
+     * @author Liu bo
+     */
     @RequestMapping("saveProductMaterial")
     @ResponseBody
     public String saveProductMaterial(String uproductid, String umaterialids) {
@@ -369,6 +385,26 @@ public class LovelySnowController extends SimpController {
     }
     
     /**
+     * 删除订单数据
+     * @param uid
+     * @return
+     * @author Liu bo
+     */
+    @RequestMapping("deleteOrder")
+    @ResponseBody
+    public String deleteOrder(String uid) {
+        if (DataUtils.isUid(uid)) {
+            int count = getService().getOrderService().deleteOrder(uid);
+            if (count > 0) {
+                addOperateLog("删除", "t_order", uid, null, null, null, "删除订单数据成功");
+                return "success";
+            } else
+                return "fail";
+        }
+        return "fail";
+    }
+    
+    /**
      * 获取物料订单分组tree
      * @return
      * @author Liu bo
@@ -377,6 +413,32 @@ public class LovelySnowController extends SimpController {
     @ResponseBody
     public String getOrderMaterialGroup(TOrder order) {
         order.setCtype("00");
+        List<Tree> treeList = getOrderTree(order);
+        JSONArray arry = JSONArray.fromObject(treeList);
+        return arry.toString();
+    }
+    
+    /**
+     * 获取产品订单分组tree
+     * @return
+     * @author Liu bo
+     */
+    @RequestMapping("getOrderProductGroup")
+    @ResponseBody
+    public String getOrderProductGroup(TOrder order) {
+        order.setCtype("01");// 产品销售订单
+        List<Tree> treeList = getOrderTree(order);
+        JSONArray arry = JSONArray.fromObject(treeList);
+        return arry.toString();
+    }
+    
+    /**
+     * 获取订单树形数据
+     * @param order
+     * @return
+     * @author Liu bo
+     */
+    private List<Tree> getOrderTree(TOrder order) {
         List<TOrder> list = getService().getOrderService().getOrderList(order);
         Map<String, List<TOrder>> map = new TreeMap<String, List<TOrder>>(new Comparator<String>() {
             
@@ -415,8 +477,7 @@ public class LovelySnowController extends SimpController {
                 treeList.add(e);
             }
         }
-        JSONArray arry = JSONArray.fromObject(treeList);
-        return arry.toString();
+        return treeList;
     }
     
     /**
@@ -495,5 +556,31 @@ public class LovelySnowController extends SimpController {
                 return false;
         }
         return false;
+    }
+    
+    /**
+     * 物料库存
+     * @return
+     * @author Liu bo
+     */
+    @RequestMapping("materialInventory")
+    public String materialInventory() {
+        return customPage();
+    }
+    
+    /**
+     * 获取物料库存分页数据
+     * @return
+     * @author Liu bo
+     */
+    @RequestMapping("listMaterialInventory")
+    @ResponseBody
+    public JSONObject listMaterialInventory() {
+        List<TMaterial> list = getService().getMaterialService().getMaterialInventory(null);
+        Map<Object, Object> map = new HashMap<Object, Object>();
+        map.put("Rows", list);
+        map.put("Total", list.size());
+        JSONObject _jsonObject = JSONObject.fromObject(map);
+        return _jsonObject;
     }
 }

@@ -41,5 +41,15 @@ public class TMaterialDaoImpl extends SimpMapper<TMaterial>implements TMaterialD
         sql.append(" from t_material t order by t.cno");
         return findList(sql, new QMap("uproductid",uproductid));
     }
+
+    public List<TMaterial> getMaterialInventory(TMaterial material) {
+        StringBuilder sql = new StringBuilder();
+        sql.append("select t.uid,t.cno,t.cname,t.cspecifications,t.nprice,");
+        sql.append("(select sum(om.nqty) from t_order_material om where om.umaterialid = t.uid and om.uorderid in (select o.uid from t_order o where o.uid = om.uorderid and o.ctype = '00' and o.cstatus = '01')) as nqty,");
+        sql.append("(select sum(op.nqtysubtotal) from t_order_product op where op.uproductid in (select pm.uproductid from t_product_material pm where pm.umaterialid = t.uid and pm.uproductid = op.uproductid) and op.uorderid in (select o.uid from t_order o where o.uid = op.uorderid and o.ctype = '01' and o.cstatus = '01')) as nsqty");
+        sql.append(" from t_material t where 1 = 1 ");
+        sql.append(" order by t.cno");
+        return findList(sql, null);
+    }
     
 }

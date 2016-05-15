@@ -50,7 +50,7 @@
 	        				<td align="right" width="60px">操作人：</td>
 	        				<td align="left" width="100px"><label style="border-bottom: 1px solid #bbbbbb;">&nbsp;&nbsp;&nbsp;${user.cname }&nbsp;&nbsp;&nbsp;</label></td>
 	        				<td align="right" width="60px"><c:if test="${type eq 'modify'}">编码：</c:if></td>
-	        				<td align="left" width="100px"><c:if test="${type eq 'modify'}"><label style="border-bottom: 1px solid #bbbbbb;">${order.cno }</label></c:if></td>
+	        				<td align="left" width="200px"><c:if test="${type eq 'modify'}"><label style="border-bottom: 1px solid #bbbbbb;">${order.cno }</label></c:if></td>
 	        				<td></td>
 	        				<td></td>
 	        				<td></td>
@@ -145,7 +145,7 @@
 	        				<td align="right" width="60px">操作人：</td>
 	        				<td align="left" width="100px"><label style="border-bottom: 1px solid #bbbbbb;">&nbsp;&nbsp;&nbsp;${user.cname }&nbsp;&nbsp;&nbsp;</label></td>
 	        				<td align="right" width="60px">编号：</td>
-	        				<td align="left" width="100px"><label style="border-bottom: 1px solid #bbbbbb;">${order.cno }</label></td>
+	        				<td align="left" width="200px"><label style="border-bottom: 1px solid #bbbbbb;">${order.cno }</label></td>
 	        				<td><input type="hidden" id="v_h_cstatus" value="${order.cstatus }"/></td>
 	        				<td></td>
 	        				<td></td>
@@ -207,6 +207,7 @@
 	        				<td colspan="11" align="center">
 	        					<c:if test="${order.cstatus eq '00'}">
 	        						<input type="button" style="margin-top: 20px;margin-bottom: 20px;margin-right: 20px;" value="审核" class="l-button" onclick="f_v_audit('${order.uid}')"/>
+	        						<input type="button" style="margin-top: 20px;margin-bottom: 20px;margin-right: 20px;" value="删除" class="l-button" onclick="f_Delete('${order.uid}')"/>
 	        					</c:if>
 	        					<c:if test="${order.cstatus eq '01'}">
 	        						<input type="button" style="margin-top: 20px;margin-bottom: 20px;margin-right: 20px;" value="反审核" class="l-button" onclick="f_v_not_audit('${order.uid}')"/>

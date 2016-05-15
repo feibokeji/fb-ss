@@ -3,6 +3,7 @@ package com.fb.dao;
 import java.util.List;
 
 import com.fb.domain.po.TAccountType;
+import com.fb.domain.vo.Combobox;
 
 /**
  * 账务类型
@@ -41,4 +42,20 @@ public interface TAccountTypeDao {
      * @author Liu bo
      */
     public List<TAccountType> getAccountTypeList();
+    
+    /**
+     * 获取下拉列表数据
+     * @param ctype
+     * @return
+     * @author Liu bo
+     */
+    public List<Combobox> getCombobox(String ctype);
+    
+    /**
+     * 删除财务类型
+     * @param uid
+     * @return
+     * @author Liu bo
+     */
+    public int deleteAccountType(String uid);
 }
