@@ -44,6 +44,7 @@
 					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('moduleGroupInfo','功能模块组','${contextPath }/bpr/moduleGroup/list')">功能模块组</a></li>
 					<%-- <li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('companyList','公司列表','http://www.baidu.com')">公司列表</a></li> --%>
 					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('userList','账户列表','${contextPath }/bpr/user/list')">账户列表</a></li>
+					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('roleList','角色列表','${contextPath }/bpr/role/list')">角色列表</a></li>
 					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('logInfo','日志管理','${contextPath }/bpr/log/list')">日志管理</a></li>
 				</ul>
 			</div>
