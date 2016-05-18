@@ -35,9 +35,10 @@ a{text-decoration: none;}
 .search-table-tr-td-label{text-align: right;font-weight: bold;}
 .l-select{width: 200px;}
 /*新增表格样式*/
-.add-table{width: 99%;border:1px solid #bbbbbb;border-collapse: collapse;margin: 0 auto;line-height: 40px;margin-top: 5px;}
+.add-table{width: 99%;border:1px solid #bbbbbb;border-collapse: collapse;margin: 0 auto;line-height: 20px;margin-top: 5px;}
 .add-table tr th{border: 1px solid #bbbbbb;text-align: right;background: #ececec;}
 .add-table tr td{border:1px solid #bbbbbb;}
+.add-table tr input{border:none;}
 /*单据表格样式*/
 .order-table{width: 99%;border:1px solid #bbbbbb;border-collapse: collapse;margin: 0 auto;line-height: 30px;background-color: #eaf2fe;}
 .order-table tr th{border-bottom: 1px solid #bbbbbb;text-align:center;}

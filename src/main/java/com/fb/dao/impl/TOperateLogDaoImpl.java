@@ -20,7 +20,7 @@ public class TOperateLogDaoImpl extends SimpMapper<TOperateLog>implements TOpera
     }
     
     public List<TOperateLog> getOperateLogList() {
-        String sql = "select t.uid,t.ctype,t.doperatetime,t.uuserid,(select u.cname from t_user u where u.uid = t.uuserid) as cusername,t.coperateip,t.coperateurl,t.clinktable,t.ulinktableid,t.cstatus,t.cchoice,t.ccancel,t.cmemo  from t_operate_log t";
+        String sql = "select t.uid,t.ctype,t.doperatetime,t.uuserid,(select u.cname from t_user u where u.uid = t.uuserid) as cusername,t.coperateip,t.coperateurl,t.clinktable,t.ulinktableid,t.cstatus,t.cchoice,t.ccancel,t.cmemo  from t_operate_log t order by t.doperatetime desc";
         return findList(sql, null);
     }
     

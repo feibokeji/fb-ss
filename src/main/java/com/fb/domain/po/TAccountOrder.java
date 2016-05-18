@@ -55,6 +55,17 @@ public class TAccountOrder extends BaseDomain {
     private String caccounttypename;
     
     /**
+     * 账户外键
+     */
+    private String uaccountid;
+    
+    /**
+     * 账户名
+     */
+    @NotFieldMapper
+    private String caccountname;
+    
+    /**
      * 公司主键
      */
     private String ucorpid;
@@ -86,6 +97,12 @@ public class TAccountOrder extends BaseDomain {
     private Date dcreatetime;
     
     /**
+     * 创建时间的字符串
+     */
+    @NotFieldMapper
+    private String ccreatetime;
+    
+    /**
      * 更新时间
      */
     private Date dupdatetime;
@@ -113,8 +130,15 @@ public class TAccountOrder extends BaseDomain {
     private String endTime;
     
     /**
+     * 金额
+     */
+    @NotFieldMapper
+    private Double namount;
+    
+    /**
      * 单据明细列表
      */
+    @NotFieldMapper
     private List<TAccountOrderDetail> accountOrderDetailList = new ArrayList<TAccountOrderDetail>();
     
     /**
@@ -403,6 +427,62 @@ public class TAccountOrder extends BaseDomain {
      */
     public void setCname(String cname) {
         this.cname = cname;
+    }
+    
+    public String getCcreatetime() {
+        return ccreatetime;
+    }
+    
+    public void setCcreatetime(String ccreatetime) {
+        this.ccreatetime = ccreatetime;
+    }
+    
+    /**
+     * 获取 金额
+     * @return namount
+     */
+    public Double getNamount() {
+        return namount;
+    }
+    
+    /**
+     * 设置 金额
+     * @param namount 金额
+     */
+    public void setNamount(Double namount) {
+        this.namount = namount;
+    }
+    
+    /**
+     * 获取 账户外键
+     * @return uaccountid
+     */
+    public String getUaccountid() {
+        return uaccountid;
+    }
+    
+    /**
+     * 设置 账户外键
+     * @param uaccountid 账户外键
+     */
+    public void setUaccountid(String uaccountid) {
+        this.uaccountid = uaccountid;
+    }
+    
+    /**
+     * 获取 账户名
+     * @return caccountname
+     */
+    public String getCaccountname() {
+        return caccountname;
+    }
+    
+    /**
+     * 设置 账户名
+     * @param caccountname 账户名
+     */
+    public void setCaccountname(String caccountname) {
+        this.caccountname = caccountname;
     }
     
 }

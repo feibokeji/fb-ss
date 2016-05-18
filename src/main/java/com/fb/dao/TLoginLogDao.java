@@ -1,5 +1,7 @@
 package com.fb.dao;
 
+import java.util.List;
+
 import com.fb.domain.po.TLoginLog;
 
 /**
@@ -16,4 +18,11 @@ public interface TLoginLogDao {
      * @author Liu bo
      */
     public int addLoginLog(TLoginLog loginLog);
+    
+    /**
+     * 登录日志列表
+     * @return
+     * @author Liu bo
+     */
+    public List<TLoginLog> getLoginLogList();
 }

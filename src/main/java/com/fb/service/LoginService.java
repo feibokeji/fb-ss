@@ -30,7 +30,7 @@ public interface LoginService {
      */
     public Map<String, Object> login(String code, String password, String verifycodeInSession, String verifyCode, RoleContainer container, Map<String, Object> loginResulteMsg, TLoginLog log,
                                      Integer errorcount);
-    
+                                     
     /**
      * 加载角色功能模块
      * @param roleContainer
@@ -45,4 +45,11 @@ public interface LoginService {
      * @author Liu bo
      */
     public int addLoginLog(TLoginLog loginLog);
+    
+    /**
+     * 登录日志列表
+     * @return
+     * @author Liu bo
+     */
+    public List<TLoginLog> getLoginLogList();
 }

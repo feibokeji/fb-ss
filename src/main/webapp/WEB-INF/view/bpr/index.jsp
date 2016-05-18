@@ -20,25 +20,31 @@
 		<div class="l-topmenu-logo"><img src="${contextPath }/common/images/logo.png"></img>&nbsp;&nbsp;飞博科技管理平台</div>
 		<div class="l-topmenu-welcome">
 			<span class="space">[${sessionContainer.user.cname}]您好！欢迎来到飞博科技!</span>
+			<a href="javascript:f_User_Info()" class="l-link2">账户信息</a>
+			<a href="javascript:f_Mode_Password()" class="l-link2">修改密码</a>
 			<a href="javascript:logout()" class="l-link2">退出</a>
 		</div>
 	</div>
+	<div id="modifyPasswordDiv" style="display:none;">
+		<input type="hidden" id="uid" value="${sessionContainer.user.uid }"/>
+		新&nbsp;&nbsp;密&nbsp;码:<input type="password" id="password1"/><br/><br/>
+		确认密码:<input type="password" id="password2"/>
+	</div>
 	<div id="layout1" style="width: 99.2%; margin: 0 auto; margin-top: 4px;">
 		<div position="left" title="菜单" id="accordion1">
-			<div title="基础信息" class="l-scroll">
+			<%-- <div title="基础信息" class="l-scroll">
 				<ul class="m-ul">
 					<li><t:module code="COMPANYVIEW"><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('companyInfo','公司信息','http://www.baidu.com')">公司信息</a></t:module></li>
-					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('userInfo','账户信息','http://www.baidu.com')">账户信息</a></li>
-					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('updatePassword','修改密码','http://www.baidu.com')">修改密码</a></li>
+					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('userInfo','账户信息','${contextPath }/bpr/user/detail')">账户信息</a></li>
 				</ul>
-			</div>
+			</div> --%>
 			<div title="系统管理" class="l-scroll">
 				<ul class="m-ul">
 					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('moduleInfo','功能模块','${contextPath }/bpr/module/list')">功能模块</a></li>
-					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('moduleGroupInfo','功能模块组','http://www.baidu.com')">功能模块组</a></li>
-					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('companyList','公司列表','http://www.baidu.com')">公司列表</a></li>
-					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('userList','账户列表','http://www.baidu.com')">账户列表</a></li>
-					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('logInfo','日志管理','http://www.baidu.com')">日志管理</a></li>
+					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('moduleGroupInfo','功能模块组','${contextPath }/bpr/moduleGroup/list')">功能模块组</a></li>
+					<%-- <li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('companyList','公司列表','http://www.baidu.com')">公司列表</a></li> --%>
+					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('userList','账户列表','${contextPath }/bpr/user/list')">账户列表</a></li>
+					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('logInfo','日志管理','${contextPath }/bpr/log/list')">日志管理</a></li>
 				</ul>
 			</div>
 			<div title="可爱雪门店" class="l-scroll">
@@ -53,10 +59,10 @@
 			</div>
 			<div title="可爱雪账务" class="l-scroll">
 				<ul class="m-ul">
-					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowAccounting','可爱雪-账务类型','${contextPath }/bpr/lovelysnow/accountType')">账务类型</a></li>
+					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowAccount','可爱雪-账户','${contextPath }/bpr/lovelysnow/account')">账户</a></li>
+					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowAccountType','可爱雪-账务类型','${contextPath }/bpr/lovelysnow/accountType')">账务类型</a></li>
 					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowDisbursement','可爱雪-支出单','${contextPath }/bpr/lovelysnow/accountOrder?ctype=支出')">支出单</a></li>
 					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowIncome','可爱雪-收入单','${contextPath }/bpr/lovelysnow/accountOrder?ctype=收入')">收入单</a></li>
-					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowBorrowing','可爱雪-借款单','${contextPath }/bpr/lovelysnow/accountOrder?ctype=借款')">借款单</a></li>
 					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowInvestment','可爱雪-投资单','${contextPath }/bpr/lovelysnow/accountOrder?ctype=投资')">投资单</a></li>
 				</ul>
 			</div>

@@ -25,4 +25,9 @@ public class TModuleGroupModuleDaoImpl extends SimpMapper<TModuleGroupModule>imp
 		return getInt(sql, new QMap("umoduleid",umoduleid));
 	}
 
+    public int getModuleGroupModuleCountByUModuleGroupId(String umodulegroupid) {
+        String sql = "select count(*) from t_module_group_module where umodulegroupid = :umodulegroupid";
+        return getInt(sql, new QMap("umodulegroupid",umodulegroupid));
+    }
+
 }

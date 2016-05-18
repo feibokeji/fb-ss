@@ -136,5 +136,9 @@ public class LoginServiceImpl extends SimpServiceAbstract implements LoginServic
     public int addLoginLog(TLoginLog loginLog) {
         return loginLogDao.addLoginLog(loginLog);
     }
+
+    public List<TLoginLog> getLoginLogList() {
+        return loginLogDao.getLoginLogList();
+    }
     
 }

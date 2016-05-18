@@ -279,4 +279,20 @@ public class TOperateLog extends BaseDomain {
         this.coperateip = coperateip;
     }
     
+    /**
+     * 获取 操作人名称
+     * @return cusername
+     */
+    public String getCusername() {
+        return cusername;
+    }
+    
+    /**
+     * 设置 操作人名称
+     * @param cusername 操作人名称
+     */
+    public void setCusername(String cusername) {
+        this.cusername = cusername;
+    }
+    
 }

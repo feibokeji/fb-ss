@@ -130,7 +130,7 @@ public class OrderServiceImpl extends SimpServiceAbstract implements OrderServic
         order.setDcreatetime(new Date());
         order.setDupdatetime(new Date());
         
-        log.setCtype("00");
+        log.setCtype("新增");
         log.setClinktable("t_order");
         log.setUlinktableid(order.getUid());
         log.setCstatus("00");

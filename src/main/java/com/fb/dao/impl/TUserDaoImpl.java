@@ -1,5 +1,7 @@
 package com.fb.dao.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.fb.core.utils.QMap;
@@ -18,6 +20,23 @@ public class TUserDaoImpl extends SimpMapper<TUser> implements TUserDao {
         String sql = "update t_user set cpassword = :cpassword where uid = :uid";
         QMap map = new QMap("cpassword", password, "uid", uid);
         return execute(sql, map);
+    }
+
+    public int modify(TUser user) {
+        return super.update(user);
+    }
+
+    public List<TUser> getUserList() {
+        String sql = "select * from t_user";
+        return super.findList(sql, null);
+    }
+
+    public TUser getUser(String uid) {
+        return super.get(uid);
+    }
+
+    public int add(TUser user) {
+        return super.save(user);
     }
     
 }

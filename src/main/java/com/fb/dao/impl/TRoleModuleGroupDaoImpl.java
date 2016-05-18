@@ -20,4 +20,9 @@ public class TRoleModuleGroupDaoImpl extends SimpMapper<TRoleModuleGroup>impleme
 		return findList(sql, new QMap("uroleid", uroleid));
 	}
 
+    public int getRoleModuleGroupCountByURoleId(String uroleid) {
+        String sql = "select count(*) from t_role_module_group where uroleid = :uroleid";
+        return super.getInt(sql, null);
+    }
+
 }

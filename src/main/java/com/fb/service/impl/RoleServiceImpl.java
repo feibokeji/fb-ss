@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.fb.dao.TModuleGroupModuleDao;
 import com.fb.dao.TRoleDao;
@@ -37,5 +38,27 @@ public class RoleServiceImpl extends SimpServiceAbstract implements RoleService 
 	public List<TModuleGroupModule> getModuleGroupModuleByModuleGroupId(String umodulegroupid) {
 		return moduleGroupModuleDao.getModuleGroupModuleByModuleGroupId(umodulegroupid);
 	}
+
+    public int getRoleModuleGroupCountByURoleId(String uroleid) {
+        return roleModuleGroupDao.getRoleModuleGroupCountByURoleId(uroleid);
+    }
+    
+    @Transactional
+    public int delete(String uid) {
+        return roleDao.delete(uid);
+    }
+    
+    @Transactional
+    public int modify(TRole role) {
+        return roleDao.modify(role);
+    }
+
+    public List<TRole> getRoleList() {
+        return roleDao.getRoleList();
+    }
+
+    public int addRole(TRole role) {
+        return roleDao.addRole(role);
+    }
 
 }

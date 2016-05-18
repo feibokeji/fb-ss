@@ -1,6 +1,7 @@
 var tab = null;
 var accordion = null;
 var tabItems = [];
+var _ligerDialog = null;
 
 function getLinkPrevHref(iframeId){
     if (!window.frames[iframeId]) return;
@@ -119,4 +120,62 @@ function logout(){
 			window.location.href = contextPath + "/bpr/logout";
 		}
 	});
+}
+function f_User_Info(info){
+	$.ligerDialog.open({
+		title:'账户信息',
+		url: contextPath + '/bpr/user/detail', 
+		height: 600,
+		width: 500, 
+		buttons: [{ text: '关闭', onclick: function (item, dialog) { dialog.close(); } } ] 
+	});
+}
+function f_Mode_Password(){
+	_ligerDialog = $.ligerDialog.open({ target: $("#modifyPasswordDiv"),title:"修改密码",width:480,height:340,
+		buttons:[{text:"保存",onclick:function(i,d){f_SubmitPassword(); }},{text:"关闭",onclick:function(i,d){d.hide();}}]
+	});
+}
+function f_SubmitPassword(){
+	var uid = $("#uid").val();
+	var password1 = $("#password1");
+	var password2 = $("#password2");
+	if(password1.val() == null || password1.val() == ""){
+		$.ligerDialog.error("请填写新密码!")
+		password1.focus();
+		return false;
+	}
+	if(password2.val() == null || password2.val() == ""){
+		$.ligerDialog.error("请再次输入一次密码!")
+		password2.focus();
+		return false;
+	}
+	if(password1.val() != "" && password1.val() != null && password2.val() != "" && password2.val() != null){
+		if(password1.val() != password2.val()){
+			$.ligerDialog.error("两次密码不一致!")
+			password2.focus();
+			return false;
+		}else{
+			$.ligerDialog.confirm("确定要修改吗?",function(yes){
+				if(yes){
+					var waitting = $.ligerDialog.waitting('密码修改中,请稍候...');
+					$.ajax({
+						type:"post",
+						async:false,
+						cache:false,
+						url:contextPath+"/bpr/user/setPassword",
+						data:{'uid':uid,'password':password2.val()},
+						dataType:"html",
+						success:function(data){
+							waitting.close();
+							if(data == "fail")
+								$.ligerDialog.error("修改失败!");
+							else{
+								$.ligerDialog.success("修改成功!");
+							}
+						}
+					});
+				}
+			});
+		}
+	}
 }

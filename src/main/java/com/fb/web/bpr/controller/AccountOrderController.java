@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fb.core.utils.DataUtils;
 import com.fb.domain.po.TAccountOrder;
+import com.fb.domain.po.TAccountOrderDetail;
 import com.fb.web.SimpController;
 
 import net.sf.json.JSONObject;
@@ -46,12 +47,27 @@ public class AccountOrderController extends SimpController {
      */
     @RequestMapping("getAccountOrder")
     @ResponseBody
-    public JSONObject getAccountOrder(String ctype) {
+    public String getAccountOrder(String ctype) {
         List<TAccountOrder> list = getService().getAccountOrderService().getAccountOrderList(ctype);
         Map<Object, Object> map = new HashMap<Object, Object>();
         map.put("Rows", list);
         map.put("Total", list.size());
-        return JSONObject.fromObject(map);
+        return JSONObject.fromObject(map).toString();
+    }
+    
+    /**
+     * 获取单据详细
+     * @param uid
+     * @return
+     * @author Liu bo
+     */
+    @RequestMapping("getAccountOrderDetail")
+    @ResponseBody
+    public TAccountOrder getAccountOrderDetail(String uid){
+        TAccountOrder accountOrder = getService().getAccountOrderService().getAccountOrder(uid);
+        List<TAccountOrderDetail> detailList = getService().getAccountOrderDetailService().getAccountOrderDetailByUAccountOrderId(uid);
+        accountOrder.setAccountOrderDetailList(detailList);
+        return accountOrder;
     }
     
     /**

@@ -17,4 +17,8 @@ public class ModuleGroupModuleServiceImpl extends SimpServiceAbstract implements
 		return moduleGroupModuleDao.getModuleGroupModuleCountByUModuleId(umoduleid);
 	}
 
+    public int getModuleGroupModuleCountByUModuleGroupId(String umodulegroupid) {
+        return moduleGroupModuleDao.getModuleGroupModuleCountByUModuleGroupId(umodulegroupid);
+    }
+
 }

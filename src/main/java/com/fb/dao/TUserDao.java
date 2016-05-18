@@ -1,5 +1,7 @@
 package com.fb.dao;
 
+import java.util.List;
+
 import com.fb.domain.po.TUser;
 
 public interface TUserDao {
@@ -20,4 +22,35 @@ public interface TUserDao {
      * @author Liu bo
      */
     public int setUserPassword(String uid, String password);
+    
+    /**
+     * 修改
+     * @param user
+     * @return
+     * @author Liu bo
+     */
+    public int modify(TUser user);
+    
+    /**
+     * 新增
+     * @param user
+     * @return
+     * @author Liu bo
+     */
+    public int add(TUser user);
+    
+    /**
+     * 账户列表
+     * @return
+     * @author Liu bo
+     */
+    public List<TUser> getUserList();
+    
+    /**
+     * 账户信息
+     * @param uid
+     * @return
+     * @author Liu bo
+     */
+    public TUser getUser(String uid);
 }

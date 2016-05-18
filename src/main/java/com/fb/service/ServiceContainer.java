@@ -126,6 +126,18 @@ public class ServiceContainer {
     private AccountOrderDetailService accountOrderDetailService;
     
     /**
+     * 账户管理
+     */
+    @Autowired
+    private AccountService accountService;
+    
+    /**
+     * 功能模块组
+     */
+    @Autowired
+    private ModuleGroupService moduleGroupService;
+    
+    /**
      * 获取 登录操作控制
      * @return loginService
      */
@@ -275,6 +287,22 @@ public class ServiceContainer {
      */
     public AccountOrderDetailService getAccountOrderDetailService() {
         return accountOrderDetailService;
+    }
+    
+    /**
+     * 获取 账户管理
+     * @return accountService
+     */
+    public AccountService getAccountService() {
+        return accountService;
+    }
+    
+    /**
+     * 获取 功能模块组
+     * @return moduleGroupService
+     */
+    public ModuleGroupService getModuleGroupService() {
+        return moduleGroupService;
     }
     
 }

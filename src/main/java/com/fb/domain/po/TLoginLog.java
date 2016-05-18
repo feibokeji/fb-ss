@@ -3,6 +3,7 @@ package com.fb.domain.po;
 import java.util.Date;
 
 import com.fb.core.base.domain.BaseDomain;
+import com.fb.core.base.persistence.NotFieldMapper;
 import com.fb.core.base.persistence.PrimaryKeyMapper;
 import com.fb.core.base.persistence.TableMapper;
 
@@ -39,6 +40,12 @@ public class TLoginLog extends BaseDomain {
      * 登录/注销/异常ID
      */
     private String uuserid;
+    
+    /**
+     * 登录/注销/异常名称
+     */
+    @NotFieldMapper
+    private String cusername;
     
     /**
      * 登录/注销/异常IP地址
@@ -186,6 +193,22 @@ public class TLoginLog extends BaseDomain {
      */
     public void setCmac(String cmac) {
         this.cmac = cmac;
+    }
+    
+    /**
+     * 获取 登录注销异常名称
+     * @return cusername
+     */
+    public String getCusername() {
+        return cusername;
+    }
+    
+    /**
+     * 设置 登录注销异常名称
+     * @param cusername 登录注销异常名称
+     */
+    public void setCusername(String cusername) {
+        this.cusername = cusername;
     }
     
 }

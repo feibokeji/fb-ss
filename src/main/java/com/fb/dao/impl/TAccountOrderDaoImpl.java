@@ -26,7 +26,13 @@ public class TAccountOrderDaoImpl extends SimpMapper<TAccountOrder>implements TA
     }
     
     public TAccountOrder getAccountOrder(String uid) {
-        return super.get(uid);
+        StringBuilder sql = new StringBuilder();
+        sql.append("select t.uid,t.ccode,t.cname,t.ctype,t.uaccounttypeid,(select at.cname from t_account_type at where at.uid = t.uaccounttypeid) as caccounttypename,");
+        sql.append("t.ucorpid,t.udeptid,t.uuserid,(select u.cname from t_user u where u.uid = t.uuserid) as cusername,t.cmemo,t.dcreatetime,t.dupdatetime,t.iaudit,t.daudittime");
+        sql.append(",t.dcreatetime as ccreatetime,(select sum(tao.namount) from t_account_order_detail tao where tao.uaccountorderid = t.uid) as namount");
+        sql.append(",t.uaccountid,(select ta.cname from t_account ta where ta.uid = t.uaccountid) as caccountname");
+        sql.append(" from t_account_order t where t.uid = :uid");
+        return super.get(sql, new QMap("uid", uid), TAccountOrder.class);
     }
     
     public int getAccountOrderCount(TAccountOrder accountOrder) {
@@ -113,7 +119,9 @@ public class TAccountOrderDaoImpl extends SimpMapper<TAccountOrder>implements TA
         StringBuilder sql = new StringBuilder();
         sql.append("select t.uid,t.ccode,t.cname,t.ctype,t.uaccounttypeid,(select at.cname from t_account_type at where at.uid = t.uaccounttypeid) as caccounttypename,");
         sql.append("t.ucorpid,t.udeptid,t.uuserid,(select u.cname from t_user u where u.uid = t.uuserid) as cusername,t.cmemo,t.dcreatetime,t.dupdatetime,t.iaudit,t.daudittime");
-        sql.append(" from t_account_order t where t.ctype = :ctype");
+        sql.append(",t.dcreatetime as ccreatetime,(select sum(tao.namount) from t_account_order_detail tao where tao.uaccountorderid = t.uid) as namount");
+        sql.append(",t.uaccountid,(select ta.cname from t_account ta where ta.uid = t.uaccountid) as caccountname");
+        sql.append(" from t_account_order t where t.ctype = :ctype order by t.dcreatetime desc");
         return super.findList(sql, new QMap("ctype", ctype));
     }
     
@@ -127,6 +135,11 @@ public class TAccountOrderDaoImpl extends SimpMapper<TAccountOrder>implements TA
         map.put("iaudit", iaudit);
         map.put("uid", uid);
         return super.execute(sql, map);
+    }
+    
+    public int getAccountOrderByUAccountId(String uaccountid) {
+        String sql = "select count(*) from t_account_order where uaccountid = :uaccountid";
+        return super.getInt(sql, new QMap("uaccountid", uaccountid));
     }
     
 }

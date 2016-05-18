@@ -299,6 +299,17 @@ ALTER TABLE [dbo].[t_order_product]  WITH CHECK ADD  CONSTRAINT [FK_t_order_prod
 REFERENCES [dbo].[t_product] ([uid])
 
 ALTER TABLE [dbo].[t_order_product] CHECK CONSTRAINT [FK_t_order_product_t_product]
-
-
-
+--账户表
+create table t_account(
+	uid uniqueidentifier not null,
+	uuserid uniqueidentifier null,
+	cusername varchar(50) null,
+	udeptid uniqueidentifier null,
+	cdeptname varchar(50) null,
+	ucorpid uniqueidentifier null,
+	ccorpname varchar(50) null,
+	cno varchar(50) not null,
+	cname varchar(50) not null
+)
+alter table t_account add constraint t_account_pk primary key (uid)
+alter table t_account_order add uaccountid uniqueidentifier not null

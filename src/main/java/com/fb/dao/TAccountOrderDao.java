@@ -85,4 +85,12 @@ public interface TAccountOrderDao {
      * @author Liu bo
      */
     public int auditAccountOrder(String uid, int iaudit);
+    
+    /**
+     * 获取账户下单据数量
+     * @param uaccountid
+     * @return
+     * @author Liu bo
+     */
+    public int getAccountOrderByUAccountId(String uaccountid);
 }
