@@ -29,7 +29,7 @@ public class TRoleDaoImpl extends SimpMapper<TRole>implements TRoleDao {
     }
 
     public List<TRole> getRoleList() {
-        String sql = "select * from t_role";
+        String sql = "select uid,udeptid,uuserid,(select u.cname from t_user u where u.uid = uuserid) as cusername,ccode,cname from t_role";
         return super.findList(sql, null);
     }
 

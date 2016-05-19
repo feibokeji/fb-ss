@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fb.dao.TUserDao;
 import com.fb.domain.po.TUser;
+import com.fb.domain.vo.Combobox;
 import com.fb.service.SimpServiceAbstract;
 import com.fb.service.UserService;
 
@@ -41,6 +42,10 @@ public class UserServiceImpl extends SimpServiceAbstract implements UserService 
     
     public int save(TUser user) {
         return userDao.add(user);
+    }
+
+    public List<Combobox> getUserComboboxList() {
+        return userDao.getUserComboboxList();
     }
     
 }

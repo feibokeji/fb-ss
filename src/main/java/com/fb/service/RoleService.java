@@ -70,4 +70,13 @@ public interface RoleService {
      * @return
      */
     public int addRole(TRole role);
+    
+    /**
+     * 保存
+     * @param uroleid
+     * @param umodulegroupids
+     * @return
+     * @author Liu bo
+     */
+    public boolean saveRoleModuleGroup(String uroleid,String umodulegroupids);
 }

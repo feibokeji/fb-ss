@@ -25,4 +25,9 @@ public class TRoleModuleGroupDaoImpl extends SimpMapper<TRoleModuleGroup>impleme
         return super.getInt(sql, new QMap("uroleid", uroleid));
     }
 
+    public int deleteRoleModuleGroupByURoleId(String uroleid) {
+        String sql = "delete from t_role_module_group where uroleid = :uroleid";
+        return super.execute(sql, new QMap("uroleid",uroleid));
+    }
+
 }

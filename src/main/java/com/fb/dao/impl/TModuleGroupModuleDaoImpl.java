@@ -30,4 +30,9 @@ public class TModuleGroupModuleDaoImpl extends SimpMapper<TModuleGroupModule>imp
         return getInt(sql, new QMap("umodulegroupid",umodulegroupid));
     }
 
+    public int deleteModuleGroupModuleByUModuleGroupId(String umodulegroupid) {
+        String sql = "delete from t_module_group_module where umodulegroupid = :umodulegroupid";
+        return execute(sql, new QMap("umodulegroupid",umodulegroupid));
+    }
+
 }

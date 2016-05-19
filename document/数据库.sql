@@ -90,8 +90,8 @@ alter table t_operate_log add constraint t_operate_log_pk	primary key (uid);
 
 CREATE TABLE [dbo].[t_role] (
 	[uid] [uniqueidentifier] NOT NULL ,
-	[udeptid] [uniqueidentifier] NOT NULL ,
-	[uuserid] [uniqueidentifier] NOT NULL ,
+	[udeptid] [uniqueidentifier] null,
+	[uuserid] [uniqueidentifier] null,
 	[ccode] [varchar] (30) COLLATE Chinese_PRC_CI_AS NOT NULL ,
 	[cname] [varchar] (50) COLLATE Chinese_PRC_CI_AS NOT NULL 
 ) ON [PRIMARY]

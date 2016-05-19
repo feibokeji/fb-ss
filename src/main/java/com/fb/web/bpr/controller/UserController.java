@@ -15,6 +15,7 @@ import com.fb.core.utils.EncryptionUtils;
 import com.fb.domain.po.TUser;
 import com.fb.web.SimpController;
 
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 @Controller
@@ -77,5 +78,11 @@ public class UserController extends SimpController {
         map.put("Rows", list);
         map.put("Total", list.size());
         return JSONObject.fromObject(map).toString();
+    }
+    
+    @RequestMapping("getUserJSONArray")
+    @ResponseBody
+    public String getUserJSONArray(){
+        return JSONArray.fromObject(getService().getUserService().getUserComboboxList()).toString();
     }
 }

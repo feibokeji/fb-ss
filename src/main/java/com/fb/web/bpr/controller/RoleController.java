@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fb.core.utils.DataUtils;
+import com.fb.domain.po.TModuleGroup;
 import com.fb.domain.po.TRole;
+import com.fb.domain.po.TRoleModuleGroup;
+import com.fb.domain.po.TUser;
 import com.fb.web.SimpController;
 
 import net.sf.json.JSONObject;
@@ -37,6 +40,8 @@ public class RoleController extends SimpController {
     @ResponseBody
     public String save(TRole role) {
         role.setUid(DataUtils.newUUID());
+        TUser user = getService().getUserService().getUser(role.getUuserid());
+        role.setUdeptid(user.getUdeptid());
         int c = getService().getRoleService().addRole(role);
         if (c > 0) return "success";
         return "fail";
@@ -61,5 +66,31 @@ public class RoleController extends SimpController {
         int c = getService().getRoleService().modify(role);
         if (c > 0) return "success";
         return "fail";
+    }
+    
+    @RequestMapping("getRoleModuleGroupListJSON")
+    @ResponseBody
+    public String getRoleModuleGroupListJSON(String uroleid) {
+        List<TModuleGroup> mgList = getService().getModuleGroupService().getModuleGroupJSON();
+        List<TRoleModuleGroup> rmgList = getService().getRoleService().getRoleModuleGroupByRoleId(uroleid);
+        for (TModuleGroup mg : mgList) {
+            mg.setUroleid(uroleid);
+            for (TRoleModuleGroup rmg : rmgList) {
+                if (rmg.getUmodulegroupid().equals(mg.getUid())) {
+                    mg.setHaveModuleGroup(1);
+                }
+            }
+        }
+        Map<Object, Object> map = new HashMap<Object, Object>();
+        map.put("Rows", mgList);
+        map.put("Total", mgList.size());
+        return JSONObject.fromObject(map).toString();
+    }
+    
+    @RequestMapping("saveRoleModuleGroup")
+    @ResponseBody
+    public String saveRoleModuleGroup(String uroleid, String umodulegroupids) {
+        boolean res = getService().getRoleService().saveRoleModuleGroup(uroleid, umodulegroupids);
+        if (res)return "success";else return "fail";
     }
 }

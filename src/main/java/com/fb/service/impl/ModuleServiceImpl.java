@@ -35,4 +35,8 @@ public class ModuleServiceImpl extends SimpServiceAbstract implements ModuleServ
 		return moduleDao.deleteModule(uid);
 	}
 
+    public List<TModule> getModuleListJSON(String umodulegroupid) {
+        return moduleDao.getModuleListJSON(umodulegroupid);
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.fb.domain.po;
 
 import com.fb.core.base.domain.BaseDomain;
+import com.fb.core.base.persistence.NotFieldMapper;
 import com.fb.core.base.persistence.PrimaryKeyMapper;
 import com.fb.core.base.persistence.TableMapper;
 
@@ -32,6 +33,18 @@ public class TModuleGroup extends BaseDomain {
      * 模块组名称
      */
     private String cname;
+    
+    /**
+     * 关联的角色主键
+     */
+    @NotFieldMapper
+    private String uroleid;
+    
+    /**
+     * 角色关联的功能模块组数量
+     */
+    @NotFieldMapper
+    private Integer haveModuleGroup;
     
     /**
      * 获取 唯一ID
@@ -79,6 +92,38 @@ public class TModuleGroup extends BaseDomain {
      */
     public void setCname(String cname) {
         this.cname = cname;
+    }
+    
+    /**
+     * 获取 角色关联的功能模块组数量
+     * @return haveModuleGroup
+     */
+    public Integer getHaveModuleGroup() {
+        return haveModuleGroup;
+    }
+    
+    /**
+     * 设置 角色关联的功能模块组数量
+     * @param haveModuleGroup 角色关联的功能模块组数量
+     */
+    public void setHaveModuleGroup(Integer haveModuleGroup) {
+        this.haveModuleGroup = haveModuleGroup;
+    }
+    
+    /**
+     * 获取 关联的角色主键
+     * @return uroleid
+     */
+    public String getUroleid() {
+        return uroleid;
+    }
+    
+    /**
+     * 设置 关联的角色主键
+     * @param uroleid 关联的角色主键
+     */
+    public void setUroleid(String uroleid) {
+        this.uroleid = uroleid;
     }
     
 }

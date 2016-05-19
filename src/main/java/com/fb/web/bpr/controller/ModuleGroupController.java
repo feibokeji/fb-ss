@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fb.core.utils.DataUtils;
+import com.fb.domain.po.TModule;
 import com.fb.domain.po.TModuleGroup;
 import com.fb.web.SimpController;
 
@@ -31,6 +32,27 @@ public class ModuleGroupController extends SimpController {
         map.put("Rows", list);
         map.put("Total", list.size());
         return JSONObject.fromObject(map).toString();
+    }
+    
+    @RequestMapping("getModuleListJSON")
+    @ResponseBody
+    public String getModuleListJSON(String umodulegroupid) {
+        List<TModule> list = getService().getModuleService().getModuleListJSON(umodulegroupid);
+        for (TModule item : list) {
+            item.setUmodulegroupid(umodulegroupid);
+        }
+        Map<Object, Object> map = new HashMap<Object, Object>();
+        map.put("Rows", list);
+        map.put("Total", list.size());
+        return JSONObject.fromObject(map).toString();
+    }
+    
+    @RequestMapping("saveModuleGroupModule")
+    @ResponseBody
+    public String saveModuleGroupModule(String umodulegroupid, String umoduleids) {
+        boolean res = getService().getModuleGroupModuleService().saveModuleGroupModule(umodulegroupid, umoduleids);
+        if(res) return "success";
+        return "fail";
     }
     
     @RequestMapping("save")

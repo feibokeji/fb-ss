@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.fb.core.utils.QMap;
 import com.fb.dao.TUserDao;
 import com.fb.domain.po.TUser;
+import com.fb.domain.vo.Combobox;
 
 @Service
 public class TUserDaoImpl extends SimpMapper<TUser> implements TUserDao {
@@ -37,6 +38,11 @@ public class TUserDaoImpl extends SimpMapper<TUser> implements TUserDao {
 
     public int add(TUser user) {
         return super.save(user);
+    }
+
+    public List<Combobox> getUserComboboxList() {
+        String sql = "select t.uid as id,t.cname as text from t_user t order by t.cname";
+        return super.findList(sql, null, Combobox.class);
     }
     
 }

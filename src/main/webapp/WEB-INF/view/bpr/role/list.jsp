@@ -21,10 +21,15 @@
   	<div style="display:none;"></div>
   	<div id="addDiv" style="display: none;">
   		<form id="addForm" name="addForm" method="post" action="${contextPath }/bpr/role/save">
+  			<input type="hidden" id="add_uuserid" name="uuserid"/>
   			<table class="add_update_table">
 	  			<tr>
 	  				<th><span style="color: red;">*</span>编号：</th>
 	  				<td><input type="text" id="add_ccode" name="ccode" class="l-text validate[required,funcCall[ajaxCNo]]"/></td>
+	  			</tr>
+	  			<tr>
+	  				<th><span style="color: red;">*</span>用户：</th>
+	  				<td><input type="text" id="add_cusername" name="add_cusername" class="l-text validate[required]"/></td>
 	  			</tr>
 	  			<tr>
 	  				<th><span style="color: red;">*</span>名称：</th>
@@ -36,10 +41,15 @@
   	<div id="modifyDiv" style="display: none;">
   		<form id="modifyForm" name="modifyForm" method="post" action="${contextPath }/bpr/role/modify">
   			<input type="hidden" id="modify_uid" name="uid"/>
+  			<input type="hidden" id="modify_uuserid" name="uuserid"/>
   			<table class="add_update_table">
   				<tr>
 	  				<th><span style="color: red;">*</span>编号：</th>
 	  				<td><input type="text" id="modify_ccode" name="ccode" class="l-text validate[required,funcCall[ajaxModifyCNo]]"/></td>
+	  			</tr>
+	  			<tr>
+	  				<th><span style="color: red;">*</span>用户：</th>
+	  				<td><input type="text" id="modify_cusername" name="cusername" class="l-text validate[required]"/></td>
 	  			</tr>
 	  			<tr>
 	  				<th><span style="color: red;">*</span>名称：</th>

@@ -31,4 +31,12 @@ public interface TRoleModuleGroupDao {
      * @author Liu bo
      */
     public int getRoleModuleGroupCountByURoleId(String uroleid);
+    
+    /**
+     * 清除角色与功能模块组之间的关系
+     * @param uroleid
+     * @return
+     * @author Liu bo
+     */
+    public int deleteRoleModuleGroupByURoleId(String uroleid);
 }

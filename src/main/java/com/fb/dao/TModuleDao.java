@@ -32,6 +32,13 @@ public interface TModuleDao {
 	public List<TModule> getModuleList();
 	
 	/**
+	 * 获取功能模块集合用于转换为JSON数据
+	 * @return
+	 * @author Liu bo
+	 */
+	public List<TModule> getModuleListJSON(String umodulegroupid);
+	
+	/**
 	 * 删除功能模块
 	 * @param uid
 	 * @return
