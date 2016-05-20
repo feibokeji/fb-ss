@@ -111,7 +111,9 @@ public class ModuleController extends SimpController {
         Date timeToken = new Date();
         getSession().setAttribute("timeToken", timeToken);
         map.put("timeToken", timeToken);
-        map.put("module", getService().getModuleService().getModuleByUid(uid));
+        TModule module = getService().getModuleService().getModuleByUid(uid);
+        map.put("module", module);
+        map.put("parentModule", getService().getModuleService().getParentModuleByCCode(module.getCparent()));
         return customPage();
     }
 }

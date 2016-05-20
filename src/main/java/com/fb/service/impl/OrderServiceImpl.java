@@ -53,7 +53,7 @@ public class OrderServiceImpl extends SimpServiceAbstract implements OrderServic
         order.setUid(DataUtils.newUUID());
         String cno = FormatUtils.formatDate(order.getDordertime(), "yyyy-MM-dd") + "-" + FormatUtils.formatDate(new Date(), "HH-mm-ss");
         order.setCno(cno);
-        order.setCtype("00");
+        //order.setCtype("00");
         order.setDcreatetime(new Date());
         order.setDupdatetime(new Date());
         log.setCtype("新增");

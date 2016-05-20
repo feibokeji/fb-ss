@@ -65,6 +65,11 @@ public class TAccount extends BaseDomain {
     private String cname;
     
     /**
+     * 备用金
+     */
+    private String namount;
+    
+    /**
      * 总收入金额
      */
     @NotFieldMapper
@@ -274,6 +279,22 @@ public class TAccount extends BaseDomain {
      */
     public void setNresidueamount(Double nresidueamount) {
         this.nresidueamount = nresidueamount;
+    }
+    
+    /**
+     * 获取 备用金
+     * @return namount
+     */
+    public String getNamount() {
+        return namount;
+    }
+    
+    /**
+     * 设置 备用金
+     * @param namount 备用金
+     */
+    public void setNamount(String namount) {
+        this.namount = namount;
     }
     
 }

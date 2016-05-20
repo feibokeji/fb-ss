@@ -45,8 +45,12 @@ public class AccountServiceImpl extends SimpServiceAbstract implements AccountSe
         return accountDao.get(uid);
     }
 
-    public List<Combobox> getCombobox() {
-        return accountDao.getCombobox();
+    public List<Combobox> getCombobox(String uuserid) {
+        return accountDao.getCombobox(uuserid);
+    }
+
+    public List<TAccount> getAccountListByUUserId(String uuserid) {
+        return accountDao.getAccountListByUUserId(uuserid);
     }
     
 }

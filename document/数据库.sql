@@ -313,3 +313,16 @@ create table t_account(
 )
 alter table t_account add constraint t_account_pk primary key (uid)
 alter table t_account_order add uaccountid uniqueidentifier not null
+alter table t_account add namount [decimal](18,2) null
+--盘点差异表
+create table t_material_check_diff(
+	uid uniqueidentifier not null,
+	uorderid uniqueidentifier not null,
+	umaterialid uniqueidentifier not null,
+	cmaterialname varchar(50) not null,
+	nqty [decimal](18, 2) NOT NULL,
+	nqty1 [decimal](18, 2) NOT NULL,
+	nqty2 [decimal](18, 2) NOT NULL,
+	dcreatetime [datetime] NOT NULL
+)
+alter table t_material_check_diff add constraint t_material_check_diff_pk primary key (uid)

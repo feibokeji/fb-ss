@@ -85,27 +85,51 @@ insert into t_module_group_module (uid,umoduleid,umodulegroupid) values (newid()
 insert into t_role_module_group (uid,uroleid,umodulegroupid) values (newid(),'83220890-D1B2-45BB-820F-A9313261415D','5DD35237-1EBB-4433-9282-2F57C55687FB')
 /*模块数据*/
 --基础资料
-insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values ('FBB296CF-38B6-4B1D-A7DA-A1A0EF0AE550','BPR','BASE','基础资料',null,1,0,'|BASE|','')
+--insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values ('FBB296CF-38B6-4B1D-A7DA-A1A0EF0AE550','BPR','BASE','基础资料',null,1,0,'|BASE|','')
 --基础资料--公司信息
-insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values ('EA3DB831-9586-449F-9DE7-657E972E35A7','BPR','COMPANYVIEW','公司信息','BASE',2,0,'|BASE|COMPANYVIEW|','/bpr/company/view')
+--insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values ('EA3DB831-9586-449F-9DE7-657E972E35A7','BPR','COMPANYVIEW','公司信息','BASE',2,0,'|BASE|COMPANYVIEW|','/bpr/company/view')
 --基础资料--公司列表
-insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values ('AF204B6D-3C7C-4E27-A799-C06079CB57B0','BPR','COMPANYLIST','公司列表','BASE',2,1,'|BASE|COMPANYLIST|','/bpr/company/list')
+--insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values ('AF204B6D-3C7C-4E27-A799-C06079CB57B0','BPR','COMPANYLIST','公司列表','BASE',2,1,'|BASE|COMPANYLIST|','/bpr/company/list')
 --基础资料--账户信息
-insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values ('6CDF8B41-10CB-42CC-B0AD-4B980DC997DF','BPR','USERVIEW','账户信息','BASE',2,2,'|BASE|USERVIEW|','/bpr/user/view')
+--insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values ('6CDF8B41-10CB-42CC-B0AD-4B980DC997DF','BPR','USERVIEW','账户信息','BASE',2,2,'|BASE|USERVIEW|','/bpr/user/view')
 --基础资料--修改密码
-insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values ('94C00969-A15E-43AF-965C-520D96D77A02','BPR','UPDATEPASSWORD','修改密码','BASE',2,3,'|BASE|UPDATEPASSWORD|','/bpr/user/updatePassword')
+--insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values ('94C00969-A15E-43AF-965C-520D96D77A02','BPR','UPDATEPASSWORD','修改密码','BASE',2,3,'|BASE|UPDATEPASSWORD|','/bpr/user/updatePassword')
 --基础资料--账户列表
-insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values ('55F36CA0-9165-4C5A-9FE0-9DB0EA3E95FB','BPR','USERLIST','账户列表','BASE',2,4,'|BASE|USERLIST|','/bpr/user/list')
+--insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values ('55F36CA0-9165-4C5A-9FE0-9DB0EA3E95FB','BPR','USERLIST','账户列表','BASE',2,4,'|BASE|USERLIST|','/bpr/user/list')
 
 
 --系统管理
-insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values ('85A341BE-DBC6-42C2-9CF9-B47D7D2AD77F','BPR','SYSTEM','系统管理',null,1,1,'|SYSTEM|','')
+--insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values ('85A341BE-DBC6-42C2-9CF9-B47D7D2AD77F','BPR','SYSTEM','系统管理',null,1,1,'|SYSTEM|','')
 --系统管理--功能模块
-insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values ('9E384F95-2201-417F-A3E9-42B58C8A83AE','BPR','MODULEVIEW','功能模块','SYSTEM',2,0,'|SYSTEM|MODULEVIEW|','/bpr/module/view')
+--insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values ('9E384F95-2201-417F-A3E9-42B58C8A83AE','BPR','MODULEVIEW','功能模块','SYSTEM',2,0,'|SYSTEM|MODULEVIEW|','/bpr/module/view')
 --系统管理--功能模块组
-insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values ('09EC45B0-CF77-44BD-BF6B-5AC94EB4D5B9','BPR','MODULEGROUPVIEW','功能模块组','SYSTEM',2,1,'|SYSTEM|MODULEGROUPVIEW|','/bpr/module/groupView')
+--insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values ('09EC45B0-CF77-44BD-BF6B-5AC94EB4D5B9','BPR','MODULEGROUPVIEW','功能模块组','SYSTEM',2,1,'|SYSTEM|MODULEGROUPVIEW|','/bpr/module/groupView')
 --系统管理--账户模块组
-insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values ('CC900B43-7C8D-4ECD-9F07-FD069BDBD19C','BPR','USERMODULEGROUP','账户模块组','SYSTEM',2,2,'|SYSTEM|USERMODULEGROUP|','/bpr/user/moduleGroup')
+--insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values ('CC900B43-7C8D-4ECD-9F07-FD069BDBD19C','BPR','USERMODULEGROUP','账户模块组','SYSTEM',2,2,'|SYSTEM|USERMODULEGROUP|','/bpr/user/moduleGroup')
 --系统管理--日志管理
-insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values ('6453A3AD-9995-4124-A4E7-D371B8937995','BPR','LOG','日志管理','SYSTEM',2,3,'|SYSTEM|LOG|','/bpr/log/view')
+--insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values ('6453A3AD-9995-4124-A4E7-D371B8937995','BPR','LOG','日志管理','SYSTEM',2,3,'|SYSTEM|LOG|','/bpr/log/view')
 
+insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values (newid(),'BPR','SYSTEMMANAGEMENT','系统管理',null,1,10,'|SYSTEMMANAGEMENT|','')
+insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values (newid(),'BPR','SYSTEMMODULE','功能模块','SYSTEMMANAGEMENT',2,11,'|SYSTEMMANAGEMENT|SYSTEMMODULE|','')
+insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values (newid(),'BPR','SYSTEMMODULEGROUP','功能模块组','SYSTEMMANAGEMENT',2,12,'|SYSTEMMANAGEMENT|SYSTEMMODULEGROUP|','')
+insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values (newid(),'BPR','SYSTEMUSER','账户列表','SYSTEMMANAGEMENT',2,13,'|SYSTEMMANAGEMENT|SYSTEMUSER|','')
+insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values (newid(),'BPR','SYSTEMROLE','角色列表','SYSTEMMANAGEMENT',2,14,'|SYSTEMMANAGEMENT|SYSTEMROLE|','')
+insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values (newid(),'BPR','SYSTEMLOG','日志管理','SYSTEMMANAGEMENT',2,15,'|SYSTEMMANAGEMENT|SYSTEMLOG|','')
+
+insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values (newid(),'BPR','LOVELYSTORES','可爱雪门店',null,1,20,'|LOVELYSTORES|','')
+insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values (newid(),'BPR','LOVELYSTORESCATEGORY','可爱雪-类别','LOVELYSTORES',2,21,'|LOVELYSTORES|LOVELYSTORESCATEGORY|','')
+insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values (newid(),'BPR','LOVELYSTORESMATERAIL','可爱雪-物料','LOVELYSTORES',2,22,'|LOVELYSTORES|LOVELYSTORESMATERAIL|','')
+insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values (newid(),'BPR','LOVELYSTORESPRODUCT','可爱雪-产品','LOVELYSTORES',2,23,'|LOVELYSTORES|LOVELYSTORESPRODUCT|','')
+insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values (newid(),'BPR','LOVELYSTORESPROCUREMENT','可爱雪-物料入库','LOVELYSTORES',2,24,'|LOVELYSTORES|LOVELYSTORESPROCUREMENT|','')
+insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values (newid(),'BPR','LOVELYSTORESPRODUCTSELL','可爱雪-产品销售','LOVELYSTORES',2,25,'|LOVELYSTORES|LOVELYSTORESPRODUCTSELL|','')
+insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values (newid(),'BPR','LOVELYSTORESMATERIALINVENTORY','可爱雪-物料库存','LOVELYSTORES',2,26,'|LOVELYSTORES|LOVELYSTORESMATERIALINVENTORY|','')
+insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values (newid(),'BPR','LOVELYSTORESEXCEL','可爱雪-上传商品销售报表','LOVELYSTORES',2,27,'|LOVELYSTORES|LOVELYSTORESEXCEL|','')
+
+insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values (newid(),'BPR','LOVELYACCOUNTINGD','可爱雪账务',null,1,30,'|LOVELYACCOUNTINGD|','')
+insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values (newid(),'BPR','LOVELYSTORESACCOUNT','可爱雪-现金账户','LOVELYACCOUNTINGD',2,31,'|LOVELYACCOUNTINGD|LOVELYSTORESACCOUNT|','')
+insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values (newid(),'BPR','LOVELYSTORESTYPE','可爱雪-账务类型','LOVELYACCOUNTINGD',2,32,'|LOVELYACCOUNTINGD|LOVELYSTORESTYPE|','')
+insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values (newid(),'BPR','LOVELYSTORESDISBURSEMENT','可爱雪-支出单','LOVELYACCOUNTINGD',2,33,'|LOVELYACCOUNTINGD|LOVELYSTORESDISBURSEMENT|','')
+insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values (newid(),'BPR','LOVELYSTORESINCOME','可爱雪-收入单','LOVELYACCOUNTINGD',2,34,'|LOVELYACCOUNTINGD|LOVELYSTORESINCOME|','')
+insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values (newid(),'BPR','LOVELYSTORESINVESTMENT','可爱雪-投资单','LOVELYACCOUNTINGD',2,35,'|LOVELYACCOUNTINGD|LOVELYSTORESINVESTMENT|','')
+
+insert into t_module(uid,ctype,ccode,cname,cparent,ilevel,isort,ccodepath,caddr) values (newid(),'BPR','LOVELYREPORT','可爱雪报表',null,1,40,'|LOVELYREPORT|','')

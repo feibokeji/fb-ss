@@ -138,6 +138,12 @@ public class ServiceContainer {
     private ModuleGroupService moduleGroupService;
     
     /**
+     * 盘点差异
+     */
+    @Autowired
+    private MaterialCheckDiffService materialCheckDiffService;
+    
+    /**
      * 获取 登录操作控制
      * @return loginService
      */
@@ -303,6 +309,14 @@ public class ServiceContainer {
      */
     public ModuleGroupService getModuleGroupService() {
         return moduleGroupService;
+    }
+    
+    /**
+     * 获取 盘点差异
+     * @return materialCheckDiffService
+     */
+    public MaterialCheckDiffService getMaterialCheckDiffService() {
+        return materialCheckDiffService;
     }
     
 }

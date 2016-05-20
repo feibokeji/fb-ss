@@ -32,7 +32,7 @@ function submitModuleForm(){
  * @param options
  */
 function checkType(field, rules, i, options){
-	if(parentType != '' && field.val().length > 0){
+	if(parentType != null && parentType != '' && field.val().length > 0){
 		if(parentType != field.val()){
 			field.val(parentType);
 			return "*此功能模块的类别必须为:" + parentType;

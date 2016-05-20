@@ -18,7 +18,7 @@ $(function(){
 		height:'100%',
         columns: [
             { dispaly: '主键', name : 'uid', align: 'left', width:60, minWidth: 60,hide: true},
-            { dispaly: '账户', name : 'caccountname', align: 'left', width:60, minWidth: 60},
+            { dispaly: '账户', name : 'caccountname', align: 'left', width:120, minWidth: 60},
             { display: '编码', name: 'ccode', align: 'left', width: 140, minWidth: 80 },
             { display: '名称', name: 'cname', align: 'left', width: 120, minWidth: 100 },
             { display: '类别', name: 'ctype', width: 80,minWidth: 60 },
@@ -43,7 +43,7 @@ $(function(){
         ]},
         url:contextPath+"/bpr/lovelysnow/getAccountOrder?ctype="+ctype,
 	    pageSize:30 ,rownumbers:true,pageSizeOptions:[10,20,30],
-	    onReload:false,dataAction:"local",checkbox:true,selectRowButtonOnly:true,enabledSort:false,
+	    onReload:false,dataAction:"local",checkbox:true,selectRowButtonOnly:true,enabledSort:true,
 	    onBeforeCheckAllRow:function(checked, grid ,element){
 	    	return false;//禁用全选
 	    },

@@ -20,7 +20,7 @@ public class TModuleDaoImpl extends SimpMapper<TModule>implements TModuleDao {
 	}
 
 	public List<TModule> getModuleList() {
-		String sql = "select * from t_module order by ccodepath asc,ctype";
+		String sql = "select * from t_module order by isort";
 		return findList(sql, null);
 	}
 
@@ -29,8 +29,13 @@ public class TModuleDaoImpl extends SimpMapper<TModule>implements TModuleDao {
 	}
 
     public List<TModule> getModuleListJSON(String umodulegroupid) {
-        String sql = "select t.uid,t.ctype,t.ccode,t.cname,t.cparent,t.ilevel,t.isort,t.ccodepath,t.caddr,(select count(*) from t_module_group_module mgm where mgm.umoduleid = t.uid and mgm.umodulegroupid = :umodulegroupid) as haveGroup from t_module t order by t.ccodepath asc,t.ctype";
+        String sql = "select t.uid,t.ctype,t.ccode,t.cname,t.cparent,t.ilevel,t.isort,t.ccodepath,t.caddr,(select count(*) from t_module_group_module mgm where mgm.umoduleid = t.uid and mgm.umodulegroupid = :umodulegroupid) as haveGroup from t_module t order by t.isort";
         return findList(sql, new QMap("umodulegroupid",umodulegroupid));
+    }
+
+    public TModule getParentModuleByCCode(String ccode) {
+        String sql = "select * from t_module where ccode = :ccode";
+        return get(sql, new QMap("ccode","ccode"), TModule.class);
     }
 
 }

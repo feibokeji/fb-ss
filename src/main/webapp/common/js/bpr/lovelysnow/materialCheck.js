@@ -1,5 +1,5 @@
 /**
- * 可爱雪-物料入库单
+ * 可爱雪-物料盘点单
  */
 var totalNumber = 0;//记录数据数量[包含已被删除的数据量]
 var box_data = null;
@@ -22,7 +22,7 @@ $(function(){
 		items:[{ text: '反审核',click:f_n_Audit, icon: 'right'},{ text:'查看',click:f_View,icon:'view'}]
     });
     var tree = $("#tree1").ligerTree({
-    	url:contextPath+"/bpr/lovelysnow/getOrderMaterialGroup?ctype=00",
+    	url:contextPath+"/bpr/lovelysnow/getOrderMaterialGroup?ctype=02",
     	nodeWidth:180,
         idFieldName :'id',
         slide : false,
@@ -116,7 +116,7 @@ function f_v_audit(uid){
 		if(yes){
 			if(audit(uid,'01')){
 				$.ligerDialog.success("审核成功!");
-				window.location.href = contextPath + "/bpr/lovelysnow/procurement?type=view&uid="+uid;
+				window.location.href = contextPath + "/bpr/lovelysnow/materialCheck?type=view&uid="+uid;
 			}
 			else
 				$.ligerDialog.error("审核失败!");
@@ -132,7 +132,7 @@ function f_v_not_audit(uid){
 		if(yes){
 			if(audit(uid,'00')){
 				$.ligerDialog.success("反审核成功!");
-				window.location.href = contextPath + "/bpr/lovelysnow/procurement?type=view&uid="+uid;
+				window.location.href = contextPath + "/bpr/lovelysnow/materialCheck?type=view&uid="+uid;
 			}
 			else
 				$.ligerDialog.error("反审核失败!");
@@ -166,12 +166,44 @@ function audit(uid,cstatus){
 	return result;
 }
 /**
+ * 生成盘点差异
+ * @param uid
+ */
+function f_create_diff(uid){
+	$.ligerDialog.confirm("确定要生成盘点差异吗？",function(yes){
+		if(yes){
+			var waitting;
+			$.ajax({
+				type:"post",
+				async:false,
+				cache:false,
+				url:contextPath+"/bpr/lovelysnow/createDiff",
+				data:{'uid':uid},
+				dataType:"html",
+				beforeSend:function(){
+					waitting = $.ligerDialog.waitting('数据生成中,请稍候...');
+				},
+				success:function(data){
+					waitting.close();
+					if(data == "fail")
+						$.ligerDialog.error("数据生成失败!");
+					else if(data == "have"){
+						$.ligerDialog.error("此单据已生成过差异数据,不能重复生成!");
+					}else{
+						$.ligerDialog.success("数据生成成功!");
+					}
+				}
+			});
+		}
+	});
+}
+/**
  * 修改订单
  * @param item
  * @param i
  */
 function f_Modify(item,i){
-	window.location.href = contextPath + "/bpr/lovelysnow/procurement?type=modify&uid="+actionNodeID;
+	window.location.href = contextPath + "/bpr/lovelysnow/materialCheck?type=modify&uid="+actionNodeID;
 }
 /**
  * 查看
@@ -179,13 +211,13 @@ function f_Modify(item,i){
  * @param i
  */
 function f_View(item,i){
-	window.location.href = contextPath + "/bpr/lovelysnow/procurement?type=view&uid="+actionNodeID;
+	window.location.href = contextPath + "/bpr/lovelysnow/materialCheck?type=view&uid="+actionNodeID;
 }
 /**
  * 新增
  */
 function openAdd(){
-	window.location.href = contextPath + "/bpr/lovelysnow/procurement?type=add";
+	window.location.href = contextPath + "/bpr/lovelysnow/materialCheck?type=add";
 }
 /**
  * 删除订单
@@ -255,7 +287,7 @@ function submitForm(type,_form){
 						}else{
 							$.ligerDialog.success("保存成功!");
 							if(type == "modify"){
-								window.location.href = contextPath + "/bpr/lovelysnow/procurement?type=add";
+								window.location.href = contextPath + "/bpr/lovelysnow/materialCheck?type=add";
 							}
 							clearLine();
 							manager.reload();

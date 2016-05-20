@@ -33,8 +33,10 @@ public class Test {
         } catch (Exception e) {
             throw new IllegalArgumentException(e);
         }*/
-        System.out.println(DataUtils.isInteger("-1"));
+        /*System.out.println(DataUtils.isInteger("-1"));
         System.out.println(DataUtils.isUInteger("-1"));
-        System.out.println((new BigDecimal(1.161876832844575)).setScale(0, BigDecimal.ROUND_UP).doubleValue());
+        System.out.println((new BigDecimal(1.161876832844575)).setScale(0, BigDecimal.ROUND_UP).doubleValue());*/
+        
+        System.out.println(Math.abs(-10-5));
     }
 }

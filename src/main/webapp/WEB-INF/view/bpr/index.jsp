@@ -32,45 +32,51 @@
 	</div>
 	<div id="layout1" style="width: 99.2%; margin: 0 auto; margin-top: 4px;">
 		<div position="left" title="菜单" id="accordion1">
-			<%-- <div title="基础信息" class="l-scroll">
-				<ul class="m-ul">
-					<li><t:module code="COMPANYVIEW"><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('companyInfo','公司信息','http://www.baidu.com')">公司信息</a></t:module></li>
-					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('userInfo','账户信息','${contextPath }/bpr/user/detail')">账户信息</a></li>
-				</ul>
-			</div> --%>
+			<t:module code="SYSTEMMANAGEMENT">
 			<div title="系统管理" class="l-scroll">
 				<ul class="m-ul">
+					<t:module code="SYSTEMMODULE">
 					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('moduleInfo','功能模块','${contextPath }/bpr/module/list')">功能模块</a></li>
+					</t:module>
+					<t:module code="SYSTEMMODULEGROUP">
 					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('moduleGroupInfo','功能模块组','${contextPath }/bpr/moduleGroup/list')">功能模块组</a></li>
-					<%-- <li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('companyList','公司列表','http://www.baidu.com')">公司列表</a></li> --%>
-					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('userList','账户列表','${contextPath }/bpr/user/list')">账户列表</a></li>
-					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('roleList','角色列表','${contextPath }/bpr/role/list')">角色列表</a></li>
-					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('logInfo','日志管理','${contextPath }/bpr/log/list')">日志管理</a></li>
+					</t:module>
+					<t:module code="SYSTEMUSER"><li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('userList','账户列表','${contextPath }/bpr/user/list')">账户列表</a></li></t:module>
+					<t:module code="SYSTEMROLE"><li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('roleList','角色列表','${contextPath }/bpr/role/list')">角色列表</a></li></t:module>
+					<t:module code="SYSTEMLOG"><li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('logInfo','日志管理','${contextPath }/bpr/log/list')">日志管理</a></li></t:module>
 				</ul>
 			</div>
+			</t:module>
+			<t:module code="LOVELYSTORES">
 			<div title="可爱雪门店" class="l-scroll">
 				<ul class="m-ul">
-					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowCategory','可爱雪-类别','${contextPath }/bpr/lovelysnow/category')">类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别</a></li>
-					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowMaterial','可爱雪-物料','${contextPath }/bpr/lovelysnow/material')">物&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;料</a></li>
-					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowProduct','可爱雪-产品','${contextPath }/bpr/lovelysnow/product')">产&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;品</a></li>
-					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowProcurement','可爱雪-物料入库','${contextPath }/bpr/lovelysnow/procurement?type=add')">物料入库</a></li>
-					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowProductSell','可爱雪-产品销售','${contextPath }/bpr/lovelysnow/productSell')">产品销售</a></li>
-					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowMaterialInventory','可爱雪-物料库存','${contextPath }/bpr/lovelysnow/materialInventory')">物料库存</a></li>
+					<t:module code="LOVELYSTORESCATEGORY"><li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowCategory','可爱雪-类别','${contextPath }/bpr/lovelysnow/category')">类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别</a></li></t:module>
+					<t:module code="LOVELYSTORESMATERAIL"><li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowMaterial','可爱雪-物料','${contextPath }/bpr/lovelysnow/material')">物&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;料</a></li></t:module>
+					<t:module code="LOVELYSTORESPROCUREMENT"><li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowProcurement','可爱雪-物料入库','${contextPath }/bpr/lovelysnow/procurement?type=add')">物料入库</a></li></t:module>
+					<t:module code="LOVELYSTORESMATERIALCHECK"><li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowMaterialCheck','可爱雪-物料盘点','${contextPath }/bpr/lovelysnow/materialCheck?type=add')">物料盘点</a></li></t:module>
+					<t:module code="LOVELYSTORESMATERIALINVENTORY"><li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowMaterialInventory','可爱雪-物料库存','${contextPath }/bpr/lovelysnow/materialInventory')">物料库存</a></li></t:module>
+					<t:module code="LOVELYSTORESPRODUCT"><li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowProduct','可爱雪-产品','${contextPath }/bpr/lovelysnow/product')">产&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;品</a></li></t:module>
+					<t:module code="LOVELYSTORESPRODUCTSELL"><li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowProductSell','可爱雪-产品销售','${contextPath }/bpr/lovelysnow/productSell')">产品销售</a></li></t:module>
 				</ul>
 			</div>
+			</t:module>
+			<t:module code="LOVELYACCOUNTINGD">
 			<div title="可爱雪账务" class="l-scroll">
 				<ul class="m-ul">
-					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowAccount','可爱雪-账户','${contextPath }/bpr/lovelysnow/account')">账户</a></li>
-					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowAccountType','可爱雪-账务类型','${contextPath }/bpr/lovelysnow/accountType')">账务类型</a></li>
-					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowDisbursement','可爱雪-支出单','${contextPath }/bpr/lovelysnow/accountOrder?ctype=支出')">支出单</a></li>
-					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowIncome','可爱雪-收入单','${contextPath }/bpr/lovelysnow/accountOrder?ctype=收入')">收入单</a></li>
-					<li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowInvestment','可爱雪-投资单','${contextPath }/bpr/lovelysnow/accountOrder?ctype=投资')">投资单</a></li>
+					<t:module code="LOVELYSTORESACCOUNT"><li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowAccount','可爱雪-现金账户','${contextPath }/bpr/lovelysnow/account')">现金账户</a></li></t:module>
+					<t:module code="LOVELYSTORESTYPE"><li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowAccountType','可爱雪-账务类型','${contextPath }/bpr/lovelysnow/accountType')">账务类型</a></li></t:module>
+					<t:module code="LOVELYSTORESDISBURSEMENT"><li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowDisbursement','可爱雪-支出单','${contextPath }/bpr/lovelysnow/accountOrder?ctype=支出')">支出单</a></li></t:module>
+					<t:module code="LOVELYSTORESINCOME"><li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowIncome','可爱雪-收入单','${contextPath }/bpr/lovelysnow/accountOrder?ctype=收入')">收入单</a></li></t:module>
+					<t:module code="LOVELYSTORESINVESTMENT"><li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowInvestment','可爱雪-投资单','${contextPath }/bpr/lovelysnow/accountOrder?ctype=投资')">投资单</a></li></t:module>
 				</ul>
 			</div>
+			</t:module>
+			<t:module code="LOVELYREPORT">
 			<div title="可爱雪报表" class="l-scroll">
 				<ul class="m-ul">
 				</ul>
 			</div>
+			</t:module>
 		</div>
 		<div position="center" id="framecenter">
 			<div tabid="home" title="我的主页" style="height: 300px">

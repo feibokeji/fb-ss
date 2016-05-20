@@ -46,9 +46,18 @@ public class AccountDaoImpl extends SimpMapper<TAccount>implements TAccountDao {
         return super.get(uid);
     }
 
-    public List<Combobox> getCombobox() {
-        String sql = "select uid as id,cname as text from t_account order by cno";
-        return super.findList(sql, null, Combobox.class);
+    public List<Combobox> getCombobox(String uuserid) {
+        String sql = "select uid as id,cname as text from t_account where uuserid = :uuserid order by cno";
+        return super.findList(sql, new QMap("uuserid",uuserid), Combobox.class);
+    }
+
+    public List<TAccount> getAccountListByUUserId(String uuserid) {
+        StringBuilder sql = new StringBuilder();
+        sql.append("select t.uid,t.uuserid,t.cusername,t.udeptid,t.cdeptname,t.ucorpid,t.ccorpname,t.cno,t.cname,");
+        sql.append("(select sum(taod.namount) from t_account_order_detail taod where taod.uaccountorderid in (select tao.uid from t_account_order tao where tao.uid = taod.uaccountorderid and tao.uaccountid = t.uid and tao.ctype = '收入' and tao.iaudit = 1)) as ntotalamount,");
+        sql.append("(select sum(taod.namount) from t_account_order_detail taod where taod.uaccountorderid in (select tao.uid from t_account_order tao where tao.uid = taod.uaccountorderid and tao.uaccountid = t.uid and tao.ctype = '支出' and tao.iaudit = 1)) as ntotalspendamount");
+        sql.append(" from t_account t where t.uuserid = :uuserid order by t.cno");
+        return super.findList(sql, new QMap("uuserid",uuserid));
     }
     
 }

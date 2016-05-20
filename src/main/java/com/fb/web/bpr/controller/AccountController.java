@@ -1,5 +1,6 @@
 package com.fb.web.bpr.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +11,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fb.core.utils.DataUtils;
 import com.fb.domain.po.TAccount;
+import com.fb.domain.po.TCorp;
+import com.fb.domain.po.TDept;
+import com.fb.domain.po.TUser;
 import com.fb.domain.vo.Combobox;
 import com.fb.web.SimpController;
 
@@ -38,11 +42,16 @@ public class AccountController extends SimpController {
     @RequestMapping("accountList")
     @ResponseBody
     public String accountList() {
-        List<TAccount> list = getService().getAccountService().getList();
+        List<TAccount> list = new ArrayList<TAccount>();
+        if (getSessionContainer().getRole().getCname().equals("系统管理员")) {
+            list = getService().getAccountService().getList();
+        } else {
+            list = getService().getAccountService().getAccountListByUUserId(getSessionContainer().getUser().getUid());
+        }
+        
         Map<Object, Object> map = new HashMap<Object, Object>();
         map.put("Rows", list);
         map.put("Total", list.size());
-        //System.out.println(JSONObject.fromObject(map));
         return JSONObject.fromObject(map).toString();
     }
     
@@ -53,8 +62,8 @@ public class AccountController extends SimpController {
      */
     @RequestMapping("getAccountJSONArray")
     @ResponseBody
-    public JSONArray getAccountJSONArray(){
-        List<Combobox> boxList = getService().getAccountService().getCombobox();
+    public JSONArray getAccountJSONArray() {
+        List<Combobox> boxList = getService().getAccountService().getCombobox(getSessionContainer().getUser().getUid());
         return JSONArray.fromObject(boxList);
     }
     
@@ -68,6 +77,13 @@ public class AccountController extends SimpController {
     @ResponseBody
     public String accountAdd(TAccount account) {
         account.setUid(DataUtils.newUUID());
+        TUser user = getService().getUserService().getUser(account.getUuserid());
+        TDept dept = getService().getDeptService().getDeptByUid(user.getUdeptid());
+        TCorp corp = getService().getCorpService().getCorpByUid(dept.getUcorpid());
+        account.setUdeptid(dept.getUid());
+        account.setCdeptname(dept.getCname());
+        account.setUcorpid(corp.getUid());
+        account.setCcorpname(corp.getCname());
         int count = getService().getAccountService().add(account);
         if (count > 0) return "success";
         return "fail";
@@ -101,8 +117,8 @@ public class AccountController extends SimpController {
      */
     @RequestMapping("accountMod")
     @ResponseBody
-    public String accountMod(String uid, String cno, String cname) {
-        int count = getService().getAccountService().mod(uid, cno, cname);
+    public String accountMod(TAccount account) {
+        int count = getService().getAccountService().mod(account);
         if (count > 0) return "success";
         return "fail";
     }

@@ -15,6 +15,8 @@ $(function(){
             { display: '价格', name: 'nprice',align: 'right', width: 100,minWidth: 60 },
             { display: '采购数量', name: 'nqty', align: 'right',width: 100,minWidth: 60 },
             { display: '销售数量', name: 'nsqty', align: 'right',width: 100,minWidth: 60 },
+            { display: '实盘数量', name: 'nreal', align: 'right',width: 100,minWidth: 60 },
+            { display: '盘点差异', name: 'ndiff', align: 'right',width: 100,minWidth: 60 },
             { display: '库存数量', name: 'inventory', align: 'right',width: 100,minWidth: 60 }
             ],
         toolbar: { items: [{ text: '高级自定义查询', click: itemclick, icon: 'search2'}]},

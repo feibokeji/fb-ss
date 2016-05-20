@@ -18,6 +18,9 @@ var _old_cno = null;
  * 原有名称
  */
 var _old_cname = null;
+var addCombobox = null;
+var modifyCombobox = null;
+var comboboxData = null;
 /**
  * 页面加载
  */
@@ -28,6 +31,7 @@ $(function(){
         columns: [
             { dispaly:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
             { display: '编码', name: 'cno', align: 'left', width: 100, minWidth: 60 },
+            { display: '账户名', name: 'cusername', align: 'left', width: 200, minWidth: 120 },
             { display: '名称', name: 'cname', width: 200,minWidth: 120 },
             { display: '收入总金额', name: 'ntotalamount',align:'right', width: 100,minWidth: 60 },
             { display: '支出总金额', name: 'ntotalspendamount',align:'right', width: 100,minWidth: 60 },
@@ -57,7 +61,28 @@ $(function(){
 	    	}
 	    }
 	});
+	f_getComboboxData();
+	addCombobox = $("#add_cusername").ligerComboBox({
+		data:comboboxData,
+		onSelected: function (value){$("#add_uuserid").val(value);}
+	});
+	modifyCombobox = $("#modify_cusername").ligerComboBox({
+		data:comboboxData,
+		onSelected: function (value){$("#modify_uuserid").val(value);}
+	});
 });
+function f_getComboboxData(){
+	$.ajax({
+		type:"post",
+		async:false,
+		cache:false,
+		url:contextPath+"/bpr/user/getUserJSONArray",
+		dataType:"json",
+		success:function(data){
+			comboboxData = data;
+		}
+	});
+}
 /**
  * 提交产品类别新增/修改表单
  * @param _form 表单id
@@ -117,7 +142,7 @@ function _modifyAccount(){
 		_ligerDialog = $.ligerDialog.open({ target: $("#modifyDiv"),title:"修改账户",width:480,height:340,
 			buttons:[{text:"保存",onclick:function(i,d){submitForm($("#modifyForm"));}},{text:"关闭",onclick:function(i,d){d.hide();resetModifyItem();}}]
 		});
-		setModifyItem(rows[0].uid,rows[0].cno,rows[0].cname);
+		setModifyItem(rows[0].uid,rows[0].cno,rows[0].uuserid,rows[0].cusername,rows[0].cname);
 	}else{
 		$.ligerDialog.warn("请选择需要修改的账户!");
 	}
@@ -151,11 +176,13 @@ function ajaxModifyCName(field,rules,i,options){
  * @param cspecifications
  * @param nprice
  */
-function setModifyItem(uid,cno,cname){
+function setModifyItem(uid,cno,uuserid,cusername,cname){
 	_old_cno = cno;
 	_old_cname = cname;
 	$("#modify_uid").val(uid);
 	$("#modify_cno").val(cno);
+	$("#modify_uuserid").val(uuserid);
+	$("#modify_cusername").val(cusername);
 	$("#modify_cname").val(cname);
 }
 /**
@@ -166,6 +193,8 @@ function resetModifyItem(){
 	_old_cname = null;
 	$("#modify_uid").val("");
 	$("#modify_cno").val("");
+	$("#modify_uuserid").val("");
+	$("#modify_cusername").val("");
 	$("#modify_cname").val("");
 }
 /**

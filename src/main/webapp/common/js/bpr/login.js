@@ -52,23 +52,23 @@ function login(){
 		$("#verifyCode").focus();
 		return;
 	}
-	$("#pageloading").show(0.1,function(){
-		$("#pageloading").focus();
-		$.ajax({
-			type:"post",
-			async:true,
-			url:contextPath+"/ajax/login",
-			data:{'code':code,'password':password,'verifyCode':verifyCode,'remember':remember},
-			dataType:"json",
-			success:function(data){
-				if(data.isSuccess){
-					window.location.href = contextPath + "/bpr/index";
-				}else{
-					$.ligerDialog.error(data.info);
-					$("#pageloading").hide();
-				}
+	$.ajax({
+		type:"post",
+		async:true,
+		url:contextPath+"/ajax/login",
+		data:{'code':code,'password':password,'verifyCode':verifyCode,'remember':remember},
+		dataType:"json",
+		beforeSend:function(XHR){
+			$("#pageloading").focus().show();
+		},
+		success:function(data){
+			if(data.isSuccess){
+				window.location.href = contextPath + "/bpr/index";
+			}else{
+				$.ligerDialog.error(data.info);
+				$("#pageloading").hide();
 			}
-		});
+		}
 	});
 }
 /**

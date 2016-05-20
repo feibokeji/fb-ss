@@ -39,4 +39,8 @@ public class ModuleServiceImpl extends SimpServiceAbstract implements ModuleServ
         return moduleDao.getModuleListJSON(umodulegroupid);
     }
 
+    public TModule getParentModuleByCCode(String ccode) {
+        return moduleDao.getParentModuleByCCode(ccode);
+    }
+
 }

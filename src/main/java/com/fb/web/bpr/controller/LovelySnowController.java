@@ -2,6 +2,7 @@ package com.fb.web.bpr.controller;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -17,6 +18,7 @@ import com.fb.core.utils.DataUtils;
 import com.fb.core.utils.FormatUtils;
 import com.fb.domain.po.TCategory;
 import com.fb.domain.po.TMaterial;
+import com.fb.domain.po.TMaterialCheckDiff;
 import com.fb.domain.po.TOrder;
 import com.fb.domain.po.TOrderMaterial;
 import com.fb.domain.po.TOrderProduct;
@@ -77,6 +79,27 @@ public class LovelySnowController extends SimpController {
      */
     @RequestMapping("procurement")
     public String procurement(String type, String uid, ModelMap map) {
+        map.put("user", getRoleContainer().getUser());
+        map.put("type", type);
+        TOrder order = new TOrder();
+        List<TOrderMaterial> orderMaterialList = new ArrayList<TOrderMaterial>();
+        if (!DataUtils.isNullOrEmpty(type) && DataUtils.isUid(uid)) {
+            order = getService().getOrderService().getOrder(uid);
+            orderMaterialList = getService().getOrderMaterialService().getOrderMaterialList(uid);
+        }
+        map.put("order", order);
+        map.put("orderMaterialList", orderMaterialList);
+        return customPage();
+    }
+    
+    /**
+     * 物料盘点
+     * @param map
+     * @return
+     * @author Liu bo
+     */
+    @RequestMapping("materialCheck")
+    public String materialCheck(String type, String uid, ModelMap map) {
         map.put("user", getRoleContainer().getUser());
         map.put("type", type);
         TOrder order = new TOrder();
@@ -411,8 +434,8 @@ public class LovelySnowController extends SimpController {
      */
     @RequestMapping("getOrderMaterialGroup")
     @ResponseBody
-    public String getOrderMaterialGroup(TOrder order) {
-        order.setCtype("00");
+    public String getOrderMaterialGroup(TOrder order, String ctype) {
+        order.setCtype(ctype);
         List<Tree> treeList = getOrderTree(order);
         JSONArray arry = JSONArray.fromObject(treeList);
         return arry.toString();
@@ -548,12 +571,16 @@ public class LovelySnowController extends SimpController {
     @ResponseBody
     public boolean auditOrder(String uid, String cstatus) {
         if (DataUtils.isUid(uid)) {
-            int count = getService().getOrderService().auditOrder(uid, cstatus);
-            if (count > 0) {
-                this.addOperateLog("审核", "t_order", uid, cstatus, null, null, "审核/反审核成功!");
-                return true;
-            } else
+            if (getService().getMaterialCheckDiffService().getMaterialCheckDiffByUOrderId(uid) > 0) {
                 return false;
+            } else {
+                int count = getService().getOrderService().auditOrder(uid, cstatus);
+                if (count > 0) {
+                    this.addOperateLog("审核", "t_order", uid, cstatus, null, null, "审核/反审核成功!");
+                    return true;
+                } else
+                    return false;
+            }
         }
         return false;
     }
@@ -582,5 +609,45 @@ public class LovelySnowController extends SimpController {
         map.put("Total", list.size());
         JSONObject _jsonObject = JSONObject.fromObject(map);
         return _jsonObject;
+    }
+    
+    /**
+     * 生成盘点差异
+     * @param uid
+     * @return
+     * @author Liu bo
+     */
+    @RequestMapping("createDiff")
+    @ResponseBody
+    public String createDiff(String uid) {
+        if(getService().getMaterialCheckDiffService().getMaterialCheckDiffByUOrderId(uid) > 0){
+            return "have";
+        }else{
+            List<TMaterial> list = getService().getMaterialService().getMaterialInventory(null);
+            List<TOrderMaterial> omList = getService().getOrderMaterialService().getOrderMaterialList(uid);
+            for(TOrderMaterial om : omList){
+                for(TMaterial item : list){
+                    if(om.getUmaterialid().equals(item.getUid())){
+                        Double current = (item.getNqty() == null ? 0.0 : item.getNqty()) - (item.getNsqty() == null ? 0.0 : item.getNsqty());
+                        if(om.getNqty() != current){
+                            Double d = current - (om.getNqty() == null ? 0.0 : om.getNqty());
+                            if(d != 0){
+                                TMaterialCheckDiff diff = new TMaterialCheckDiff();
+                                diff.setUid(DataUtils.newUUID());
+                                diff.setUorderid(uid);
+                                diff.setUmaterialid(item.getUid());
+                                diff.setCmaterialname(item.getCname());
+                                diff.setNqty(d);//差异数
+                                diff.setNqty1(current);//当前库存
+                                diff.setNqty2(om.getNqty());//实盘数
+                                diff.setDcreatetime(new Date());
+                                getService().getMaterialCheckDiffService().addMaterialCheckDiff(diff);
+                            }
+                        }
+                    }
+                }
+            }
+            return "success";
+        }
     }
 }

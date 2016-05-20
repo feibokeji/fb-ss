@@ -62,7 +62,10 @@ public class LoginServiceImpl extends SimpServiceAbstract implements LoginServic
                     	if(roleList.size() > 1){
                     		//账号存在多个角色
                     		container.setRoles(roleList);
-                    		//.....................待开发
+                    		//账户不存在角色,此系统中作为未审核来判定
+                            loginResulteMsg.put("result", FAILURE);
+                            loginResulteMsg.put("info", "此账号存在多角色,请联系管理员!");
+                            loginResulteMsg.put("isSuccess", false);
                     	}else{
                     		//此账号只存在一个角色
                     		container.setRole(roleList.get(0));

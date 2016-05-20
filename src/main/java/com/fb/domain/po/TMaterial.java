@@ -75,6 +75,18 @@ public class TMaterial extends BaseDomain {
     private Double inventory = 0.0;
     
     /**
+     * 差异数
+     */
+    @NotFieldMapper
+    private Double ndiff = 0.0;
+    
+    /**
+     * 实盘数量
+     */
+    @NotFieldMapper
+    private Double nreal = 0.0;
+    
+    /**
      * 获取 主键
      * @return uid
      */
@@ -223,7 +235,7 @@ public class TMaterial extends BaseDomain {
      * @return inventory
      */
     public Double getInventory() {
-        return (this.nqty == null ? 0.0 : this.nqty) - (this.nsqty == null ? 0.0 : this.nsqty);
+        return (this.nqty == null ? 0.0 : this.nqty) - (this.nsqty == null ? 0.0 : this.nsqty) - (this.ndiff == null ? 0.0 : this.ndiff);
     }
     
     /**
@@ -232,6 +244,38 @@ public class TMaterial extends BaseDomain {
      */
     public void setInventory(Double inventory) {
         this.inventory = inventory;
+    }
+    
+    /**
+     * 获取 差异数
+     * @return ndiff
+     */
+    public Double getNdiff() {
+        return ndiff;
+    }
+    
+    /**
+     * 设置 差异数
+     * @param ndiff 差异数
+     */
+    public void setNdiff(Double ndiff) {
+        this.ndiff = ndiff;
+    }
+    
+    /**
+     * 获取 实盘数量
+     * @return nreal
+     */
+    public Double getNreal() {
+        return nreal;
+    }
+    
+    /**
+     * 设置 实盘数量
+     * @param nreal 实盘数量
+     */
+    public void setNreal(Double nreal) {
+        this.nreal = nreal;
     }
     
 }

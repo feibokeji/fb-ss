@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>可爱雪-物料入库</title>
+<title>可爱雪-物料盘点</title>
 <link type="text/css" href="${contextPath}/common/liger/css/ligerui-all.css" rel="stylesheet" />
 <link type="text/css" href="${contextPath}/common/liger/images/skins/ligerui-icons.css" rel="stylesheet" />
 <link type="text/css" href="${contextPath}/common/liger/images/skins/Gray2014/css/all.css" rel="stylesheet" />
@@ -16,13 +16,13 @@
 <script type="text/javascript" src="${contextPath}/common/js/base/html5.js"></script>
 <![endif]-->
 </head>
-<!-- /bpr/lovelysnow/procurement.jsp -->
+<!-- /bpr/lovelysnow/materialCheck.jsp -->
 <body>
 	<div id="layout1">
     	<div position="left" title="单据">
     		<ul id="tree1"></ul>
     	</div>
-        <div position="center" title="物料入库单" style="overflow: scroll;">
+        <div position="center" title="物料盘点单" style="overflow: scroll;">
         	<div id="add_div" style="display: none;">
 	        	<!-- 订单详细内容 -->
 	        	<form id="addOrderForm" name="addOrderForm" method="post" action="${contextPath }/bpr/lovelysnow/saveOrderMaterial">
@@ -36,13 +36,13 @@
 	        			<input type="hidden" id="cusername" name="cusername" value="${order.cusername }"/>
 	        		</c:if>
 	        		<input type="hidden" id="cno" name="cno" value="${order.cno }"/>
-	        		<input type="hidden" id="ctype" name="ctype" value="00"/>
+	        		<input type="hidden" id="ctype" name="ctype" value="02"/>
 	        		<input type="hidden" id="cstatus" name="cstatus" value="${order.cstatus }"/>
 	        		<input type="hidden" id="dcreatetime" name="dcreatetime" value="${order.dcreatetime }"/>
 	        		<input type="hidden" id="listSize" value="${fn:length(orderMaterialList)}"/>
 	        		<table style="margin: 0 auto;border: 1px solid #eeeeee;width: 98%;line-height: 45px;">
 	        			<tr>
-	        				<td colspan="11" align="center"><h2>物料入库单</h2></td>
+	        				<td colspan="11" align="center"><h2>物料盘点单</h2></td>
 	        			</tr>
 	        			<tr>
 	        				<td align="right" width="60px">日期：</td>
@@ -211,6 +211,7 @@
 	        					</c:if>
 	        					<c:if test="${order.cstatus eq '01'}">
 	        						<input type="button" style="margin-top: 20px;margin-bottom: 20px;margin-right: 20px;" value="反审核" class="l-button" onclick="f_v_not_audit('${order.uid}')"/>
+	        						<input type="button" style="margin-top: 20px;margin-bottom: 20px;margin-right: 20px;" value="生成盘点差异" class="l-button" onclick="f_create_diff('${order.uid}')"/>
 	        					</c:if>
 	        					<input type="button" style="margin-top: 20px;margin-bottom: 20px;" value="新增单据" class="l-button" onclick="openAdd()"/>
 	        				</td>
@@ -229,6 +230,6 @@
 	<script type="text/javascript" src="${contextPath}/common/formValidator2.2.4/jquery.validationEngine.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/common.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/js/bpr/base.js"></script>
-	<script type="text/javascript" src="${contextPath}/common/js/bpr/lovelysnow/procurement.js"></script>
+	<script type="text/javascript" src="${contextPath}/common/js/bpr/lovelysnow/materialCheck.js"></script>
 </body>
 </html>

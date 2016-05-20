@@ -49,7 +49,7 @@
   				</tr>
   				<tr>
   					<td align="right" width="60">名称:</td>
-  					<td align="left" colspan="5"><input type="text" name="cname" class="l-text validate[required,minSize[6],maxSize[40]]" style="width: 400px;"/></td>
+  					<td align="left" colspan="5"><input type="text" name="cname" class="l-text validate[required,minSize[2],maxSize[40]]" style="width: 400px;"/></td>
   				</tr>
   				<tr>
   					<td align="right" width="60">单价:</td>

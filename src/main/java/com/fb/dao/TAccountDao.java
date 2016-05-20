@@ -61,9 +61,17 @@ public interface TAccountDao {
     public List<TAccount> getList();
     
     /**
+     * 获取账号下的账户数据
+     * @param uuserid
+     * @return
+     * @author Liu bo
+     */
+    public List<TAccount> getAccountListByUUserId(String uuserid);
+    
+    /**
      * 下拉框
      * @return
      * @author Liu bo
      */
-    public List<Combobox> getCombobox();
+    public List<Combobox> getCombobox(String uuserid);
 }

@@ -43,4 +43,12 @@ public interface ModuleService {
      * @author Liu bo
      */
     public List<TModule> getModuleListJSON(String umodulegroupid);
+    
+    /**
+     * 获取父级模块
+     * @param ccode
+     * @return
+     * @author Liu bo
+     */
+    public TModule getParentModuleByCCode(String ccode);
 }

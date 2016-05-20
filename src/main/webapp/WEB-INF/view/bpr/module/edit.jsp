@@ -58,6 +58,10 @@
 	<script type="text/javascript">
 		var contextPath = '${contextPath}';
 		var msg = "${msg}";
+		var parentType = "${parentModule == null ? '' : parentModule.ctype}";
+		var parentCode = "${parentModule == null ? '' : parentModule.ccode}";
+		var parentCodePath = "${parentModule == null ? '' : parentModule.ccodepath}";
+		var defaultLevel = ${parentModule == null ? 1 : (parentModule.ilevel + 1)};
 	</script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/jquery-1.8.3.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/formValidator2.2.4/jquery.validationEngine-zh_CN.js"></script>
