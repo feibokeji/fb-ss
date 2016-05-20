@@ -46,7 +46,7 @@ public class TOrderDaoImpl extends SimpMapper<TOrder>implements TOrderDao {
                 map.put("endtime", order.getEndtime());
             }
         }
-        sql.append(" order by t.dordertime");
+        sql.append(" order by t.dordertime desc");
         return findList(sql.toString(), map);
     }
     

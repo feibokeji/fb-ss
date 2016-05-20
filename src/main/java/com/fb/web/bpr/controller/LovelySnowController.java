@@ -464,7 +464,6 @@ public class LovelySnowController extends SimpController {
     private List<Tree> getOrderTree(TOrder order) {
         List<TOrder> list = getService().getOrderService().getOrderList(order);
         Map<String, List<TOrder>> map = new TreeMap<String, List<TOrder>>(new Comparator<String>() {
-            
             public int compare(String o1, String o2) {
                 return o2.compareTo(o1);
             }
