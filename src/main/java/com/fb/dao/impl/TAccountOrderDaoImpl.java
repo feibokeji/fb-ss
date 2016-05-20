@@ -141,5 +141,35 @@ public class TAccountOrderDaoImpl extends SimpMapper<TAccountOrder>implements TA
         String sql = "select count(*) from t_account_order where uaccountid = :uaccountid";
         return super.getInt(sql, new QMap("uaccountid", uaccountid));
     }
+
+    public List<TAccountOrder> getAccountOrderList(TAccountOrder accountOrder) {
+        QMap map = new QMap();
+        StringBuilder sql = new StringBuilder();
+        sql.append("select t.uid,t.ccode,t.cname,t.ctype,t.uaccounttypeid,(select at.cname from t_account_type at where at.uid = t.uaccounttypeid) as caccounttypename,");
+        sql.append("t.ucorpid,t.udeptid,t.uuserid,(select u.cname from t_user u where u.uid = t.uuserid) as cusername,t.cmemo,t.dcreatetime,t.dupdatetime,t.iaudit,t.daudittime");
+        sql.append(",t.dcreatetime as ccreatetime,(select sum(tao.namount) from t_account_order_detail tao where tao.uaccountorderid = t.uid) as namount");
+        sql.append(",t.uaccountid,(select ta.cname from t_account ta where ta.uid = t.uaccountid) as caccountname");
+        sql.append(" from t_account_order t where 1 = 1");
+        if (!DataUtils.isNullOrEmpty(accountOrder.getBeganTime())) {
+            sql.append(" and t.dcreatetime >= '" + accountOrder.getBeganTime() + " 00:00:00'");
+        }
+        if (!DataUtils.isNullOrEmpty(accountOrder.getEndTime())) {
+            sql.append(" and t.dcreatetime <= '" + accountOrder.getEndTime() + " 23:59:59'");
+        }
+        if (!DataUtils.isNullOrEmpty(accountOrder.getCtype())) {
+            map.put("ctype", accountOrder.getCtype());
+            sql.append(" and t.ctype = :ctype");
+        }
+        if (DataUtils.isUid(accountOrder.getUaccounttypeid())) {
+            map.put("uaccounttypeid", accountOrder.getUaccounttypeid());
+            sql.append(" and t.uaccounttypeid = :uaccounttypeid");
+        }
+        if (DataUtils.isUid(accountOrder.getUaccountid())) {
+            map.put("uaccountid", accountOrder.getUaccountid());
+            sql.append(" and t.uaccountid = :uaccountid");
+        }
+        sql.append(" order by t.dcreatetime asc");
+        return findList(sql, map);
+    }
     
 }

@@ -85,4 +85,12 @@ public interface AccountOrderService {
      * @author Liu bo
      */
     public int getAccountOrderByUAccountId(String uaccountid);
+    
+    /**
+     * 根据条件查询单据
+     * @param accountOrder
+     * @return
+     * @author Liu bo
+     */
+    public List<TAccountOrder> getAccountOrderList(TAccountOrder accountOrder);
 }

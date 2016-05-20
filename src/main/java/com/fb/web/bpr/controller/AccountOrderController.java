@@ -1,5 +1,6 @@
 package com.fb.web.bpr.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fb.core.utils.DataUtils;
+import com.fb.domain.po.TAccount;
 import com.fb.domain.po.TAccountOrder;
 import com.fb.domain.po.TAccountOrderDetail;
 import com.fb.web.SimpController;
@@ -48,7 +50,21 @@ public class AccountOrderController extends SimpController {
     @RequestMapping("getAccountOrder")
     @ResponseBody
     public String getAccountOrder(String ctype) {
-        List<TAccountOrder> list = getService().getAccountOrderService().getAccountOrderList(ctype);
+        TAccountOrder accountOrder = new TAccountOrder();
+        accountOrder.setCtype(ctype);
+        List<TAccountOrder> list = new ArrayList<TAccountOrder>();
+        if (getSessionContainer().getRole().getCname().equals("系统管理员")) {
+            list = getService().getAccountOrderService().getAccountOrderList(accountOrder);
+        } else {
+            List<TAccount> accountList = getService().getAccountService().getAccountListByUUserId(getSessionContainer().getUser().getUid());
+            for (TAccount item : accountList) {
+                accountOrder.setUaccountid(item.getUid());
+                List<TAccountOrder> n = getService().getAccountOrderService().getAccountOrderList(accountOrder);
+                for(TAccountOrder ao : n){
+                    list.add(ao);
+                }
+            }
+        }
         Map<Object, Object> map = new HashMap<Object, Object>();
         map.put("Rows", list);
         map.put("Total", list.size());
@@ -63,7 +79,7 @@ public class AccountOrderController extends SimpController {
      */
     @RequestMapping("getAccountOrderDetail")
     @ResponseBody
-    public TAccountOrder getAccountOrderDetail(String uid){
+    public TAccountOrder getAccountOrderDetail(String uid) {
         TAccountOrder accountOrder = getService().getAccountOrderService().getAccountOrder(uid);
         List<TAccountOrderDetail> detailList = getService().getAccountOrderDetailService().getAccountOrderDetailByUAccountOrderId(uid);
         accountOrder.setAccountOrderDetailList(detailList);

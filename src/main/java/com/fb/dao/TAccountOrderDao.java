@@ -62,6 +62,14 @@ public interface TAccountOrderDao {
     public List<TAccountOrder> getAccountOrderListPage(TAccountOrder accountOrder, int startRow, int pageSize);
     
     /**
+     * 根据条件查询单据
+     * @param accountOrder
+     * @return
+     * @author Liu bo
+     */
+    public List<TAccountOrder> getAccountOrderList(TAccountOrder accountOrder);
+    
+    /**
      * 获取指定类型的财务单据数量
      * @param uid
      * @return

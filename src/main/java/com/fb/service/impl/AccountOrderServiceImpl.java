@@ -72,5 +72,9 @@ public class AccountOrderServiceImpl extends SimpServiceAbstract implements Acco
     public int getAccountOrderByUAccountId(String uaccountid) {
         return accountOrderDao.getAccountOrderByUAccountId(uaccountid);
     }
+
+    public List<TAccountOrder> getAccountOrderList(TAccountOrder accountOrder) {
+        return accountOrderDao.getAccountOrderList(accountOrder);
+    }
     
 }

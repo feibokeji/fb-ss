@@ -74,6 +74,13 @@
 			<t:module code="LOVELYREPORT">
 			<div title="可爱雪报表" class="l-scroll">
 				<ul class="m-ul">
+					<t:module code="LOVELYREPORTSTORES">
+						<li>
+							<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />
+							&nbsp;
+							<a href="javascript:openPage('lovelysnowReportAccount','可爱雪-账务报表','${contextPath }/bpr/report/account')">账务报表</a>
+						</li>
+					</t:module>
 				</ul>
 			</div>
 			</t:module>

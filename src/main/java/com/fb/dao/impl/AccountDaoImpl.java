@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.fb.core.utils.DataUtils;
 import com.fb.core.utils.QMap;
 import com.fb.dao.TAccountDao;
 import com.fb.domain.po.TAccount;
@@ -47,8 +48,15 @@ public class AccountDaoImpl extends SimpMapper<TAccount>implements TAccountDao {
     }
 
     public List<Combobox> getCombobox(String uuserid) {
-        String sql = "select uid as id,cname as text from t_account where uuserid = :uuserid order by cno";
-        return super.findList(sql, new QMap("uuserid",uuserid), Combobox.class);
+        QMap map = new QMap();
+        StringBuilder sql = new StringBuilder();
+        sql.append("select uid as id,cname as text from t_account where 1 = 1");
+        if(DataUtils.isUid(uuserid)){
+            sql.append(" and uuserid = :uuserid");
+            map.put("uuserid", uuserid);
+        }
+        sql.append(" order by cno");
+        return super.findList(sql, map, Combobox.class);
     }
 
     public List<TAccount> getAccountListByUUserId(String uuserid) {

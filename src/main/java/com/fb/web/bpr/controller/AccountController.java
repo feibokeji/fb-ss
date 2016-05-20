@@ -63,7 +63,12 @@ public class AccountController extends SimpController {
     @RequestMapping("getAccountJSONArray")
     @ResponseBody
     public JSONArray getAccountJSONArray() {
-        List<Combobox> boxList = getService().getAccountService().getCombobox(getSessionContainer().getUser().getUid());
+        List<Combobox> boxList = new ArrayList<Combobox>();
+        if (getSessionContainer().getRole().getCname().equals("系统管理员")) {
+            boxList = getService().getAccountService().getCombobox(null);
+        } else {
+            boxList = getService().getAccountService().getCombobox(getSessionContainer().getUser().getUid());
+        }
         return JSONArray.fromObject(boxList);
     }
     
