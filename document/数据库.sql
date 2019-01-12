@@ -329,6 +329,7 @@ alter table t_material_check_diff add constraint t_material_check_diff_pk primar
 
 --2019/01/12
 --\u54c1\u724c\u8868\u5efa\u7acb
+--\u54c1\u724c
 CREATE TABLE [dbo].[t_brand](
 	[uid] [uniqueidentifier] NOT NULL,
 	[cname] [varchar](50) NOT NULL,
