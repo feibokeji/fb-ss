@@ -268,25 +268,25 @@ ALTER TABLE [dbo].[t_order_material] CHECK CONSTRAINT [FK_t_order_material_t_ord
 
 CREATE TABLE [dbo].[t_order_product](
 	[uid] [uniqueidentifier] NOT NULL,
-	[isort] [int] NOT NULL, --序号
-	[uorderid] [uniqueidentifier] NOT NULL, --订单外键
-	[uproductid] [uniqueidentifier] NOT NULL, --产品外键
-	[cproductno] [varchar](50) NOT NULL, --产品编码
-	[cproductname] [varchar](50) NOT NULL, --产品名称
-	[ccategoryname] [varchar](50) NOT NULL, --类别名称
-	[nsqty] [decimal](18, 2) NOT NULL, --销售数量 
-	[nsamount] [decimal](18, 2) NOT NULL, --销售金额
-	[nbqty] [decimal](18, 2) NOT NULL, --退货数量 
-	[nbamount] [decimal](18, 2) NOT NULL, --退货金额
-	[ngqty] [decimal](18, 2) NOT NULL, --赠送数量 
-	[ngamount] [decimal](18, 2) NOT NULL, --赠送金额
-	[nqtysubtotal] [decimal](18, 2) NOT NULL, --数量小计
-	[namountsubtotal] [decimal](18, 2) NOT NULL, --金额小计
-	[nreferenceprice] [decimal](18, 2) NOT NULL, --参考进价
-	[npurchaseprice] [decimal](18, 2) NOT NULL, --进价金额
-	[nreferenceprofits] [decimal](18, 2) NOT NULL, --参考利润
-	[cmainsupplier] [varchar](50) NULL, --主供应商
-	[cbrand] [varchar](50) NULL --品牌
+	[isort] [int] NOT NULL, --\u5e8f\u53f7
+	[uorderid] [uniqueidentifier] NOT NULL, --\u8ba2\u5355\u5916\u952e
+	[uproductid] [uniqueidentifier] NOT NULL, --\u4ea7\u54c1\u5916\u952e
+	[cproductno] [varchar](50) NOT NULL, --\u4ea7\u54c1\u7f16\u7801
+	[cproductname] [varchar](50) NOT NULL, --\u4ea7\u54c1\u540d\u79f0
+	[ccategoryname] [varchar](50) NOT NULL, --\u7c7b\u522b\u540d\u79f0
+	[nsqty] [decimal](18, 2) NOT NULL, --\u9500\u552e\u6570\u91cf 
+	[nsamount] [decimal](18, 2) NOT NULL, --\u9500\u552e\u91d1\u989d
+	[nbqty] [decimal](18, 2) NOT NULL, --\u9000\u8d27\u6570\u91cf 
+	[nbamount] [decimal](18, 2) NOT NULL, --\u9000\u8d27\u91d1\u989d
+	[ngqty] [decimal](18, 2) NOT NULL, --\u8d60\u9001\u6570\u91cf 
+	[ngamount] [decimal](18, 2) NOT NULL, --\u8d60\u9001\u91d1\u989d
+	[nqtysubtotal] [decimal](18, 2) NOT NULL, --\u6570\u91cf\u5c0f\u8ba1
+	[namountsubtotal] [decimal](18, 2) NOT NULL, --\u91d1\u989d\u5c0f\u8ba1
+	[nreferenceprice] [decimal](18, 2) NOT NULL, --\u53c2\u8003\u8fdb\u4ef7
+	[npurchaseprice] [decimal](18, 2) NOT NULL, --\u8fdb\u4ef7\u91d1\u989d
+	[nreferenceprofits] [decimal](18, 2) NOT NULL, --\u53c2\u8003\u5229\u6da6
+	[cmainsupplier] [varchar](50) NULL, --\u4e3b\u4f9b\u5e94\u5546
+	[cbrand] [varchar](50) NULL --\u54c1\u724c
 ) ON [PRIMARY]
 alter table t_order_product add constraint t_order_product_pk	primary key (uid);
 
@@ -299,7 +299,7 @@ ALTER TABLE [dbo].[t_order_product]  WITH CHECK ADD  CONSTRAINT [FK_t_order_prod
 REFERENCES [dbo].[t_product] ([uid])
 
 ALTER TABLE [dbo].[t_order_product] CHECK CONSTRAINT [FK_t_order_product_t_product]
---账户表
+--\u8d26\u6237\u8868
 create table t_account(
 	uid uniqueidentifier not null,
 	uuserid uniqueidentifier null,
@@ -314,7 +314,7 @@ create table t_account(
 alter table t_account add constraint t_account_pk primary key (uid)
 alter table t_account_order add uaccountid uniqueidentifier not null
 alter table t_account add namount [decimal](18,2) null
---盘点差异表
+--\u76d8\u70b9\u5dee\u5f02\u8868
 create table t_material_check_diff(
 	uid uniqueidentifier not null,
 	uorderid uniqueidentifier not null,
@@ -326,3 +326,18 @@ create table t_material_check_diff(
 	dcreatetime [datetime] NOT NULL
 )
 alter table t_material_check_diff add constraint t_material_check_diff_pk primary key (uid)
+
+--2019/01/12
+--\u54c1\u724c\u8868\u5efa\u7acb
+CREATE TABLE [dbo].[t_brand](
+	[uid] [uniqueidentifier] NOT NULL,
+	[cname] [varchar](50) NOT NULL,
+	[clogo] [varchar](100) NULL,
+	[curl] [varchar](100) NULL,
+	[cdesc] [varchar](100) NULL,
+	[isort] [int] NOT NULL,
+ CONSTRAINT [PK_t_brand] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]

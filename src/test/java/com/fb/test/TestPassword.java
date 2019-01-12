@@ -12,8 +12,10 @@ public class TestPassword {
     
     @Test
     public void test() {
-        /*System.out.println(EncryptionUtils.MD5("123456"));
-        System.out.println(DataUtils.newUUID());*/
+    	System.out.println("---密码测试---");
+        System.out.println(EncryptionUtils.MD5("123"));
+        System.out.println("---end---");
+        /*System.out.println(DataUtils.newUUID());*/
         String cno = FormatUtils.formatDate(new Date(), "yyyy-MM-dd-HH-mm-ss");
         //int i = (int)(1+Math.random()*(20-1+1));
         System.out.println(cno);

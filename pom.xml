@@ -191,6 +191,12 @@
 			<classifier>jdk15</classifier>
 		</dependency>
 		<dependency>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>servlet-api</artifactId>
+		    <version>2.5</version>
+		    <scope>provided</scope>
+		</dependency>
+		<dependency>
 			<groupId>fb-core</groupId>
 			<artifactId>fb-core</artifactId>
 			<version>1.1.1</version>
@@ -214,13 +220,13 @@
 					<configuration>
 						<scanIntervalSeconds>0</scanIntervalSeconds>
 						<stopKey>foo</stopKey>
-						<stopPort>9898</stopPort>
+						<stopPort>9999</stopPort>
 						<webApp>
 							<contextPath>/fbss</contextPath>
 						</webApp>
 						<connectors>
 							<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
-								<port>7777</port>
+								<port>8888</port>
 								<maxIdleTime>60000</maxIdleTime>
 							</connector>
 						</connectors>
