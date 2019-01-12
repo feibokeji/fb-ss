@@ -342,3 +342,77 @@ CREATE TABLE [dbo].[t_brand](
 	[uid] ASC
 )WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
 ) ON [PRIMARY]
+
+--\u4fdd\u4fee\u8868\u8bbe\u8ba1
+CREATE TABLE [dbo].[t_warranty](
+	[uid] [uniqueidentifier] NOT NULL,
+	[iday] [int] NOT NULL,
+	[ccontent] [varchar](100) NULL,
+ CONSTRAINT [PK_t_warranty] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+--\u624b\u673a\u578b\u53f7\u8868\u8bbe\u8ba1
+CREATE TABLE [dbo].[t_phone_model](
+	[uid] [uniqueidentifier] NOT NULL,
+	[ubrandid] [uniqueidentifier] NOT NULL,
+	[uwarranty] [uniqueidentifier] NOT NULL,
+	[cname] [varchar](50) NOT NULL,
+	[cram] [varchar](50) NULL,
+	[crom] [varchar](50) NULL,
+	[ccpu] [varchar](50) NULL,
+	[ccamera] [varchar](100) NULL,
+	[cbattery] [varchar](50) NULL,
+	[cnetwork] [varchar](100) NULL,
+	[chighlightdesc] [varchar](200) NULL,
+ CONSTRAINT [PK_t_phone_model] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[t_phone_model]  WITH CHECK ADD  CONSTRAINT [FK_t_phone_model_t_brand] FOREIGN KEY([ubrandid])
+REFERENCES [dbo].[t_brand] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_phone_model] CHECK CONSTRAINT [FK_t_phone_model_t_brand]
+GO
+
+ALTER TABLE [dbo].[t_phone_model]  WITH CHECK ADD  CONSTRAINT [FK_t_phone_model_t_warranty] FOREIGN KEY([uwarranty])
+REFERENCES [dbo].[t_warranty] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_phone_model] CHECK CONSTRAINT [FK_t_phone_model_t_warranty]
+
+--\u624b\u673a\u578b\u53f7\u7684\u989c\u8272\u8868\u8bbe\u8ba1
+CREATE TABLE [dbo].[t_phone_model_color](
+	[uid] [uniqueidentifier] NOT NULL,
+	[uphonemodelid] [uniqueidentifier] NOT NULL,
+	[ucolorid] [uniqueidentifier] NOT NULL,
+ CONSTRAINT [PK_t_phone_model_color] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[t_phone_model_color]  WITH CHECK ADD  CONSTRAINT [FK_t_phone_model_color_t_color] FOREIGN KEY([ucolorid])
+REFERENCES [dbo].[t_color] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_phone_model_color] CHECK CONSTRAINT [FK_t_phone_model_color_t_color]
+GO
+
+ALTER TABLE [dbo].[t_phone_model_color]  WITH CHECK ADD  CONSTRAINT [FK_t_phone_model_color_t_phone_model] FOREIGN KEY([uphonemodelid])
+REFERENCES [dbo].[t_phone_model] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_phone_model_color] CHECK CONSTRAINT [FK_t_phone_model_color_t_phone_model]
