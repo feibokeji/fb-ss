@@ -416,3 +416,796 @@ REFERENCES [dbo].[t_phone_model] ([uid])
 GO
 
 ALTER TABLE [dbo].[t_phone_model_color] CHECK CONSTRAINT [FK_t_phone_model_color_t_phone_model]
+
+--\u624b\u673a\u578b\u53f7\u4ef7\u683c\u8bb0\u5f55\u8868
+CREATE TABLE [dbo].[t_phone_model_price_record](
+	[uid] [uniqueidentifier] NOT NULL,
+	[uphonemodelid] [uniqueidentifier] NOT NULL,
+	[ncostprice] [decimal](18, 2) NOT NULL,
+	[nretailprice] [decimal](18, 2) NOT NULL,
+	[drecorddate] [datetime] NOT NULL,
+	[istatus] [int] NOT NULL,
+ CONSTRAINT [PK_t_phone_model_price_record] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[t_phone_model_price_record]  WITH CHECK ADD  CONSTRAINT [FK_t_phone_model_price_record_t_phone_model] FOREIGN KEY([uphonemodelid])
+REFERENCES [dbo].[t_phone_model] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_phone_model_price_record] CHECK CONSTRAINT [FK_t_phone_model_price_record_t_phone_model]
+GO
+
+ALTER TABLE [dbo].[t_phone_model_price_record] ADD  CONSTRAINT [DF_t_phone_model_price_record_istatus]  DEFAULT ((0)) FOR [istatus]
+GO
+
+--\u4f9b\u5e94\u5546\u8868\u8bbe\u8ba1
+CREATE TABLE [dbo].[t_supplier](
+	[uid] [uniqueidentifier] NOT NULL,
+	[uuserid] [uniqueidentifier] NOT NULL,
+	[udeptid] [uniqueidentifier] NOT NULL,
+	[cno] [varchar](50) NOT NULL,
+	[cname] [varchar](50) NOT NULL,
+	[cbusinessscope] [varchar](100) NULL,
+	[caddress] [varchar](100) NULL,
+	[cfixedtelephone] [varchar](50) NULL,
+	[clinkman] [varchar](50) NULL,
+	[ccontactnumber] [varchar](50) NULL,
+	[cemail] [varchar](100) NULL,
+	[cqq] [varchar](50) NULL,
+	[cwechat] [varchar](50) NULL,
+	[copenbank] [varchar](50) NULL,
+	[cbankcardnumber] [varchar](50) NULL,
+	[ipaymentdays] [int] NOT NULL,
+	[drecorddate] [datetime] NOT NULL,
+	[dupdatedate] [datetime] NOT NULL,
+ CONSTRAINT [PK_t_supplier] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[t_supplier]  WITH CHECK ADD  CONSTRAINT [FK_t_supplier_t_dept] FOREIGN KEY([udeptid])
+REFERENCES [dbo].[t_dept] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_supplier] CHECK CONSTRAINT [FK_t_supplier_t_dept]
+GO
+
+ALTER TABLE [dbo].[t_supplier]  WITH CHECK ADD  CONSTRAINT [FK_t_supplier_t_user] FOREIGN KEY([uuserid])
+REFERENCES [dbo].[t_user] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_supplier] CHECK CONSTRAINT [FK_t_supplier_t_user]
+
+--\u5ba2\u6237\u7c7b\u578b\u8868\u8bbe\u8ba1
+CREATE TABLE [dbo].[t_customer_type](
+	[uid] [uniqueidentifier] NOT NULL,
+	[cno] [varchar](50) NOT NULL,
+	[cname] [varchar](50) NOT NULL,
+	[ipaymentdays] [int] NOT NULL,
+ CONSTRAINT [PK_t_customer_type] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[t_customer_type] ADD  CONSTRAINT [DF_t_customer_type_ipaymentdays]  DEFAULT ((0)) FOR [ipaymentdays]
+--\u5ba2\u6237\u8868\u8bbe\u8ba1
+CREATE TABLE [dbo].[t_customer](
+	[uid] [uniqueidentifier] NOT NULL,
+	[ucustomertypeid] [uniqueidentifier] NOT NULL,
+	[uuserid] [uniqueidentifier] NOT NULL,
+	[udeptid] [uniqueidentifier] NOT NULL,
+	[cname] [varchar](50) NOT NULL,
+	[isex] [int] NOT NULL,
+	[ccontactnumber] [varchar](50) NULL,
+	[caddress] [varchar](100) NULL,
+	[cwechat] [varchar](50) NULL,
+	[dbirthday] [date] NULL,
+	[iintegral] [int] NULL,
+	[ipaymentdays] [int] NULL,
+	[drecorddate] [datetime] NOT NULL,
+	[dupdatedate] [datetime] NOT NULL,
+ CONSTRAINT [PK_t_customer] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[t_customer]  WITH CHECK ADD  CONSTRAINT [FK_t_customer_t_customer_type] FOREIGN KEY([ucustomertypeid])
+REFERENCES [dbo].[t_customer_type] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_customer] CHECK CONSTRAINT [FK_t_customer_t_customer_type]
+GO
+
+ALTER TABLE [dbo].[t_customer]  WITH CHECK ADD  CONSTRAINT [FK_t_customer_t_dept] FOREIGN KEY([udeptid])
+REFERENCES [dbo].[t_dept] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_customer] CHECK CONSTRAINT [FK_t_customer_t_dept]
+GO
+
+ALTER TABLE [dbo].[t_customer]  WITH CHECK ADD  CONSTRAINT [FK_t_customer_t_user] FOREIGN KEY([uuserid])
+REFERENCES [dbo].[t_user] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_customer] CHECK CONSTRAINT [FK_t_customer_t_user]
+GO
+
+ALTER TABLE [dbo].[t_customer] ADD  CONSTRAINT [DF_t_customer_iintegral]  DEFAULT ((0)) FOR [iintegral]
+GO
+
+ALTER TABLE [dbo].[t_customer] ADD  CONSTRAINT [DF_t_customer_ipaymentdays]  DEFAULT ((0)) FOR [ipaymentdays]
+GO
+--\u5355\u4f4d\u8868\u8bbe\u8ba1
+CREATE TABLE [dbo].[t_unit](
+	[uid] [uniqueidentifier] NOT NULL,
+	[cname] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_t_unit] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+--\u5176\u5b83\u5546\u54c1\u8868\u8bbe\u8ba1
+CREATE TABLE [dbo].[t_other_goods](
+	[uid] [uniqueidentifier] NOT NULL,
+	[ucategoryid] [uniqueidentifier] NOT NULL,
+	[ubrandid] [uniqueidentifier] NOT NULL,
+	[uunitid] [uniqueidentifier] NOT NULL,
+	[uwarrantyid] [uniqueidentifier] NOT NULL,
+	[uuserid] [uniqueidentifier] NOT NULL,
+	[udeptid] [uniqueidentifier] NOT NULL,
+	[cno] [varchar](50) NOT NULL,
+	[cbarcode] [varchar](50) NULL,
+	[cname] [varchar](50) NOT NULL,
+	[cfullname] [varchar](100) NULL,
+	[cmnemoniccode] [varchar](50) NULL,
+	[cspecifications] [varchar](100) NULL,
+	[iintegral] [int] NULL,
+	[drecorddate] [datetime] NOT NULL,
+	[dupdatedate] [datetime] NOT NULL,
+ CONSTRAINT [PK_t_other_goods] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[t_other_goods]  WITH CHECK ADD  CONSTRAINT [FK_t_other_goods_t_brand] FOREIGN KEY([ubrandid])
+REFERENCES [dbo].[t_brand] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_other_goods] CHECK CONSTRAINT [FK_t_other_goods_t_brand]
+GO
+
+ALTER TABLE [dbo].[t_other_goods]  WITH CHECK ADD  CONSTRAINT [FK_t_other_goods_t_category] FOREIGN KEY([ucategoryid])
+REFERENCES [dbo].[t_category] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_other_goods] CHECK CONSTRAINT [FK_t_other_goods_t_category]
+GO
+
+ALTER TABLE [dbo].[t_other_goods]  WITH CHECK ADD  CONSTRAINT [FK_t_other_goods_t_dept] FOREIGN KEY([udeptid])
+REFERENCES [dbo].[t_dept] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_other_goods] CHECK CONSTRAINT [FK_t_other_goods_t_dept]
+GO
+
+ALTER TABLE [dbo].[t_other_goods]  WITH CHECK ADD  CONSTRAINT [FK_t_other_goods_t_unit] FOREIGN KEY([uunitid])
+REFERENCES [dbo].[t_unit] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_other_goods] CHECK CONSTRAINT [FK_t_other_goods_t_unit]
+GO
+
+ALTER TABLE [dbo].[t_other_goods]  WITH CHECK ADD  CONSTRAINT [FK_t_other_goods_t_user] FOREIGN KEY([uuserid])
+REFERENCES [dbo].[t_user] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_other_goods] CHECK CONSTRAINT [FK_t_other_goods_t_user]
+GO
+
+ALTER TABLE [dbo].[t_other_goods]  WITH CHECK ADD  CONSTRAINT [FK_t_other_goods_t_warranty] FOREIGN KEY([uwarrantyid])
+REFERENCES [dbo].[t_warranty] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_other_goods] CHECK CONSTRAINT [FK_t_other_goods_t_warranty]
+GO
+
+ALTER TABLE [dbo].[t_other_goods] ADD  CONSTRAINT [DF_t_other_goods_iintegral]  DEFAULT ((0)) FOR [iintegral]
+GO
+--\u4ed8\u6b3e\u65b9\u5f0f\u8868\u8bbe\u8ba1
+CREATE TABLE [dbo].[t_payment_method](
+	[uid] [uniqueidentifier] NOT NULL,
+	[cname] [varchar](50) NOT NULL,
+	[ccode] [varchar](50) NOT NULL,
+	[cdesc] [varchar](100) NULL,
+ CONSTRAINT [PK_t_payment_method] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+--\u5176\u5b83\u5546\u54c1\u4ef7\u683c\u8bb0\u5f55\u8868\u8bbe\u8ba1
+CREATE TABLE [dbo].[t_other_goods_price_record](
+	[uid] [uniqueidentifier] NOT NULL,
+	[uothergoodsid] [uniqueidentifier] NOT NULL,
+	[ncostprice] [decimal](18, 2) NOT NULL,
+	[nretailprice] [decimal](18, 2) NOT NULL,
+	[drecorddate] [datetime] NOT NULL,
+	[istatus] [int] NOT NULL,
+ CONSTRAINT [PK_t_other_goods_price_record] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[t_other_goods_price_record]  WITH CHECK ADD  CONSTRAINT [FK_t_other_goods_price_record_t_other_goods] FOREIGN KEY([uothergoodsid])
+REFERENCES [dbo].[t_other_goods] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_other_goods_price_record] CHECK CONSTRAINT [FK_t_other_goods_price_record_t_other_goods]
+GO
+
+ALTER TABLE [dbo].[t_other_goods_price_record] ADD  CONSTRAINT [DF_t_other_goods_price_record_istatus]  DEFAULT ((0)) FOR [istatus]
+GO
+
+--\u624b\u673a\u5e93\u5b58\u8868\u8bbe\u8ba1
+CREATE TABLE [dbo].[t_phone_inventory](
+	[IMEI] [int] NOT NULL,
+	[usupplierid] [uniqueidentifier] NULL,
+	[ucustomerid] [uniqueidentifier] NULL,
+	[uphonemodelid] [uniqueidentifier] NOT NULL,
+	[ucolorid] [uniqueidentifier] NOT NULL,
+	[uuserid] [uniqueidentifier] NOT NULL,
+	[udeptid] [uniqueidentifier] NOT NULL,
+	[ncostprice] [decimal](18, 2) NOT NULL,
+	[nretailprice] [decimal](18, 2) NOT NULL,
+	[drecorddate] [datetime] NOT NULL,
+	[dupdatedate] [datetime] NOT NULL,
+ CONSTRAINT [PK_t_phone_inventory] PRIMARY KEY CLUSTERED 
+(
+	[IMEI] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[t_phone_inventory]  WITH CHECK ADD  CONSTRAINT [FK_t_phone_inventory_t_color] FOREIGN KEY([ucolorid])
+REFERENCES [dbo].[t_color] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_phone_inventory] CHECK CONSTRAINT [FK_t_phone_inventory_t_color]
+GO
+
+ALTER TABLE [dbo].[t_phone_inventory]  WITH CHECK ADD  CONSTRAINT [FK_t_phone_inventory_t_dept] FOREIGN KEY([udeptid])
+REFERENCES [dbo].[t_dept] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_phone_inventory] CHECK CONSTRAINT [FK_t_phone_inventory_t_dept]
+GO
+
+ALTER TABLE [dbo].[t_phone_inventory]  WITH CHECK ADD  CONSTRAINT [FK_t_phone_inventory_t_phone_model] FOREIGN KEY([uphonemodelid])
+REFERENCES [dbo].[t_phone_model] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_phone_inventory] CHECK CONSTRAINT [FK_t_phone_inventory_t_phone_model]
+GO
+
+ALTER TABLE [dbo].[t_phone_inventory]  WITH CHECK ADD  CONSTRAINT [FK_t_phone_inventory_t_supplier] FOREIGN KEY([ucustomerid])
+REFERENCES [dbo].[t_customer] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_phone_inventory] CHECK CONSTRAINT [FK_t_phone_inventory_t_supplier]
+GO
+
+ALTER TABLE [dbo].[t_phone_inventory]  WITH CHECK ADD  CONSTRAINT [FK_t_phone_inventory_t_user] FOREIGN KEY([uuserid])
+REFERENCES [dbo].[t_user] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_phone_inventory] CHECK CONSTRAINT [FK_t_phone_inventory_t_user]
+GO
+--\u624b\u673a\u5e93\u5b58\u72b6\u6001\u8868
+CREATE TABLE [dbo].[t_phone_inventory_status](
+	[uid] [uniqueidentifier] NOT NULL,
+	[IMEI] [int] NOT NULL,
+	[istatus] [int] NOT NULL,
+	[imark] [int] NOT NULL,
+	[dupatedate] [datetime] NOT NULL,
+ CONSTRAINT [PK_t_phone_inventory_status] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[t_phone_inventory_status]  WITH CHECK ADD  CONSTRAINT [FK_t_phone_inventory_status_t_phone_inventory] FOREIGN KEY([IMEI])
+REFERENCES [dbo].[t_phone_inventory] ([IMEI])
+GO
+
+ALTER TABLE [dbo].[t_phone_inventory_status] CHECK CONSTRAINT [FK_t_phone_inventory_status_t_phone_inventory]
+--\u624b\u673a\u5e93\u5b58\u5e94\u6536\u5e94\u4ed8\u6b3e\u8868\u8bbe\u8ba1
+CREATE TABLE [dbo].[t_phone_inventory_receivable](
+	[uid] [uniqueidentifier] NOT NULL,
+	[IMEI] [int] NOT NULL,
+	[uuserid] [uniqueidentifier] NOT NULL,
+	[udeptid] [uniqueidentifier] NOT NULL,
+	[ctype] [varchar](5) NOT NULL,
+	[nactualamount] [decimal](18, 2) NOT NULL,
+	[ndiscount] [decimal](18, 2) NOT NULL,
+	[namount] [decimal](18, 2) NOT NULL,
+	[istatus] [int] NOT NULL,
+	[drecorddate] [datetime] NOT NULL,
+	[dupdatedate] [datetime] NOT NULL,
+ CONSTRAINT [PK_t_phone_inventory_receivable] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[t_phone_inventory_receivable]  WITH CHECK ADD  CONSTRAINT [FK_t_phone_inventory_receivable_t_dept] FOREIGN KEY([udeptid])
+REFERENCES [dbo].[t_dept] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_phone_inventory_receivable] CHECK CONSTRAINT [FK_t_phone_inventory_receivable_t_dept]
+GO
+
+ALTER TABLE [dbo].[t_phone_inventory_receivable]  WITH CHECK ADD  CONSTRAINT [FK_t_phone_inventory_receivable_t_phone_inventory] FOREIGN KEY([IMEI])
+REFERENCES [dbo].[t_phone_inventory] ([IMEI])
+GO
+
+ALTER TABLE [dbo].[t_phone_inventory_receivable] CHECK CONSTRAINT [FK_t_phone_inventory_receivable_t_phone_inventory]
+--\u624b\u673a\u5e93\u5b58\u5b9e\u6536\u5b9e\u4ed8\u6b3e\u8868\u8bbe\u8ba1
+CREATE TABLE [dbo].[t_phone_inventory_receipts](
+	[uid] [uniqueidentifier] NOT NULL,
+	[ureceivableid] [uniqueidentifier] NOT NULL,
+	[upaymentmethodid] [uniqueidentifier] NOT NULL,
+	[uuserid] [uniqueidentifier] NOT NULL,
+	[udeptid] [uniqueidentifier] NOT NULL,
+	[ctype] [varchar](5) NOT NULL,
+	[namount] [decimal](18, 2) NOT NULL,
+	[istatus] [int] NOT NULL,
+	[drecorddate] [datetime] NOT NULL,
+	[dupdatedate] [datetime] NOT NULL,
+ CONSTRAINT [PK_t_phone_inventory_receipts] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[t_phone_inventory_receipts]  WITH CHECK ADD  CONSTRAINT [FK_t_phone_inventory_receipts_t_dept] FOREIGN KEY([udeptid])
+REFERENCES [dbo].[t_dept] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_phone_inventory_receipts] CHECK CONSTRAINT [FK_t_phone_inventory_receipts_t_dept]
+GO
+
+ALTER TABLE [dbo].[t_phone_inventory_receipts]  WITH CHECK ADD  CONSTRAINT [FK_t_phone_inventory_receipts_t_payment_method] FOREIGN KEY([upaymentmethodid])
+REFERENCES [dbo].[t_payment_method] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_phone_inventory_receipts] CHECK CONSTRAINT [FK_t_phone_inventory_receipts_t_payment_method]
+GO
+
+ALTER TABLE [dbo].[t_phone_inventory_receipts]  WITH CHECK ADD  CONSTRAINT [FK_t_phone_inventory_receipts_t_phone_inventory_receivable] FOREIGN KEY([ureceivableid])
+REFERENCES [dbo].[t_phone_inventory_receivable] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_phone_inventory_receipts] CHECK CONSTRAINT [FK_t_phone_inventory_receipts_t_phone_inventory_receivable]
+GO
+
+ALTER TABLE [dbo].[t_phone_inventory_receipts]  WITH CHECK ADD  CONSTRAINT [FK_t_phone_inventory_receipts_t_user] FOREIGN KEY([uuserid])
+REFERENCES [dbo].[t_user] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_phone_inventory_receipts] CHECK CONSTRAINT [FK_t_phone_inventory_receipts_t_user]
+--\u4f9b\u5e94\u5546\u5355\u636e\u8868\u8bbe\u8ba1
+CREATE TABLE [dbo].[t_supplier_order](
+	[uid] [uniqueidentifier] NOT NULL,
+	[usupplierid] [uniqueidentifier] NOT NULL,
+	[uuserid] [uniqueidentifier] NOT NULL,
+	[udeptid] [uniqueidentifier] NOT NULL,
+	[cno] [varchar](50) NOT NULL,
+	[itype] [int] NOT NULL,
+	[istatus] [int] NOT NULL,
+	[drecorddate] [datetime] NOT NULL,
+	[dupdatedate] [datetime] NOT NULL,
+ CONSTRAINT [PK_t_supplier_order] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[t_supplier_order]  WITH CHECK ADD  CONSTRAINT [FK_t_supplier_order_t_dept] FOREIGN KEY([udeptid])
+REFERENCES [dbo].[t_dept] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_supplier_order] CHECK CONSTRAINT [FK_t_supplier_order_t_dept]
+GO
+
+ALTER TABLE [dbo].[t_supplier_order]  WITH CHECK ADD  CONSTRAINT [FK_t_supplier_order_t_supplier] FOREIGN KEY([usupplierid])
+REFERENCES [dbo].[t_supplier] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_supplier_order] CHECK CONSTRAINT [FK_t_supplier_order_t_supplier]
+GO
+
+ALTER TABLE [dbo].[t_supplier_order]  WITH CHECK ADD  CONSTRAINT [FK_t_supplier_order_t_user] FOREIGN KEY([uuserid])
+REFERENCES [dbo].[t_user] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_supplier_order] CHECK CONSTRAINT [FK_t_supplier_order_t_user]
+--\u4f9b\u5e94\u5546\u5355\u636e\u660e\u7ec6\u8868\u8bbe\u8ba1
+
+CREATE TABLE [dbo].[t_supplier_order_detail](
+	[uid] [uniqueidentifier] NOT NULL,
+	[uorderid] [uniqueidentifier] NOT NULL,
+	[uothergoodsid] [uniqueidentifier] NOT NULL,
+	[uuserid] [uniqueidentifier] NOT NULL,
+	[udeptid] [uniqueidentifier] NOT NULL,
+	[nquantity] [decimal](18, 2) NOT NULL,
+	[nprice] [decimal](18, 2) NOT NULL,
+	[namount] [decimal](18, 2) NOT NULL,
+	[drecorddate] [datetime] NOT NULL,
+	[dupdatedate] [datetime] NOT NULL,
+ CONSTRAINT [PK_t_supplier_order_detail] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[t_supplier_order_detail]  WITH CHECK ADD  CONSTRAINT [FK_t_supplier_order_detail_t_dept] FOREIGN KEY([udeptid])
+REFERENCES [dbo].[t_dept] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_supplier_order_detail] CHECK CONSTRAINT [FK_t_supplier_order_detail_t_dept]
+GO
+
+ALTER TABLE [dbo].[t_supplier_order_detail]  WITH CHECK ADD  CONSTRAINT [FK_t_supplier_order_detail_t_other_goods] FOREIGN KEY([uothergoodsid])
+REFERENCES [dbo].[t_other_goods] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_supplier_order_detail] CHECK CONSTRAINT [FK_t_supplier_order_detail_t_other_goods]
+GO
+
+ALTER TABLE [dbo].[t_supplier_order_detail]  WITH CHECK ADD  CONSTRAINT [FK_t_supplier_order_detail_t_supplier_order] FOREIGN KEY([uorderid])
+REFERENCES [dbo].[t_supplier_order] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_supplier_order_detail] CHECK CONSTRAINT [FK_t_supplier_order_detail_t_supplier_order]
+GO
+--\u4f9b\u5e94\u5546\u5e94\u6536\u5e94\u4ed8\u8868\u8bbe\u8ba1
+CREATE TABLE [dbo].[t_supplier_receivable](
+	[uid] [uniqueidentifier] NOT NULL,
+	[usupplierid] [uniqueidentifier] NOT NULL,
+	[uorderid] [uniqueidentifier] NOT NULL,
+	[uuserid] [uniqueidentifier] NOT NULL,
+	[udeptid] [uniqueidentifier] NOT NULL,
+	[ctype] [varchar](5) NOT NULL,
+	[nactualamount] [decimal](18, 2) NOT NULL,
+	[ndiscount] [decimal](18, 2) NOT NULL,
+	[namount] [decimal](18, 2) NOT NULL,
+	[istatus] [int] NOT NULL,
+	[drecorddate] [datetime] NOT NULL,
+	[dupdatedate] [datetime] NOT NULL,
+ CONSTRAINT [PK_t_supplier_receivable] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[t_supplier_receivable]  WITH CHECK ADD  CONSTRAINT [FK_t_supplier_receivable_t_dept] FOREIGN KEY([udeptid])
+REFERENCES [dbo].[t_dept] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_supplier_receivable] CHECK CONSTRAINT [FK_t_supplier_receivable_t_dept]
+GO
+
+ALTER TABLE [dbo].[t_supplier_receivable]  WITH CHECK ADD  CONSTRAINT [FK_t_supplier_receivable_t_supplier_order] FOREIGN KEY([uorderid])
+REFERENCES [dbo].[t_supplier_order] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_supplier_receivable] CHECK CONSTRAINT [FK_t_supplier_receivable_t_supplier_order]
+GO
+
+ALTER TABLE [dbo].[t_supplier_receivable]  WITH CHECK ADD  CONSTRAINT [FK_t_supplier_receivable_t_supplier_receivable] FOREIGN KEY([usupplierid])
+REFERENCES [dbo].[t_supplier] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_supplier_receivable] CHECK CONSTRAINT [FK_t_supplier_receivable_t_supplier_receivable]
+GO
+
+ALTER TABLE [dbo].[t_supplier_receivable]  WITH CHECK ADD  CONSTRAINT [FK_t_supplier_receivable_t_user] FOREIGN KEY([uuserid])
+REFERENCES [dbo].[t_user] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_supplier_receivable] CHECK CONSTRAINT [FK_t_supplier_receivable_t_user]
+GO
+--\u4f9b\u5e94\u5546\u5b9e\u6536\u5b9e\u4ed8\u8868\u8bbe\u8ba1
+CREATE TABLE [dbo].[t_supplier_receipts](
+	[uid] [uniqueidentifier] NOT NULL,
+	[ureceivableid] [uniqueidentifier] NOT NULL,
+	[upaymentmethodid] [uniqueidentifier] NOT NULL,
+	[uuserid] [uniqueidentifier] NOT NULL,
+	[udeptid] [uniqueidentifier] NOT NULL,
+	[ctype] [varchar](5) NOT NULL,
+	[namount] [decimal](18, 2) NOT NULL,
+	[istatus] [int] NOT NULL,
+	[drecorddate] [datetime] NOT NULL,
+	[dupdatedate] [datetime] NOT NULL,
+ CONSTRAINT [PK_t_supplier_receipts] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[t_supplier_receipts]  WITH CHECK ADD  CONSTRAINT [FK_t_supplier_receipts_t_dept] FOREIGN KEY([udeptid])
+REFERENCES [dbo].[t_dept] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_supplier_receipts] CHECK CONSTRAINT [FK_t_supplier_receipts_t_dept]
+GO
+
+ALTER TABLE [dbo].[t_supplier_receipts]  WITH CHECK ADD  CONSTRAINT [FK_t_supplier_receipts_t_payment_method] FOREIGN KEY([upaymentmethodid])
+REFERENCES [dbo].[t_payment_method] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_supplier_receipts] CHECK CONSTRAINT [FK_t_supplier_receipts_t_payment_method]
+GO
+
+ALTER TABLE [dbo].[t_supplier_receipts]  WITH CHECK ADD  CONSTRAINT [FK_t_supplier_receipts_t_supplier_receivable] FOREIGN KEY([ureceivableid])
+REFERENCES [dbo].[t_supplier_receivable] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_supplier_receipts] CHECK CONSTRAINT [FK_t_supplier_receipts_t_supplier_receivable]
+GO
+
+ALTER TABLE [dbo].[t_supplier_receipts]  WITH CHECK ADD  CONSTRAINT [FK_t_supplier_receipts_t_user] FOREIGN KEY([uuserid])
+REFERENCES [dbo].[t_user] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_supplier_receipts] CHECK CONSTRAINT [FK_t_supplier_receipts_t_user]
+GO
+--\u5ba2\u6237\u5355\u636e\u8868\u8bbe\u8ba1
+CREATE TABLE [dbo].[t_customer_order](
+	[uid] [uniqueidentifier] NOT NULL,
+	[ucustomerid] [uniqueidentifier] NOT NULL,
+	[uuserid] [uniqueidentifier] NOT NULL,
+	[udeptid] [uniqueidentifier] NOT NULL,
+	[cno] [varchar](50) NOT NULL,
+	[itype] [int] NOT NULL,
+	[istatus] [int] NOT NULL,
+	[drecorddate] [datetime] NOT NULL,
+	[dupdatedate] [datetime] NOT NULL,
+ CONSTRAINT [PK_t_customer_order] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[t_customer_order]  WITH CHECK ADD  CONSTRAINT [FK_t_customer_order_t_customer] FOREIGN KEY([ucustomerid])
+REFERENCES [dbo].[t_customer] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_customer_order] CHECK CONSTRAINT [FK_t_customer_order_t_customer]
+GO
+
+ALTER TABLE [dbo].[t_customer_order]  WITH CHECK ADD  CONSTRAINT [FK_t_customer_order_t_dept] FOREIGN KEY([udeptid])
+REFERENCES [dbo].[t_dept] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_customer_order] CHECK CONSTRAINT [FK_t_customer_order_t_dept]
+GO
+
+ALTER TABLE [dbo].[t_customer_order]  WITH CHECK ADD  CONSTRAINT [FK_t_customer_order_t_user] FOREIGN KEY([uuserid])
+REFERENCES [dbo].[t_user] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_customer_order] CHECK CONSTRAINT [FK_t_customer_order_t_user]
+GO
+--\u5ba2\u6237\u5355\u636e\u660e\u7ec6\u8868\u8bbe\u8ba1
+CREATE TABLE [dbo].[t_customer_order_detail](
+	[uid] [uniqueidentifier] NOT NULL,
+	[uorderid] [uniqueidentifier] NOT NULL,
+	[uothergoodsid] [uniqueidentifier] NOT NULL,
+	[uuserid] [uniqueidentifier] NOT NULL,
+	[udeptid] [uniqueidentifier] NOT NULL,
+	[nquantity] [decimal](18, 2) NOT NULL,
+	[nprice] [decimal](18, 2) NOT NULL,
+	[namount] [decimal](18, 2) NOT NULL,
+	[drecorddate] [datetime] NOT NULL,
+	[dupdatedate] [datetime] NOT NULL,
+ CONSTRAINT [PK_t_customer_order_detail] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[t_customer_order_detail]  WITH CHECK ADD  CONSTRAINT [FK_t_customer_order_detail_t_customer_order] FOREIGN KEY([uorderid])
+REFERENCES [dbo].[t_customer_order] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_customer_order_detail] CHECK CONSTRAINT [FK_t_customer_order_detail_t_customer_order]
+GO
+
+ALTER TABLE [dbo].[t_customer_order_detail]  WITH CHECK ADD  CONSTRAINT [FK_t_customer_order_detail_t_dept] FOREIGN KEY([udeptid])
+REFERENCES [dbo].[t_dept] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_customer_order_detail] CHECK CONSTRAINT [FK_t_customer_order_detail_t_dept]
+GO
+
+ALTER TABLE [dbo].[t_customer_order_detail]  WITH CHECK ADD  CONSTRAINT [FK_t_customer_order_detail_t_other_goods] FOREIGN KEY([uothergoodsid])
+REFERENCES [dbo].[t_other_goods] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_customer_order_detail] CHECK CONSTRAINT [FK_t_customer_order_detail_t_other_goods]
+GO
+
+ALTER TABLE [dbo].[t_customer_order_detail]  WITH CHECK ADD  CONSTRAINT [FK_t_customer_order_detail_t_user] FOREIGN KEY([uuserid])
+REFERENCES [dbo].[t_user] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_customer_order_detail] CHECK CONSTRAINT [FK_t_customer_order_detail_t_user]
+GO
+--\u5ba2\u6237\u5e94\u6536\u5e94\u4ed8\u8868\u8bbe\u8ba1
+CREATE TABLE [dbo].[t_customer_receivable](
+	[uid] [uniqueidentifier] NOT NULL,
+	[ucustomerid] [uniqueidentifier] NOT NULL,
+	[uorderid] [uniqueidentifier] NOT NULL,
+	[uuserid] [uniqueidentifier] NOT NULL,
+	[udeptid] [uniqueidentifier] NOT NULL,
+	[ctype] [varchar](5) NOT NULL,
+	[nactualamount] [decimal](18, 2) NOT NULL,
+	[ndiscount] [decimal](18, 2) NOT NULL,
+	[namount] [decimal](18, 2) NOT NULL,
+	[istatus] [int] NOT NULL,
+	[drecorddate] [datetime] NOT NULL,
+	[dupdatedate] [datetime] NOT NULL,
+ CONSTRAINT [PK_t_customer_receivable] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[t_customer_receivable]  WITH CHECK ADD  CONSTRAINT [FK_t_customer_receivable_t_customer] FOREIGN KEY([ucustomerid])
+REFERENCES [dbo].[t_customer] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_customer_receivable] CHECK CONSTRAINT [FK_t_customer_receivable_t_customer]
+GO
+
+ALTER TABLE [dbo].[t_customer_receivable]  WITH CHECK ADD  CONSTRAINT [FK_t_customer_receivable_t_customer_order] FOREIGN KEY([uorderid])
+REFERENCES [dbo].[t_customer_order] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_customer_receivable] CHECK CONSTRAINT [FK_t_customer_receivable_t_customer_order]
+GO
+
+ALTER TABLE [dbo].[t_customer_receivable]  WITH CHECK ADD  CONSTRAINT [FK_t_customer_receivable_t_dept] FOREIGN KEY([udeptid])
+REFERENCES [dbo].[t_dept] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_customer_receivable] CHECK CONSTRAINT [FK_t_customer_receivable_t_dept]
+GO
+
+ALTER TABLE [dbo].[t_customer_receivable]  WITH CHECK ADD  CONSTRAINT [FK_t_customer_receivable_t_user] FOREIGN KEY([uuserid])
+REFERENCES [dbo].[t_user] ([uid])
+GO
+--\u5ba2\u6237\u5b9e\u6536\u5b9e\u4ed8\u8868\u8bbe\u8ba1
+CREATE TABLE [dbo].[t_customer_receipts](
+	[uid] [uniqueidentifier] NOT NULL,
+	[ureceivableid] [uniqueidentifier] NOT NULL,
+	[upaymentmethodid] [uniqueidentifier] NOT NULL,
+	[uuserid] [uniqueidentifier] NOT NULL,
+	[udeptid] [uniqueidentifier] NOT NULL,
+	[ctype] [varchar](5) NOT NULL,
+	[namount] [decimal](18, 2) NOT NULL,
+	[istatus] [int] NOT NULL,
+	[drecorddate] [datetime] NOT NULL,
+	[dupdatedate] [datetime] NOT NULL,
+ CONSTRAINT [PK_t_customer_receipts] PRIMARY KEY CLUSTERED 
+(
+	[uid] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[t_customer_receipts]  WITH CHECK ADD  CONSTRAINT [FK_t_customer_receipts_t_customer_receivable] FOREIGN KEY([ureceivableid])
+REFERENCES [dbo].[t_customer_receivable] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_customer_receipts] CHECK CONSTRAINT [FK_t_customer_receipts_t_customer_receivable]
+GO
+
+ALTER TABLE [dbo].[t_customer_receipts]  WITH CHECK ADD  CONSTRAINT [FK_t_customer_receipts_t_dept] FOREIGN KEY([udeptid])
+REFERENCES [dbo].[t_dept] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_customer_receipts] CHECK CONSTRAINT [FK_t_customer_receipts_t_dept]
+GO
+
+ALTER TABLE [dbo].[t_customer_receipts]  WITH CHECK ADD  CONSTRAINT [FK_t_customer_receipts_t_payment_method] FOREIGN KEY([upaymentmethodid])
+REFERENCES [dbo].[t_payment_method] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_customer_receipts] CHECK CONSTRAINT [FK_t_customer_receipts_t_payment_method]
+GO
+
+ALTER TABLE [dbo].[t_customer_receipts]  WITH CHECK ADD  CONSTRAINT [FK_t_customer_receipts_t_user] FOREIGN KEY([uuserid])
+REFERENCES [dbo].[t_user] ([uid])
+GO
+
+ALTER TABLE [dbo].[t_customer_receipts] CHECK CONSTRAINT [FK_t_customer_receipts_t_user]
+GO
