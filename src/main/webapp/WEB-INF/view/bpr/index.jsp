@@ -97,7 +97,7 @@
 					</li>
 					<!-- 同行信息 -->
 					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowReportAccount','可爱雪-账务报表','${contextPath }/bpr/report/account')">同行信息</a>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('counterPartsList','同行信息','${contextPath }/bpr/counterParts/list')">同行信息</a>
 					</li>
 					<!-- 品牌信息 -->
 					<li>

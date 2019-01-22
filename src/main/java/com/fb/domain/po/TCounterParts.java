@@ -3,8 +3,10 @@ package com.fb.domain.po;
 import java.util.Date;
 
 import com.fb.core.base.domain.BaseDomain;
+import com.fb.core.base.persistence.NotFieldMapper;
 import com.fb.core.base.persistence.PrimaryKeyMapper;
 import com.fb.core.base.persistence.TableMapper;
+import com.fb.core.utils.FormatUtils;
 
 /** 
 * @author 作者: LIUBO 
@@ -12,7 +14,7 @@ import com.fb.core.base.persistence.TableMapper;
 * 类说明:
 * 同行类
 */
-@TableMapper("t_conterparts")
+@TableMapper("t_counterparts")
 public class TCounterParts extends BaseDomain {
 
 	/**
@@ -61,17 +63,54 @@ public class TCounterParts extends BaseDomain {
 	 */
 	private Integer ibusinessstatus;
 	/**
+	 * 经营状态字符串格式
+	 * 0-正常
+	 * 1-停业
+	 */
+	@NotFieldMapper
+	private String ibusinessstatusStr;
+	/**
 	 * 账期天数
 	 */
 	private Integer ipaymentdays;
+	/**
+	 * 账期天数最小值
+	 */
+	@NotFieldMapper
+	private Integer ipaymentdaysMin;
+	/**
+	 * 账期天数最大值
+	 */
+	@NotFieldMapper
+	private Integer ipaymentdaysMax;
 	/**
 	 * 记录日期
 	 */
 	private Date drecorddate;
 	/**
+	 * 记录日期字符串格式
+	 */
+	@NotFieldMapper
+	private String drecorddateStr;
+	/**
+	 * 记录日期字符串格式最小值
+	 */
+	@NotFieldMapper
+	private String drecorddateStrMin;
+	/**
+	 * 记录日期字符串格式最大值
+	 */
+	@NotFieldMapper
+	private String drecorddateStrMax;
+	/**
 	 * 更新日期
 	 */
 	private Date dupdatedate;
+	/**
+	 * 更新日期字符串格式
+	 */
+	@NotFieldMapper
+	private String dupdatedateStr;
 	/**
 	 * 获取:主键
 	 * @return uid
@@ -199,20 +238,6 @@ public class TCounterParts extends BaseDomain {
 		this.cbusinessscope = cbusinessscope;
 	}
 	/**
-	 * 获取:经营状态
-	 * @return ibusinessstatus
-	 */
-	public Integer getIbusinessstatus() {
-		return ibusinessstatus;
-	}
-	/**
-	 * 设置：经营状态
-	 * @param ibusinessstatus
-	 */
-	public void setIbuinessstatus(Integer ibusinessstatus) {
-		this.ibusinessstatus = ibusinessstatus;
-	}
-	/**
 	 * 获取:账期天数
 	 * @return ipaymentdays
 	 */
@@ -239,6 +264,7 @@ public class TCounterParts extends BaseDomain {
 	 */
 	public void setDrecorddate(Date drecorddate) {
 		this.drecorddate = drecorddate;
+		this.drecorddateStr = FormatUtils.formatDate(this.drecorddate, "yyyy-MM-dd HH:mm:ss");
 	}
 	/**
 	 * 获取:更新日期
@@ -253,6 +279,129 @@ public class TCounterParts extends BaseDomain {
 	 */
 	public void setDupdatedate(Date dupdatedate) {
 		this.dupdatedate = dupdatedate;
+		this.dupdatedateStr = FormatUtils.formatDate(this.dupdatedate, "yyyy-MM-dd HH:mm:ss");
+	}
+	/**
+	 * 获取:账期天数最小值
+	 * @return ipaymentdaysMin
+	 */
+	public Integer getIpaymentdaysMin() {
+		return ipaymentdaysMin;
+	}
+	/**
+	 * 设置：账期天数最小值
+	 * @param ipaymentdaysMin
+	 */
+	public void setIpaymentdaysMin(Integer ipaymentdaysMin) {
+		this.ipaymentdaysMin = ipaymentdaysMin;
+	}
+	/**
+	 * 获取:账期天数最大值
+	 * @return ipaymentdaysMax
+	 */
+	public Integer getIpaymentdaysMax() {
+		return ipaymentdaysMax;
+	}
+	/**
+	 * 设置：账期天数最大值
+	 * @param ipaymentdaysMax
+	 */
+	public void setIpaymentdaysMax(Integer ipaymentdaysMax) {
+		this.ipaymentdaysMax = ipaymentdaysMax;
+	}
+	/**
+	 * 获取:记录日期字符串格式
+	 * @return drecorddateStr
+	 */
+	public String getDrecorddateStr() {
+		return drecorddateStr;
+	}
+	/**
+	 * 设置：记录日期字符串格式
+	 * @param drecorddateStr
+	 */
+	public void setDrecorddateStr(String drecorddateStr) {
+		this.drecorddateStr = drecorddateStr;
+	}
+	/**
+	 * 获取:记录日期字符串格式最小值
+	 * @return drecorddateStrMin
+	 */
+	public String getDrecorddateStrMin() {
+		return drecorddateStrMin;
+	}
+	/**
+	 * 设置：记录日期字符串格式最小值
+	 * @param drecorddateStrMin
+	 */
+	public void setDrecorddateStrMin(String drecorddateStrMin) {
+		this.drecorddateStrMin = drecorddateStrMin;
+	}
+	/**
+	 * 获取:记录日期字符串格式最大值
+	 * @return drecorddateStrMax
+	 */
+	public String getDrecorddateStrMax() {
+		return drecorddateStrMax;
+	}
+	/**
+	 * 设置：记录日期字符串格式最大值
+	 * @param drecorddateStrMax
+	 */
+	public void setDrecorddateStrMax(String drecorddateStrMax) {
+		this.drecorddateStrMax = drecorddateStrMax;
+	}
+	/**
+	 * 获取:更新日期字符串格式
+	 * @return dupdatedateStr
+	 */
+	public String getDupdatedateStr() {
+		return dupdatedateStr;
+	}
+	/**
+	 * 设置：更新日期字符串格式
+	 * @param dupdatedateStr
+	 */
+	public void setDupdatedateStr(String dupdatedateStr) {
+		this.dupdatedateStr = dupdatedateStr;
+	}
+	/**
+	 * 获取:经营状态
+	 * @return ibusinessstatus
+	 */
+	public Integer getIbusinessstatus() {
+		return ibusinessstatus;
+	}
+	/**
+	 * 设置：经营状态
+	 * @param ibusinessstatus
+	 */
+	public void setIbusinessstatus(Integer ibusinessstatus) {
+		this.ibusinessstatus = ibusinessstatus;
+		switch (this.ibusinessstatus) {
+		case 0:
+			this.ibusinessstatusStr = "正常";
+			break;
+		case 1:
+			this.ibusinessstatusStr = "停业";
+		default:
+			this.ibusinessstatusStr = "停业";
+			break;
+		}
+	}
+	/**
+	 * 获取:经营状态字符串格式
+	 * @return ibusinessstatusStr
+	 */
+	public String getIbusinessstatusStr() {
+		return ibusinessstatusStr;
+	}
+	/**
+	 * 设置：经营状态字符串格式
+	 * @param ibusinessstatusStr
+	 */
+	public void setIbusinessstatusStr(String ibusinessstatusStr) {
+		this.ibusinessstatusStr = ibusinessstatusStr;
 	}
 	
 }

@@ -37,6 +37,7 @@ public class SupplierController extends SimpController {
 	@ResponseBody
 	public String getSupplierJSON(TSupplier supplier)
 	{
+		supplier.setUdeptid(getSessionContainer().getDept().getUid());
 		List<TSupplier> list = getService().getSupplierService().getSupplierList(supplier);
 		Map<Object, Object> map = new HashMap<Object, Object>();
         map.put("Rows", list);

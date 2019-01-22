@@ -154,6 +154,7 @@ public class CustomerController extends SimpController {
 	@ResponseBody
 	public String getCustomerJSON(TCustomer customer)
 	{
+		customer.setUdeptid(getSessionContainer().getDept().getUid());
 		List<TCustomer> list = getService().getCustomerService().getCustomerList(customer);
 		Map<Object, Object> map = new HashMap<Object, Object>();
         map.put("Rows", list);

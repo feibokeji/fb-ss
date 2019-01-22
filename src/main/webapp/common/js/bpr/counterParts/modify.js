@@ -1,29 +1,16 @@
 /**
- * 修改客户信息JavaScript
+ * 修改同行信息JavaScript
  */
 $(function(){
-	$('input:radio[name="isex"][value='+oldIsex+']').attr("checked",true);
+	$("#ibusinessstatus").val(oldIbusinessstatus);
 	$("#modifyForm").validationEngine('attach', { 
 		 promptPosition: 'topRight',scroll:false
 	});
-	$("#modifyCcustomerTypeName").ligerComboBox({
-		url:contextPath+'/bpr/customer/getCustomerTypeComboBoxJSON',
-		valueField:'id',
-		textField:'name',
-		columns:[
-			{header:'id',name:'id'},
-			{header:'编号',name:'cno'},
-			{header:'类型',name:'cname'},
-			{header:'账期(天数)',name:'ipaymentdays'}
-		],
-		autocomplete:true
-	});
-	$("#modifyDbirthday").ligerDateEditor();
 });
-function ajaxCName(field,rules,i,options){
+function ajaxCshopname(field,rules,i,options){
 	if(field.val().length > 0){
-		if(field.val() != oldCname)
-			return checkData('t_customer','cname',field.val(),'*名称重复');
+		if(field.val() != oldCshopname)
+			return checkData('t_counterparts','cshopname',field.val(),'*商铺名称重复');
 	}
 }
 function closeDialog()
@@ -46,7 +33,7 @@ function submitForm()
 						$.ligerDialog.error("保存失败!");
 					else{
 						$.ligerDialog.success("保存成功!");
-						window.parent.customerTable.loadData();
+						window.parent.counterPartsTable.loadData();
 					}
 				});
 			}

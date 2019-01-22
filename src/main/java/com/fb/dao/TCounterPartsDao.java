@@ -39,5 +39,11 @@ public interface TCounterPartsDao {
 	 * 获取：同行列表
 	 * @return 同行列表
 	 */
-	public List<TCounterParts> getList();
+	public List<TCounterParts> getList(TCounterParts counterParts);
+	/**
+	 * 获取：同行手机业务量
+	 * @param ucounterpartsid
+	 * @return 同行手机业务量
+	 */
+	public int getPhoneBusinessNumber(String ucounterpartsid);
 }

@@ -162,6 +162,12 @@ public class ServiceContainer {
     private CustomerTypeService customerTypeService;
     
     /**
+     * 同行信息
+     */
+    @Autowired
+    private CounterPartsService counterPartsService;
+    
+    /**
      * 获取 登录操作控制
      * @return loginService
      */
@@ -359,6 +365,14 @@ public class ServiceContainer {
 	 */
 	public CustomerTypeService getCustomerTypeService() {
 		return customerTypeService;
+	}
+
+	/**
+	 * 获取:同行信息操作控制
+	 * @return counterPartsService
+	 */
+	public CounterPartsService getCounterPartsService() {
+		return counterPartsService;
 	}
     
 }

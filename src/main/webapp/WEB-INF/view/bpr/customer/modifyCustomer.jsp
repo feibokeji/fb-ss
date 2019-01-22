@@ -22,6 +22,7 @@
 		<input type="hidden" name="ucustomertypeid" value="${customer.ucustomertypeid }"/>
 		<input type="hidden" name="uuserid" value="${customer.uuserid }"/>
 		<input type="hidden" name="udeptid" value="${customer.udeptid }"/>
+		<input type="hidden" name="drecorddateStr" value="${customer.drecorddate }"/>
 		<table class="add_update_table">
 			<tr>
 				<th><span style="color: red;">*</span>客户类型：</th>
@@ -67,7 +68,7 @@
 		</table>
 	</form>
 	<!-- javascript文件引用 -->
-	<script type="text/javascript">var contextPath = '${contextPath}';var oldCname = '${cusomer.cname}';</script>
+	<script type="text/javascript">var contextPath = '${contextPath}';var oldCname = '${customer.cname}';var oldIsex = ${customer.isex};</script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/jquery-1.8.3.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/liger/js/ligerui.all.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/jquery-ui-1.9.2.custom.js"></script>
