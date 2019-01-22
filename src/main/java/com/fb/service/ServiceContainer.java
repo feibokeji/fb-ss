@@ -144,6 +144,24 @@ public class ServiceContainer {
     private MaterialCheckDiffService materialCheckDiffService;
     
     /**
+     * 供应商信息
+     */
+    @Autowired
+    private SupplierService supplierService;
+    
+    /**
+     * 客户信息
+     */
+    @Autowired
+    private CustomerService customerService;
+    
+    /**
+     * 客户类型信息
+     */
+    @Autowired
+    private CustomerTypeService customerTypeService;
+    
+    /**
      * 获取 登录操作控制
      * @return loginService
      */
@@ -318,5 +336,29 @@ public class ServiceContainer {
     public MaterialCheckDiffService getMaterialCheckDiffService() {
         return materialCheckDiffService;
     }
+
+	/**
+	 * 获取:供应商信息操作控制
+	 * @return supplierService
+	 */
+	public SupplierService getSupplierService() {
+		return supplierService;
+	}
+
+	/**
+	 * 获取:客户信息操作控制
+	 * @return customerService
+	 */
+	public CustomerService getCustomerService() {
+		return customerService;
+	}
+
+	/**
+	 * 获取:客户类型信息操作控制
+	 * @return customerTypeService
+	 */
+	public CustomerTypeService getCustomerTypeService() {
+		return customerTypeService;
+	}
     
 }

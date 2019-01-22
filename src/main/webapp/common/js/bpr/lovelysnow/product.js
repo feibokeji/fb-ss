@@ -30,7 +30,7 @@ $(function(){
 	_productTableTr = $("#maingrid").ligerGrid({
 		height:'100%',
         columns: [
-            { dispaly: '主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
+            { display: '主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
             { display: '类别', name: 'ccategoryname', align: 'left', width: 100, minWidth: 60 },
             { display: '编码', name: 'cno', align: 'left', width: 100, minWidth: 60 },
             { display: '名称', name: 'cname', width: 200,minWidth: 120 },
@@ -56,7 +56,7 @@ $(function(){
 		    		this.unselect(rowid);
 		    	this.select(rowindex);
 	    	}else{
-	    		this.unselect(rowid);
+	    		this.unselect(rowindex);
 	    	}
 	    },
 	    detail:{onShowDetail:f_showMaterial,height:'auto'}

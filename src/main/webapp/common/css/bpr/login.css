@@ -1,6 +1,6 @@
 @charset "utf-8";
 body,html,ul,li,p,h1,h2,h3,h4,h5{margin:0;padding:0}img{border:0;vertical-align:middle;}input,select{font-size: 14px;vertical-align:middle;}
-body{font-family: Arial,"宋体";font-size: 12px;line-height: 24px;}
+body{font-family:Arial,"新宋体";font-size: 12px;line-height: 24px;}
 #loginDiv{border:1px solid #BED5F3;width:450px;height: 300px;margin: 0 auto;background:#F2F8FF;}
 .loginLogo{height: 30px;line-height: 30px;border-bottom: 1px solid #BED5F3;background:url('../../liger/images/top.jpg') repeat-x bottom;color:#E7E7E7;font-weight: bold;}
 #loginDiv table{margin-top: 20px;width: 100%;}

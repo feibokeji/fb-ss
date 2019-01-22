@@ -84,6 +84,43 @@
 				</ul>
 			</div>
 			</t:module>
+			<!-- 2019/1/15 基本档案菜单 -->
+			<div title="基本档案" class="l-scroll">
+				<ul class="m-ul">
+					<!-- 供应商信息 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('supplierList','供应商信息','${contextPath }/bpr/supplier/list')">供应商信息</a>
+					</li>
+					<!-- 客户信息 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerList','客户信息','${contextPath }/bpr/customer/list')">客户信息</a>
+					</li>
+					<!-- 同行信息 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowReportAccount','可爱雪-账务报表','${contextPath }/bpr/report/account')">同行信息</a>
+					</li>
+					<!-- 品牌信息 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowReportAccount','可爱雪-账务报表','${contextPath }/bpr/report/account')">品牌信息</a>
+					</li>
+					<!-- 单位信息 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowReportAccount','可爱雪-账务报表','${contextPath }/bpr/report/account')">单位信息</a>
+					</li>
+					<!-- 颜色信息 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowReportAccount','可爱雪-账务报表','${contextPath }/bpr/report/account')">颜色信息</a>
+					</li>
+					<!-- 付款方式 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowReportAccount','可爱雪-账务报表','${contextPath }/bpr/report/account')">付款方式</a>
+					</li>
+					<!-- 保修政策 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowReportAccount','可爱雪-账务报表','${contextPath }/bpr/report/account')">保修政策</a>
+					</li>
+				</ul>
+			</div>
 		</div>
 		<div position="center" id="framecenter">
 			<div tabid="home" title="我的主页" style="height: 300px">

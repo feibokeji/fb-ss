@@ -403,7 +403,7 @@ function loadAutoComplete(elementId,_number){
 function getGridOptions(checkbox){
 	var options = {
 			columns: [
-			            { dispaly:'主键', name : 'uid', align: 'left', width:60, minWidth: 60,hide: true},
+			            { display:'主键', name : 'uid', align: 'left', width:60, minWidth: 60,hide: true},
 			            { display: '编码', name: 'cno', align: 'left', width: 60, minWidth: 60 },
 			            { display: '名称', name: 'cname', width: 100,minWidth: 60 },
 			            { display: '规格', name: 'cspecifications', width: 60,minWidth: 60 },

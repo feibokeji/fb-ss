@@ -17,8 +17,8 @@ $(function(){
 	orderTableTr = $("#maingrid").ligerGrid({
 		height:'100%',
         columns: [
-            { dispaly: '主键', name : 'uid', align: 'left', width:60, minWidth: 60,hide: true},
-            { dispaly: '账户', name : 'caccountname', align: 'left', width:120, minWidth: 60},
+            { display: '主键', name : 'uid', align: 'left', width:60, minWidth: 60,hide: true},
+            { display: '账户', name : 'caccountname', align: 'left', width:120, minWidth: 60},
             { display: '编码', name: 'ccode', align: 'left', width: 140, minWidth: 80 },
             { display: '名称', name: 'cname', align: 'left', width: 120, minWidth: 100 },
             { display: '类别', name: 'ctype', width: 80,minWidth: 60 },
@@ -53,7 +53,7 @@ $(function(){
 		    		this.unselect(rowid);
 		    	this.select(rowindex);
 	    	}else{
-	    		this.unselect(rowid);
+	    		this.unselect(rowindex);
 	    	}
 	    }
 	});

@@ -6,7 +6,6 @@
 <head>
 <link type="text/css" href="${contextPath}/common/liger/css/ligerui-all.css" rel="stylesheet" />
 <link type="text/css" href="${contextPath}/common/liger/images/skins/ligerui-icons.css" rel="stylesheet" />
-<link type="text/css" href="${contextPath}/common/liger/images/skins/Gray2014/css/all.css" rel="stylesheet" />
 <link type="text/css" href="${contextPath}/common/css/bpr/main.css" rel="stylesheet" />
 <!--[if lt IE 9]>
 <script type="text/javascript" src="${contextPath}/common/js/base/html5.js"></script>

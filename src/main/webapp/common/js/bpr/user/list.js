@@ -18,7 +18,7 @@ $(function(){
 	_userTable = $("#maingrid").ligerGrid({
 		height:'100%',
         columns: [
-            { dispaly:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
+            { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
             { display: '编码', name: 'ccode', align: 'left', width: 200, minWidth: 120 },
             { display: '名称', name: 'cname', width: 200,minWidth: 120 }
             ],
@@ -38,7 +38,7 @@ $(function(){
 		    		this.unselect(rowid);
 		    	this.select(rowindex);
 	    	}else{
-	    		this.unselect(rowid);
+	    		this.unselect(rowindex);
 	    	}
 	    }
 	});

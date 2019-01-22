@@ -1,5 +1,5 @@
 @charset "utf-8";
-body,html{height:100%;padding:0px; margin:0;}
+body,html{font-family: Arial,"新宋体";font-size: 12px;height:100%;padding:0px; margin:0;}
 a{text-decoration: none;}
 
 .l-link{display:block; height:26px; line-height:26px; padding-left:10px; text-decoration:underline; color:#333;}
@@ -64,3 +64,6 @@ a{text-decoration: none;}
 .add_update_table tr td{line-height: 35px;}
 /*印章*/
 .seal_img{display: none;position: absolute;z-index: 10000;margin-left: 400px;margin-top: 100px;}
+/*查询表格样式*/
+.search_table{border:none;border-collapse: collapse;line-height: 30px;margin-left: 25px;}
+.search_table tr td{padding-left: 5px;}
