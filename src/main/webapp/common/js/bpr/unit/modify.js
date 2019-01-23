@@ -1,29 +1,15 @@
 /**
- * 修改客户信息JavaScript
+ * 修改单位信息JavaScript
  */
 $(function(){
-	$('input:radio[name="isex"][value='+oldIsex+']').attr("checked",true);
 	$("#modifyForm").validationEngine('attach', { 
 		 promptPosition: 'topRight',scroll:false
 	});
-	$("#modifyCcustomerTypeName").ligerComboBox({
-		url:contextPath+'/bpr/customer/getCustomerTypeComboBoxJSON',
-		valueField:'id',
-		textField:'name',
-		columns:[
-			{header:'id',name:'id'},
-			{header:'编号',name:'cno'},
-			{header:'类型',name:'cname'},
-			{header:'账期(天数)',name:'ipaymentdays'}
-		],
-		autocomplete:true
-	});
-	$("#modifyDbirthdayStr").ligerDateEditor();
 });
-function ajaxCName(field,rules,i,options){
+function ajaxCname(field,rules,i,options){
 	if(field.val().length > 0){
 		if(field.val() != oldCname)
-			return checkData('t_customer','cname',field.val(),'*名称重复');
+			return checkData('t_unit','cname',field.val(),'*名称重复');
 	}
 }
 function closeDialog()
@@ -46,7 +32,7 @@ function submitForm()
 						$.ligerDialog.error("保存失败!");
 					else{
 						$.ligerDialog.success("保存成功!");
-						window.parent.customerTable.loadData();
+						window.parent.unitTable.loadData();
 					}
 				});
 			}

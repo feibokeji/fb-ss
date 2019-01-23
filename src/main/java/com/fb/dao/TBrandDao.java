@@ -34,18 +34,6 @@ public interface TBrandDao {
 	public int mod(TBrand brand);
 	
 	/**
-	 * 修改 品牌
-	 * @param uid
-	 * @param cname
-	 * @param clogo
-	 * @param curl
-	 * @param cdesc
-	 * @param isort
-	 * @return 受影响行数
-	 */
-	public int mod(String uid,String cname,String clogo,String curl,String cdesc,int isort);
-	
-	/**
 	 * 获取 品牌信息
 	 * @param uid
 	 * @return 品牌信息
@@ -56,5 +44,17 @@ public interface TBrandDao {
 	 * 获取 品牌信息集合
 	 * @return 集合
 	 */
-	public List<TBrand> getList();
+	public List<TBrand> getList(TBrand brand);
+	/**
+	 * 获取：手机业务量
+	 * @param ubrandid
+	 * @return 业务量
+	 */
+	public int getPhoneBusinessNumber(String ubrandid);
+	/**
+	 * 获取：其它业务量
+	 * @param ubrandid
+	 * @return 业务量
+	 */
+	public int getOtherBusinessNumber(String ubrandid);
 }

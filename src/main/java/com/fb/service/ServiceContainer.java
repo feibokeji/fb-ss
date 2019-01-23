@@ -168,6 +168,18 @@ public class ServiceContainer {
     private CounterPartsService counterPartsService;
     
     /**
+     * 品牌信息
+     */
+    @Autowired
+    private BrandService brandService;
+    
+    /**
+     * 单位信息
+     */
+    @Autowired
+    private UnitService unitService;
+    
+    /**
      * 获取 登录操作控制
      * @return loginService
      */
@@ -373,6 +385,22 @@ public class ServiceContainer {
 	 */
 	public CounterPartsService getCounterPartsService() {
 		return counterPartsService;
+	}
+
+	/**
+	 * 获取:品牌信息
+	 * @return brandService
+	 */
+	public BrandService getBrandService() {
+		return brandService;
+	}
+
+	/**
+	 * 获取:unitService
+	 * @return unitService
+	 */
+	public UnitService getUnitService() {
+		return unitService;
 	}
     
 }

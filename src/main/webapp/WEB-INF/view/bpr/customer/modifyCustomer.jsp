@@ -40,7 +40,7 @@
 				<th>微信：</th>
 				<td><input type="text" id="modifyCwechat" name="cwechat" class="l-text" value="${customer.cwechat }"/></td>
 				<th>生日：</th>
-				<td><input type="text" id="modifyDbirthday" name="dbrithday" value="${customer.dbirthday }"/></td>
+				<td><input type="text" id="modifyDbirthdayStr" name="dbirthdayStr" value="${customer.birthdayStr }"/></td>
 			</tr>
 			<tr>
 				<th>积分：</th>

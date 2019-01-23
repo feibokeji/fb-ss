@@ -101,23 +101,23 @@
 					</li>
 					<!-- 品牌信息 -->
 					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowReportAccount','可爱雪-账务报表','${contextPath }/bpr/report/account')">品牌信息</a>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('brandList','品牌信息','${contextPath }/bpr/brand/list')">品牌信息</a>
 					</li>
 					<!-- 单位信息 -->
 					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowReportAccount','可爱雪-账务报表','${contextPath }/bpr/report/account')">单位信息</a>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('unitList','单位信息','${contextPath }/bpr/unit/list')">单位信息</a>
 					</li>
 					<!-- 颜色信息 -->
 					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowReportAccount','可爱雪-账务报表','${contextPath }/bpr/report/account')">颜色信息</a>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('colorList','颜色信息','${contextPath }/bpr/color/list')">颜色信息</a>
 					</li>
 					<!-- 付款方式 -->
 					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowReportAccount','可爱雪-账务报表','${contextPath }/bpr/report/account')">付款方式</a>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('paymentMethodList','付款方式','${contextPath }/bpr/paymentMethod/list')">付款方式</a>
 					</li>
 					<!-- 保修政策 -->
 					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowReportAccount','可爱雪-账务报表','${contextPath }/bpr/report/account')">保修政策</a>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('warrantyList','保修政策','${contextPath }/bpr/warranty/list')">保修政策</a>
 					</li>
 				</ul>
 			</div>

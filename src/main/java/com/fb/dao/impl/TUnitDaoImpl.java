@@ -1,11 +1,11 @@
-package com.fb.dao;
+package com.fb.dao.impl;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import com.fb.core.utils.QMap;
-import com.fb.dao.impl.SimpMapper;
+import com.fb.dao.TUnitDao;
 import com.fb.domain.po.TUnit;
 
 /** 
@@ -44,6 +44,11 @@ public class TUnitDaoImpl extends SimpMapper<TUnit> implements TUnitDao {
 	public List<TUnit> getList() {
 		String sql = "select uid,cname from t_unit order by cname";
 		return super.findList(sql, null);
+	}
+
+	public int getUseNumber(String uunitid) {
+		String sql = "select count(*) from t_other_goods where uunitid = :uunitid";
+		return super.getInt(sql, new QMap("uunitid",uunitid));
 	}
 
 }

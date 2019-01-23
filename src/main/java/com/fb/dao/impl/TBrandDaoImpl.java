@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.fb.core.utils.DataUtils;
 import com.fb.core.utils.QMap;
 import com.fb.dao.TBrandDao;
 import com.fb.domain.po.TBrand;
@@ -29,25 +30,28 @@ public class TBrandDaoImpl extends SimpMapper<TBrand> implements TBrandDao {
 		return super.update(brand);
 	}
 
-	public int mod(String uid, String cname, String clogo, String curl, String cdesc, int isort) {
-		String sql = "update t_brand set cname = :cname,clogo = :clogo,curl = :curl,cdesc = :cdesc,isort = :isort where uid = :uid";
-		QMap map = new QMap();
-		map.put("cname", cname);
-		map.put("clogo", clogo);
-		map.put("curl", curl);
-		map.put("cdesc", cdesc);
-		map.put("isort", isort);
-		map.put("uid", uid);
-		return super.execute(sql, map);
-	}
-
 	public TBrand get(String uid) {
 		return super.get(uid);
 	}
 
-	public List<TBrand> getList() {
-		String sql = "select uid,cname,clogo,curl,cdesc,isort from t_brand order by isort";
+	public List<TBrand> getList(TBrand brand) {
+		StringBuilder sql = new StringBuilder("select uid,cname,clogo,curl,cdesc,isort from t_brand where 1 = 1");
+		if(!DataUtils.isNullOrEmpty(brand.getCname()))
+		{
+			sql.append(" and cname like '%" + brand.getCname() + "%'");
+		}
+		sql.append("order by isort");
 		return super.findList(sql, null);
+	}
+
+	public int getPhoneBusinessNumber(String ubrandid) {
+		String sql = "select count(*) from t_phone_model where ubrandid = :ubrandid";
+		return super.getInt(sql, new QMap("ubrandid",ubrandid));
+	}
+
+	public int getOtherBusinessNumber(String ubrandid) {
+		String sql = "select count(*) from t_other_goods where ubrandid = :ubrandid";
+		return super.getInt(sql, new QMap("ubrandid",ubrandid));
 	}
 
 }

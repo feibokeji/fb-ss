@@ -53,4 +53,9 @@ public interface TUnitDao {
 	 * @return 单位信息集合
 	 */
 	public List<TUnit> getList();
+	/**
+	 * 获取：单位使用量
+	 * @return
+	 */
+	public int getUseNumber(String uunitid);
 }
