@@ -2,7 +2,6 @@ package com.fb.service;
 
 import java.util.List;
 
-import com.fb.core.utils.Page;
 import com.fb.domain.po.TPaymentMethod;
 
 /** 
@@ -12,44 +11,39 @@ import com.fb.domain.po.TPaymentMethod;
 * 付款方式操作接口
 */
 public interface PaymentMethodService {
-	
 	/**
-	 * 新增 付款方式
+	 * 新增：付款方式
 	 * @param paymentMethod
 	 * @return 受影响行数
 	 */
-	public int add(TPaymentMethod paymentMethod);
-	
+	public int addPaymentMethod(TPaymentMethod paymentMethod);
 	/**
-	 * 删除 付款方式
+	 * 获取：付款方式使用量
+	 * @param upaymentmethodid
+	 * @return 使用量
+	 */
+	public int getPaymentMethodUseNumber(String upaymentmethodid);
+	/**
+	 * 删除：付款方式
 	 * @param uid
 	 * @return 受影响行数
 	 */
-	public int delete(String uid);
-	
+	public int deletePaymentMethod(String uid);
 	/**
-	 * 修改 付款方式
+	 * 修改：付款方式
 	 * @param paymentMethod
 	 * @return 受影响行数
 	 */
-	public int update(TPaymentMethod paymentMethod);
-	
+	public int modifyPaymentMethod(TPaymentMethod paymentMethod);
 	/**
-	 * 获取 付款方式
+	 * 获取：付款方式
 	 * @param uid
 	 * @return 付款方式
 	 */
-	public TPaymentMethod get(String uid);
-	
+	public TPaymentMethod getPaymentMethod(String uid);
 	/**
-	 * 获取 付款方式集合
-	 * @return 付款方式集合
-	 */
+	 * 获取：付款方式列表
+	 * @return 付款方式列表
+	 */ 
 	public List<TPaymentMethod> getPaymentMethodList();
-	
-	/**
-	 * 获取 付款方式分页
-	 * @return 付款方式分页
-	 */
-	public Page<TPaymentMethod> getPaymentMethodPage();
 }

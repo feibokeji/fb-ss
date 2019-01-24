@@ -24,11 +24,9 @@
 			<tr>
 				<td>&nbsp;</td>
 				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
 			</tr>
 			<tr>
-				<td colspan="4" align="center">
+				<td colspan="2" align="center">
 					<input type="button" class="l-button" value="关闭" onclick="closeDialog()"/>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<input type="button" class="l-button" value="保存" onclick="submitForm()"/>

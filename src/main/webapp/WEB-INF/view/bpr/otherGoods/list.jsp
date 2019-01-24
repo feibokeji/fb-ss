@@ -12,27 +12,38 @@
 <script type="text/javascript" src="${contextPath}/common/js/base/html5.js"></script>
 <![endif]-->
 </head>
-<!-- /bpr/unit/add.jsp -->
+<!-- /bpr/otherGoods/list.jsp -->
 <body>
-	<form id="addForm" name="addForm" method="post" action="${contextPath }/bpr/unit/addSave">
-		<table class="add_update_table">
+	<div class="l-clear"></div>
+	<form id="searchTable">
+		<input type="hidden" id="searchUcategoryId"/>
+		<input type="hidden" id="searchUbrandId"/>
+		<table class="search_table">
 			<tr>
-				<th><span style="color: red;">*</span>单位名称：</th>
-				<td><input type="text" id="addCname" name="cname" class="l-text validate[required,funcCall[ajaxCname]]"/></td>
+				<td>类别：</td>
+				<td><input type="text" id="searchCcategoryName"/></td>
+				<td>品牌：</td>
+				<td><input type="text" id="searchCbrandName"/></td>
+				<td>编号：</td>
+				<td><input type="text" id="searchCno" class="l-text"/></td>
+				<td>条码：</td>
+				<td><input type="text" id="searchCbarcode" class="l-text"/></td>
+				<td>名称：</td>
+				<td><input type="text" id="searchCname" class="l-text"/></td>
+				<td>助记码：</td>
+				<td><input type="text" id="searchCmnemoniccode" class="l-text"/></td>
 			</tr>
 			<tr>
-				<td>&nbsp;</td>
-				<td>&nbsp;</td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center">
-					<input type="button" class="l-button" value="关闭" onclick="closeDialog()"/>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<input type="button" class="l-button" value="保存" onclick="submitForm()"/>
-				</td>
+				<td>记录日期：</td>
+				<td><input type="text" id="searchDrecorddateStrMin"/></td>
+				<td align="center">-</td>
+				<td><input type="text" id="searchDrecorddateStrMax"/></td>
+				<td><input type="button" class="l-button" value="查询" onclick="searchOtherGoods()"/></td>
 			</tr>
 		</table>
 	</form>
+    <div id="maingrid"></div>
+  	<div style="display:none;"></div>
   	<!-- javascript文件引用 -->
 	<script type="text/javascript">var contextPath = '${contextPath}';</script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/jquery-1.8.3.js"></script>
@@ -42,6 +53,6 @@
 	<script type="text/javascript" src="${contextPath}/common/formValidator2.2.4/jquery.validationEngine-zh_CN.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/formValidator2.2.4/jquery.validationEngine.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/js/bpr/base.js"></script>
-	<script type="text/javascript" src="${contextPath}/common/js/bpr/unit/add.js"></script>
+	<script type="text/javascript" src="${contextPath}/common/js/bpr/otherGoods/list.js"></script>
 </body>
 </html>

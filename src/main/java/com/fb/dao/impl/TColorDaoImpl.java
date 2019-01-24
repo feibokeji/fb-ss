@@ -46,4 +46,9 @@ public class TColorDaoImpl extends SimpMapper<TColor> implements TColorDao {
 		return super.findList(sql, null);
 	}
 
+	public int getUseNumber(String ucolorid) {
+		String sql = "select count(*) from t_phone_model_color where ucolorid = :ucolorid";
+		return super.getInt(sql, new QMap("ucolorid",ucolorid));
+	}
+
 }

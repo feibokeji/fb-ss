@@ -47,4 +47,14 @@ public class TWarrantyDaoImpl extends SimpMapper<TWarranty> implements TWarranty
 		return super.findList(sql, null);
 	}
 
+	public int getOtherUseNumber(String uwarrantyid) {
+		String sql = "select count(*) from t_other_goods where uwarrantyid = :uwarrantyid";
+		return super.getInt(sql, new QMap("uwarrantyid",uwarrantyid));
+	}
+
+	public int getPhoneUseNumber(String uwarrantyid) {
+		String sql = "select count(*) from t_phone_model where uwarrantyid = :uwarrantyid";
+		return super.getInt(sql, new QMap("uwarrantyid",uwarrantyid));
+	}
+
 }

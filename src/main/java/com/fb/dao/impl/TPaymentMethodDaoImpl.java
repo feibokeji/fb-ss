@@ -48,4 +48,24 @@ public class TPaymentMethodDaoImpl extends SimpMapper<TPaymentMethod> implements
 		return super.findList(sql, null);
 	}
 
+	public int getCounterPartsBusinessNumber(String upaymentmethodid) {
+		String sql = "select count(*) from t_counterparts_phone_receipts where upaymentmethodid = :upaymentmethodid";
+		return super.getInt(sql, new QMap("upaymentmethodid",upaymentmethodid));
+	}
+
+	public int getCustomerBusinessNumber(String upaymentmethodid) {
+		String sql = "select count(*) from t_customer_receipts where upaymentmethodid = :upaymentmethodid";
+		return super.getInt(sql, new QMap("upaymentmethodid",upaymentmethodid));
+	}
+
+	public int getPhoneBusinessNumber(String upaymentmethodid) {
+		String sql = "select count(*) from t_phone_inventory_receipts where upaymentmethodid = :upaymentmethodid";
+		return super.getInt(sql, new QMap("upaymentmethodid",upaymentmethodid));
+	}
+
+	public int getSupplierBusinessNumber(String upaymentmethodid) {
+		String sql = "select count(*) from t_supplier_receipts where upaymentmethodid = :upaymentmethodid";
+		return super.getInt(sql, new QMap("upaymentmethodid",upaymentmethodid));
+	}
+
 }

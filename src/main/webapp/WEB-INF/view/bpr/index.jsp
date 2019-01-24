@@ -121,6 +121,19 @@
 					</li>
 				</ul>
 			</div>
+			<!-- 2019/1/23 商品档案菜单 -->
+			<div title="商品档案" class="l-scroll">
+				<ul class="m-ul">
+					<!-- 商品类别 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('otherGoodsCategory','商品类别','${contextPath }/bpr/lovelysnow/category')">商品类别</a>
+					</li>
+					<!-- 商品信息 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('otherGoodsList','商品信息','${contextPath }/bpr/otherGoods/list')">商品信息</a>
+					</li>
+				</ul>
+			</div>
 		</div>
 		<div position="center" id="framecenter">
 			<div tabid="home" title="我的主页" style="height: 300px">

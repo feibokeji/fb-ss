@@ -54,4 +54,18 @@ public interface TWarrantyDao {
 	 * @return 保修政策信息集合
 	 */
 	public List<TWarranty> getList();
+	
+	/**
+	 * 获取：其它商品使用量
+	 * @param uwarrantyid
+	 * @return 使用量
+	 */
+	public int getOtherUseNumber(String uwarrantyid);
+	
+	/**
+	 * 获取：手机使用量
+	 * @param uwarrantyid
+	 * @return 使用量
+	 */
+	public int getPhoneUseNumber(String uwarrantyid);
 }

@@ -55,4 +55,32 @@ public interface TPaymentMethodDao {
 	 * @return 付款方式信息集合
 	 */
 	public List<TPaymentMethod> getList();
+	
+	/**
+	 * 获取：同行业务使用量
+	 * @param upaymentmethodid
+	 * @return 同行业务使用量
+	 */
+	public int getCounterPartsBusinessNumber(String upaymentmethodid);
+	
+	/**
+	 * 获取：客户业务使用量
+	 * @param upaymentmethodid
+	 * @return 客户业务使用量
+	 */
+	public int getCustomerBusinessNumber(String upaymentmethodid);
+	
+	/**
+	 * 获取：手机业务使用量
+	 * @param upaymentmethodid
+	 * @return 手机业务使用量
+	 */
+	public int getPhoneBusinessNumber(String upaymentmethodid);
+	
+	/**
+	 * 获取：供应商业务使用量
+	 * @param upaymentmethodid
+	 * @return 供应商业务使用量
+	 */
+	public int getSupplierBusinessNumber(String upaymentmethodid);
 }

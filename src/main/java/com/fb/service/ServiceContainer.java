@@ -180,6 +180,30 @@ public class ServiceContainer {
     private UnitService unitService;
     
     /**
+     * 颜色信息
+     */
+    @Autowired
+    private ColorService colorService;
+    
+    /**
+     * 付款方式信息
+     */
+    @Autowired
+    private PaymentMethodService paymentMethodService;
+    
+    /**
+     * 保修政策信息
+     */
+    @Autowired
+    private WarrantyService warrantyService;
+    
+    /**
+     * 其它商品信息
+     */
+    @Autowired
+    private OtherGoodsService otherGoodsService;
+    
+    /**
      * 获取 登录操作控制
      * @return loginService
      */
@@ -388,7 +412,7 @@ public class ServiceContainer {
 	}
 
 	/**
-	 * 获取:品牌信息
+	 * 获取:品牌信息服务
 	 * @return brandService
 	 */
 	public BrandService getBrandService() {
@@ -396,11 +420,43 @@ public class ServiceContainer {
 	}
 
 	/**
-	 * 获取:unitService
+	 * 获取:单位信息服务
 	 * @return unitService
 	 */
 	public UnitService getUnitService() {
 		return unitService;
+	}
+
+	/**
+	 * 获取:颜色信息服务
+	 * @return colorService
+	 */
+	public ColorService getColorService() {
+		return colorService;
+	}
+
+	/**
+	 * 获取:付款方式服务
+	 * @return paymentMethodService
+	 */
+	public PaymentMethodService getPaymentMethodService() {
+		return paymentMethodService;
+	}
+
+	/**
+	 * 获取:保修政策服务
+	 * @return warrantyService
+	 */
+	public WarrantyService getWarrantyService() {
+		return warrantyService;
+	}
+
+	/**
+	 * 获取:其它商品信息
+	 * @return otherGoodsService
+	 */
+	public OtherGoodsService getOtherGoodsService() {
+		return otherGoodsService;
 	}
     
 }

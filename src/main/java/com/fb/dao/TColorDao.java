@@ -53,4 +53,11 @@ public interface TColorDao {
 	 * @return 颜色集合
 	 */
 	public List<TColor> getList();
+	
+	/**
+	 * 获取：颜色使用量
+	 * @param ucolorid
+	 * @return 使用量
+	 */
+	public int getUseNumber(String ucolorid);
 }

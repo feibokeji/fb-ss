@@ -12,13 +12,22 @@
 <script type="text/javascript" src="${contextPath}/common/js/base/html5.js"></script>
 <![endif]-->
 </head>
-<!-- /bpr/unit/add.jsp -->
+<!-- /bpr/paymentMethod/modify.jsp -->
 <body>
-	<form id="addForm" name="addForm" method="post" action="${contextPath }/bpr/unit/addSave">
+	<form id="modifyForm" name="modifyForm" method="post" action="${contextPath }/bpr/paymentMethod/modifySave">
+		<input type="hidden" name="uid" value="${paymentMethod.uid }"/>
 		<table class="add_update_table">
 			<tr>
-				<th><span style="color: red;">*</span>单位名称：</th>
-				<td><input type="text" id="addCname" name="cname" class="l-text validate[required,funcCall[ajaxCname]]"/></td>
+				<th><span style="color: red;">*</span>名称：</th>
+				<td><input type="text" id="modifyCname" name="cname" class="l-text validate[required,funcCall[ajaxCname]]" value="${paymentMethod.cname }"/></td>
+			</tr>
+			<tr>
+				<th><span style="color: red;">*</span>代码：</th>
+				<td><input type="text" id="modifyCcode" name="ccode" class="l-text validate[required,funcCall[ajaxCcode]]" value="${paymentMethod.ccode }"/></td>
+			</tr>
+			<tr>
+				<th>描述：</th>
+				<td><textarea rows="2" cols="72" id="modifyCdesc" name="cdesc" class="l-textarea">${paymentMethod.cdesc }</textarea></td>
 			</tr>
 			<tr>
 				<td>&nbsp;</td>
@@ -34,7 +43,7 @@
 		</table>
 	</form>
   	<!-- javascript文件引用 -->
-	<script type="text/javascript">var contextPath = '${contextPath}';</script>
+	<script type="text/javascript">var contextPath = '${contextPath}';var oldCname = '${paymentMethod.cname}';var oldCcode = '${paymentMethod.ccode}'</script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/jquery-1.8.3.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/liger/js/ligerui.all.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/jquery-ui-1.9.2.custom.js"></script>
@@ -42,6 +51,6 @@
 	<script type="text/javascript" src="${contextPath}/common/formValidator2.2.4/jquery.validationEngine-zh_CN.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/formValidator2.2.4/jquery.validationEngine.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/js/bpr/base.js"></script>
-	<script type="text/javascript" src="${contextPath}/common/js/bpr/unit/add.js"></script>
+	<script type="text/javascript" src="${contextPath}/common/js/bpr/paymentMethod/modify.js"></script>
 </body>
 </html>

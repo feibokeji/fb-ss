@@ -2,7 +2,6 @@ package com.fb.service;
 
 import java.util.List;
 
-import com.fb.core.utils.Page;
 import com.fb.domain.po.TColor;
 
 /** 
@@ -12,46 +11,39 @@ import com.fb.domain.po.TColor;
 * 颜色操作接口
 */
 public interface ColorService {
-	
 	/**
-	 * 新增 颜色信息
+	 * 新增：颜色信息
 	 * @param color
 	 * @return 受影响行数
 	 */
-	public int add(TColor color);
-	
+	public int addColor(TColor color);
 	/**
-	 * 删除 颜色信息
+	 * 获取：颜色使用量
+	 * @param ucolorid
+	 * @return 使用量
+	 */
+	public int getColorUseNumber(String ucolorid);
+	/**
+	 * 删除：颜色信息
 	 * @param uid
 	 * @return 受影响行数
 	 */
-	public int delete(String uid);
-	
+	public int deleteColor(String uid);
 	/**
-	 * 修改 颜色信息
+	 * 修改：颜色信息
 	 * @param color
 	 * @return 受影响行数
 	 */
-	public int update(TColor color);
-	
+	public int modifyColor(TColor color);
 	/**
-	 * 获取 颜色信息
+	 * 获取：颜色信息
 	 * @param uid
 	 * @return 颜色信息
 	 */
-	public TColor get(String uid);
-	
+	public TColor getColor(String uid);
 	/**
-	 * 获取 颜色信息集合
-	 * @return 颜色信息集合
+	 * 获取：颜色信息列表
+	 * @return 颜色信息列表
 	 */
 	public List<TColor> getColorList();
-	
-	/**
-	 * 获取 颜色信息分页
-	 * @param color
-	 * @param currentPage
-	 * @return 颜色信息分页
-	 */
-	public Page<TColor> getColorPage(TColor color,int currentPage);
 }

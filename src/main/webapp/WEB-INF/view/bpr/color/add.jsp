@@ -12,12 +12,12 @@
 <script type="text/javascript" src="${contextPath}/common/js/base/html5.js"></script>
 <![endif]-->
 </head>
-<!-- /bpr/unit/add.jsp -->
+<!-- /bpr/color/add.jsp -->
 <body>
-	<form id="addForm" name="addForm" method="post" action="${contextPath }/bpr/unit/addSave">
+	<form id="addForm" name="addForm" method="post" action="${contextPath }/bpr/color/addSave">
 		<table class="add_update_table">
 			<tr>
-				<th><span style="color: red;">*</span>单位名称：</th>
+				<th><span style="color: red;">*</span>颜色名称：</th>
 				<td><input type="text" id="addCname" name="cname" class="l-text validate[required,funcCall[ajaxCname]]"/></td>
 			</tr>
 			<tr>
@@ -42,6 +42,6 @@
 	<script type="text/javascript" src="${contextPath}/common/formValidator2.2.4/jquery.validationEngine-zh_CN.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/formValidator2.2.4/jquery.validationEngine.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/js/bpr/base.js"></script>
-	<script type="text/javascript" src="${contextPath}/common/js/bpr/unit/add.js"></script>
+	<script type="text/javascript" src="${contextPath}/common/js/bpr/color/add.js"></script>
 </body>
 </html>

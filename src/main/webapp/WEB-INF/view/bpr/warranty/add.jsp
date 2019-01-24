@@ -12,13 +12,17 @@
 <script type="text/javascript" src="${contextPath}/common/js/base/html5.js"></script>
 <![endif]-->
 </head>
-<!-- /bpr/unit/add.jsp -->
+<!-- /bpr/warranty/add.jsp -->
 <body>
-	<form id="addForm" name="addForm" method="post" action="${contextPath }/bpr/unit/addSave">
+	<form id="addForm" name="addForm" method="post" action="${contextPath }/bpr/warranty/addSave">
 		<table class="add_update_table">
 			<tr>
-				<th><span style="color: red;">*</span>单位名称：</th>
-				<td><input type="text" id="addCname" name="cname" class="l-text validate[required,funcCall[ajaxCname]]"/></td>
+				<th><span style="color: red;">*</span>保修天数：</th>
+				<td><input type="text" id="addIday" name="iday" class="l-text validate[required,custom[integer]]"/></td>
+			</tr>
+			<tr>
+				<th>保修内容：</th>
+				<td><textarea rows="2" cols="72" id="addCcontent" name="ccontent" class="l-textarea"></textarea></td>
 			</tr>
 			<tr>
 				<td>&nbsp;</td>
@@ -42,6 +46,6 @@
 	<script type="text/javascript" src="${contextPath}/common/formValidator2.2.4/jquery.validationEngine-zh_CN.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/formValidator2.2.4/jquery.validationEngine.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/js/bpr/base.js"></script>
-	<script type="text/javascript" src="${contextPath}/common/js/bpr/unit/add.js"></script>
+	<script type="text/javascript" src="${contextPath}/common/js/bpr/warranty/add.js"></script>
 </body>
 </html>
