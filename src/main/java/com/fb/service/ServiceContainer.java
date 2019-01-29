@@ -204,6 +204,24 @@ public class ServiceContainer {
     private OtherGoodsService otherGoodsService;
     
     /**
+     * 手机型号信息
+     */
+    @Autowired
+    private PhoneModelService phoneModelService;
+    
+    /**
+     * 供应商单据服务
+     */
+    @Autowired
+    private SupplierOrderService supplierOrderService;
+    
+    /**
+     * 供应商应收应付服务
+     */
+    @Autowired
+    private SupplierReceivableService supplierReceivableService;
+    
+    /**
      * 获取 登录操作控制
      * @return loginService
      */
@@ -458,5 +476,28 @@ public class ServiceContainer {
 	public OtherGoodsService getOtherGoodsService() {
 		return otherGoodsService;
 	}
-    
+
+	/**
+	 * 获取:手机型号服务
+	 * @return phoneModelService
+	 */
+	public PhoneModelService getPhoneModelService() {
+		return phoneModelService;
+	}
+
+	/**
+	 * 获取:供应商单据服务
+	 * @return supplierOrderService
+	 */
+	public SupplierOrderService getSupplierOrderService() {
+		return supplierOrderService;
+	}
+
+	/**
+	 * 获取:供应商应收应付服务
+	 * @return supplierReceivableService
+	 */
+	public SupplierReceivableService getSupplierReceivableService() {
+		return supplierReceivableService;
+	}
 }

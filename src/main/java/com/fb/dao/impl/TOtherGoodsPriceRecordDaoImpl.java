@@ -46,7 +46,7 @@ public class TOtherGoodsPriceRecordDaoImpl extends SimpMapper<TOtherGoodsPriceRe
 		StringBuilder sql = new StringBuilder("select ogpr.uid,ogpr.uuserid,u.cname as cusername,ogpr.uothergoodsid,ogpr.ncostprice,ogpr.nretailprice,ogpr.drecorddate,ogpr.istatus");
 		sql.append(" from t_other_goods_price_record as ogpr");
 		sql.append(" left join t_user as u on u.uid = ogpr.uuserid");
-		sql.append(" where uothergoodsid = :uothergoodsid");
+		sql.append(" where uothergoodsid = :uothergoodsid order by ogpr.istatus");
 		return super.findList(sql, new QMap("uothergoodsid",uothergoodsid));
 	}
 

@@ -4,8 +4,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<link type="text/css" href="${contextPath}/common/liger/css/ligerui-all.css" rel="stylesheet" />
-<link type="text/css" href="${contextPath}/common/liger/images/skins/ligerui-icons.css" rel="stylesheet" />
+<link type="text/css" href="${contextPath}/common/liger/skins/Aqua/css/ligerui-all.css" rel="stylesheet" />
+<link type="text/css" href="${contextPath}/common/liger/skins/ligerui-icons.css" rel="stylesheet" />
 <link type="text/css" href="${contextPath}/common/css/bpr/main.css" rel="stylesheet" />
 <!--[if lt IE 9]>
 <script type="text/javascript" src="${contextPath}/common/js/base/html5.js"></script>

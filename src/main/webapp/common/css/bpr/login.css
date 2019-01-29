@@ -2,7 +2,7 @@
 body,html,ul,li,p,h1,h2,h3,h4,h5{margin:0;padding:0}img{border:0;vertical-align:middle;}input,select{font-size: 14px;vertical-align:middle;}
 body{font-family:Arial,"新宋体";font-size: 12px;line-height: 24px;}
 #loginDiv{border:1px solid #BED5F3;width:450px;height: 300px;margin: 0 auto;background:#F2F8FF;}
-.loginLogo{height: 30px;line-height: 30px;border-bottom: 1px solid #BED5F3;background:url('../../liger/images/top.jpg') repeat-x bottom;color:#E7E7E7;font-weight: bold;}
+.loginLogo{height: 30px;line-height: 30px;border-bottom: 1px solid #BED5F3;background:url('../../liger/skins/top.jpg') repeat-x bottom;color:#E7E7E7;font-weight: bold;}
 #loginDiv table{margin-top: 20px;width: 100%;}
 #loginDiv table tr{height: 40px;}
 .textInput1{width:220px;height: 25px;}
@@ -12,4 +12,4 @@ body{font-family:Arial,"新宋体";font-size: 12px;line-height: 24px;}
 .about{text-align: center;margin-top: 10px;}
 #footer{width: 400px;margin: 0 auto;text-align: center;margin-top: 20px;}
 .random{cursor: pointer;}
-#pageloading{position:absolute; left:0px; top:0px; background:white url('../../liger/images/loading.gif') no-repeat center; width:100%; height:100%;z-index:99999;}
+#pageloading{position:absolute; left:0px; top:0px; background:white url('../../liger/skins/loading.gif') no-repeat center; width:100%; height:100%;z-index:99999;}

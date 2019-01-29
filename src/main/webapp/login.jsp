@@ -7,7 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>飞博科技管理平台-登录页面</title>
 <link type="text/css" href="${contextPath}/common/css/bpr/login.css" rel="stylesheet"/>
-<link type="text/css" href="${contextPath}/common/liger/css/ligerui-all.css" rel="stylesheet" />
+<link type="text/css" href="${contextPath}/common/liger/skins/Aqua/css/ligerui-all.css" rel="stylesheet" />
+<link type="text/css" href="${contextPath}/common/liger/skins/ligerui-icons.css" rel="stylesheet" />
 <link type="image/x-icon" href="${contextPath}/common/images/favicon.ico" rel="shortcut icon" />
 <!--[if lt IE 9]>
 <script type="text/javascript" src="${contextPath}/common/js/base/html5.js"></script>

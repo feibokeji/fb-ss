@@ -79,6 +79,9 @@ $(function(){
 	$("#modifyCbrandname").val(oldCbrandname);
 	$("#modifyCunitname").val(oldCunitname);
 	$("#modifyWarranty").val(oldIwarrantyday);
+	$("#modifyCname").change(function(){
+		$("#modifyCmnemoniccode").val(getPinYinFirstCharacter($("#modifyCname").val(),"",true));
+	});
 });
 function ajaxCno(field,rules,i,options){
 	if(field.val().length > 0){

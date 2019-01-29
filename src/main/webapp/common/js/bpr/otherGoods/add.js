@@ -74,6 +74,9 @@ $(function(){
 			$("#addUwarrantyid").val(value);
 		}
 	});
+	$("#addCname").change(function(){
+		$("#addCmnemoniccode").val(getPinYinFirstCharacter($("#addCname").val(),"",true));
+	});
 });
 function ajaxCno(field,rules,i,options){
 	if(field.val().length > 0){

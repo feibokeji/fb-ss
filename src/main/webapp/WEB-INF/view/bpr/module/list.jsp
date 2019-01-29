@@ -5,7 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>功能模块</title>
-<link type="text/css" href="${contextPath}/common/liger/css/ligerui-all.css" rel="stylesheet" />
+<link type="text/css" href="${contextPath}/common/liger/skins/Aqua/css/ligerui-all.css" rel="stylesheet" />
+<link type="text/css" href="${contextPath}/common/liger/skins/ligerui-icons.css" rel="stylesheet" />
 <link type="text/css" href="${contextPath}/common/css/bpr/main.css" rel="stylesheet" />
 <!--[if lt IE 9]>
 <script type="text/javascript" src="${contextPath}/common/js/base/html5.js"></script>

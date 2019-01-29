@@ -7,7 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>飞博科技管理平台-首页</title>
 <link type="image/x-icon" href="${contextPath}/common/images/favicon.ico" rel="shortcut icon" />
-<link type="text/css" href="${contextPath}/common/liger/css/ligerui-all.css" rel="stylesheet" />
+<link type="text/css" href="${contextPath}/common/liger/skins/Aqua/css/ligerui-all.css" rel="stylesheet" />
+<link type="text/css" href="${contextPath}/common/liger/skins/ligerui-icons.css" rel="stylesheet" />
 <link type="text/css" href="${contextPath}/common/css/bpr/main.css" rel="stylesheet" />
 <!--[if lt IE 9]>
 <script type="text/javascript" src="${contextPath}/common/js/base/html5.js"></script>
@@ -32,6 +33,121 @@
 	</div>
 	<div id="layout1" style="width: 99.2%; margin: 0 auto; margin-top: 4px;">
 		<div position="left" title="菜单" id="accordion1">
+			<!-- 2019/1/15 基本档案菜单 -->
+			<div title="基本档案" class="l-scroll">
+				<ul class="m-ul">
+					<!-- 品牌信息 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('brandList','品牌信息','${contextPath }/bpr/brand/list')">品牌信息</a>
+					</li>
+					<!-- 单位信息 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('unitList','单位信息','${contextPath }/bpr/unit/list')">单位信息</a>
+					</li>
+					<!-- 颜色信息 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('colorList','颜色信息','${contextPath }/bpr/color/list')">颜色信息</a>
+					</li>
+					<!-- 付款方式 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('paymentMethodList','付款方式','${contextPath }/bpr/paymentMethod/list')">付款方式</a>
+					</li>
+					<!-- 保修政策 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('warrantyList','保修政策','${contextPath }/bpr/warranty/list')">保修政策</a>
+					</li>
+				</ul>
+			</div>
+			<!-- 2019/1/23 商品档案菜单 -->
+			<div title="商品档案" class="l-scroll">
+				<ul class="m-ul">
+					<!-- 商品类别 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('otherGoodsCategory','商品类别','${contextPath }/bpr/lovelysnow/category')">商品类别</a>
+					</li>
+					<!-- 商品信息 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('otherGoodsList','商品信息','${contextPath }/bpr/otherGoods/list')">商品信息</a>
+					</li>
+					<!-- 手机型号 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('phoneModelList','手机型号','${contextPath }/bpr/phoneModel/list')">手机型号</a>
+					</li>
+				</ul>
+			</div>
+			<!-- 2019/1/24 -->
+			<div title="供应商管理" class="l-scroll">
+				<ul class="m-ul">
+					<!-- 供应商信息 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('supplierList','供应商信息','${contextPath }/bpr/supplier/list')">供应商信息</a>
+					</li>
+					<!-- 商品入库 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('supplierOrder0','商品入库单','${contextPath }/bpr/supplierOrder/add?itype=0')">商品入库单</a>
+					</li>
+					<!-- 商品退库 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('supplierOrder1','商品退库单','${contextPath }/bpr/supplierOrder/add?itype=1')">商品退库单</a>
+					</li>
+					<!-- 商品报损 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('supplierOrder2','商品报损单','${contextPath }/bpr/supplierOrder/add?itype=2')">商品报损单</a>
+					</li>
+					<!-- 商品报损 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('supplierOrderList','商品单据管理','${contextPath }/bpr/supplierOrder/list')">商品单据管理</a>
+					</li>
+					<!-- 手机入库 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('otherGoodsCategory','手机入库单','${contextPath }/bpr/lovelysnow/category')">手机入库单</a>
+					</li>
+					<!-- 手机退库 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('otherGoodsCategory','手机退库单','${contextPath }/bpr/lovelysnow/category')">手机退库单</a>
+					</li>
+				</ul>
+			</div>
+			<div title="同行管理" class="l-scroll">
+				<ul class="m-ul">
+					<!-- 同行信息 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('counterPartsList','同行信息','${contextPath }/bpr/counterParts/list')">同行信息</a>
+					</li>
+					<!-- 手机调出 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('counterPartsList','手机调出','${contextPath }/bpr/counterParts/list')">手机调出</a>
+					</li>
+					<!-- 手机调入 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('counterPartsList','手机调入','${contextPath }/bpr/counterParts/list')">手机调入</a>
+					</li>
+				</ul>
+			</div>
+			<div title="客户管理" class="l-scroll">
+				<ul class="m-ul">
+					<!-- 客户信息 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerList','客户信息','${contextPath }/bpr/customer/list')">客户信息</a>
+					</li>
+					<!-- 商品销售 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerList','商品销售','${contextPath }/bpr/customer/list')">商品销售</a>
+					</li>
+					<!-- 销售退货 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerList','销售退货','${contextPath }/bpr/customer/list')">销售退货</a>
+					</li>
+					<!-- 手机销售 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerList','手机销售','${contextPath }/bpr/customer/list')">手机销售</a>
+					</li>
+					<!-- 手机退货 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerList','手机退货','${contextPath }/bpr/customer/list')">手机退货</a>
+					</li>
+				</ul>
+			</div>
 			<t:module code="SYSTEMMANAGEMENT">
 			<div title="系统管理" class="l-scroll">
 				<ul class="m-ul">
@@ -84,56 +200,6 @@
 				</ul>
 			</div>
 			</t:module>
-			<!-- 2019/1/15 基本档案菜单 -->
-			<div title="基本档案" class="l-scroll">
-				<ul class="m-ul">
-					<!-- 供应商信息 -->
-					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('supplierList','供应商信息','${contextPath }/bpr/supplier/list')">供应商信息</a>
-					</li>
-					<!-- 客户信息 -->
-					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerList','客户信息','${contextPath }/bpr/customer/list')">客户信息</a>
-					</li>
-					<!-- 同行信息 -->
-					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('counterPartsList','同行信息','${contextPath }/bpr/counterParts/list')">同行信息</a>
-					</li>
-					<!-- 品牌信息 -->
-					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('brandList','品牌信息','${contextPath }/bpr/brand/list')">品牌信息</a>
-					</li>
-					<!-- 单位信息 -->
-					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('unitList','单位信息','${contextPath }/bpr/unit/list')">单位信息</a>
-					</li>
-					<!-- 颜色信息 -->
-					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('colorList','颜色信息','${contextPath }/bpr/color/list')">颜色信息</a>
-					</li>
-					<!-- 付款方式 -->
-					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('paymentMethodList','付款方式','${contextPath }/bpr/paymentMethod/list')">付款方式</a>
-					</li>
-					<!-- 保修政策 -->
-					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('warrantyList','保修政策','${contextPath }/bpr/warranty/list')">保修政策</a>
-					</li>
-				</ul>
-			</div>
-			<!-- 2019/1/23 商品档案菜单 -->
-			<div title="商品档案" class="l-scroll">
-				<ul class="m-ul">
-					<!-- 商品类别 -->
-					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('otherGoodsCategory','商品类别','${contextPath }/bpr/lovelysnow/category')">商品类别</a>
-					</li>
-					<!-- 商品信息 -->
-					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('otherGoodsList','商品信息','${contextPath }/bpr/otherGoods/list')">商品信息</a>
-					</li>
-				</ul>
-			</div>
 		</div>
 		<div position="center" id="framecenter">
 			<div tabid="home" title="我的主页" style="height: 300px">
