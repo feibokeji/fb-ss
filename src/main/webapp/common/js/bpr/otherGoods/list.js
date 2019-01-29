@@ -3,6 +3,7 @@
  */
 var otherGoodsDialog = null;
 var otherGoodsTable = null;
+var categoryComboBox,brandComboBox;
 var searchUcategoryId,searchUbrandId,searchCno,searchCbarcode,searchCname,searchCmnemoniccode,searchDrecorddateStrMin,searchDrecorddateStrMax;
 /**
  * 加载函数
@@ -28,8 +29,8 @@ $(function(){
             { display: '保修时间(天)', name: 'iwarrantyday', width: 100,minWidth: 80 },
             { display: '保修内容', name: 'cwarrantycontent', width: 100,minWidth: 80 },
             { display: '积分', name: 'iintegral', width: 80,minWidth: 60 },
-            { display: '记录日期', name: 'drecorddateStr', width: 120,minWidth: 100 },
-            { display: '更新日期', name: 'dupdatedateStr', width: 120,minWidth: 100 }
+            { display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120 },
+            { display: '更新日期', name: 'dupdatedateStr', width: 140,minWidth: 120 }
             ],
         toolbar: { items: [
 	            { text: '增加', click: addOtherGoods, icon: 'add' },
@@ -56,7 +57,7 @@ $(function(){
 	    },
 	    detail:{onShowDetail:f_showPriceRecord,height:'auto'}
 	});
-	$("#searchCcategoryName").ligerComboBox({
+	categoryComboBox = $("#searchCcategoryName").ligerComboBox({
 		selectBoxWidth: 300, selectBoxHeight: 240,slide:false,isShowCheckBox:false,
 		valueField:'uid',textField:'cname',
 		grid:{
@@ -73,7 +74,7 @@ $(function(){
 			$("#searchUcategoryId").val(value);
 		}
 	});
-	$("#searchCbrandName").ligerComboBox({
+	brandComboBox = $("#searchCbrandName").ligerComboBox({
 		selectBoxWidth: 300, selectBoxHeight: 240,slide:false,isShowCheckBox:false,
 		valueField:'uid',textField:'cname',
 		grid:{
@@ -114,16 +115,15 @@ function f_showPriceRecord(row, detailPanel,callback){
 //查询商品信息
 function searchOtherGoods()
 {
-	searchUcategoryId = $("#searchUcategoryId").val();
-	searchUbrandId = $("#searchUbrandId").val();
 	searchCno = $("#searchCno").val();
 	searchCbarcode = $("#searchCbarcode").val();
 	searchCname = $("#searchCname").val();
 	searchCmnemoniccode = $("#searchCmnemoniccode").val();
 	searchDrecorddateStrMin = $("#searchDrecorddateStrMin").val();
 	searchDrecorddateStrMax = $("#searchDrecorddateStrMax").val();
-	otherGoodsTable.setParm("ucategoryid",searchUcategoryId);
-	otherGoodsTable.setParm("ubrandid",searchUbrandId);
+	
+	otherGoodsTable.setParm("ucategoryid",categoryComboBox.getValue());
+	otherGoodsTable.setParm("ubrandid",brandComboBox.getValue());
 	otherGoodsTable.setParm("cno",searchCno);
 	otherGoodsTable.setParm("cbarcode",searchCbarcode);
 	otherGoodsTable.setParm("cname",searchCname);

@@ -3,6 +3,8 @@
  */
 var supplierOrderDialog = null;
 var supplierOrderTable = null;
+//下拉框
+var supplierComboBox,itypeComboBox,istatusComboBox;
 /**
  * 加载函数
  * @returns
@@ -18,12 +20,12 @@ $(function(){
             { display:'部门表外键', name : 'udeptid', align: 'left', width:100, minWidth: 60,hide: true},
             { display:'单据类型', name : 'itype', align: 'left', width:100, minWidth: 60,hide: true},
             { display:'单据状态', name : 'istatus', align: 'left', width:100, minWidth: 60,hide: true},
-            { display: '单据编号', name: 'cno', width: 120,minWidth: 100 },
+            { display: '单据编号', name: 'cno', width: 140,minWidth: 120 },
             { display: '供应商', name: 'csuppliername', width: 120, minWidth: 100 },
             { display: '单据类型', name: 'itypeStr', width: 100,minWidth: 80 },
             { display: '单据状态', name: 'istatusStr', width: 100,minWidth: 80 },
-            { display: '记录日期', name: 'drecorddateStr', width: 120,minWidth: 100 },
-            { display: '更新日期', name: 'dupdatedateStr', width: 120,minWidth: 100 }
+            { display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120 },
+            { display: '更新日期', name: 'dupdatedateStr', width: 140,minWidth: 120 }
             ],
         toolbar: { items: [
         		{ text: '详细', click: viewSupplierOrder, icon: 'view'},
@@ -55,7 +57,7 @@ $(function(){
 	    	}
 	    }
 	});
-	$("#searchCsuppliername").ligerComboBox({
+	supplierComboBox = $("#searchCsuppliername").ligerComboBox({
 		selectBoxWidth: 300, selectBoxHeight: 240,slide:false,isShowCheckBox:false,
 		valueField:'uid',textField:'cname',
 		grid:{
@@ -72,14 +74,14 @@ $(function(){
 			$("#searchUsupplierid").val(value);
 		}
 	});
-	$("#searchItypeStr").ligerComboBox({
+	itypeComboBox = $("#searchItypeStr").ligerComboBox({
 		data:[
 			{text:'入库单',id:'0'},
 			{text:'退库单',id:'1'},
 			{text:'报损单',id:'2'}
 		],valueFieldID:'searchItype'
 	});
-	$("#searchIstatusStr").ligerComboBox({
+	istatusComboBox = $("#searchIstatusStr").ligerComboBox({
 		data:[
 			{text:'已审核',id:'0'},
 			{text:'未审核',id:'1'}
@@ -89,14 +91,13 @@ $(function(){
 //查询供应商单据
 function searchSupplierOrder()
 {
-	var _usupplierid = $("#searchUsupplierid").val();
 	var _cno = $("#searchCno").val();
 	var _itype = $("#searchItype").val();
 	var _istatus = $("#searchIstatus").val();
 	var _drecorddateStrMin = $("#searchDrecorddateStrMin").val();
 	var _drecorddateStrMax = $("#searchDrecorddateStrMax").val();
 	
-	supplierOrderTable.setParm("usupplierid",_usupplierid);
+	supplierOrderTable.setParm("usupplierid",supplierComboBox.getValue());
 	supplierOrderTable.setParm("cno",_cno);
 	if(_itype.isInteger()){
 		supplierOrderTable.setParm("itype",_itype);

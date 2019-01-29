@@ -28,6 +28,8 @@
 				<td><input type="text" id="searchCwechat" class="l-text"/></td>
 				<td>经营范围：</td>
 				<td><input type="text" id="searchCbusinessscope" class="l-text"/></td>
+			</tr>
+			<tr>
 				<td>经营状态：</td>
 				<td>
 					<select id="searchIbusinessstatus" class="l-text">
@@ -36,8 +38,6 @@
 						<option value="1">停业</option>
 					</select>
 				</td>
-			</tr>
-			<tr>
 				<td>账期(天数)：</td>
 				<td><input type="text" id="searchIpaymentdaysMin" class="l-text validate[custom[integer]]"/></td>
 				<td align="center">-</td>

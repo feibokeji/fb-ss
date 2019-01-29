@@ -38,26 +38,28 @@
 								<option value="0">女</option>
 							</select>
 						</td>
+					</tr>
+					<tr>
 						<td>联系电话：</td>
 						<td><input type="text" id="searchCcontactnumber" class="l-text validate[custom[phone]]"/></td>
 						<td>微信：</td>
 						<td><input type="text" id="searchCwechat" class="l-text"/></td>
-					</tr>
-					<tr>
 						<td>生日：</td>
 						<td><input type="text" id="searchDbirthdayMin"/></td>
 						<td align="center">-</td>
 						<td><input type="text" id="searchDbirthdayMax"/></td>
+					</tr>
+					<tr>
 						<td>积分：</td>
 						<td><input type="text" id="iintegralMin" class="l-text validate[custom[integer]]"/></td>
 						<td align="center">-</td>
 						<td><input type="text" id="iintegralMax" class="l-text validate[custom[integer]]"/></td>
-					</tr>
-					<tr>
 						<td>账期(天数)：</td>
 						<td><input type="text" id="ipaymentdaysMin" class="l-text validate[custom[integer]]"/></td>
 						<td align="center">-</td>
 						<td><input type="text" id="ipaymentdaysMax" class="l-text validate[custom[integer]]"/></td>
+					</tr>
+					<tr>
 						<td>记录日期：</td>
 						<td><input type="text" id="drecorddateMin"/></td>
 						<td align="center">-</td>
