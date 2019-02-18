@@ -4,6 +4,7 @@
 var totalNumber = 0;//记录数据数量[包含已被删除的数据量]
 var lineNumber = 0;
 var box_data = null;
+var chooseOtherGoodsDialog = null;
 $(function(){
 	//单据类型
 	switch (itype) {
@@ -53,12 +54,15 @@ $(function(){
 function createLine(i){
 	var _line = "<tr id='dataLineTr"+i+"'>" +
 					"<td><label>"+i+"</label></td>" +//:序号
+					"<td><input type='text' style='width: 80px;height:18px;text-align:center;border:none;' id='addOrderDetail_"+i+"_ccategoryname' name='orderDetailList["+i+"].ccategoryname'/></td>" + //类别
+					"<td><input type='text' style='width: 80px;height:18px;text-align:center;border:none;' id='addOrderDetail_"+i+"_cbrandname' name='orderDetailList["+i+"].cbrandname'/></td>" + //品牌
 					"<td><input type='hidden' id='addOrderDetail_"+i+"_uothergoodsid' name='orderDetailList["+i+"].uothergoodsid'/><input type='text' id='addOrderDetail_"+i+"_cname' name='orderDetailList["+i+"].cname' style='width: 100px;'/></td>" +//:名称
-					"<td><input type='text' style='width: 60px;height:18px;text-align:right;border:none;' id='addOrderDetail_"+i+"_nprice' name='orderDetailList["+i+"].nprice' onchange='updateLineAmount("+i+")' class='validate[custom[number],min[0]]'/></td>" +//:价格
+					"<td><input type='text' style='width: 60px;height:18px;text-align:center;border:none;' id='addOrderDetail_"+i+"_cunitname' name='orderDetailList["+i+"].cunitname'/></td>" + //单位
 					"<td><input type='text' style='width: 60px;height:18px;text-align:right;border:none;' id='addOrderDetail_"+i+"_nquantity' name='orderDetailList["+i+"].nquantity' onchange='updateLineAmount("+i+")' class='validate[custom[number],min[0]]'/></td>" +//:数量
+					"<td><input type='text' style='width: 60px;height:18px;text-align:right;border:none;' id='addOrderDetail_"+i+"_nprice' name='orderDetailList["+i+"].nprice' onchange='updateLineAmount("+i+")' class='validate[custom[number],min[0]]'/></td>" +//:价格
 					"<td><input type='text' style='width: 60px;height:18px;text-align:right;border:none;' id='addOrderDetail_"+i+"_namount' name='orderDetailList["+i+"].namount' onchange='updateLinePrice("+i+")' class='validate[custom[number],min[0]]'/></td>" +//:金额
 					"<td><a href='javascript:deleteLine(\"detailsTable\",\"dataLineTr"+i+"\")' title='删除' style='text-decoration:none;color:black;'>-</a></td>" +//:操作
-					"<td></td><td></td><td></td><td></td><td></td>" +
+					"<td></td><td></td>" +
 				"</tr>";
 	return _line;
 }
@@ -131,8 +135,11 @@ function loadAutoComplete(elementId,_number){
         	if(box_data != null){
         		for(var i = 0; i < box_data["Rows"].length;i++){
         			if(box_data["Rows"][i].uid == value){
+        				$("#addOrderDetail_" + _number + "_ccategoryname").val(box_data["Rows"][i].ccategoryname);//:类别
+        				$("#addOrderDetail_" + _number + "_cbrandname").val(box_data["Rows"][i].cbrandname);//:品牌
         				$("#addOrderDetail_" + _number + "_uothergoodsid").val(value);//:商品主键
         				$("#addOrderDetail_" + _number + "_cname").val(box_data["Rows"][i].cname);//:商品名称
+        				$("#addOrderDetail_" + _number + "_cunitname").val(box_data["Rows"][i].cunitname);//:单位
         				$("#addOrderDetail_" + _number + "_nprice").val(box_data["Rows"][i].ncostprice);//:商品进货价
         				$("#addOrderDetail_" + _number + "_nquantity").val(1);//:商品数量
         				$("#addOrderDetail_" + _number + "_namount").val(box_data["Rows"][i].ncostprice);//:商品金额
@@ -172,7 +179,7 @@ function updateLinePrice(number){
  */
 function calculateTotalAmount(){
 	var totalAmount = 0;
-	for(var i = 1; i <= totalNumber; i++){
+	for(var i = 1; i <= findMaxIndex(); i++){
 		var _amount = $("#addOrderDetail_" + i + "_namount").val();
 		if(_amount == undefined || _amount == "" || isNaN(_amount))
 			_amount = 0;
@@ -219,10 +226,9 @@ function deleteLine(parentElementId,elementId){
  */
 function addLine(elementId){
 	//更新数据量
-	totalNumber = totalNumber + 1;
+	totalNumber = findMaxIndex() + 1;
 	//添加数据行
 	$("#" + elementId).append(createLine(totalNumber));
-	//数据行添加时间
 	var _element = "addOrderDetail_" + totalNumber + "_cname";
 	loadAutoComplete(_element,totalNumber);
 	//更新序号
@@ -233,9 +239,12 @@ function addLine(elementId){
  * 初始化页面数据
  */
 function clearLine(){
-	for(var i = 1;i <= totalNumber;i++){
+	for(var i = 1;i <= findMaxIndex();i++){
+		$("#addOrderDetail_" + i + "_ccategoryname").val("");
+		$("#addOrderDetail_" + i + "_cbrandname").val("");
 		$("#addOrderDetail_" + i + "_uothergoodsid").val("");
 		$("#addOrderDetail_" + i + "_cname").val("");
+		$("#addOrderDetail_" + i + "_cunitname").val("");
 		$("#addOrderDetail_" + i + "_nprice").val("");
 		$("#addOrderDetail_" + i + "_nquantity").val("");
 		$("#addOrderDetail_" + i + "_namount").val("");
@@ -247,7 +256,7 @@ function clearLine(){
  * @returns
  */
 function validData(){
-	for(var i = 1; i <= totalNumber; i++){
+	for(var i = 1; i <= findMaxIndex(); i++){
 		var _element = "addOrderDetail_" + i + "_uothergoodsid";
 		var _value = $("#" + _element).val();
 		if(_value != null && _value != undefined && _value != "")
@@ -278,9 +287,7 @@ function submitForm(){
 								$.ligerDialog.error("无数据无法保存!");
 							}else{
 								$.ligerDialog.success("保存成功!");
-								//window.location.href = contextPath + "/bpr/supplierOrder/add?itype=" + itype;
 								clearLine();
-								//manager.reload();
 							}
 						});
 					});
@@ -289,4 +296,118 @@ function submitForm(){
 		}else
 			$.ligerDialog.warn("请填写有效数据！再进行保存。");
 	}
+}
+//选择商品信息
+function chooseOtherGoods(){
+	chooseOtherGoodsDialog = $.ligerDialog.open({url:contextPath+"/bpr/otherGoods/choose",title:"选择商品",allowClose:true,width:1000,height:480,
+		buttons:[{text:"导入",onclick:function(i,d){
+			//console.log(chooseOtherGoodsDialog.frame.otherGoodsTable.getSelectedRows());
+			var selectedRows = chooseOtherGoodsDialog.frame.otherGoodsTable.getSelectedRows();
+			if(selectedRows.length > 0){
+				loadChooseOtherGoods(selectedRows);
+			}else
+				$.ligerDialog.error("请选择商品后，再进行导入！");
+		}},{text:"关闭",onclick:function(i,d){d.hide();}}]
+	});
+}
+//计算有效数据行
+function calculateValidLine(){
+	var line = 0;
+	for(var i = 1; i <= findMaxIndex(); i++){
+		var _element = "addOrderDetail_" + i + "_uothergoodsid";
+		var _value = $("#" + _element).val();
+		if(_value != null && _value != undefined && _value != "")
+			line++;
+	}
+	return line;
+}
+//查找最大数据行最大下标
+function findMaxIndex(){
+	var max = 0;
+	$("#detailsTable tr").each(function(i){
+		if(i != 0 && $(this).attr("id") != null && $(this).attr("id") != undefined && $(this).attr("id") != ""){
+			$(this).find("input").each(function(){
+				var id = $(this).attr("id").split("_");
+				if(id.length > 2)
+					max = id[1];
+			});
+		}
+	});
+	return parseInt(max);
+}
+//加载选择的商品信息
+function loadChooseOtherGoods(selectedRows){
+	// 有效显示的行
+	var validTotalNumber = $("#detailsTable tr").length - 1;
+	// 所选商品量
+	var rowsLength = selectedRows.length;
+	// 有效数据行
+	var validLine = calculateValidLine();
+	// 最大数据行下标
+	var maxIndex = findMaxIndex();
+	
+	if(validTotalNumber < (rowsLength + validLine)){
+		for(var i = 0; i < (rowsLength + validLine) - validTotalNumber; i++){
+			maxIndex++;
+			$("#detailsTable").append(createLine(maxIndex));
+			var _element = "addOrderDetail_" + maxIndex + "_cname";
+			loadAutoComplete(_element,maxIndex);
+			updateLineSerialNumber("detailsTable");
+			calculateTotalAmount();
+		}
+	}
+	var data_i = 0;
+	$("#detailsTable tr").each(function(i){
+		if(i != 0 && i > validLine){
+			var isPrint = false;
+			$(this).find("input").each(function(){
+				if($(this).attr("id").indexOf("_uothergoodsid") > 0){
+					isPrint = true;
+					if($(this).val() == null || $(this).val() == undefined || $(this).val() == ""){
+						$(this).val(selectedRows[data_i].uid);
+					}
+				}
+				if($(this).attr("id").indexOf("_ccategoryname") > 0){
+					if($(this).val() == null || $(this).val() == undefined || $(this).val() == ""){
+						$(this).val(selectedRows[data_i].ccategoryname);
+					}
+				}
+				if($(this).attr("id").indexOf("_cbrandname") > 0){
+					if($(this).val() == null || $(this).val() == undefined || $(this).val() == ""){
+						$(this).val(selectedRows[data_i].cbrandname);
+					}
+				}
+				if($(this).attr("id").indexOf("_cname") > 0){
+					if($(this).val() == null || $(this).val() == undefined || $(this).val() == ""){
+						$(this).val(selectedRows[data_i].cname);
+					}
+				}
+				if($(this).attr("id").indexOf("_cunitname") > 0){
+					if($(this).val() == null || $(this).val() == undefined || $(this).val() == ""){
+						$(this).val(selectedRows[data_i].cunitname);
+					}
+				}
+				if($(this).attr("id").indexOf("_nprice") > 0){
+					if($(this).val() == null || $(this).val() == undefined || $(this).val() == ""){
+						$(this).val(selectedRows[data_i].ncostprice);
+					}
+				}
+				if($(this).attr("id").indexOf("_nquantity") > 0){
+					if($(this).val() == null || $(this).val() == undefined || $(this).val() == ""){
+						$(this).val(1);
+					}
+				}
+				if($(this).attr("id").indexOf("_namount") > 0){
+					if($(this).val() == null || $(this).val() == undefined || $(this).val() == ""){
+						$(this).val(selectedRows[data_i].ncostprice);
+					}
+				}
+				
+			});
+			if(isPrint)
+				data_i++;
+		}
+	});
+	updateLineSerialNumber("detailsTable");
+	calculateTotalAmount();
 }

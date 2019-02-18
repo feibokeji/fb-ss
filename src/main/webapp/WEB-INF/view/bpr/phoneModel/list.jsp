@@ -29,10 +29,10 @@
 				<td><input type="text" id="searchCrom" class="l-text"/></td>
 				<td>处理器(CPU)：</td>
 				<td><input type="text" id="searchCcpu" class="l-text"/></td>
-				<td>屏幕：</td>
-				<td><input type="text" id="searchCscreen" class="l-text"/></td>
 			</tr>
 			<tr>
+				<td>屏幕：</td>
+				<td><input type="text" id="searchCscreen" class="l-text"/></td>
 				<td>摄像头：</td>
 				<td><input type="text" id="searchCcamera" class="l-text"/></td>
 				<td>电池：</td>

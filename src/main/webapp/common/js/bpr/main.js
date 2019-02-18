@@ -37,6 +37,36 @@ function attachLinkToFrame(iframeId, filename){
     head.appendChild(fileref);
 }
 
+//全屏方法
+function launchFullScreen() {
+	var elem = document.documentElement;
+    if (elem.webkitRequestFullScreen) {
+        elem.webkitRequestFullScreen();
+    } else if (elem.mozRequestFullScreen) {
+        elem.mozRequestFullScreen();
+    } else if (elem.requestFullScreen) {
+        elem.requestFullscreen();
+    } else {
+        notice.notice_show("浏览器不支持全屏API或已被禁用", null, null, null, true, true);
+    }
+}
+
+//退出全屏
+function exitFullScreen() {
+    var elem = document;
+    if (elem.webkitCancelFullScreen) {
+        elem.webkitCancelFullScreen();
+    } else if (elem.mozCancelFullScreen) {
+        elem.mozCancelFullScreen();
+    } else if (elem.cancelFullScreen) {
+        elem.cancelFullScreen();
+    } else if (elem.exitFullscreen) {
+        elem.exitFullscreen();
+    } else {
+        notice.notice_show("浏览器不支持全屏API或已被禁用", null, null, null, true, true);
+    }
+}
+
 $(function() {
 	// 布局
 	$("#layout1").ligerLayout({

@@ -46,4 +46,12 @@ public interface TSupplierOrderDao {
 	 * @return 数量
 	 */
 	public int getAuditReceiptsNumber(String uid);
+	/**
+	 * 修改：供应商状态
+	 * @param uid
+	 * @param istatus {@value 0=已审核 1=未审核}
+	 * @return
+	 * @author Liu bo
+	 */
+	public int modStatus(String uid,int istatus);
 }

@@ -36,4 +36,50 @@ public interface SupplierOrderService {
 	 * @return 应付集合
 	 */
 	public List<TSupplierReceivable> getSupplierReceivable(String uorderid);
+	/**
+	 * 获取：供应商单据信息
+	 * @param uid 单据表主键
+	 * @return
+	 * @author Liu bo
+	 */
+	public TSupplierOrder getSupplierOrder(String uid);
+	/**
+	 * 修改：供应商单据信息
+	 * @param supplierOrder
+	 * @return 受影响行数
+	 * @author Liu bo
+	 */
+	public int modifySupplierOrder(TSupplierOrder supplierOrder);
+	/**
+	 * 获取：供应商实付款数量
+	 * @param uorderid
+	 * @return
+	 * @author Liu bo
+	 */
+	public int getSupplierReceiptsNumber(String uorderid);
+	/**
+	 * 删除：供应商单据
+	 * @param uid
+	 * @return
+	 * @author Liu bo
+	 */
+	public int deleteSupplierOrder(String uid);
+	/**
+	 * 审核：供应商单据
+	 * @param uid
+	 * @param uuserid
+	 * @param udeptid
+	 * @return
+	 * @author Liu bo
+	 */
+	public int auditSupplierOrder(String uid,String uuserid,String udeptid);
+	/**
+	 * 反审核：供应商单据
+	 * @param uid
+	 * @param uuserid
+	 * @param udeptid
+	 * @return
+	 * @author Liu bo
+	 */
+	public int unAuditSupplierOrder(String uid,String uuserid,String udeptid);
 }

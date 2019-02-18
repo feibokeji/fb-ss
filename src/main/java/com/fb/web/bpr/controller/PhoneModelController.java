@@ -38,6 +38,16 @@ public class PhoneModelController extends SimpController {
 	}
 	
 	/**
+	 * 打开 手机型号选择页面
+	 * @return
+	 * @author Liu bo
+	 */
+	@RequestMapping("choose")
+	public String choose(){
+	    return customPage();
+	}
+	
+	/**
 	 * 获取：手机型号JSON数据
 	 * @param phoneModel
 	 * @return

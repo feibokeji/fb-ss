@@ -84,6 +84,24 @@
 			<version>${spring.version}</version>
 		</dependency>
 		<!-- spring end -->
+		<!-- 网络抓取 -->
+    	<dependency>
+  			<!-- jsoup HTML parser library @ http://jsoup.org/ -->
+  			<groupId>org.jsoup</groupId>
+  			<artifactId>jsoup</artifactId>
+  			<version>1.10.2</version>
+		</dependency>
+		<dependency>
+            <groupId>com.googlecode.juniversalchardet</groupId>
+            <artifactId>juniversalchardet</artifactId>
+            <version>1.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.kie.modules</groupId>
+            <artifactId>org-apache-commons-httpclient</artifactId>
+            <version>6.2.0.CR2</version>
+            <type>pom</type>
+        </dependency>
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>

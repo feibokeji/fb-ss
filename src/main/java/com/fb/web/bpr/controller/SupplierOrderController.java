@@ -124,4 +124,120 @@ public class SupplierOrderController extends SimpController {
         map.put("Total", list.size());
         return JSONObject.fromObject(map).toString();
 	}
+	
+	/**
+	 * 查看 商品单据
+	 * @param uorderid
+	 * @param map
+	 * @return
+	 * @author Liu bo
+	 */
+	@RequestMapping("view")
+	public String view(String uorderid,ModelMap map){
+	    TSupplierOrder order = getService().getSupplierOrderService().getSupplierOrder(uorderid);
+	    order.setOrderDetailList(getService().getSupplierOrderService().getSupplierOrderDetail(uorderid));
+	    map.put("order", order);
+	    return customPage();
+	}
+	
+	/**
+	 * 打开：修改供应商单据信息页面
+	 * @param uorderid
+	 * @return
+	 * @author Liu bo
+	 */
+	@RequestMapping("modify")
+	public String modify(String uorderid,ModelMap map){
+	    TSupplierOrder order = getService().getSupplierOrderService().getSupplierOrder(uorderid);
+	    order.setOrderDetailList(getService().getSupplierOrderService().getSupplierOrderDetail(uorderid));
+	    map.put("order", order);
+	    return customPage();
+	}
+	
+	/**
+	 * 保存：修改供应商信息
+	 * @param supplierOrder
+	 * @return
+	 * @author Liu bo
+	 */
+	@RequestMapping("modifySave")
+	@ResponseBody
+	public String modifySave(TSupplierOrder supplierOrder){
+	    boolean isHaveData = false;
+        for (TSupplierOrderDetail detail : supplierOrder.getOrderDetailList()) {
+            if(DataUtils.isUid(detail.getUothergoodsid()) && detail.getNquantity() != null && detail.getNprice() != null && detail.getNamount() != null) {
+                isHaveData = true;
+            }
+        }
+        if (isHaveData) {
+            int count = getService().getSupplierOrderService().modifySupplierOrder(supplierOrder);
+            if (count > 0) {
+                addOperateLog("修改", "t_supplier_order", supplierOrder.getUid(), "成功", null, null, "修改供应商单据成功！");
+                return "success";
+            }
+        } else
+            return "nHave";
+	    return "fail";
+	}
+	
+	/**
+	 * 审核：供应商单据
+	 * @param uid
+	 * @return
+	 * @author Liu bo
+	 */
+	@RequestMapping("audit")
+	@ResponseBody
+	public String audit(String uid){
+	    int count = getService().getSupplierOrderService().auditSupplierOrder(uid, getSessionContainer().getUser().getUid(), getSessionContainer().getDept().getUid());
+	    if(count > 0){
+	        addOperateLog("审核", "t_supplier_order", uid, "成功", null, null, "审核供应商单据成功！");
+	        return "success";
+	    }
+	    return "fail";
+	}
+	
+	/**
+	 * 反审核：供应商单据
+	 * @param uid
+	 * @return
+	 * @author Liu bo
+	 */
+	@RequestMapping("unAudit")
+    @ResponseBody
+	public String unAudit(String uid){
+	    int orderReceiptsNumber = getService().getSupplierOrderService().getSupplierReceiptsNumber(uid);
+        if(orderReceiptsNumber > 0)
+            return "此单据已产生收付款业务！不能反审核。";
+        else{
+            int count = getService().getSupplierOrderService().unAuditSupplierOrder(uid, getSessionContainer().getUser().getUid(), getSessionContainer().getDept().getUid());
+            if(count > 0){
+                addOperateLog("反审核", "t_supplier_order", uid, "成功", null, null, "反审核供应商单据成功！");
+                return "success";
+            }
+        }
+	    return "fail";
+	}
+	
+	/**
+	 * 删除：供应商单据
+	 * @param uorderid
+	 * @return
+	 * @author Liu bo
+	 */
+	@RequestMapping("delete")
+	@ResponseBody
+	public String delete(String uid){
+	    int orderReceiptsNumber = getService().getSupplierOrderService().getSupplierReceiptsNumber(uid);
+	    if(orderReceiptsNumber > 0)
+	        return "此单据已产生收付款业务！不能删除。";
+	    else{
+	        int count = getService().getSupplierOrderService().deleteSupplierOrder(uid);
+	        if(count > 0){
+	            addOperateLog("删除", "t_supplier_order", uid, "成功", null, null, "删除供应商单据成功！");
+                return "success";
+	        }
+	    }
+	    return "fail";
+	}
 }

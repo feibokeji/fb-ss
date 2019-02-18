@@ -34,7 +34,7 @@
 	        	<td align="left" width="100px"><input type="text" id="addDrecordateStr" name="drecorddateStr" class="validate[required]"/></td>
 	        	<td align="right" width="60px">操作人：</td>
 	        	<td align="left" width="100px"><label style="border-bottom: 1px solid #bbbbbb;">&nbsp;&nbsp;&nbsp;${user.cname }&nbsp;&nbsp;&nbsp;</label></td>
-	        	<td></td>
+	        	<td><input type="button" class="l-button" value="选择商品" onclick="chooseOtherGoods()"/></td>
 	        	<td></td>
 	        	<td></td>
 	        	<td></td>
@@ -48,14 +48,14 @@
 	        		<table id="detailsTable" style="margin: 0 auto;width: 100%;" class="listTable">
 	        			<tr>
 	        				<th width="40px">序号</th>
-	        				<th width="100px">商品</th>
+	        				<th width="80px">类别</th>
+	        				<th width="80px">品牌</th>
+	        				<th width="200px">商品</th>
+	        				<th width="60px">单位</th>
+	        				<th width="60px">数量</th>
 	        				<th width="60px">价格(元)</th>
-	        				<th width="60px">数量(小)</th>
 	        				<th width="60px">金额(元)</th>
-	        				<th width="60px">操作</th>
-	        				<th></th>
-	        				<th></th>
-	        				<th></th>
+	        				<th width="60px">移除</th>
 	        				<th></th>
 	        				<th></th>
 	        			</tr>
@@ -67,14 +67,14 @@
 	        		<table style="margin: 0 auto;width: 100%;" class="listTable">
 	        			<tr>
 	        				<td width="40px"></td>
-				        	<td width="201px">合计:</td>
-				        	<td width="61px"></td>
+	        				<td width="80px"></td>
+	        				<td width="80px"></td>
+	        				<td width="202px"></td>
+				        	<td align="right" width="60px">合计:</td>
+				        	<td width="60px"></td>
 				        	<td width="60px" align="right"></td>
 				        	<td width="60px" align="right"><label id="totalAmount">0</label></td>
 				        	<td width="60px"></td>
-				        	<td></td>
-				        	<td></td>
-				        	<td></td>
 				        	<td></td>
 				        	<td></td>
 	        			</tr>

@@ -15,7 +15,7 @@
 </head>
 <!-- /bpr/home.jsp -->
 <body>
-	<t:module code="LOVELYSTORESEXCEL">
+	<%-- <t:module code="LOVELYSTORESEXCEL">
 	<div id="uploadExcelDialog">
 		<form action="${contextPath }/bpr/uploadExcel" method="post" id="uploadForm" name="uploadForm" enctype="multipart/form-data" onsubmit="return false;">
 			<table class="homeTable" width="400">
@@ -51,7 +51,8 @@
 			</table>
 		</form>
 	</div>
-	</t:module>
+	</t:module> --%>
+	<div id="crawlerDiv"></div>
 	<script type="text/javascript">var contextPath = '${contextPath}';</script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/jquery-1.8.3.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/common.js"></script>

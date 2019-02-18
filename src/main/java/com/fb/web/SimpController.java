@@ -36,6 +36,8 @@ public class SimpController extends BaseController {
     
     protected final static String ExcelFrontDeskSalesProduct = ConstantUtils.getConstant("excel_front_desk_sales_product");
     
+    protected final static String CRAWLER = ConstantUtils.getConstant("crawler");
+    
     protected static final int DEFAULT_PAGESIZE = Integer.parseInt(Util.strNull(ConstantUtils.getConstant("default_pagesize")).isEmpty() ? "20" : ConstantUtils.getConstant("default_pagesize"));
     
     protected Logger logger = Logger.getLogger(ConstantUtils.getConstant("log4j.name.service"));

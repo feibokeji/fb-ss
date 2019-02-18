@@ -13,7 +13,6 @@
 	</classpathentry>
 	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
 		<attributes>
-			<attribute name="test" value="true"/>
 			<attribute name="optional" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
@@ -23,8 +22,8 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="E:/Java/jar/jsp-api.jar"/>
-	<classpathentry exported="true" kind="lib" path="E:/Java/jar/servlet-api.jar"/>
+	<classpathentry exported="true" kind="lib" path="E:/Java/jar包/jsp-api.jar"/>
+	<classpathentry exported="true" kind="lib" path="E:/Java/jar包/servlet-api.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>

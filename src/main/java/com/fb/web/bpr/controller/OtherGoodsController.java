@@ -38,6 +38,16 @@ public class OtherGoodsController extends SimpController {
 	}
 	
 	/**
+	 * 打开：其他商品选择页面
+	 * @return
+	 * @author Liu bo
+	 */
+	@RequestMapping("choose")
+	public String choose(){
+	    return customPage();
+	}
+	
+	/**
 	 * 获取：其它商品信息JSON数据
 	 * @param otherGoods
 	 * @return

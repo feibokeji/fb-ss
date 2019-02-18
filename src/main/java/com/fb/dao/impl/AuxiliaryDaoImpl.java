@@ -10,7 +10,7 @@ import com.fb.dao.AuxiliaryDao;
 public class AuxiliaryDaoImpl extends SimpMapper<BaseDomain> implements AuxiliaryDao {
     
     public Integer checkDataRepeat(String table, String column, String value) {
-        String sql = "select count(" + column + ") from " + table + " where " + column + " = :value";
+        String sql = "select count(*) from " + table + " where " + column + " = :value";
         QMap map = new QMap();
         map.put("value", value);
         return getInt(sql, map);

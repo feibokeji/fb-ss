@@ -8,7 +8,7 @@ $(function(){
         columns: [
             { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
             { display: '保修天数', name: 'iday', width: 120, minWidth: 100 },
-            { display: '保修内容', name: 'ccontent', width: 220, minWidth: 200 }
+            { display: '保修内容', name: 'ccontent', align:'left', width: 300, minWidth: 280 }
             ],
         toolbar: { items: [
 	            { text: '增加', click: addWarranty, icon: 'add' },

@@ -96,4 +96,12 @@ public class TSupplierOrderDaoImpl extends SimpMapper<TSupplierOrder> implements
 		return getInt(sql, new QMap("uorderid",uid));
 	}
 
+    public int modStatus(String uid, int istatus) {
+        QMap map = new QMap();
+        String sql = "update t_supplier_order set istatus = :istatus where uid = :uid";
+        map.put("istatus", istatus);
+        map.put("uid", uid);
+        return super.execute(sql, map);
+    }
+
 }

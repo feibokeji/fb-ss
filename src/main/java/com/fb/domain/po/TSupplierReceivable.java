@@ -317,6 +317,14 @@ public class TSupplierReceivable extends BaseDomain {
 	 */
 	public void setIstatus(Integer istatus) {
 		this.istatus = istatus;
+		switch(this.istatus){
+		    case 0:
+		        this.istatusStr = "未结算";
+		        break;
+		    case 1:
+		        this.istatusStr = "已结算";
+		        break;
+		}
 	}
 	/**
 	 * 获取:记录日期

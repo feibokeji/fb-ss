@@ -32,8 +32,7 @@ $(function(){
 	            { display: '名称', name: 'cname', width: 120,minWidth: 100 }
 	        ],
 	        url:contextPath + "/bpr/color/getColorJSON",
-		    rownumbers:true,usePager:true,isSingleCheck:true,
-		    onReload:false,dataAction:"local",checkbox:true,selectRowButtonOnly:true,enabledSort:false
+	        usePager:true,isSingleCheck:false,dataAction:"local",checkbox:true,selectRowButtonOnly:true,enabledSort:false
 		},
 		onSelected: function (value)
 		{

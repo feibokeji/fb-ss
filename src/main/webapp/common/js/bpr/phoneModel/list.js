@@ -3,6 +3,7 @@
  */
 var phoneModelDialog = null;
 var phoneModelTable = null;
+var brandComboBox;
 var searchUbrandId,searchCname,searchCram,searchCrom,searchCcpu,searchCscreen,searchCcamera,searchCbattery,searchCnetwork;
 /**
  * 加载函数
@@ -27,8 +28,8 @@ $(function(){
             { display: '亮点描述', name: 'chighlightdesc', width: 160,minWidth: 140 },
             { display: '保修时间(天)', name: 'iwarrantyday', width: 100,minWidth: 80 },
             { display: '保修内容', name: 'cwarrantycontent', width: 100,minWidth: 80 },
-            { display: '记录日期', name: 'drecorddateStr', width: 120,minWidth: 100 },
-            { display: '更新日期', name: 'dupdatedateStr', width: 120,minWidth: 100 }
+            { display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120 },
+            { display: '更新日期', name: 'dupdatedateStr', width: 140,minWidth: 120 }
             ],
         toolbar: { items: [
 	            { text: '增加', click: addPhoneModel, icon: 'add' },
@@ -55,7 +56,7 @@ $(function(){
 	    },
 	    detail:{height:'auto',onShowDetail:f_showPriceRecord}
 	});
-	$("#searchCbrandName").ligerComboBox({
+	brandComboBox = $("#searchCbrandName").ligerComboBox({
 		selectBoxWidth: 300, selectBoxHeight: 240,slide:false,isShowCheckBox:false,
 		valueField:'uid',textField:'cname',
 		grid:{
@@ -120,7 +121,7 @@ function searchPhoneModel()
 	searchCcamera = $("#searchCcamera").val();
 	searchCbattery = $("#searchCbattery").val();
 	searchCnetwork = $("#searchCnetwork").val();
-	phoneModelTable.setParm("ubrandid",searchUbrandId);
+	phoneModelTable.setParm("ubrandid",brandComboBox.getValue());
 	phoneModelTable.setParm("cname",searchCname);
 	phoneModelTable.setParm("cram",searchCram);
 	phoneModelTable.setParm("crom",searchCrom);

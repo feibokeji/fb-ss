@@ -12,6 +12,7 @@ import com.fb.core.utils.DataUtils;
 import com.fb.core.utils.FormatUtils;
 import com.fb.dao.TSupplierOrderDao;
 import com.fb.dao.TSupplierOrderDetailDao;
+import com.fb.dao.TSupplierReceiptsDao;
 import com.fb.dao.TSupplierReceivableDao;
 import com.fb.domain.po.TSupplierOrder;
 import com.fb.domain.po.TSupplierOrderDetail;
@@ -35,6 +36,9 @@ public class SupplierOrderServiceImpl extends SimpServiceAbstract implements Sup
 	
 	@Autowired
 	private TSupplierReceivableDao supplierReceivableDao;
+	
+	@Autowired
+	private TSupplierReceiptsDao supplierReceiptsDao;
 
 	@Transactional
 	public int addSupplierOrder(TSupplierOrder supplierOrder) {
@@ -67,20 +71,31 @@ public class SupplierOrderServiceImpl extends SimpServiceAbstract implements Sup
 			isort++;
 		}
 		if(supplierOrder.getIstatus() == 0) {
-			TSupplierReceivable receivable = new TSupplierReceivable();
-			receivable.setUid(DataUtils.newUUID());
-			receivable.setUsupplierid(supplierOrder.getUsupplierid());
-			receivable.setUorderid(supplierOrder.getUid());
-			receivable.setUuserid(supplierOrder.getUuserid());
-			receivable.setUdeptid(supplierOrder.getUdeptid());
-			receivable.setCtype("AP");
-			receivable.setNactualamount(totalNamount);
-			receivable.setNdiscount(1.00);
-			receivable.setNamount(totalNamount);
-			receivable.setIstatus(0);
-			receivable.setDrecorddate(date);
-			receivable.setDupdatedate(date);
-			count += supplierReceivableDao.add(receivable); 
+		    if(supplierOrder.getItype() == 0 || supplierOrder.getItype() == 1){
+		        TSupplierReceivable receivable = new TSupplierReceivable();
+	            receivable.setUid(DataUtils.newUUID());
+	            receivable.setUsupplierid(supplierOrder.getUsupplierid());
+	            receivable.setUorderid(supplierOrder.getUid());
+	            receivable.setUuserid(supplierOrder.getUuserid());
+	            receivable.setUdeptid(supplierOrder.getUdeptid());
+		        switch(supplierOrder.getItype()){
+                    case 0:
+                        receivable.setCtype("AP");
+                        break;
+                    case 1:
+                        receivable.setCtype("AR");
+                    default:
+                        receivable.setCtype("AP");
+                        break;
+                }
+		        receivable.setNactualamount(totalNamount);
+	            receivable.setNdiscount(1.00);
+	            receivable.setNamount(totalNamount);
+	            receivable.setIstatus(0);
+	            receivable.setDrecorddate(date);
+	            receivable.setDupdatedate(date);
+	            count += supplierReceivableDao.add(receivable); 
+		    }
 		}
 		return count;
 	}
@@ -96,5 +111,134 @@ public class SupplierOrderServiceImpl extends SimpServiceAbstract implements Sup
 	public List<TSupplierReceivable> getSupplierReceivable(String uorderid) {
 		return supplierReceivableDao.getList(uorderid);
 	}
+
+    public TSupplierOrder getSupplierOrder(String uid) {
+        return supplierOrderDao.get(uid);
+    }
+    
+    @Transactional
+    public int modifySupplierOrder(TSupplierOrder supplierOrder) {
+        Date date = new Date();
+        supplierOrder.setDrecorddate(FormatUtils.toDate(supplierOrder.getDrecorddateStr()));
+        supplierOrder.setDupdatedate(date);
+        List<TSupplierOrderDetail> detailList = new ArrayList<TSupplierOrderDetail>();
+        double totalNamount = 0.00;
+        for (TSupplierOrderDetail detail : supplierOrder.getOrderDetailList()) {
+            if(DataUtils.isUid(detail.getUothergoodsid()) && detail.getNquantity() != null && detail.getNprice() != null && detail.getNamount() != null) {
+                detail.setUid(DataUtils.newUUID());
+                detail.setUorderid(supplierOrder.getUid());
+                detail.setUuserid(supplierOrder.getUuserid());
+                detail.setUdeptid(supplierOrder.getUdeptid());
+                detail.setDrecorddate(date);
+                detail.setDupdatedate(date);
+                detailList.add(detail);
+                totalNamount += detail.getNamount();
+            }
+        }
+        int count = 0;
+        count += supplierOrderDao.mod(supplierOrder);
+        count += supplierOrderDetailDao.del(supplierOrder.getUid());
+        count += supplierReceivableDao.del(supplierOrder.getUid());
+        int isort = 1;
+        for(TSupplierOrderDetail detail : detailList) {
+            detail.setIsort(isort);
+            count += supplierOrderDetailDao.add(detail);
+            isort++;
+        }
+        if(supplierOrder.getIstatus() == 0) {
+            if(supplierOrder.getItype() == 0 || supplierOrder.getItype() == 1){
+                TSupplierReceivable receivable = new TSupplierReceivable();
+                receivable.setUid(DataUtils.newUUID());
+                receivable.setUsupplierid(supplierOrder.getUsupplierid());
+                receivable.setUorderid(supplierOrder.getUid());
+                receivable.setUuserid(supplierOrder.getUuserid());
+                receivable.setUdeptid(supplierOrder.getUdeptid());
+                switch(supplierOrder.getItype()){
+                    case 0:
+                        receivable.setCtype("AP");
+                        break;
+                    case 1:
+                        receivable.setCtype("AR");
+                    default:
+                        receivable.setCtype("AP");
+                        break;
+                }
+                receivable.setNactualamount(totalNamount);
+                receivable.setNdiscount(1.00);
+                receivable.setNamount(totalNamount);
+                receivable.setIstatus(0);
+                receivable.setDrecorddate(date);
+                receivable.setDupdatedate(date);
+                count += supplierReceivableDao.add(receivable); 
+            }
+        }
+        return count;
+    }
+
+    public int getSupplierReceiptsNumber(String uorderid) {
+        return supplierReceiptsDao.getOrderReceiptsNumber(uorderid, -1);
+    }
+
+    @Transactional
+    public int deleteSupplierOrder(String uid) {
+        int count = 0;
+        count += supplierReceivableDao.del(uid);
+        count += supplierOrderDetailDao.del(uid);
+        count += supplierOrderDao.del(uid);
+        return count;
+    }
+
+    @Transactional
+    public int auditSupplierOrder(String uid,String uuserid,String udeptid) {
+        TSupplierOrder order = supplierOrderDao.get(uid);
+        int count = 0;
+        count += supplierOrderDao.modStatus(uid, 0);
+        supplierReceivableDao.del(uid);
+        if(order.getItype() == 0 || order.getItype() == 1){
+            double totalNamount = 0.00;
+            for (TSupplierOrderDetail detail : supplierOrderDetailDao.getList(uid)) {
+                if(DataUtils.isUid(detail.getUothergoodsid()) && detail.getNquantity() != null && detail.getNprice() != null && detail.getNamount() != null) {
+                    totalNamount += detail.getNamount();
+                }
+            }
+            Date date = new Date();
+            TSupplierReceivable receivable = new TSupplierReceivable();
+            receivable.setUid(DataUtils.newUUID());
+            receivable.setUsupplierid(order.getUsupplierid());
+            receivable.setUorderid(uid);
+            receivable.setUuserid(uuserid);
+            receivable.setUdeptid(udeptid);
+            switch(order.getItype()){
+                case 0:
+                    receivable.setCtype("AP");
+                    break;
+                case 1:
+                    receivable.setCtype("AR");
+                default:
+                    receivable.setCtype("AP");
+                    break;
+            }
+            receivable.setNactualamount(totalNamount);
+            receivable.setNdiscount(1.00);
+            receivable.setNamount(totalNamount);
+            receivable.setIstatus(0);
+            receivable.setDrecorddate(date);
+            receivable.setDupdatedate(date);
+            count += supplierReceivableDao.add(receivable);   
+        } 
+        return count;
+    }
+
+    @Transactional
+    public int unAuditSupplierOrder(String uid, String uuserid, String udeptid) {
+        TSupplierOrder order = supplierOrderDao.get(uid);
+        int count = 0;
+        count += supplierOrderDao.modStatus(uid, 1);
+        supplierReceivableDao.del(uid);
+        if(order.getItype() == 0 || order.getItype() == 1){
+            count += supplierReceivableDao.del(uid);
+        }
+        return count;
+    }
 
 }

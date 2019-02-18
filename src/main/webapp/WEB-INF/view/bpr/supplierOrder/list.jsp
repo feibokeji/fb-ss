@@ -51,6 +51,7 @@
 	<script type="text/javascript" src="${contextPath}/common/formValidator2.2.4/jquery.validationEngine-zh_CN.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/formValidator2.2.4/jquery.validationEngine.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/js/bpr/base.js"></script>
+	<script type="text/javascript" src="${contextPath}/common/js/bpr/main.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/js/bpr/supplierOrder/list.js"></script>
 </body>
 </html>

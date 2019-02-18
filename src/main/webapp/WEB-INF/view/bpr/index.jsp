@@ -24,6 +24,8 @@
 			<a href="javascript:f_User_Info()" class="l-link2">账户信息</a>
 			<a href="javascript:f_Mode_Password()" class="l-link2">修改密码</a>
 			<a href="javascript:logout()" class="l-link2">退出</a>
+			<a href="javascript:launchFullScreen()">全屏</a>
+			<a href="javascript:exitFullScreen()">退出全屏</a>
 		</div>
 	</div>
 	<div id="modifyPasswordDiv" style="display:none;">
@@ -100,11 +102,11 @@
 					</li>
 					<!-- 手机入库 -->
 					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('otherGoodsCategory','手机入库单','${contextPath }/bpr/lovelysnow/category')">手机入库单</a>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('supplierPhoneOrder0','手机入库单','${contextPath }/bpr/supplierPhoneOrder/add?itype=0')">手机入库单</a>
 					</li>
-					<!-- 手机退库 -->
+					<!-- 手机库存 -->
 					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('otherGoodsCategory','手机退库单','${contextPath }/bpr/lovelysnow/category')">手机退库单</a>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('supplierPhoneOrder','手机库存管理','${contextPath }/bpr/supplierPhoneOrder/list')">手机库存管理</a>
 					</li>
 				</ul>
 			</div>
@@ -163,7 +165,7 @@
 				</ul>
 			</div>
 			</t:module>
-			<t:module code="LOVELYSTORES">
+			<%-- <t:module code="LOVELYSTORES">
 			<div title="可爱雪门店" class="l-scroll">
 				<ul class="m-ul">
 					<t:module code="LOVELYSTORESCATEGORY"><li><img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('lovelysnowCategory','可爱雪-类别','${contextPath }/bpr/lovelysnow/category')">类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别</a></li></t:module>
@@ -199,7 +201,7 @@
 					</t:module>
 				</ul>
 			</div>
-			</t:module>
+			</t:module> --%>
 		</div>
 		<div position="center" id="framecenter">
 			<div tabid="home" title="我的主页" style="height: 300px">
