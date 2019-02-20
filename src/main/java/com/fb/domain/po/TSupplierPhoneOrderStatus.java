@@ -62,6 +62,18 @@ public class TSupplierPhoneOrderStatus extends BaseDomain {
      */
     @NotFieldMapper
     private String istatusStr;
+    
+    /**
+     * 用户表外键
+     */
+    private String uuserid;
+    
+    /**
+     * 用户名称
+     */
+    @NotFieldMapper
+    private String cusername;
+    
     /**
      * 记录日期
      */
@@ -275,6 +287,50 @@ public class TSupplierPhoneOrderStatus extends BaseDomain {
     public void setImei(String imei) {
         this.imei = imei;
     }
+
+
+    
+    /**
+     * 获取 用户表外键
+     * @return uuserid
+     */
+    public String getUuserid() {
+        return uuserid;
+    }
+    
+
+
+    
+    /**
+     * 设置 用户表外键
+     * @param uuserid 用户表外键
+     */
+    public void setUuserid(String uuserid) {
+        this.uuserid = uuserid;
+    }
+    
+
+
+    
+    /**
+     * 获取 用户名称
+     * @return cusername
+     */
+    public String getCusername() {
+        return cusername;
+    }
+    
+
+
+    
+    /**
+     * 设置 用户名称
+     * @param cusername 用户名称
+     */
+    public void setCusername(String cusername) {
+        this.cusername = cusername;
+    }
+    
     
     
 }

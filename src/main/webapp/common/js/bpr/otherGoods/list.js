@@ -106,10 +106,9 @@ function f_showPriceRecord(row, detailPanel,callback){
             { display: '记录日期', name: 'drecorddateStr', align: 'left',width: 120,minWidth: 100 }
         ], 
         url:contextPath + "/bpr/otherGoods/getOtherGoodsPriceRecordJSON?uothergoodsid=" + row.uid,
-        isScroll: false, showToggleColBtn: false, width: '90%',showTitle: false,
-        pageSize:10 ,rownumbers:true,pageSizeOptions:[10],frozen: false,
+        isScroll: false, showToggleColBtn: false, width: '90%',showTitle: false,rownumbers:true,frozen: false,
         onReload:false,dataAction:"local",checkbox:false,selectRowButtonOnly:true,enabledSort:false,
-        enabledEdit: true, clickToEdit: true
+        enabledEdit: true, clickToEdit: true,usePager:false
     });
 }
 //查询商品信息

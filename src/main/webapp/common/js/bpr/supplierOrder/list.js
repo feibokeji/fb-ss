@@ -88,8 +88,21 @@ $(function(){
 	});
 });
 function showDetailAndAP(row, detailPanel,callback){
+	var div1 = document.createElement('div');
+	$(div1).attr("tabid","tabDiv1");
+	$(div1).attr("title","单据明细")
+	var div2 = document.createElement('div');
+	$(div2).attr("tabid","tabDiv2");
+	$(div2).attr("title","应收/应付")
+	var tabDiv = document.createElement('div');
+	$(tabDiv).attr("id","navtab");
+	$(tabDiv).append(div1);
+	$(tabDiv).append(div2);
+	$(tabDiv).ligerTab();
+	$(detailPanel).append(tabDiv);
+	
 	var detailGrid = document.createElement('div');
-	$(detailPanel).append(detailGrid);
+	$(div1).append(detailGrid);
 	$(detailGrid).css('margin',10).ligerGrid({
 		columns:[
 		        	{ display:'主键', name : 'uid', align: 'left', width:60, minWidth: 60,hide: true},
@@ -105,12 +118,12 @@ function showDetailAndAP(row, detailPanel,callback){
 		        ], 
 		url:contextPath + "/bpr/supplierOrder/getSupplierOrderDetailJSON?uorderid=" + row.uid,
 		isScroll: false, showToggleColBtn: false, width: '90%',showTitle: false,
-		pageSize:10 ,rownumbers:true,pageSizeOptions:[10],frozen: false,
+		rownumbers:true,frozen: false,usePager:false,
 		onReload:false,dataAction:"local",checkbox:false,selectRowButtonOnly:true,enabledSort:false,
 		enabledEdit: true, clickToEdit: true
 	});
 	var apGrid = document.createElement('div');
-	$(detailPanel).append(apGrid);
+	$(div2).append(apGrid);
 	$(apGrid).css('margin',10).ligerGrid({
 		columns:[
 		         { display:'主键', name : 'uid', align: 'left', width:60, minWidth: 60,hide: true},
@@ -127,7 +140,7 @@ function showDetailAndAP(row, detailPanel,callback){
 		         ],
 		url:contextPath + "/bpr/supplierOrder/getSupplierReceivableJSON?uorderid=" + row.uid,
 		isScroll: false, showToggleColBtn: false, width: '90%',showTitle: false,
-		pageSize:10 ,rownumbers:true,pageSizeOptions:[10],frozen: false,
+		rownumbers:true,frozen: false,usePager:false,
 		onReload:false,dataAction:"local",checkbox:false,selectRowButtonOnly:true,enabledSort:false,
 		enabledEdit: true, clickToEdit: true
 	});

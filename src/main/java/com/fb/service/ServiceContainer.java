@@ -228,6 +228,12 @@ public class ServiceContainer {
     private SupplierPhoneOrderService supplierPhoneOrderService;
     
     /**
+     * 供应商手机单据实收实付服务
+     */
+    @Autowired
+    private SupplierPhoneOrderReceiptsService supplierPhoneOrderReceiptsService;
+    
+    /**
      * 获取 登录操作控制
      * @return loginService
      */
@@ -515,5 +521,15 @@ public class ServiceContainer {
     public SupplierPhoneOrderService getSupplierPhoneOrderService() {
         return supplierPhoneOrderService;
     }
+
+    
+    /**
+     * 获取 供应商手机单据实收实付服务
+     * @return supplierPhoneOrderReceiptsService
+     */
+    public SupplierPhoneOrderReceiptsService getSupplierPhoneOrderReceiptsService() {
+        return supplierPhoneOrderReceiptsService;
+    }
+    
     
 }

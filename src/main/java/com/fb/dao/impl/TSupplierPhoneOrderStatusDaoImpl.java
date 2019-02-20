@@ -21,6 +21,11 @@ public class TSupplierPhoneOrderStatusDaoImpl extends SimpMapper<TSupplierPhoneO
         return super.save(supplierPhoneOrderStatus);
     }
     
+    public int delByIMEI(String imei){
+        String sql = "delete from t_supplier_phone_order_status where imei = :imei";
+        return super.execute(sql, new QMap("imei",imei));
+    }
+    
     public int mod(TSupplierPhoneOrderStatus supplierPhoneOrderStatus) {
         return super.update(supplierPhoneOrderStatus);
     }
@@ -39,7 +44,7 @@ public class TSupplierPhoneOrderStatusDaoImpl extends SimpMapper<TSupplierPhoneO
     }
     
     public List<TSupplierPhoneOrderStatus> get(String imei) {
-        String sql = "select * from t_supplier_phone_order_status where imei = :imei";
+        String sql = "select spos.uid,spos.imei,spos.itype,spos.istatus,spos.uuserid,u.cname as cusername,spos.drecorddate from t_supplier_phone_order_status as spos left join t_user as u on u.uid = spos.uuserid where spos.imei = :imei order by spos.drecorddate desc";
         return super.findList(sql, new QMap("imei",imei));
     }
     

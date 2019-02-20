@@ -34,6 +34,18 @@ public class TSupplierPhoneOrderReceipts extends BaseDomain {
     private String ureceivableid;
     
     /**
+     * 供应商表外键
+     */
+    @NotFieldMapper
+    private String usupplierid;
+    
+    /**
+     * 手机串号
+     */
+    @NotFieldMapper
+    private String imei;
+    
+    /**
      * 收付款方式表外键
      */
     private String upaymentmethodid;
@@ -545,5 +557,53 @@ public class TSupplierPhoneOrderReceipts extends BaseDomain {
     public void setDupdatedateStr(String dupdatedateStr) {
         this.dupdatedateStr = dupdatedateStr;
     }
+
+
+
+    
+    /**
+     * 获取 供应商表外键
+     * @return usupplierid
+     */
+    public String getUsupplierid() {
+        return usupplierid;
+    }
+    
+
+
+
+    
+    /**
+     * 设置 供应商表外键
+     * @param usupplierid 供应商表外键
+     */
+    public void setUsupplierid(String usupplierid) {
+        this.usupplierid = usupplierid;
+    }
+    
+
+
+
+    
+    /**
+     * 获取 手机串号
+     * @return imei
+     */
+    public String getImei() {
+        return imei;
+    }
+    
+
+
+
+    
+    /**
+     * 设置 手机串号
+     * @param imei 手机串号
+     */
+    public void setImei(String imei) {
+        this.imei = imei;
+    }
+    
     
 }

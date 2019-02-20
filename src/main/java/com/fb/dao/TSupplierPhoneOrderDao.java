@@ -34,7 +34,7 @@ public interface TSupplierPhoneOrderDao {
     /**
      * 修改 供应商手机单据状态
      * @param IMEI
-     * @param istatus {@value 0 = 未结算}{@value 1 = 已结算}
+     * @param istatus {@value 0 = 未审核}{@value 1 = 已审核}
      * @return 受影响行数
      * @author Liu bo
      */

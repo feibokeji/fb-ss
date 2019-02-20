@@ -328,9 +328,9 @@ function submitForm(){
 				if(yes){
 					$.ligerDialog.confirm("如果您确定此单据正确无误，您可以选择\'是\'直接审核；\n如您不确定是否正确无误，您可以选择\'否\'不审核保存。",function(y){
 						if(y)
-							$("#addIstatus").val("0");
-						else
 							$("#addIstatus").val("1");
+						else
+							$("#addIstatus").val("0");
 						var waitting = $.ligerDialog.waitting('数据保存中,请稍候...');
 						$("#addOrderForm").ajaxSubmit(function(data){
 							waitting.close();

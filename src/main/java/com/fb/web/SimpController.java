@@ -150,4 +150,29 @@ public class SimpController extends BaseController {
         operateLog.setCoperateurl(getRequest().getRequestURI().toString());
         return operateLog;
     }
+    
+    /**
+     * 获取 当前IP地址
+     * @return
+     * @author Liu bo
+     */
+    protected String getIP(){
+        String ip = "";
+        String[] temp = {getRequest().getHeader("x-forwarded-for"), getRequest().getHeader("Proxy-Client-IP"), getRequest().getHeader("WL-Proxy-Client-IP"), getRequest().getRemoteAddr()};
+        for (int i = 0; i < temp.length; i++) {
+            if (!"".equals(DataUtils.defaultString(temp[i])) && !"unknown".equalsIgnoreCase(temp[i])) {
+                ip += temp[i] + "|";
+            }
+        }
+        return ip;
+    }
+    
+    /**
+     * 获取 当前访问路径
+     * @return
+     * @author Liu bo
+     */
+    protected String getURL(){
+        return getRequest().getRequestURI().toString();
+    }
 }

@@ -20,6 +20,14 @@ public interface TSupplierPhoneOrderStatusDao {
     public int add(TSupplierPhoneOrderStatus supplierPhoneOrderStatus);
     
     /**
+     * 删除 手机状态
+     * @param imei
+     * @return
+     * @author Liu bo
+     */
+    public int delByIMEI(String imei);
+    
+    /**
      * 修改 手机状态
      * @param supplierPhoneOrderStatus
      * @return 受影响行数

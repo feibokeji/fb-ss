@@ -1,5 +1,6 @@
 package com.fb.web.handler;
 
+import java.io.PrintWriter;
 import java.net.URLEncoder;
 import java.util.Map;
 
@@ -38,11 +39,17 @@ public class AuthorizationHandler extends BaseHandler {
                     url.append("&");
                 }
             }
-            request.getRequestDispatcher("/login.jsp?url=" + url).forward(request, response);
+            //request.getRequestDispatcher("/login.jsp?url=" + url).forward(request, response);
+            //response.sendRedirect(request.getContextPath() + "/login.jsp");
+            PrintWriter out = response.getWriter();
+            out.println("<html>");
+            out.println("<script>");
+            out.println("window.open('"+request.getContextPath() + "/login.jsp"+"','_parent')");
+            out.println("</script>");
+            out.println("</html>");
             logger.info("登录失效：" + request.getRequestURI());
             return false;
         }
-        
         return super.preHandle(request, response, handler);
     }
 }

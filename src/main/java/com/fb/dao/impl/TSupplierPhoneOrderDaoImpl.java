@@ -87,9 +87,17 @@ public class TSupplierPhoneOrderDaoImpl extends SimpMapper<TSupplierPhoneOrder> 
             sql.append(" and spo.uphonemodelid = :uphonemodelid");
             map.put("uphonemodelid", supplierPhoneOrder.getUphonemodelid());
         }
+        if(!DataUtils.isNullOrEmpty(supplierPhoneOrder.getCphonemodelname())){
+            sql.append(" and pm.cname like :cphonemodelname");
+            map.put("cphonemodelname", "%" + supplierPhoneOrder.getCphonemodelname() + "%");
+        }
         if(DataUtils.isUid(supplierPhoneOrder.getUcolorid())){
             sql.append(" and spo.ucolorid = :ucolorid");
             map.put("ucolorid", supplierPhoneOrder.getUcolorid());
+        }
+        if(!DataUtils.isNullOrEmpty(supplierPhoneOrder.getCcolorname())){
+            sql.append(" and c.cname like :ccolorname");
+            map.put("ccolorname", "%" + supplierPhoneOrder.getCcolorname() + "%");
         }
         if(DataUtils.isUid(supplierPhoneOrder.getUdeptid())){
             sql.append(" and spo.udeptid = :udeptid");
@@ -107,7 +115,7 @@ public class TSupplierPhoneOrderDaoImpl extends SimpMapper<TSupplierPhoneOrder> 
             sql.append(" and spo.drecorddate <= :drecorddateStrMax");
             map.put("drecorddateStrMax", supplierPhoneOrder.getDrecorddateStrMax() + " 23:59:59");
         }
-        if(supplierPhoneOrder.getItype() != null){
+        if(supplierPhoneOrder.getItype() != null && supplierPhoneOrder.getItype() != -1){
             sql.append(" and (select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) = :itype");
             map.put("itype", supplierPhoneOrder.getItype());
         }
