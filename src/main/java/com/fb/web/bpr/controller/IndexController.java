@@ -42,7 +42,8 @@ public class IndexController extends SimpController {
     @RequestMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
-        return redirect("/bpr/index");
+        super.clearSession();
+        return redirect("/login.jsp");
     }
     
     @RequestMapping("/home")

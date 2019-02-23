@@ -37,6 +37,16 @@ public class CounterPartsController extends SimpController {
 	}
 	
 	/**
+	 * 打开 同行信息选择页面
+	 * @return
+	 * @author Liu Bo
+	 */
+	@RequestMapping("choose")
+	public String choose(){
+	    return customPage();
+	}
+	
+	/**
 	 * 获取：同行信息json数据
 	 * @param counterParts
 	 * @return

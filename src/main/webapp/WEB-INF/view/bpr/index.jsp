@@ -118,11 +118,7 @@
 					</li>
 					<!-- 手机调出 -->
 					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('counterPartsList','手机调出','${contextPath }/bpr/counterParts/list')">手机调出</a>
-					</li>
-					<!-- 手机调入 -->
-					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('counterPartsList','手机调入','${contextPath }/bpr/counterParts/list')">手机调入</a>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('counterPartsPhoneOrderOut','手机调出','${contextPath }/bpr/counterPartsPhoneOrder/outOrder')">手机调出</a>
 					</li>
 				</ul>
 			</div>

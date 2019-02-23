@@ -36,7 +36,8 @@ public class TSupplierPhoneOrderStatus extends BaseDomain {
      * {@value 1 = 退库}
      * {@value 2 = 销售}
      * {@value 3 = 退货}
-     * {@value 4 = 调拨}
+     * {@value 4 = 调出}
+     * {@value 5 = 调入}
      */
     private Integer itype;
     /**
@@ -45,7 +46,8 @@ public class TSupplierPhoneOrderStatus extends BaseDomain {
      * {@value 退库}
      * {@value 销售}
      * {@value 退货}
-     * {@value 调拨}
+     * {@value 调出}
+     * {@value 调入}
      */
     @NotFieldMapper
     private String itypeStr;
@@ -108,7 +110,8 @@ public class TSupplierPhoneOrderStatus extends BaseDomain {
      * {@value 1 = 退库}      
      * {@value 2 = 销售}      
      * {@value 3 = 退货}      
-     * {@value 4 = 调拨}
+     * {@value 4 = 调出}
+     * {@value 5 = 调入}
      * @return itype
      */
     public Integer getItype() {
@@ -122,8 +125,9 @@ public class TSupplierPhoneOrderStatus extends BaseDomain {
      * {@value 1 = 退库}      
      * {@value 2 = 销售}      
      * {@value 3 = 退货}      
-     * {@value 4 = 调拨}
-     * @param itype 类型      {@value 0 = 入库}      {@value 1 = 退库}      {@value 2 = 销售}      {@value 3 = 退货}      {@value 4 = 调拨}
+     * {@value 4 = 调出}
+     * {@value 5 = 调入}
+     * @param itype 类型      {@value 0 = 入库}      {@value 1 = 退库}      {@value 2 = 销售}      {@value 3 = 退货}      {@value 4 = 调出} {@value 5 = 调入}
      */
     public void setItype(Integer itype) {
         this.itype = itype;
@@ -138,10 +142,13 @@ public class TSupplierPhoneOrderStatus extends BaseDomain {
                 this.itypeStr = "销售";
                 break;
             case 3:
-                this.istatusStr = "退货";
+                this.itypeStr = "退货";
                 break;
             case 4:
-                this.istatusStr = "调拨";
+                this.itypeStr = "调出";
+                break;
+            case 5:
+                this.itypeStr = "调入";
                 break;
             default:
                 break;
@@ -155,7 +162,8 @@ public class TSupplierPhoneOrderStatus extends BaseDomain {
      * {@value 退库}      
      * {@value 销售}      
      * {@value 退货}      
-     * {@value 调拨}
+     * {@value 调出}
+     * {@value 调入}
      * @return itypeStr
      */
     public String getItypeStr() {
@@ -169,8 +177,9 @@ public class TSupplierPhoneOrderStatus extends BaseDomain {
      * {@value 退库}      
      * {@value 销售}      
      * {@value 退货}      
-     * {@value 调拨}
-     * @param itypeStr 类型字符串      {@value 入库}      {@value 退库}      {@value 销售}      {@value 退货}      {@value 调拨}
+     * {@value 调出}
+     * {@value 调入}
+     * @param itypeStr 类型字符串      {@value 入库}      {@value 退库}      {@value 销售}      {@value 退货}      {@value 调出}      {@value 调入}
      */
     public void setItypeStr(String itypeStr) {
         this.itypeStr = itypeStr;

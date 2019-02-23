@@ -119,6 +119,17 @@ public class TSupplierPhoneOrderDaoImpl extends SimpMapper<TSupplierPhoneOrder> 
             sql.append(" and (select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) = :itype");
             map.put("itype", supplierPhoneOrder.getItype());
         }
+        if(supplierPhoneOrder.getItypeArray() != null && supplierPhoneOrder.getItypeArray().length > 0){
+            sql.append(" and (select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) in (");
+            for(int i = 0; i < supplierPhoneOrder.getItypeArray().length; i++){
+                sql.append(":array" + i + ",");
+            }
+            if(sql.toString().endsWith(","))
+                sql = new StringBuilder(sql.substring(0, sql.length()-1));
+            sql.append(")");
+            for(int i = 0; i < supplierPhoneOrder.getItypeArray().length; i++)
+                map.put("array" + i, supplierPhoneOrder.getItypeArray()[i]);
+        }
         sql.append(" order by spo.drecorddate desc");
         return findList(sql, map);
     }

@@ -11,38 +11,33 @@ import com.fb.core.utils.FormatUtils;
 
 /**
  * @author 作者：Liu bo
- * @version 创建时间：2019年2月15日 下午1:53:04
- * 供应商手机单据表
+ * @version 创建时间：2019年2月20日 下午3:56:21
+ * 同行手机单据表
  */
-@TableMapper("t_supplier_phone_order")
-public class TSupplierPhoneOrder extends BaseDomain {
+@TableMapper("t_counterparts_phone_order")
+public class TCounterPartsPhoneOrder extends BaseDomain {
 
     /**
      * 
      */
-    private static final long serialVersionUID = -7152815127841636535L;
+    private static final long serialVersionUID = 3623046644307148985L;
     
     /**
      * 主键
      */
     @PrimaryKeyMapper
-    private String imei;
+    private String uid;
     
     /**
-     * 供应商表外键
+     * 同行表外键
      */
-    private String usupplierid;
+    private String ucounterpartsid;
     
     /**
-     * 供应商名称
+     * 同行名称
      */
     @NotFieldMapper
-    private String csuppliername;
-    
-    /**
-     * 手机型号表外键
-     */
-    private String uphonemodelid;
+    private String ccounterpartsname;
     
     /**
      * 品牌表外键
@@ -57,10 +52,66 @@ public class TSupplierPhoneOrder extends BaseDomain {
     private String cbrandname;
     
     /**
+     * 手机型号表外键
+     */
+    @NotFieldMapper
+    private String uphonemodelid;
+    
+    /**
      * 手机型号名称
      */
     @NotFieldMapper
     private String cphonemodelname;
+    
+    /**
+     * 手机串号
+     */
+    private String imei;
+    
+    /**
+     * 颜色表外键
+     */
+    @NotFieldMapper
+    private String ucolorid;
+    
+    /**
+     * 颜色名称
+     */
+    @NotFieldMapper
+    private String ccolorname;
+    
+    /**
+     * 价格
+     */
+    private Double namount;
+    
+    /**
+     * 类型
+     * {@value 4 = 调出}
+     * {@value 5 = 调入}
+     */
+    private Integer itype;
+    
+    /**
+     * 类型字符串
+     * {@value 调出}{@value 调入}
+     */
+    @NotFieldMapper
+    private String itypeStr;
+    
+    /**
+     * 状态
+     * {@value 0 = 未审核}
+     * {@value 1 = 已审核}
+     */
+    private Integer istatus;
+    
+    /**
+     * 状态字符串
+     * {@value 未审核}{@value 已审核}
+     */
+    @NotFieldMapper
+    private String istatusStr;
     
     /**
      * 运行内存
@@ -69,7 +120,7 @@ public class TSupplierPhoneOrder extends BaseDomain {
     private String cram;
     
     /**
-     * 存储空间
+     * 存储内存
      */
     @NotFieldMapper
     private String crom;
@@ -99,17 +150,6 @@ public class TSupplierPhoneOrder extends BaseDomain {
     private String cbattery;
     
     /**
-     * 颜色表外键
-     */
-    private String ucolorid;
-    
-    /**
-     * 颜色名称
-     */
-    @NotFieldMapper
-    private String ccolorname;
-    
-    /**
      * 用户表外键
      */
     private String uuserid;
@@ -124,31 +164,6 @@ public class TSupplierPhoneOrder extends BaseDomain {
      * 部门表外键
      */
     private String udeptid;
-    
-    /**
-     * 进货价
-     */
-    private Double ncostprice;
-    
-    /**
-     * 销售价
-     */
-    private Double nretailprice;
-    
-    /**
-     * 状态
-     * {@value 0 = 未审核}
-     * {@value 1 = 已审核}
-     */
-    private Integer istatus;
-    
-    /**
-     * 状态字符串
-     * {@value 未审核}
-     * {@value 已审核}
-     */
-    @NotFieldMapper
-    private String istatusStr;
     
     /**
      * 记录日期
@@ -183,93 +198,84 @@ public class TSupplierPhoneOrder extends BaseDomain {
      */
     @NotFieldMapper
     private String dupdatedateStr;
+
     
     /**
-     * 当前类型
-     * {@value 0 = 入库}
-     * {@value 1 = 退库}
-     * {@value 2 = 销售}
-     * {@value 3 = 退货}
-     * {@value 4 = 调出}
-     * {@value 5 = 调入}
+     * 获取 主键
+     * @return uid
      */
-    @NotFieldMapper
-    private Integer itype;
-    
-    /**
-     * 当前类型
-     * {@value 入库}
-     * {@value 退库}
-     * {@value 销售}
-     * {@value 退货}
-     * {@value 调出}
-     * {@value 调入}
-     */
-    @NotFieldMapper
-    private String itypeStr;
-    
-    /**
-     * 类型数组
-     */
-    @NotFieldMapper
-    private Integer[] itypeArray;
-    
-    /**
-     * 获取 供应商表外键
-     * @return usupplierid
-     */
-    public String getUsupplierid() {
-        return usupplierid;
+    public String getUid() {
+        return uid;
     }
     
 
     
     /**
-     * 设置 供应商表外键
-     * @param usupplierid 供应商表外键
+     * 设置 主键
+     * @param uid 主键
      */
-    public void setUsupplierid(String usupplierid) {
-        this.usupplierid = usupplierid;
+    public void setUid(String uid) {
+        this.uid = uid;
     }
     
 
     
     /**
-     * 获取 供应商名称
-     * @return csuppliername
+     * 获取 同行表外键
+     * @return ucounterpartsid
      */
-    public String getCsuppliername() {
-        return csuppliername;
+    public String getUcounterpartsid() {
+        return ucounterpartsid;
     }
     
 
     
     /**
-     * 设置 供应商名称
-     * @param csuppliername 供应商名称
+     * 设置 同行表外键
+     * @param ucounterpartsid 同行表外键
      */
-    public void setCsuppliername(String csuppliername) {
-        this.csuppliername = csuppliername;
+    public void setUcounterpartsid(String ucounterpartsid) {
+        this.ucounterpartsid = ucounterpartsid;
     }
     
 
     
     /**
-     * 获取 手机型号表外键
-     * @return uphonemodelid
+     * 获取 同行名称
+     * @return ccounterpartsname
      */
-    public String getUphonemodelid() {
-        return uphonemodelid;
+    public String getCcounterpartsname() {
+        return ccounterpartsname;
     }
     
 
     
     /**
-     * 设置 手机型号表外键
-     * @param uphonemodelid 手机型号表外键
+     * 设置 同行名称
+     * @param ccounterpartsname 同行名称
      */
-    public void setUphonemodelid(String uphonemodelid) {
-        this.uphonemodelid = uphonemodelid;
+    public void setCcounterpartsname(String ccounterpartsname) {
+        this.ccounterpartsname = ccounterpartsname;
+    }
+    
+
+    
+    /**
+     * 获取 品牌表外键
+     * @return ubrandid
+     */
+    public String getUbrandid() {
+        return ubrandid;
+    }
+    
+
+    
+    /**
+     * 设置 品牌表外键
+     * @param ubrandid 品牌表外键
+     */
+    public void setUbrandid(String ubrandid) {
+        this.ubrandid = ubrandid;
     }
     
 
@@ -295,6 +301,26 @@ public class TSupplierPhoneOrder extends BaseDomain {
 
     
     /**
+     * 获取 手机型号表外键
+     * @return uphonemodelid
+     */
+    public String getUphonemodelid() {
+        return uphonemodelid;
+    }
+    
+
+    
+    /**
+     * 设置 手机型号表外键
+     * @param uphonemodelid 手机型号表外键
+     */
+    public void setUphonemodelid(String uphonemodelid) {
+        this.uphonemodelid = uphonemodelid;
+    }
+    
+
+    
+    /**
      * 获取 手机型号名称
      * @return cphonemodelname
      */
@@ -310,6 +336,142 @@ public class TSupplierPhoneOrder extends BaseDomain {
      */
     public void setCphonemodelname(String cphonemodelname) {
         this.cphonemodelname = cphonemodelname;
+    }
+    
+
+    
+    /**
+     * 获取 手机串号
+     * @return imei
+     */
+    public String getImei() {
+        return imei;
+    }
+    
+
+    
+    /**
+     * 设置 手机串号
+     * @param imei 手机串号
+     */
+    public void setImei(String imei) {
+        this.imei = imei;
+    }
+    
+
+    
+    /**
+     * 获取 颜色表外键
+     * @return ucolorid
+     */
+    public String getUcolorid() {
+        return ucolorid;
+    }
+    
+
+    
+    /**
+     * 设置 颜色表外键
+     * @param ucolorid 颜色表外键
+     */
+    public void setUcolorid(String ucolorid) {
+        this.ucolorid = ucolorid;
+    }
+    
+
+    
+    /**
+     * 获取 颜色名称
+     * @return ccolorname
+     */
+    public String getCcolorname() {
+        return ccolorname;
+    }
+    
+
+    
+    /**
+     * 设置 颜色名称
+     * @param ccolorname 颜色名称
+     */
+    public void setCcolorname(String ccolorname) {
+        this.ccolorname = ccolorname;
+    }
+    
+
+    
+    /**
+     * 获取 价格
+     * @return namount
+     */
+    public Double getNamount() {
+        return namount;
+    }
+    
+
+    
+    /**
+     * 设置 价格
+     * @param namount 价格
+     */
+    public void setNamount(Double namount) {
+        this.namount = namount;
+    }
+    
+
+    
+    /**
+     * 获取 类型      {@value 4 = 调出}      {@value 5 = 调入}
+     * @return itype
+     */
+    public Integer getItype() {
+        return itype;
+    }
+    
+
+    
+    /**
+     * 设置 类型      {@value 4 = 调出}      {@value 5 = 调入}
+     * @param itype 类型      {@value 4 = 调出}      {@value 5 = 调入}
+     */
+    public void setItype(Integer itype) {
+        this.itype = itype;
+        switch(itype){
+            case 4:
+                this.itypeStr = "调出";
+                break;
+            case 5:
+                this.itypeStr = "调入";
+                break;
+        }
+    }
+    
+
+    
+    /**
+     * 获取 状态      {@value 0 = 未审核}      {@value 1 = 已审核}
+     * @return istatus
+     */
+    public Integer getIstatus() {
+        return istatus;
+    }
+    
+
+    
+    /**
+     * 设置 状态      {@value 0 = 未审核}      {@value 1 = 已审核}
+     * @param istatus 状态      {@value 0 = 未审核}      {@value 1 = 已审核}
+     */
+    public void setIstatus(Integer istatus) {
+        this.istatus = istatus;
+        switch(istatus){
+            case 0:
+                this.istatusStr = "未审核";
+                break;
+            case 1:
+                this.istatusStr = "已审核";
+                break;
+        }
     }
     
 
@@ -335,7 +497,7 @@ public class TSupplierPhoneOrder extends BaseDomain {
 
     
     /**
-     * 获取 存储空间
+     * 获取 存储内存
      * @return crom
      */
     public String getCrom() {
@@ -345,8 +507,8 @@ public class TSupplierPhoneOrder extends BaseDomain {
 
     
     /**
-     * 设置 存储空间
-     * @param crom 存储空间
+     * 设置 存储内存
+     * @param crom 存储内存
      */
     public void setCrom(String crom) {
         this.crom = crom;
@@ -435,46 +597,6 @@ public class TSupplierPhoneOrder extends BaseDomain {
 
     
     /**
-     * 获取 颜色表外键
-     * @return ucolorid
-     */
-    public String getUcolorid() {
-        return ucolorid;
-    }
-    
-
-    
-    /**
-     * 设置 颜色表外键
-     * @param ucolorid 颜色表外键
-     */
-    public void setUcolorid(String ucolorid) {
-        this.ucolorid = ucolorid;
-    }
-    
-
-    
-    /**
-     * 获取 颜色名称
-     * @return ccolorname
-     */
-    public String getCcolorname() {
-        return ccolorname;
-    }
-    
-
-    
-    /**
-     * 设置 颜色名称
-     * @param ccolorname 颜色名称
-     */
-    public void setCcolorname(String ccolorname) {
-        this.ccolorname = ccolorname;
-    }
-    
-
-    
-    /**
      * 获取 用户表外键
      * @return uuserid
      */
@@ -530,46 +652,6 @@ public class TSupplierPhoneOrder extends BaseDomain {
      */
     public void setUdeptid(String udeptid) {
         this.udeptid = udeptid;
-    }
-    
-
-    
-    /**
-     * 获取 进货价
-     * @return ncostprice
-     */
-    public Double getNcostprice() {
-        return ncostprice;
-    }
-    
-
-    
-    /**
-     * 设置 进货价
-     * @param ncostprice 进货价
-     */
-    public void setNcostprice(Double ncostprice) {
-        this.ncostprice = ncostprice;
-    }
-    
-
-    
-    /**
-     * 获取 销售价
-     * @return nretailprice
-     */
-    public Double getNretailprice() {
-        return nretailprice;
-    }
-    
-
-    
-    /**
-     * 设置 销售价
-     * @param nretailprice 销售价
-     */
-    public void setNretailprice(Double nretailprice) {
-        this.nretailprice = nretailprice;
     }
     
 
@@ -693,71 +775,12 @@ public class TSupplierPhoneOrder extends BaseDomain {
     public void setDupdatedateStr(String dupdatedateStr) {
         this.dupdatedateStr = dupdatedateStr;
     }
-    
+
+
 
     
     /**
-     * 获取 当前类型      
-     * {@value 0 = 入库}      
-     * {@value 1 = 退库}      
-     * {@value 2 = 销售}      
-     * {@value 3 = 退货}      
-     * {@value 4 = 调出}
-     * {@value 5 = 调入}
-     * @return itype
-     */
-    public Integer getItype() {
-        return itype;
-    }
-    
-
-    
-    /**
-     * 设置 当前类型      
-     * {@value 0 = 入库}
-     * {@value 1 = 退库}      
-     * {@value 2 = 销售}      
-     * {@value 3 = 退货}      
-     * {@value 4 = 调出}
-     * {@value 5 = 调入}
-     * @param itype 当前类型      {@value 0 = 入库}      {@value 1 = 退库}      {@value 2 = 销售}      {@value 3 = 退货}      {@value 4 = 调出}    {@value 5 = 调入}
-     */
-    public void setItype(Integer itype) {
-        this.itype = itype;
-        switch (itype) {
-            case 0:
-                this.itypeStr = "入库";
-                break;
-            case 1:
-                this.itypeStr = "退库";
-                break;
-            case 2:
-                this.itypeStr = "销售";
-                break;
-            case 3:
-                this.itypeStr = "退货";
-                break;
-            case 4:
-                this.itypeStr = "调出";
-                break;
-            case 5:
-                this.itypeStr = "调入";
-                break;
-            default:
-                break;
-        }
-    }
-    
-
-    
-    /**
-     * 获取 当前类型      
-     * {@value 入库}      
-     * {@value 退库}      
-     * {@value 销售}      
-     * {@value 退货}      
-     * {@value 调出}
-     * {@value 调入}
+     * 获取 类型字符串      {@value 调出}{@value 调入}
      * @return itypeStr
      */
     public String getItypeStr() {
@@ -765,66 +788,23 @@ public class TSupplierPhoneOrder extends BaseDomain {
     }
     
 
+
+
     
     /**
-     * 设置 当前类型     
-     * {@value 入库}      
-     * {@value 退库}      
-     * {@value 销售}      
-     * {@value 退货}      
-     * {@value 调出}
-     * {@value 调入}
-     * @param itypeStr 当前类型      {@value 入库}      {@value 退库}      {@value 销售}      {@value 退货}      {@value 调出} {@value 调入}
+     * 设置 类型字符串      {@value 调出}{@value 调入}
+     * @param itypeStr 类型字符串      {@value 调出}{@value 调入}
      */
     public void setItypeStr(String itypeStr) {
         this.itypeStr = itypeStr;
     }
-
-
-
-    
-    /**
-     * 获取 状态     
-     * {@value 0 = 未审核}      
-     * {@value 1 = 已审核}
-     * @return istatus
-     */
-    public Integer getIstatus() {
-        return istatus;
-    }
     
 
 
 
     
     /**
-     * 设置 状态      
-     * {@value 0 = 未审核}      
-     * {@value 1 = 已审核}
-     * @param istatus 状态      {@value 0 = 未审核}      {@value 1 = 已审核}
-     */
-    public void setIstatus(Integer istatus) {
-        this.istatus = istatus;
-        switch (istatus) {
-            case 0:
-                this.istatusStr = "未审核";
-                break;
-            case 1:
-                this.istatusStr = "已审核";
-                break;
-            default:
-                break;
-        }
-    }
-    
-
-
-
-    
-    /**
-     * 获取 状态字符串      
-     * {@value 未审核}      
-     * {@value 已审核}
+     * 获取 状态字符串      {@value 未审核}{@value 已审核}
      * @return istatusStr
      */
     public String getIstatusStr() {
@@ -836,86 +816,12 @@ public class TSupplierPhoneOrder extends BaseDomain {
 
     
     /**
-     * 设置 状态字符串      
-     * {@value 未审核}      
-     * {@value 已审核}
-     * @param istatusStr 状态字符串      {@value 未审核}      {@value 已审核}
+     * 设置 状态字符串      {@value 未审核}{@value 已审核}
+     * @param istatusStr 状态字符串      {@value 未审核}{@value 已审核}
      */
     public void setIstatusStr(String istatusStr) {
         this.istatusStr = istatusStr;
     }
-
-
-
-    
-    /**
-     * 获取 品牌表外键
-     * @return ubrandid
-     */
-    public String getUbrandid() {
-        return ubrandid;
-    }
-    
-
-
-
-    
-    /**
-     * 设置 品牌表外键
-     * @param ubrandid 品牌表外键
-     */
-    public void setUbrandid(String ubrandid) {
-        this.ubrandid = ubrandid;
-    }
-
-
-
-    
-    /**
-     * 获取 主键
-     * @return imei
-     */
-    public String getImei() {
-        return imei;
-    }
-    
-
-
-
-    
-    /**
-     * 设置 主键
-     * @param imei 主键
-     */
-    public void setImei(String imei) {
-        this.imei = imei;
-    }
-
-
-
-    
-    /**
-     * 获取 类型数组
-     * @return itypeArray
-     */
-    public Integer[] getItypeArray() {
-        return itypeArray;
-    }
-    
-
-
-
-    
-    /**
-     * 设置 类型数组
-     * @param itypeArray 类型数组
-     */
-    public void setItypeArray(Integer[] itypeArray) {
-        this.itypeArray = itypeArray;
-    }
-    
-    
-    
     
     
 }

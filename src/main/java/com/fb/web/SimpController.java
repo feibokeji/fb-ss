@@ -54,6 +54,11 @@ public class SimpController extends BaseController {
         return (RoleContainer) getSession().getAttribute(RoleContainer_Key);
     }
     
+    protected void clearSession(){
+        getSession().removeAttribute(SessionContainer_Key);
+        getSession().removeAttribute(RoleContainer_Key);
+    }
+    
     /**
      * 文件上传方法
      * @param f

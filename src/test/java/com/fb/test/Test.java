@@ -38,5 +38,15 @@ public class Test {
         System.out.println((new BigDecimal(1.161876832844575)).setScale(0, BigDecimal.ROUND_UP).doubleValue());*/
         
         System.out.println(Math.abs(-10-5));
+        int[] array = {1,2,3,4};
+        StringBuilder sql = new StringBuilder();
+        sql.append(" and (select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) in (");
+        for(int i = 0; i < array.length; i++){
+            sql.append(":array" + i + ",");
+        }
+        if(sql.toString().endsWith(","))
+            sql = new StringBuilder(sql.substring(0, sql.length()-1));
+        sql.append(")");
+        System.out.println(sql);
     }
 }

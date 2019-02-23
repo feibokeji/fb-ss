@@ -42,7 +42,8 @@ $(function(){
 			{text:'退库',id:'1'},
 			{text:'销售',id:'2'},
 			{text:'退货',id:'3'},
-			{text:'调拨',id:'4'}
+			{text:'调出',id:'4'},
+			{text:'调入',id:'5'}
 		],valueFieldID:'searchItype'
 	});
 	istatusComboBox = $("#searchIstatusStr").ligerComboBox({
@@ -109,6 +110,7 @@ function searchSupplierPhoneOrder(){
 	var istatus = $("#searchIstatus").val();
 	var drecorddateStrMin = $("#searchDrecorddateStrMin").val();
 	var drecorddateStrMax = $("#searchDrecorddateStrMax").val();
+	
 	listTable.setParm("usupplierid",supplierComboBox.getValue());
 	listTable.setParm("imei",imei);
 	listTable.setParm("ubrandid",brandComboBox.getValue());
@@ -143,6 +145,9 @@ function showDetail(row, detailPanel,callback){
 	$(tabDiv).ligerTab();
 	$(detailPanel).append(tabDiv);
 	
+	var rpUrl = contextPath + "/bpr/supplierPhoneOrder/getOrderReceivableListJSON?imei=" + row.imei;
+	var statusUrl = contextPath + "/bpr/supplierPhoneOrder/getOrderStatusListJSON?imei=" + row.imei;
+	
 	var rpGrid = document.createElement('div');
 	$(div1).append(rpGrid);
 	$(rpGrid).css('margin',10).ligerGrid({
@@ -157,9 +162,9 @@ function showDetail(row, detailPanel,callback){
 			        { display: '实际金额', name: 'namount', width: 100,minWidth: 80 },
 			        { display: '状态', name: 'istatusStr', width: 100,minWidth: 80 },
 			        { display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120 },
-			        { display: '更新日期', name: 'dupdatedateStr', width: 140,minWidth: 120 },
+			        { display: '更新日期', name: 'dupdatedateStr', width: 140,minWidth: 120 }
 		        ], 
-		url:contextPath + "/bpr/supplierPhoneOrder/getOrderReceivableListJSON?imei=" + row.imei,
+		url:rpUrl,
 		isScroll: false, showToggleColBtn: false, width: '90%',showTitle: false,
 		rownumbers:true,frozen: false,usePager:false,
 		onReload:false,dataAction:"local",checkbox:false,selectRowButtonOnly:true,enabledSort:false,
@@ -176,7 +181,7 @@ function showDetail(row, detailPanel,callback){
 			        { display: '操作员', name: 'cusername', width: 100,minWidth: 80 },
 			        { display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120 }
 		        ], 
-		url:contextPath + "/bpr/supplierPhoneOrder/getOrderStatusListJSON?imei=" + row.imei,
+		url:statusUrl,
 		isScroll: false, showToggleColBtn: false, width: '90%',showTitle: false,
 		rownumbers:true,frozen: false,usePager:false,
 		onReload:false,dataAction:"local",checkbox:false,selectRowButtonOnly:true,enabledSort:false,

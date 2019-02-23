@@ -131,6 +131,8 @@ public class SupplierPhoneOrderController extends SimpController {
     @RequestMapping("getOrderStatusListJSON")
     @ResponseBody
     public String getOrderStatusListJSON(String imei){
+        System.out.println("问题查询：");
+        System.out.println(imei);
         List<TSupplierPhoneOrderStatus> list = getService().getSupplierPhoneOrderService().getSupplierPhoneOrderStatusList(imei);
         Map<Object, Object> map = new HashMap<Object, Object>();
         map.put("Rows", list);

@@ -39,8 +39,6 @@ public class AuthorizationHandler extends BaseHandler {
                     url.append("&");
                 }
             }
-            //request.getRequestDispatcher("/login.jsp?url=" + url).forward(request, response);
-            //response.sendRedirect(request.getContextPath() + "/login.jsp");
             PrintWriter out = response.getWriter();
             out.println("<html>");
             out.println("<script>");
