@@ -9,10 +9,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fb.core.utils.DataUtils;
 import com.fb.dao.TCounterPartsPhoneOrderDao;
+import com.fb.dao.TCounterPartsPhoneReceiptsDao;
+import com.fb.dao.TCounterPartsPhoneReceivableDao;
 import com.fb.dao.TOperateLogDao;
 import com.fb.dao.TSupplierPhoneOrderDao;
 import com.fb.dao.TSupplierPhoneOrderStatusDao;
 import com.fb.domain.po.TCounterPartsPhoneOrder;
+import com.fb.domain.po.TCounterPartsPhoneReceivable;
 import com.fb.domain.po.TOperateLog;
 import com.fb.domain.po.TSupplierPhoneOrder;
 import com.fb.domain.po.TSupplierPhoneOrderStatus;
@@ -31,6 +34,12 @@ public class CounterPartsPhoneOrderServiceImpl extends SimpServiceAbstract imple
     
     @Autowired
     private TCounterPartsPhoneOrderDao orderDao;
+    
+    @Autowired
+    private TCounterPartsPhoneReceivableDao receivableDao;
+    
+    @Autowired
+    private TCounterPartsPhoneReceiptsDao receiptsDao;
     
     @Autowired
     private TSupplierPhoneOrderDao phoneOrderDao;
@@ -103,6 +112,100 @@ public class CounterPartsPhoneOrderServiceImpl extends SimpServiceAbstract imple
         count += orderDao.add(order);
         count += logDao.addOperateLog(log);
         if(count == 3)
+            return true;
+        return false;
+    }
+
+    @Transactional
+    public boolean auditOrder(String uid, TUser user, String ip, String url) {
+        Date date = new Date();
+        TCounterPartsPhoneOrder order = orderDao.get(uid);
+        TCounterPartsPhoneReceivable receivable = new TCounterPartsPhoneReceivable();
+        receivable.setUid(DataUtils.newUUID());
+        receivable.setUcounterpartsid(order.getUcounterpartsid());
+        receivable.setUcounterpartsorderid(order.getUid());
+        receivable.setUuserid(user.getUid());
+        receivable.setUdeptid(user.getUdeptid());
+        switch(order.getItype()){
+            case 4:
+                receivable.setCtype("AR");
+                break;
+            case 5:
+                receivable.setCtype("AP");
+                break;
+        }
+        receivable.setNactualamount(order.getNamount());
+        receivable.setNdiscount(1.00);
+        receivable.setNamount(order.getNamount());
+        receivable.setIstatus(0);
+        receivable.setDrecorddate(date);
+        receivable.setDupdatedate(date);
+        TOperateLog log = new TOperateLog();
+        log.setUid(DataUtils.newUUID());
+        log.setCtype("审核");
+        log.setCoperateip(ip);
+        log.setCoperateurl(url);
+        log.setClinktable("t_counterparts_phone_order");
+        log.setUlinktableid(order.getUid());
+        log.setCstatus(order.getItypeStr());
+        log.setCmemo("审核同行手机调出单");
+        log.setUuserid(user.getUid());
+        log.setDoperatetime(date);
+        int count = orderDao.modStatus(uid, 1);
+        count += receivableDao.add(receivable);
+        count += logDao.addOperateLog(log);
+        if(count == 3)
+            return true;
+        return false;
+    }
+
+    @Transactional
+    public boolean reverseAuditOrder(String uid, TUser user, String ip, String url) {
+        List<TCounterPartsPhoneReceivable> receivableList = receivableDao.getByUorderid(uid);
+        for(TCounterPartsPhoneReceivable receivable : receivableList){
+            receiptsDao.delByUreceivableid(receivable.getUid());
+        }
+        receivableDao.del(uid);
+        Date date = new Date();
+        TOperateLog log = new TOperateLog();
+        log.setUid(DataUtils.newUUID());
+        log.setCtype("反审核");
+        log.setCoperateip(ip);
+        log.setCoperateurl(url);
+        log.setClinktable("t_counterparts_phone_order");
+        log.setUlinktableid(uid);
+        log.setCstatus("成功");
+        log.setCmemo("反审核同行手机调出单");
+        log.setUuserid(user.getUid());
+        log.setDoperatetime(date);
+        int count = orderDao.modStatus(uid, 0);
+        count += logDao.addOperateLog(log);
+        if(count == 2)
+            return true;
+        return false;
+    }
+    
+    @Transactional
+    public boolean executePhoneIn(String uorderid, TUser user, String ip, String url) {
+        Date date = new Date();
+        TCounterPartsPhoneOrder order = orderDao.get(uorderid);
+        order.setItype(5);
+        order.setIstatus(0);
+        order.setDupdatedate(date);
+        TOperateLog log = new TOperateLog();
+        log.setUid(DataUtils.newUUID());
+        log.setCtype("调入");
+        log.setCoperateip(ip);
+        log.setCoperateurl(url);
+        log.setClinktable("t_counterparts_phone_order");
+        log.setUlinktableid(uorderid);
+        log.setCstatus("成功");
+        log.setCmemo("同行手机调入单");
+        log.setUuserid(user.getUid());
+        log.setDoperatetime(date);
+        int count = orderDao.mod(order);
+        count += logDao.addOperateLog(log);
+        if(count == 2)
             return true;
         return false;
     }

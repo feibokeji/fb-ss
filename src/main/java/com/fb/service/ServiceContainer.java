@@ -240,6 +240,18 @@ public class ServiceContainer {
     private CounterPartsPhoneOrderService counterPartsPhoneOrderService;
     
     /**
+     * 同行手机单据应收应付服务
+     */
+    @Autowired
+    private CounterPartsPhoneReceivableService counterPartsPhoneReceivableService;
+    
+    /**
+     * 同行手机单据实收实付服务
+     */
+    @Autowired
+    private CounterPartsPhoneReceiptsService counterPartsPhoneReceiptsService;
+    
+    /**
      * 获取 登录操作控制
      * @return loginService
      */
@@ -545,6 +557,26 @@ public class ServiceContainer {
     public CounterPartsPhoneOrderService getCounterPartsPhoneOrderService() {
         return counterPartsPhoneOrderService;
     }
+
+    
+    /**
+     * 获取 同行手机单据应收应付服务
+     * @return counterPartsPhoneReceivableService
+     */
+    public CounterPartsPhoneReceivableService getCounterPartsPhoneReceivableService() {
+        return counterPartsPhoneReceivableService;
+    }
+    
+
+    
+    /**
+     * 获取 同行手机单据实收实付服务
+     * @return counterPartsPhoneReceiptsService
+     */
+    public CounterPartsPhoneReceiptsService getCounterPartsPhoneReceiptsService() {
+        return counterPartsPhoneReceiptsService;
+    }
+    
     
     
     

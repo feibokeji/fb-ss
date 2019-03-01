@@ -6,6 +6,7 @@ import com.fb.core.base.domain.BaseDomain;
 import com.fb.core.base.persistence.NotFieldMapper;
 import com.fb.core.base.persistence.PrimaryKeyMapper;
 import com.fb.core.base.persistence.TableMapper;
+import com.fb.core.utils.FormatUtils;
 
 
 /**
@@ -37,6 +38,12 @@ public class TCounterPartsPhoneReceipts extends BaseDomain {
      */
     @NotFieldMapper
     private String ucounterpartsid;
+    
+    /**
+     * 同行名称
+     */
+    @NotFieldMapper
+    private String ccounterpartsname;
     
     /**
      * 手机串号
@@ -79,29 +86,33 @@ public class TCounterPartsPhoneReceipts extends BaseDomain {
     
     /**
      * 类型
-     * {@value AR = 实收}{@value AP = 实付}
+     * {@value AR = 实收}
+     * {@value AP = 实付}
      */
     private String ctype;
     
     /**
      * 类型字符串
-     * {@value 实收}{@value 实付}
+     * {@value 实收}
+     * {@value 实付}
      */
     @NotFieldMapper
     private String ctypeStr;
     
     /**
      * 状态
-     * {@value 0 = 未结算}{@value 1 = 已结算}
+     * {@value 0 = 未结算}
+     * {@value 1 = 已结算}
      */
     private Integer istatus;
     
     /**
      * 状态字符串
-     * {@value 未结算}{@value 已结算}
+     * {@value 未结算}
+     * {@value 已结算}
      */
     @NotFieldMapper
-    private Integer istatusStr;
+    private String istatusStr;
     
     /**
      * 金额
@@ -359,6 +370,10 @@ public class TCounterPartsPhoneReceipts extends BaseDomain {
      */
     public void setCtype(String ctype) {
         this.ctype = ctype;
+        if(ctype.equals("AR"))
+            this.ctypeStr = "实收";
+        else if(ctype.equals("AP"))
+            this.ctypeStr = "实付";
     }
     
 
@@ -399,6 +414,14 @@ public class TCounterPartsPhoneReceipts extends BaseDomain {
      */
     public void setIstatus(Integer istatus) {
         this.istatus = istatus;
+        switch(istatus){
+            case 0:
+                this.istatusStr = "未结算";
+                break;
+            case 1:
+                this.istatusStr = "已结算";
+                break;
+        }
     }
     
 
@@ -407,7 +430,7 @@ public class TCounterPartsPhoneReceipts extends BaseDomain {
      * 获取 状态字符串      {@value 未结算}{@value 已结算}
      * @return istatusStr
      */
-    public Integer getIstatusStr() {
+    public String getIstatusStr() {
         return istatusStr;
     }
     
@@ -417,7 +440,7 @@ public class TCounterPartsPhoneReceipts extends BaseDomain {
      * 设置 状态字符串      {@value 未结算}{@value 已结算}
      * @param istatusStr 状态字符串      {@value 未结算}{@value 已结算}
      */
-    public void setIstatusStr(Integer istatusStr) {
+    public void setIstatusStr(String istatusStr) {
         this.istatusStr = istatusStr;
     }
     
@@ -459,6 +482,7 @@ public class TCounterPartsPhoneReceipts extends BaseDomain {
      */
     public void setDrecorddate(Date drecorddate) {
         this.drecorddate = drecorddate;
+        this.drecorddateStr = FormatUtils.formatDate(drecorddate, "yyyy-MM-dd HH:mm:ss");
     }
     
 
@@ -539,6 +563,7 @@ public class TCounterPartsPhoneReceipts extends BaseDomain {
      */
     public void setDupdatedate(Date dupdatedate) {
         this.dupdatedate = dupdatedate;
+        this.dupdatedateStr = FormatUtils.formatDate(dupdatedate, "yyyy-MM-dd HH:mm:ss");
     }
     
 
@@ -560,5 +585,29 @@ public class TCounterPartsPhoneReceipts extends BaseDomain {
     public void setDupdatedateStr(String dupdatedateStr) {
         this.dupdatedateStr = dupdatedateStr;
     }
+
+
+
+    
+    /**
+     * 获取 同行名称
+     * @return ccounterpartsname
+     */
+    public String getCcounterpartsname() {
+        return ccounterpartsname;
+    }
+    
+
+
+
+    
+    /**
+     * 设置 同行名称
+     * @param ccounterpartsname 同行名称
+     */
+    public void setCcounterpartsname(String ccounterpartsname) {
+        this.ccounterpartsname = ccounterpartsname;
+    }
+    
     
 }

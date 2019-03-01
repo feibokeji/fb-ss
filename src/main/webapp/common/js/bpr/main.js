@@ -47,7 +47,7 @@ function launchFullScreen() {
     } else if (elem.requestFullScreen) {
         elem.requestFullscreen();
     } else {
-        notice.notice_show("浏览器不支持全屏API或已被禁用", null, null, null, true, true);
+        //notice.notice_show("浏览器不支持全屏API或已被禁用", null, null, null, true, true);
     }
 }
 
@@ -63,7 +63,7 @@ function exitFullScreen() {
     } else if (elem.exitFullscreen) {
         elem.exitFullscreen();
     } else {
-        notice.notice_show("浏览器不支持全屏API或已被禁用", null, null, null, true, true);
+        //notice.notice_show("浏览器不支持全屏API或已被禁用", null, null, null, true, true);
     }
 }
 

@@ -21,11 +21,11 @@
 		<div class="l-topmenu-logo"><img src="${contextPath }/common/images/logo.png"></img>&nbsp;&nbsp;飞博科技管理平台</div>
 		<div class="l-topmenu-welcome">
 			<span class="space">[${sessionContainer.user.cname}]您好！欢迎来到飞博科技!</span>
-			<a href="javascript:f_User_Info()" class="l-link2">账户信息</a>
-			<a href="javascript:f_Mode_Password()" class="l-link2">修改密码</a>
-			<a href="javascript:logout()" class="l-link2">退出</a>
-			<a href="javascript:launchFullScreen()">全屏</a>
-			<a href="javascript:exitFullScreen()">退出全屏</a>
+			<span style="color: white;">|</span><a href="javascript:f_User_Info()" class="l-link2">账户信息</a><span style="color: white;">|</span>
+			<a href="javascript:f_Mode_Password()" class="l-link2">修改密码</a><span style="color: white;">|</span>
+			<a href="javascript:logout()" class="l-link2">退出</a><span style="color: white;">|</span>
+			<!-- <a href="javascript:launchFullScreen()">全屏</a>
+			<a href="javascript:exitFullScreen()">退出全屏</a> -->
 		</div>
 	</div>
 	<div id="modifyPasswordDiv" style="display:none;">
@@ -114,11 +114,19 @@
 				<ul class="m-ul">
 					<!-- 同行信息 -->
 					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('counterPartsList','同行信息','${contextPath }/bpr/counterParts/list')">同行信息</a>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('counterPartsList','同行信息管理','${contextPath }/bpr/counterParts/list')">同行信息管理</a>
 					</li>
 					<!-- 手机调出 -->
 					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('counterPartsPhoneOrderOut','手机调出','${contextPath }/bpr/counterPartsPhoneOrder/outOrder')">手机调出</a>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('counterPartsPhoneOrderOut','手机调出管理','${contextPath }/bpr/counterPartsPhoneOrder/outOrder')">手机调出管理</a>
+					</li>
+					<!-- 调出手机信息 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('hasOutPhoneOrder','调出手机信息','${contextPath }/bpr/counterPartsPhoneOrder/hasOut')">调出手机信息</a>
+					</li>
+					<!-- 调入手机信息 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('hasInPhoneOrder','调入手机信息','${contextPath }/bpr/counterPartsPhoneOrder/hasIn')">调入手机信息</a>
 					</li>
 				</ul>
 			</div>

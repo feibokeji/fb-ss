@@ -72,4 +72,37 @@ public interface CounterPartsPhoneOrderService {
      * @author Liu Bo
      */
     public boolean executePhoneOut(String ucounterpartsid,String imei,TUser user,String ip,String url);
+    
+    /**
+     * 执行 同行手机调入业务
+     * @param uorderid
+     * @param user
+     * @param ip
+     * @param url
+     * @return
+     * @author Liu Bo
+     */
+    public boolean executePhoneIn(String uorderid,TUser user,String ip,String url);
+    
+    /**
+     * 审核 单据
+     * @param uid
+     * @param user
+     * @param ip
+     * @param url
+     * @return
+     * @author Liu Bo
+     */
+    public boolean auditOrder(String uid,TUser user,String ip,String url);
+    
+    /**
+     * 反审核 单据
+     * @param uid
+     * @param user
+     * @param ip
+     * @param url
+     * @return
+     * @author Liu Bo
+     */
+    public boolean reverseAuditOrder(String uid,TUser user,String ip,String url);
 }

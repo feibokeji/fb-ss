@@ -145,8 +145,8 @@ function showDetail(row, detailPanel,callback){
 	$(tabDiv).ligerTab();
 	$(detailPanel).append(tabDiv);
 	
-	var rpUrl = contextPath + "/bpr/supplierPhoneOrder/getOrderReceivableListJSON?imei=" + row.imei;
-	var statusUrl = contextPath + "/bpr/supplierPhoneOrder/getOrderStatusListJSON?imei=" + row.imei;
+	var rpUrl = contextPath + "/bpr/supplierPhoneOrder/getOrderReceivableListJSON?phoneimei=" + row.imei;
+	var statusUrl = contextPath + "/bpr/supplierPhoneOrder/getOrderStatusListJSON?phoneimei=" + row.imei;
 	
 	var rpGrid = document.createElement('div');
 	$(div1).append(rpGrid);

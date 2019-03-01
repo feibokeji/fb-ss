@@ -6,6 +6,7 @@ import com.fb.core.base.domain.BaseDomain;
 import com.fb.core.base.persistence.NotFieldMapper;
 import com.fb.core.base.persistence.PrimaryKeyMapper;
 import com.fb.core.base.persistence.TableMapper;
+import com.fb.core.utils.FormatUtils;
 
 
 /**
@@ -67,13 +68,15 @@ public class TCounterPartsPhoneReceivable extends BaseDomain {
     
     /**
      * 类型
-     * {@value AR = 应收}{@value AP = 应付}
+     * {@value AR = 应收}
+     * {@value AP = 应付}
      */
     private String ctype;
     
     /**
      * 类型字符串
-     * {@value 应收}{@value 应付}
+     * {@value 应收}
+     * {@value 应付}
      */
     @NotFieldMapper
     private String ctypeStr;
@@ -95,13 +98,15 @@ public class TCounterPartsPhoneReceivable extends BaseDomain {
     
     /**
      * 状态
-     * {@value 0 = 未结算}{@value 1 = 已结算}
+     * {@value 0 = 未结算}
+     * {@value 1 = 已结算}
      */
     private Integer istatus;
     
     /**
      * 状态字符串
-     * {@value 未结算}{@value 已结算}
+     * {@value 未结算}
+     * {@value 已结算}
      */
     @NotFieldMapper
     private String istatusStr;
@@ -302,7 +307,9 @@ public class TCounterPartsPhoneReceivable extends BaseDomain {
 
     
     /**
-     * 获取 类型      {@value AR = 应收}{@value AP = 应付}
+     * 获取 类型      
+     * {@value AR = 应收}
+     * {@value AP = 应付}
      * @return ctype
      */
     public String getCtype() {
@@ -312,11 +319,17 @@ public class TCounterPartsPhoneReceivable extends BaseDomain {
 
     
     /**
-     * 设置 类型      {@value AR = 应收}{@value AP = 应付}
+     * 设置 类型      
+     * {@value AR = 应收}
+     * {@value AP = 应付}
      * @param ctype 类型      {@value AR = 应收}{@value AP = 应付}
      */
     public void setCtype(String ctype) {
         this.ctype = ctype;
+        if(ctype.equals("AR"))
+            this.ctypeStr = "应收";
+        else if(ctype.equals("AP"))
+            this.ctypeStr = "应付";
     }
     
 
@@ -417,6 +430,14 @@ public class TCounterPartsPhoneReceivable extends BaseDomain {
      */
     public void setIstatus(Integer istatus) {
         this.istatus = istatus;
+        switch(istatus){
+            case 0:
+                this.istatusStr = "未结算";
+                break;
+            case 1:
+                this.istatusStr = "已结算";
+                break;
+        }
     }
     
 
@@ -457,6 +478,7 @@ public class TCounterPartsPhoneReceivable extends BaseDomain {
      */
     public void setDrecorddate(Date drecorddate) {
         this.drecorddate = drecorddate;
+        this.drecorddateStr = FormatUtils.formatDate(drecorddate, "yyyy-MM-dd HH:mm:ss");
     }
     
 
@@ -537,6 +559,7 @@ public class TCounterPartsPhoneReceivable extends BaseDomain {
      */
     public void setDupdatedate(Date dupdatedate) {
         this.dupdatedate = dupdatedate;
+        this.dupdatedateStr = FormatUtils.formatDate(dupdatedate, "yyyy-MM-dd HH:mm:ss");
     }
     
 

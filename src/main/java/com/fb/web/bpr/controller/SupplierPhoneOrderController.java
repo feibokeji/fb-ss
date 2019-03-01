@@ -114,8 +114,8 @@ public class SupplierPhoneOrderController extends SimpController {
      */
     @RequestMapping("getOrderReceivableListJSON")
     @ResponseBody
-    public String getOrderReceivableListJSON(String imei){
-        List<TSupplierPhoneOrderReceivable> list = getService().getSupplierPhoneOrderService().getSupplierPhoneOrderReceivableList(imei);
+    public String getOrderReceivableListJSON(String phoneimei){
+        List<TSupplierPhoneOrderReceivable> list = getService().getSupplierPhoneOrderService().getSupplierPhoneOrderReceivableList(phoneimei);
         Map<Object, Object> map = new HashMap<Object, Object>();
         map.put("Rows", list);
         map.put("Total", list.size());
@@ -130,10 +130,8 @@ public class SupplierPhoneOrderController extends SimpController {
      */
     @RequestMapping("getOrderStatusListJSON")
     @ResponseBody
-    public String getOrderStatusListJSON(String imei){
-        System.out.println("问题查询：");
-        System.out.println(imei);
-        List<TSupplierPhoneOrderStatus> list = getService().getSupplierPhoneOrderService().getSupplierPhoneOrderStatusList(imei);
+    public String getOrderStatusListJSON(String phoneimei){
+        List<TSupplierPhoneOrderStatus> list = getService().getSupplierPhoneOrderService().getSupplierPhoneOrderStatusList(phoneimei);
         Map<Object, Object> map = new HashMap<Object, Object>();
         map.put("Rows", list);
         map.put("Total", list.size());

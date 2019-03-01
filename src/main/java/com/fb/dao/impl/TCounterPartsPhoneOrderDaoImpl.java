@@ -34,6 +34,8 @@ public class TCounterPartsPhoneOrderDaoImpl extends SimpMapper<TCounterPartsPhon
     public int modStatus(String uid, Integer istatus) {
         QMap map = new QMap();
         String sql = "update t_counterparts_phone_order set istatus = :istatus where uid = :uid";
+        map.put("uid", uid);
+        map.put("istatus", istatus);
         return super.execute(sql, map);
     }
     
