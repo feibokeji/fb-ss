@@ -175,7 +175,7 @@ function reverseAuditOrder(){
 					type:"post",
 					async:false,
 					cache:false,
-					url:contextPath+"/bpr/counterPartsPhoneOrder/reverseAuditOrder",
+					url:contextPath+"/bpr/counterPartsPhoneOrder/reverseAuditInOrder",
 					data:{'uid':rows[0].uid},
 					dataType:"html",
 					success:function(data){

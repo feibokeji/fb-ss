@@ -59,4 +59,12 @@ public interface TSupplierPhoneOrderStatusDao {
      * @author Liu bo
      */
     public List<TSupplierPhoneOrderStatus> get(String imei);
+    
+    /**
+     * 获取 手机以前的状态用于反审核功能
+     * @param imei
+     * @return
+     * @author Liu bo
+     */
+    public TSupplierPhoneOrderStatus getBeforeStatus(String imei);
 }

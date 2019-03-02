@@ -78,6 +78,7 @@ public class CounterPartsPhoneOrderServiceImpl extends SimpServiceAbstract imple
     public boolean executePhoneOut(String ucounterpartsid, String imei, TUser user, String ip, String url) {
         Date date = new Date();
         TSupplierPhoneOrder phoneOrder = phoneOrderDao.get(imei);
+        
         TCounterPartsPhoneOrder order = new TCounterPartsPhoneOrder();
         order.setUid(DataUtils.newUUID());
         order.setUcounterpartsid(ucounterpartsid);
@@ -89,14 +90,7 @@ public class CounterPartsPhoneOrderServiceImpl extends SimpServiceAbstract imple
         order.setNamount(phoneOrder.getNcostprice());
         order.setDrecorddate(date);
         order.setDupdatedate(date);
-        phoneOrderStatusDao.modStatus(imei, 0);
-        TSupplierPhoneOrderStatus phoneOrderStatus = new TSupplierPhoneOrderStatus();
-        phoneOrderStatus.setUid(DataUtils.newUUID());
-        phoneOrderStatus.setImei(imei);
-        phoneOrderStatus.setItype(order.getItype());
-        phoneOrderStatus.setIstatus(1);
-        phoneOrderStatus.setUuserid(user.getUid());
-        phoneOrderStatus.setDrecorddate(date);
+        
         TOperateLog log = new TOperateLog();
         log.setUid(DataUtils.newUUID());
         log.setCtype("新增");
@@ -108,10 +102,10 @@ public class CounterPartsPhoneOrderServiceImpl extends SimpServiceAbstract imple
         log.setCmemo("新增同行手机调出单");
         log.setUuserid(user.getUid());
         log.setDoperatetime(date);
-        int count = phoneOrderStatusDao.add(phoneOrderStatus);
-        count += orderDao.add(order);
+        
+        int count = orderDao.add(order);
         count += logDao.addOperateLog(log);
-        if(count == 3)
+        if(count == 2)
             return true;
         return false;
     }
@@ -120,6 +114,16 @@ public class CounterPartsPhoneOrderServiceImpl extends SimpServiceAbstract imple
     public boolean auditOrder(String uid, TUser user, String ip, String url) {
         Date date = new Date();
         TCounterPartsPhoneOrder order = orderDao.get(uid);
+        
+        phoneOrderStatusDao.modStatus(order.getImei(), 0);
+        TSupplierPhoneOrderStatus phoneOrderStatus = new TSupplierPhoneOrderStatus();
+        phoneOrderStatus.setUid(DataUtils.newUUID());
+        phoneOrderStatus.setImei(order.getImei());
+        phoneOrderStatus.setItype(order.getItype());
+        phoneOrderStatus.setIstatus(1);
+        phoneOrderStatus.setUuserid(user.getUid());
+        phoneOrderStatus.setDrecorddate(date);
+        
         TCounterPartsPhoneReceivable receivable = new TCounterPartsPhoneReceivable();
         receivable.setUid(DataUtils.newUUID());
         receivable.setUcounterpartsid(order.getUcounterpartsid());
@@ -140,6 +144,7 @@ public class CounterPartsPhoneOrderServiceImpl extends SimpServiceAbstract imple
         receivable.setIstatus(0);
         receivable.setDrecorddate(date);
         receivable.setDupdatedate(date);
+        
         TOperateLog log = new TOperateLog();
         log.setUid(DataUtils.newUUID());
         log.setCtype("审核");
@@ -151,22 +156,29 @@ public class CounterPartsPhoneOrderServiceImpl extends SimpServiceAbstract imple
         log.setCmemo("审核同行手机调出单");
         log.setUuserid(user.getUid());
         log.setDoperatetime(date);
+        
         int count = orderDao.modStatus(uid, 1);
+        count += phoneOrderStatusDao.add(phoneOrderStatus);
         count += receivableDao.add(receivable);
         count += logDao.addOperateLog(log);
-        if(count == 3)
+        if(count == 4)
             return true;
         return false;
     }
 
     @Transactional
     public boolean reverseAuditOrder(String uid, TUser user, String ip, String url) {
+        TCounterPartsPhoneOrder order = orderDao.get(uid);
+        Date date = new Date();
+        
         List<TCounterPartsPhoneReceivable> receivableList = receivableDao.getByUorderid(uid);
         for(TCounterPartsPhoneReceivable receivable : receivableList){
             receiptsDao.delByUreceivableid(receivable.getUid());
         }
         receivableDao.del(uid);
-        Date date = new Date();
+        
+        modPhoneOrderStatus(order.getImei(),user);
+        
         TOperateLog log = new TOperateLog();
         log.setUid(DataUtils.newUUID());
         log.setCtype("反审核");
@@ -178,6 +190,7 @@ public class CounterPartsPhoneOrderServiceImpl extends SimpServiceAbstract imple
         log.setCmemo("反审核同行手机调出单");
         log.setUuserid(user.getUid());
         log.setDoperatetime(date);
+        
         int count = orderDao.modStatus(uid, 0);
         count += logDao.addOperateLog(log);
         if(count == 2)
@@ -192,6 +205,7 @@ public class CounterPartsPhoneOrderServiceImpl extends SimpServiceAbstract imple
         order.setItype(5);
         order.setIstatus(0);
         order.setDupdatedate(date);
+
         TOperateLog log = new TOperateLog();
         log.setUid(DataUtils.newUUID());
         log.setCtype("调入");
@@ -203,11 +217,58 @@ public class CounterPartsPhoneOrderServiceImpl extends SimpServiceAbstract imple
         log.setCmemo("同行手机调入单");
         log.setUuserid(user.getUid());
         log.setDoperatetime(date);
+        
         int count = orderDao.mod(order);
         count += logDao.addOperateLog(log);
         if(count == 2)
             return true;
         return false;
+    }
+
+    @Transactional
+    public boolean reverseAuditInOrder(String uid, TUser user, String ip, String url) {
+        Date date = new Date();
+        TCounterPartsPhoneOrder order = orderDao.get(uid);
+        List<TCounterPartsPhoneReceivable> receivableList = receivableDao.getByUorderid(uid);
+        for(TCounterPartsPhoneReceivable receivable : receivableList){
+            if(receivable.getCtype().equals("AP")){
+                receiptsDao.delByUreceivableid(receivable.getUid());
+            }
+        }
+        receivableDao.del(uid);
+        
+        modPhoneOrderStatus(order.getImei(), user);
+        
+        TOperateLog log = new TOperateLog();
+        log.setUid(DataUtils.newUUID());
+        log.setCtype("反审核");
+        log.setCoperateip(ip);
+        log.setCoperateurl(url);
+        log.setClinktable("t_counterparts_phone_order");
+        log.setUlinktableid(uid);
+        log.setCstatus("成功");
+        log.setCmemo("反审核同行手机调入单");
+        log.setUuserid(user.getUid());
+        log.setDoperatetime(date);
+        
+        int count = orderDao.modStatus(uid, 0);
+        count += logDao.addOperateLog(log);
+        if(count == 2)
+            return true;
+        return false;
+    }
+    
+    private void modPhoneOrderStatus(String imei,TUser user){
+        TSupplierPhoneOrderStatus beforeStatus = phoneOrderStatusDao.getBeforeStatus(imei);
+        phoneOrderStatusDao.modStatus(imei, 0);
+        TSupplierPhoneOrderStatus phoneOrderStatus = new TSupplierPhoneOrderStatus();
+        phoneOrderStatus.setUid(DataUtils.newUUID());
+        phoneOrderStatus.setImei(imei);
+        phoneOrderStatus.setItype(beforeStatus.getItype());
+        phoneOrderStatus.setIstatus(1);
+        phoneOrderStatus.setUuserid(user.getUid());
+        phoneOrderStatus.setDrecorddate(new Date());
+        phoneOrderStatusDao.add(phoneOrderStatus);
     }
     
 }

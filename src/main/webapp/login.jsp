@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>飞博科技管理平台-登录页面</title>
+<title>飞博科技管理平台-后台登录页面</title>
 <link type="text/css" href="${contextPath}/common/css/bpr/login.css" rel="stylesheet"/>
 <link type="text/css" href="${contextPath}/common/liger/skins/Aqua/css/ligerui-all.css" rel="stylesheet" />
 <link type="text/css" href="${contextPath}/common/liger/skins/ligerui-icons.css" rel="stylesheet" />

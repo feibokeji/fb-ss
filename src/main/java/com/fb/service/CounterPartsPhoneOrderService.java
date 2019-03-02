@@ -85,7 +85,7 @@ public interface CounterPartsPhoneOrderService {
     public boolean executePhoneIn(String uorderid,TUser user,String ip,String url);
     
     /**
-     * 审核 单据
+     * 审核 调出单据
      * @param uid
      * @param user
      * @param ip
@@ -96,7 +96,7 @@ public interface CounterPartsPhoneOrderService {
     public boolean auditOrder(String uid,TUser user,String ip,String url);
     
     /**
-     * 反审核 单据
+     * 反审核 调出单据
      * @param uid
      * @param user
      * @param ip
@@ -105,4 +105,15 @@ public interface CounterPartsPhoneOrderService {
      * @author Liu Bo
      */
     public boolean reverseAuditOrder(String uid,TUser user,String ip,String url);
+    
+    /**
+     * 反审核 调入单据
+     * @param uid
+     * @param user
+     * @param ip
+     * @param url
+     * @return
+     * @author Liu bo
+     */
+    public boolean reverseAuditInOrder(String uid,TUser user,String ip,String url);
 }

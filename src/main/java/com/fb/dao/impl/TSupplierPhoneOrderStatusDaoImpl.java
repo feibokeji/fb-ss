@@ -47,5 +47,10 @@ public class TSupplierPhoneOrderStatusDaoImpl extends SimpMapper<TSupplierPhoneO
         String sql = "select spos.uid,spos.imei,spos.itype,spos.istatus,spos.uuserid,u.cname as cusername,spos.drecorddate from t_supplier_phone_order_status as spos left join t_user as u on u.uid = spos.uuserid where spos.imei = :imei order by spos.drecorddate desc";
         return super.findList(sql, new QMap("imei",imei));
     }
+
+    public TSupplierPhoneOrderStatus getBeforeStatus(String imei) {
+        String sql = "select top 1 spos.uid,spos.imei,spos.itype,spos.istatus,spos.uuserid,u.cname as cusername,spos.drecorddate from t_supplier_phone_order_status as spos left join t_user as u on u.uid = spos.uuserid where spos.imei = :imei and spos.istatus = 0 order by spos.drecorddate desc";
+        return super.get(sql, new QMap("imei",imei), TSupplierPhoneOrderStatus.class);
+    }
     
 }

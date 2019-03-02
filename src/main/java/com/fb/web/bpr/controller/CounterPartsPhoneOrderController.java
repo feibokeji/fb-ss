@@ -43,7 +43,7 @@ public class CounterPartsPhoneOrderController extends SimpController {
     @RequestMapping("outOrderJSON")
     @ResponseBody
     public String outOrderJSON(TSupplierPhoneOrder order){
-        Integer [] itypeArray = {0,3,5};
+        Integer [] itypeArray = {0,3};
         order.setUdeptid(getSessionContainer().getDept().getUid());
         order.setItypeArray(itypeArray);
         order.setIstatus(1);
@@ -196,6 +196,31 @@ public class CounterPartsPhoneOrderController extends SimpController {
                 return "此单据已产出收付款，不能进行反审核！";
             else{
                 boolean result = getService().getCounterPartsPhoneOrderService().reverseAuditOrder(uid, getSessionContainer().getUser(), getIP(), getURL());
+                if(result)
+                    return "success";
+            }
+        }
+        return "fail";
+    }
+    
+    /**
+     * 反审核 调入单据
+     * @param uid
+     * @return
+     * @author Liu Bo
+     */
+    @RequestMapping("reverseAuditInOrder")
+    @ResponseBody
+    public String reverseAuditInOrder(String uid){
+        TCounterPartsPhoneOrder order = getService().getCounterPartsPhoneOrderService().getPhoneOrder(uid);
+        if(order.getIstatus() == 0)
+            return "此单据未审核，不能进行反审核！";
+        else{
+            int orderReceiptsNum = getService().getCounterPartsPhoneReceiptsService().getOrderReceiptsNum(uid);
+            if(orderReceiptsNum > 0)
+                return "此单据已产出收付款，不能进行反审核！";
+            else{
+                boolean result = getService().getCounterPartsPhoneOrderService().reverseAuditInOrder(uid, getSessionContainer().getUser(), getIP(), getURL());
                 if(result)
                     return "success";
             }
