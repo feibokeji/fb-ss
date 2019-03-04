@@ -36,12 +36,19 @@ public class TCustomerPhoneOrder extends BaseDomain {
     /**
      * 客户名称
      */
+    @NotFieldMapper
     private String ccustomername;
     
     /**
      * 手机串号
      */
     private String imei;
+    
+    /**
+     * 品牌表外键
+     */
+    @NotFieldMapper
+    private String ubrandid;
     
     /**
      * 品牌名称
@@ -127,6 +134,11 @@ public class TCustomerPhoneOrder extends BaseDomain {
      */
     @NotFieldMapper
     private String itypeStr;
+    
+    /**
+     * 金额
+     */
+    private Double namount;
     
     /**
      * 状态
@@ -732,6 +744,54 @@ public class TCustomerPhoneOrder extends BaseDomain {
     public void setImei(String imei) {
         this.imei = imei;
     }
+
+
+
+    
+    /**
+     * 获取 品牌表外键
+     * @return ubrandid
+     */
+    public String getUbrandid() {
+        return ubrandid;
+    }
+    
+
+
+
+    
+    /**
+     * 设置 品牌表外键
+     * @param ubrandid 品牌表外键
+     */
+    public void setUbrandid(String ubrandid) {
+        this.ubrandid = ubrandid;
+    }
+
+
+
+    
+    /**
+     * 获取 金额
+     * @return namount
+     */
+    public Double getNamount() {
+        return namount;
+    }
+    
+
+
+
+    
+    /**
+     * 设置 金额
+     * @param namount 金额
+     */
+    public void setNamount(Double namount) {
+        this.namount = namount;
+    }
+    
+    
     
     
 }
