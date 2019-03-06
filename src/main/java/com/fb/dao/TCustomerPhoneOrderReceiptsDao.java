@@ -61,6 +61,14 @@ public interface TCustomerPhoneOrderReceiptsDao {
     public TCustomerPhoneOrderReceipts get(String uid);
     
     /**
+     * 获取 根据单据获取对应的实收实付集合
+     * @param uorderid
+     * @return
+     * @author Liu bo
+     */
+    public List<TCustomerPhoneOrderReceipts> getByOrder(String uorderid);
+    
+    /**
      * 获取 根据应收应付获取对应的实收实付信息集合
      * @param ureceivableid
      * @return

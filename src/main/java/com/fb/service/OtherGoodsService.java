@@ -53,4 +53,11 @@ public interface OtherGoodsService {
 	 * @return 其它商品价格记录集合
 	 */
 	public List<TOtherGoodsPriceRecord> getListByUOtherGoodsId(String uothergoodsid);
+	/**
+     * 获取 商品库存信息集合
+     * @param otherGoods
+     * @return
+     * @author Liu bo
+     */
+    public List<TOtherGoods> getInventory(TOtherGoods otherGoods);
 }

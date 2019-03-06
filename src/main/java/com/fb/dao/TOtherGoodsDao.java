@@ -52,4 +52,12 @@ public interface TOtherGoodsDao {
 	 * @return 其它商品集合
 	 */
 	public List<TOtherGoods> getList(TOtherGoods otherGoods);
+	
+	/**
+	 * 获取 商品库存信息集合
+	 * @param otherGoods
+	 * @return
+	 * @author Liu bo
+	 */
+	public List<TOtherGoods> getInventory(TOtherGoods otherGoods);
 }

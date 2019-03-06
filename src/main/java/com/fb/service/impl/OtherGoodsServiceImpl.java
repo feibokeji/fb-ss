@@ -84,4 +84,8 @@ public class OtherGoodsServiceImpl extends SimpServiceAbstract implements OtherG
 		return otherGoodsPriceRecordDao.getListByUOtherGoodsId(uothergoodsid);
 	}
 
+    public List<TOtherGoods> getInventory(TOtherGoods otherGoods) {
+        return otherGoodsDao.getInventory(otherGoods);
+    }
+
 }

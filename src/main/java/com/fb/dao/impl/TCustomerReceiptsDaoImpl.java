@@ -100,5 +100,19 @@ public class TCustomerReceiptsDaoImpl extends SimpMapper<TCustomerReceipts> impl
         }
         return super.findList(sql, map);
     }
+
+    public List<TCustomerReceipts> getReceiptsByOrder(String uorderid) {
+        StringBuilder sql = new StringBuilder("select crp.uid,crp.ureceivableid,co.cno as corderno,crp.upaymentmethodid");
+        sql.append(",pm.ccode as cpaymentmethodcode,pm.cname as cpaymentmethodname,crp.uuserid");
+        sql.append(",u.cname as cusername,crp.udeptid,crp.ctype,crp.namount,crp.istatus");
+        sql.append(",crp.drecorddate,crp.dupdatedate");
+        sql.append(" from t_customer_receipts as crp");
+        sql.append(" left join t_customer_receivable as crb on crb.uid = crp.ureceivableid");
+        sql.append(" left join t_customer_order as co on co.uid = crb.uorderid");
+        sql.append(" left join t_payment_method as pm on pm.uid = crp.upaymentmethodid");
+        sql.append(" left join t_user as u on u.uid = crp.uuserid");
+        sql.append(" where co.uid = :uorderid");
+        return super.findList(sql, new QMap("uorderid",uorderid));
+    }
     
 }

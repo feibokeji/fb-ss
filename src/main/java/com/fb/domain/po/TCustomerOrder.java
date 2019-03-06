@@ -1,6 +1,7 @@
 package com.fb.domain.po;
 
 import java.util.Date;
+import java.util.List;
 
 import com.fb.core.base.domain.BaseDomain;
 import com.fb.core.base.persistence.NotFieldMapper;
@@ -119,6 +120,12 @@ public class TCustomerOrder extends BaseDomain {
      */
     @NotFieldMapper
     private String dupdatedateStr;
+    
+    /**
+     * 单据明细集合
+     */
+    @NotFieldMapper
+    private List<TCustomerOrderDetail> orderDetailList;
 
     
     /**
@@ -476,5 +483,29 @@ public class TCustomerOrder extends BaseDomain {
     public void setDupdatedateStr(String dupdatedateStr) {
         this.dupdatedateStr = dupdatedateStr;
     }
+
+
+
+    
+    /**
+     * 获取 单据明细集合
+     * @return orderDetailList
+     */
+    public List<TCustomerOrderDetail> getOrderDetailList() {
+        return orderDetailList;
+    }
+    
+
+
+
+    
+    /**
+     * 设置 单据明细集合
+     * @param orderDetailList 单据明细集合
+     */
+    public void setOrderDetailList(List<TCustomerOrderDetail> orderDetailList) {
+        this.orderDetailList = orderDetailList;
+    }
+    
     
 }

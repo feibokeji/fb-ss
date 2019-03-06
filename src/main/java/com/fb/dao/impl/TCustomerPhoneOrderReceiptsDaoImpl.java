@@ -122,5 +122,18 @@ public class TCustomerPhoneOrderReceiptsDaoImpl extends SimpMapper<TCustomerPhon
         }
         return super.findList(sql, map);
     }
+
+    public List<TCustomerPhoneOrderReceipts> getByOrder(String uorderid) {
+        StringBuilder sql = new StringBuilder("select cporp.uid,cporp.ureceivableid,cpo.imei,cporp.upaymentmethodid,pm.ccode as cpaymentmethodcode");
+        sql.append(",pm.cname as cpaymentmethodname,cporp.uuserid,u.cname as cusername,cporp.udeptid,cporp.ctype");
+        sql.append(",cporp.namount,cporp.istatus,cporp.drecorddate,cporp.dupdatedate");
+        sql.append(" from t_customer_phone_order_receipts as cporp");
+        sql.append(" left join t_customer_phone_order_receivable as cporb on cporb.uid = cporp.ureceivableid");
+        sql.append(" left join t_customer_phone_order as cpo on cpo.uid = cporb.ucustomerphoneorderid");
+        sql.append(" left join t_payment_method as pm on pm.uid = cporp.upaymentmethodid");
+        sql.append(" left join t_user as u on u.uid = cporp.uuserid");
+        sql.append(" where cpo.uid = :uorderid");
+        return super.findList(sql, new QMap("uorderid",uorderid));
+    }
     
 }

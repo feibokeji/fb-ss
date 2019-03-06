@@ -150,6 +150,43 @@ public class TOtherGoods extends BaseDomain {
 	 */
 	@NotFieldMapper
 	private String priceRecordDateStr;
+	
+	/**
+	 * 入库量
+	 */
+	@NotFieldMapper
+	private Double inQuantity;
+	
+	/**
+	 * 退库量
+	 */
+	@NotFieldMapper
+	private Double backQuantity;
+	
+	/**
+	 * 报损量
+	 */
+	@NotFieldMapper
+	private Double lossQuantity;
+	
+	/**
+	 * 销售量
+	 */
+	@NotFieldMapper
+	private Double sellQuantity;
+	
+	/**
+	 * 退货量
+	 */
+	@NotFieldMapper
+	private Double returnQuantity;
+	
+	/**
+	 * 库存量
+	 */
+	@NotFieldMapper
+	private Double inventoryQuantity;
+	
 	/**
 	 * 获取:主键
 	 * @return uid
@@ -559,4 +596,112 @@ public class TOtherGoods extends BaseDomain {
 	public void setPriceRecordDateStr(String priceRecordDateStr) {
 		this.priceRecordDateStr = priceRecordDateStr;
 	}
+    
+    /**
+     * 获取 入库量
+     * @return inQuantity
+     */
+    public Double getInQuantity() {
+        return inQuantity;
+    }
+    
+    
+    /**
+     * 设置 入库量
+     * @param inQuantity 入库量
+     */
+    public void setInQuantity(Double inQuantity) {
+        this.inQuantity = inQuantity;
+    }
+    
+    
+    /**
+     * 获取 退库量
+     * @return backQuantity
+     */
+    public Double getBackQuantity() {
+        return backQuantity;
+    }
+    
+    
+    /**
+     * 设置 退库量
+     * @param backQuantity 退库量
+     */
+    public void setBackQuantity(Double backQuantity) {
+        this.backQuantity = backQuantity;
+    }
+    
+    
+    /**
+     * 获取 报损量
+     * @return lossQuantity
+     */
+    public Double getLossQuantity() {
+        return lossQuantity;
+    }
+    
+    
+    /**
+     * 设置 报损量
+     * @param lossQuantity 报损量
+     */
+    public void setLossQuantity(Double lossQuantity) {
+        this.lossQuantity = lossQuantity;
+    }
+    
+    
+    /**
+     * 获取 销售量
+     * @return sellQuantity
+     */
+    public Double getSellQuantity() {
+        return sellQuantity;
+    }
+    
+    
+    /**
+     * 设置 销售量
+     * @param sellQuantity 销售量
+     */
+    public void setSellQuantity(Double sellQuantity) {
+        this.sellQuantity = sellQuantity;
+    }
+    
+    
+    /**
+     * 获取 退货量
+     * @return returnQuantity
+     */
+    public Double getReturnQuantity() {
+        return returnQuantity;
+    }
+    
+    
+    /**
+     * 设置 退货量
+     * @param returnQuantity 退货量
+     */
+    public void setReturnQuantity(Double returnQuantity) {
+        this.returnQuantity = returnQuantity;
+    }
+    
+    
+    /**
+     * 获取 库存量
+     * @return inventoryQuantity
+     */
+    public Double getInventoryQuantity() {
+        return inventoryQuantity;
+    }
+    
+    
+    /**
+     * 设置 库存量
+     * @param inventoryQuantity 库存量
+     */
+    public void setInventoryQuantity(Double inventoryQuantity) {
+        this.inventoryQuantity = inventoryQuantity;
+    }
+    
 }

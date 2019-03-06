@@ -71,3 +71,5 @@ a{text-decoration: none;}
 /*查询表格样式*/
 .search_table{border:none;border-collapse: collapse;line-height: 30px;margin-left: 25px;}
 .search_table tr td{padding-left: 5px;}
+/*价格显示样式*/
+.price_display{font-size: 14px;font-weight: bold;color: red;}

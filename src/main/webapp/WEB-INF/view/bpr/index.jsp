@@ -138,19 +138,27 @@
 					</li>
 					<!-- 商品销售 -->
 					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerList','商品销售','${contextPath }/bpr/customer/list')">商品销售</a>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerOrderSell','商品销售','${contextPath }/bpr/customerOrder/goodsSell')">商品销售</a>
 					</li>
-					<!-- 销售退货 -->
+					<!-- 已售商品 -->
 					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerList','销售退货','${contextPath }/bpr/customer/list')">销售退货</a>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerOrder0','已售商品','${contextPath }/bpr/customer/list')">已售商品</a>
+					</li>
+					<!-- 已退商品 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerOrder1','已退商品','${contextPath }/bpr/customer/list')">已退商品</a>
 					</li>
 					<!-- 手机销售 -->
 					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerList','手机销售','${contextPath }/bpr/customer/list')">手机销售</a>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerPhoneOrderSell','手机销售','${contextPath }/bpr/customer/list')">手机销售</a>
 					</li>
-					<!-- 手机退货 -->
+					<!-- 已售手机 -->
 					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerList','手机退货','${contextPath }/bpr/customer/list')">手机退货</a>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerPhoneOrder2','已售手机','${contextPath }/bpr/customer/list')">已售手机</a>
+					</li>
+					<!-- 已退手机 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerPhoneOrder3','已退手机','${contextPath }/bpr/customer/list')">已退手机</a>
 					</li>
 				</ul>
 			</div>

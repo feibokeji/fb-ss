@@ -64,6 +64,21 @@ public class OtherGoodsController extends SimpController {
 	}
 	
 	/**
+     * 获取：其它商品信息库存JSON数据
+     * @param otherGoods
+     * @return
+     */
+    @RequestMapping("getOtherGoodsInventoryJSON")
+    @ResponseBody
+	public String getOtherGoodsInventoryJSON(TOtherGoods otherGoods){
+	    List<TOtherGoods> list = getService().getOtherGoodsService().getInventory(otherGoods);
+        Map<Object, Object> map = new HashMap<Object, Object>();
+        map.put("Rows", list);
+        map.put("Total", list.size());
+        return JSONObject.fromObject(map).toString();
+	}
+	
+	/**
 	 * 获取：其它商品信息价格记录JSON数据
 	 * @param otherGoods
 	 * @return
