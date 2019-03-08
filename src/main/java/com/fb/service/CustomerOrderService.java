@@ -5,6 +5,7 @@ import java.util.List;
 import com.fb.domain.po.TCustomerOrder;
 import com.fb.domain.po.TCustomerReceipts;
 import com.fb.domain.po.TCustomerReceivable;
+import com.fb.domain.po.TUser;
 
 /**
  * @author 作者：Liu bo
@@ -19,7 +20,7 @@ public interface CustomerOrderService {
      * @return
      * @author Liu bo
      */
-    public int addOrder(TCustomerOrder order);
+    public int addOrder(TCustomerOrder order,TUser user,String ip,String url);
     
     /**
      * 删除 客户商品单据信息

@@ -27,7 +27,7 @@ $(function(){
 		grid:{
 			columns: [
 	            { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
-	            { display: '名称', name: 'cname', width: 120,minWidth: 100 }
+	            { display: '名称', name: 'cname', width: 120,minWidth: 100, align:'left' }
 	        ],
 	        url:contextPath + "/bpr/supplier/getSupplierJSON",
 		    rownumbers:true,usePager:true,isSingleCheck:true,
@@ -83,22 +83,22 @@ function getGridOptions(checkbox){
 	var options = {
 			columns: [
 				{ display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
-				{ display: '品牌', name: 'cbrandname', width: 100,minWidth: 80 },
-				{ display: '型号', name: 'cname', width: 100,minWidth: 80 },
-				{ display: '运行内存(RAM)', name: 'cram', width: 100,minWidth: 80 },
-				{ display: '存储内存(ROM)', name: 'crom', width: 100,minWidth: 80 },
-				{ display: '进货价(元)', name: 'ncostprice', width: 100,minWidth: 80 },
-				{ display: '销售价(元)', name: 'nretailprice', width: 100,minWidth: 80 },
-				{ display: '处理器(CPU)', name: 'ccpu', width: 120,minWidth: 100 },
-				{ display: '屏幕', name: 'cscreen', width: 120,minWidth: 100 },
-				{ display: '摄像头', name: 'ccamera', width: 180,minWidth: 160 },
-				{ display: '电池', name: 'cbattery', width: 100,minWidth: 80 },
-				{ display: '网络模式', name: 'cnetwork', width: 100,minWidth: 80 },
-				{ display: '亮点描述', name: 'chighlightdesc', width: 160,minWidth: 140 },
-				{ display: '保修时间(天)', name: 'iwarrantyday', width: 100,minWidth: 80 },
-				{ display: '保修内容', name: 'cwarrantycontent', width: 100,minWidth: 80 },
-				{ display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120 },
-				{ display: '更新日期', name: 'dupdatedateStr', width: 140,minWidth: 120 }
+				{ display: '品牌', name: 'cbrandname', width: 100,minWidth: 80, align:'left' },
+				{ display: '型号', name: 'cname', width: 100,minWidth: 80, align:'left' },
+				{ display: '运行内存(RAM)', name: 'cram', width: 100,minWidth: 80, align:'left' },
+				{ display: '存储内存(ROM)', name: 'crom', width: 100,minWidth: 80, align:'left' },
+				{ display: '进货价(元)', name: 'ncostprice', width: 100,minWidth: 80, align:'left' },
+				{ display: '销售价(元)', name: 'nretailprice', width: 100,minWidth: 80, align:'left' },
+				{ display: '处理器(CPU)', name: 'ccpu', width: 120,minWidth: 100, align:'left' },
+				{ display: '屏幕', name: 'cscreen', width: 120,minWidth: 100, align:'left' },
+				{ display: '摄像头', name: 'ccamera', width: 180,minWidth: 160, align:'left' },
+				{ display: '电池', name: 'cbattery', width: 100,minWidth: 80, align:'left' },
+				{ display: '网络模式', name: 'cnetwork', width: 100,minWidth: 80, align:'left' },
+				{ display: '亮点描述', name: 'chighlightdesc', width: 160,minWidth: 140, align:'left' },
+				{ display: '保修时间(天)', name: 'iwarrantyday', width: 100,minWidth: 80, align:'left' },
+				{ display: '保修内容', name: 'cwarrantycontent', width: 100,minWidth: 80, align:'left' },
+				{ display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120, align:'left' },
+				{ display: '更新日期', name: 'dupdatedateStr', width: 140,minWidth: 120, align:'left' }
 	        ], 
 			switchPageSizeApplyComboBox: false,
 			url:contextPath + "/bpr/phoneModel/getPhoneModelJSON",
@@ -174,7 +174,7 @@ function loadColor(number,uphonemodelid){
         grid:{
 			columns: [
 	            { display:'主键', name : 'ucolorid', align: 'left', width:100, minWidth: 60,hide: true},
-	            { display: '名称', name: 'ccolorname', width: 120,minWidth: 100 }
+	            { display: '名称', name: 'ccolorname', width: 120,minWidth: 100, align:'left' }
 	        ],
 	        url:contextPath + "/bpr/phoneModel/getPhoneModelColorJSON?uphonemodelid="+uphonemodelid,
 		    rownumbers:true,usePager:true,isSingleCheck:true,

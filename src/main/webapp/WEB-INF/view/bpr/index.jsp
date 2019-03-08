@@ -150,15 +150,11 @@
 					</li>
 					<!-- 手机销售 -->
 					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerPhoneOrderSell','手机销售','${contextPath }/bpr/customer/list')">手机销售</a>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerPhoneOrderSell','手机销售','${contextPath }/bpr/customerPhoneOrder/phoneSell')">手机销售</a>
 					</li>
 					<!-- 已售手机 -->
 					<li>
 						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerPhoneOrder2','已售手机','${contextPath }/bpr/customer/list')">已售手机</a>
-					</li>
-					<!-- 已退手机 -->
-					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerPhoneOrder3','已退手机','${contextPath }/bpr/customer/list')">已退手机</a>
 					</li>
 				</ul>
 			</div>

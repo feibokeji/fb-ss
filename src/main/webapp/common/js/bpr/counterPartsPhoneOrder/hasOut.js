@@ -12,10 +12,10 @@ $(function(){
 		grid:{
 			columns:[
 			         { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
-			         { display: '商铺名称', name: 'cshopname', width: 120, minWidth: 100 },
-			         { display: '经营者', name: 'coperator', width: 120,minWidth: 100 },
-			         { display: '联系电话', name: 'ctelephone', width: 120,minWidth: 100 },
-			         { display: '经营状态', name: 'ibusinessstatusStr', width: 80,minWidth: 60 }
+			         { display: '商铺名称', name: 'cshopname', width: 120, minWidth: 100, align:'left' },
+			         { display: '经营者', name: 'coperator', width: 120,minWidth: 100, align:'left' },
+			         { display: '联系电话', name: 'ctelephone', width: 120,minWidth: 100, align:'left' },
+			         { display: '经营状态', name: 'ibusinessstatusStr', width: 80,minWidth: 60, align:'left' }
 			],url:contextPath+"/bpr/counterParts/getCounterPartsJSON",
 			rownumbers:true,usePager:false,isSingleCheck:true,
 		    onReload:false,dataAction:"local",checkbox:false,selectRowButtonOnly:true,enabledSort:false
@@ -28,7 +28,7 @@ $(function(){
 		grid:{
 			columns: [
 	            { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
-	            { display: '名称', name: 'cname', width: 120,minWidth: 100 }
+	            { display: '名称', name: 'cname', width: 120,minWidth: 100, align:'left' }
 	        ],
 	        url:contextPath + "/bpr/brand/getBrandJSON",
 		    rownumbers:true,usePager:false,isSingleCheck:true,
@@ -43,25 +43,25 @@ $(function(){
 		columns: [
 		          { display: 'uid', name: 'uid', width: 120, minWidth: 100 ,hide:true},
 		          { display: 'ucounterpartsid', name: 'ucounterpartsid', width: 120, minWidth: 100 ,hide:true},
-		          { display: '同行信息', name: 'ccounterpartsname', width: 80, minWidth: 60 },
+		          { display: '同行信息', name: 'ccounterpartsname', width: 80, minWidth: 60, align:'left' },
 		          { display: 'ubrandid', name: 'ubrandid', width: 120, minWidth: 100 ,hide:true},
-		          { display: '品牌信息', name: 'cbrandname', width: 80, minWidth: 60 },
+		          { display: '品牌信息', name: 'cbrandname', width: 80, minWidth: 60, align:'left' },
 		          { display: 'uphonemodelid', name: 'uphonemodelid', width: 120, minWidth: 100 ,hide:true},
-		          { display: '型号信息', name: 'cphonemodelname', width: 120, minWidth: 100 },
-		          { display: '手机串号(IMEI)', name: 'imei', width: 120, minWidth: 100 },
+		          { display: '型号信息', name: 'cphonemodelname', width: 120, minWidth: 100, align:'left' },
+		          { display: '手机串号(IMEI)', name: 'imei', width: 120, minWidth: 100, align:'left' },
 		          { display: 'ucolorid', name: 'ucolorid', width: 120, minWidth: 100 ,hide:true},
-		          { display: '颜色', name: 'ccolorname', width: 80, minWidth: 60 },
-		          { display: '同行价(元)', name: 'namount', width: 60, minWidth: 60 },
-		          { display: '类型', name: 'itypeStr', width: 60,minWidth: 60 },
-		          { display: '状态', name: 'istatusStr', width: 60,minWidth: 60 },
-		          { display: '运行内存(RAM)', name: 'cram', width: 120, minWidth: 100 },
-		          { display: '存储内存(ROM)', name: 'crom', width: 120, minWidth: 100 },
-		          { display: '处理器(CPU)', name: 'ccpu', width: 120, minWidth: 100 },
-		          { display: '摄像头', name: 'ccamera', width: 120, minWidth: 100 },
-		          { display: '屏幕', name: 'cscreen', width: 120, minWidth: 100 },
-		          { display: '电池', name: 'cbattery', width: 120, minWidth: 100 },
-		          { display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120 },
-		          { display: '更新日期', name: 'dupdatedateStr', width: 140,minWidth: 120 }
+		          { display: '颜色', name: 'ccolorname', width: 80, minWidth: 60, align:'left' },
+		          { display: '同行价(元)', name: 'namount', width: 60, minWidth: 60, align:'left' },
+		          { display: '类型', name: 'itypeStr', width: 60,minWidth: 60, align:'left' },
+		          { display: '状态', name: 'istatusStr', width: 60,minWidth: 60, align:'left' },
+		          { display: '运行内存(RAM)', name: 'cram', width: 120, minWidth: 100, align:'left' },
+		          { display: '存储内存(ROM)', name: 'crom', width: 120, minWidth: 100, align:'left' },
+		          { display: '处理器(CPU)', name: 'ccpu', width: 120, minWidth: 100, align:'left' },
+		          { display: '摄像头', name: 'ccamera', width: 120, minWidth: 100, align:'left' },
+		          { display: '屏幕', name: 'cscreen', width: 120, minWidth: 100, align:'left' },
+		          { display: '电池', name: 'cbattery', width: 120, minWidth: 100, align:'left' },
+		          { display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120, align:'left' },
+		          { display: '更新日期', name: 'dupdatedateStr', width: 140,minWidth: 120, align:'left' }
 		],
 		toolbar: { items: [
 		                { text: '调入', click: inOrder, icon: 'back'},
@@ -106,16 +106,16 @@ function showDetail(row, detailPanel,callback){
 	$(rpGrid).css('margin',10).ligerGrid({
 		columns:[
 		        	{ display:'主键', name : 'uid', align: 'left', width:60, minWidth: 60,hide: true},
-		        	{ display: '同行信息', name: 'ccounterpartsname', width: 100,minWidth: 80 },
-		            { display: '手机串号(IMEI)', name: 'imei', width: 100, minWidth: 80},
-		            { display: '操作员', name: 'cusername', width: 100,minWidth: 80 },
-			        { display: '类型', name: 'ctypeStr', width: 100,minWidth: 80 },
-			        { display: '原有金额', name: 'nactualamount', width: 100,minWidth: 80 },
-			        { display: '折扣', name: 'ndiscount', width: 100,minWidth: 80 },
-			        { display: '实际金额', name: 'namount', width: 100,minWidth: 80 },
-			        { display: '状态', name: 'istatusStr', width: 100,minWidth: 80 },
-			        { display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120 },
-			        { display: '更新日期', name: 'dupdatedateStr', width: 140,minWidth: 120 }
+		        	{ display: '同行信息', name: 'ccounterpartsname', width: 100,minWidth: 80, align:'left' },
+		            { display: '手机串号(IMEI)', name: 'imei', width: 100, minWidth: 80, align:'left'},
+		            { display: '操作员', name: 'cusername', width: 100,minWidth: 80, align:'left' },
+			        { display: '类型', name: 'ctypeStr', width: 100,minWidth: 80, align:'left' },
+			        { display: '原有金额', name: 'nactualamount', width: 100,minWidth: 80, align:'left' },
+			        { display: '折扣', name: 'ndiscount', width: 100,minWidth: 80, align:'left' },
+			        { display: '实际金额', name: 'namount', width: 100,minWidth: 80, align:'left' },
+			        { display: '状态', name: 'istatusStr', width: 100,minWidth: 80, align:'left' },
+			        { display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120, align:'left' },
+			        { display: '更新日期', name: 'dupdatedateStr', width: 140,minWidth: 120, align:'left' }
 		        ], 
 		url:rpUrl,
 		isScroll: false, showToggleColBtn: false, width: '90%',showTitle: false,

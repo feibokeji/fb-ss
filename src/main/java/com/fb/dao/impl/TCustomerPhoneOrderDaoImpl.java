@@ -39,16 +39,11 @@ public class TCustomerPhoneOrderDaoImpl extends SimpMapper<TCustomerPhoneOrder> 
     }
     
     public TCustomerPhoneOrder get(String uid) {
-        StringBuilder sql = new StringBuilder("select cpo.uid,cpo.ucustomerid,c.cname as ccustomername,cpo.imei,b.uid as ubrandid");
-        sql.append(",b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu");
-        sql.append(",pm.ccamera,pm.cscreen,pm.cbattery,color.cname as ccolorname,cpo.uuserid");
-        sql.append(",u.cname as cusername,cpo.udeptid,cpo.itype,cpo.namount,cpo.istatus,cpo.drecorddate,cpo.dupdatedate");
+        StringBuilder sql = new StringBuilder("select cpo.uid,cpo.ucustomerid,c.cname as ccustomername,cpo.uuserid");
+        sql.append(",u.cname as cusername,cpo.udeptid,cpo.cno,cpo.itype,cpo.istatus");
+        sql.append(",cpo.drecorddate,cpo.dupdatedate");
         sql.append(" from t_customer_phone_order as cpo");
-        sql.append(" left join t_customer as c on c.uid = cpo.uuserid");
-        sql.append(" left join t_supplier_phone_order as spo on spo.imei = cpo.imei");
-        sql.append(" left join t_phone_model as pm on pm.uid = spo.uphonemodelid");
-        sql.append(" left join t_brand as b on b.uid = pm.ubrandid");
-        sql.append(" left join t_color as color on color.uid = spo.ucolorid");
+        sql.append(" left join t_customer as c on c.uid = cpo.ucustomerid");
         sql.append(" left join t_user as u on u.uid = cpo.uuserid");
         sql.append(" where cpo.uid = :uid");
         return super.get(sql, new QMap("uid",uid), TCustomerPhoneOrder.class);
@@ -56,16 +51,11 @@ public class TCustomerPhoneOrderDaoImpl extends SimpMapper<TCustomerPhoneOrder> 
     
     public List<TCustomerPhoneOrder> get(TCustomerPhoneOrder order) {
         QMap map = new QMap();
-        StringBuilder sql = new StringBuilder("select cpo.uid,cpo.ucustomerid,c.cname as ccustomername,cpo.imei,b.uid as ubrandid");
-        sql.append(",b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu");
-        sql.append(",pm.ccamera,pm.cscreen,pm.cbattery,color.cname as ccolorname,cpo.uuserid");
-        sql.append(",u.cname as cusername,cpo.udeptid,cpo.itype,cpo.namount,cpo.istatus,cpo.drecorddate,cpo.dupdatedate");
+        StringBuilder sql = new StringBuilder("select cpo.uid,cpo.ucustomerid,c.cname as ccustomername,cpo.uuserid");
+        sql.append(",u.cname as cusername,cpo.udeptid,cpo.cno,cpo.itype,cpo.istatus");
+        sql.append(",cpo.drecorddate,cpo.dupdatedate");
         sql.append(" from t_customer_phone_order as cpo");
-        sql.append(" left join t_customer as c on c.uid = cpo.uuserid");
-        sql.append(" left join t_supplier_phone_order as spo on spo.imei = cpo.imei");
-        sql.append(" left join t_phone_model as pm on pm.uid = spo.uphonemodelid");
-        sql.append(" left join t_brand as b on b.uid = pm.ubrandid");
-        sql.append(" left join t_color as color on color.uid = spo.ucolorid");
+        sql.append(" left join t_customer as c on c.uid = cpo.ucustomerid");
         sql.append(" left join t_user as u on u.uid = cpo.uuserid");
         sql.append(" where 1 = 1");
         if(DataUtils.isUid(order.getUcustomerid())){
@@ -76,21 +66,13 @@ public class TCustomerPhoneOrderDaoImpl extends SimpMapper<TCustomerPhoneOrder> 
             sql.append(" and cpo.ccustomername like :ccustomername");
             map.put("ccustomername", "%" + order.getCcustomername() + "%");
         }
-        if(!DataUtils.isNullOrEmpty(order.getImei())){
-            sql.append(" and cpo.imei like :imei");
-            map.put("imei", "%" + order.getImei() + "%");
-        }
-        if(DataUtils.isUid(order.getUbrandid())){
-            sql.append(" and b.uid = :ubrandid");
-            map.put("ubrandid", order.getUbrandid());
-        }
-        if(!DataUtils.isNullOrEmpty(order.getCphonemodelname())){
-            sql.append(" and pm.cname like :cphonemodelname");
-            map.put("cphonemodelname", "%" + order.getCphonemodelname() + "%");
-        }
         if(DataUtils.isUid(order.getUdeptid())){
             sql.append(" and cpo.udeptid = :udeptid");
             map.put("udeptid", order.getUdeptid());
+        }
+        if(!DataUtils.isNullOrEmpty(order.getCno())){
+            sql.append(" and cpo.cno like :cno");
+            map.put("cno", "%" + order.getCno() + "%");
         }
         if(order.getItype() != null && order.getItype() != -1){
             sql.append(" and cpo.itype = :itype");

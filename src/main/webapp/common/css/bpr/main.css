@@ -73,3 +73,7 @@ a{text-decoration: none;}
 .search_table tr td{padding-left: 5px;}
 /*价格显示样式*/
 .price_display{font-size: 14px;font-weight: bold;color: red;}
+/*商品收银台样式*/
+.checkStandTable{width:99%;border: 1px solid #bbbbbb;border-collapse:collapse;margin: 0 auto;margin-top:5px;line-height: 30px;text-align: center;}
+.checkStandTable tr th{border-right:1px solid #bbbbbb;text-align: center;background: #ececec;font-weight: bold;word-break:keep-all;white-space:nowrap;}
+.checkStandTable tr td{border:1px solid #bbbbbb;word-break:keep-all;white-space:nowrap;}

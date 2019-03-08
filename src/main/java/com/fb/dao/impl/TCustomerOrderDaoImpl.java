@@ -77,13 +77,13 @@ public class TCustomerOrderDaoImpl extends SimpMapper<TCustomerOrder> implements
             sql.append(" and co.istatus = :istatus");
             map.put("istatus", order.getIstatus());
         }
-        if(!DataUtils.isNullOrEmpty(order.getDrecroddateStrMin())){
+        if(!DataUtils.isNullOrEmpty(order.getDrecorddateStrMin())){
             sql.append(" and co.drecorddate >= :drecorddateStrMin");
-            map.put("drecorddateStrMin", order.getDrecroddateStrMin() + " 00:00:00");
+            map.put("drecorddateStrMin", order.getDrecorddateStrMin() + " 00:00:00");
         }
-        if(!DataUtils.isNullOrEmpty(order.getDrecroddateStrMax())){
+        if(!DataUtils.isNullOrEmpty(order.getDrecorddateStrMax())){
             sql.append(" and co.drecorddate <= :drecorddateStrMax");
-            map.put("drecorddateStrMax", order.getDrecroddateStrMax() + " 23:59:59");
+            map.put("drecorddateStrMax", order.getDrecorddateStrMax() + " 23:59:59");
         }
         sql.append(" order by co.drecorddate desc");
         return super.findList(sql, map);

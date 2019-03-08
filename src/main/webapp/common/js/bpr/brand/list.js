@@ -11,9 +11,9 @@ $(function(){
 		height:'100%',
         columns: [
             { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
-            { display: '品牌名称', name: 'cname', width: 120, minWidth: 100 },
-            { display: '官方网站', name: 'curl', align:'left', width: 300,minWidth: 280 },
-            { display: '描述', name: 'cdesc', align:'left', width: 300,minWidth: 280 }
+            { display: '品牌名称', name: 'cname', width: 120, minWidth: 100, align:'left' },
+            { display: '官方网站', name: 'curl', align:'left', width: 300,minWidth: 280, align:'left' },
+            { display: '描述', name: 'cdesc', align:'left', width: 300,minWidth: 280, align:'left' }
             ],
         toolbar: { items: [
 	            { text: '增加', click: addBrand, icon: 'add' },

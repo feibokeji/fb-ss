@@ -8,7 +8,7 @@ $(function(){
 		grid:{
 			columns: [
 	            { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
-	            { display: '名称', name: 'cname', width: 120,minWidth: 100 }
+	            { display: '名称', name: 'cname', width: 120,minWidth: 100, align:'left' }
 	        ],
 	        url:contextPath + "/bpr/supplier/getSupplierJSON",
 		    rownumbers:true,usePager:false,isSingleCheck:true,
@@ -25,7 +25,7 @@ $(function(){
 		grid:{
 			columns: [
 	            { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
-	            { display: '名称', name: 'cname', width: 120,minWidth: 100 }
+	            { display: '名称', name: 'cname', width: 120,minWidth: 100, align:'left' }
 	        ],
 	        url:contextPath + "/bpr/brand/getBrandJSON",
 		    rownumbers:true,usePager:false,isSingleCheck:true,
@@ -39,23 +39,23 @@ $(function(){
 	listTable = window['maingrid'] = $("#maingrid").ligerGrid({
 		height:'100%',
         columns: [
-            { display: '供应商', name: 'csuppliername', width: 120, minWidth: 100 },
-            { display: '品牌', name: 'cbrandname', width: 80, minWidth: 60 },
-            { display: '型号', name: 'cphonemodelname', width: 120, minWidth: 100 },
-            { display: '手机串号(IMEI)', name: 'imei', width: 120, minWidth: 100 },
-            { display: '颜色', name: 'ccolorname', width: 80, minWidth: 60 },
-            { display: '进货价(元)', name: 'ncostprice', width: 60, minWidth: 60 },
-            { display: '销售价(元)', name: 'nretailprice', width: 60, minWidth: 60 },
-            { display: '类型', name: 'itypeStr', width: 60,minWidth: 60 },
-            { display: '状态', name: 'istatusStr', width: 60,minWidth: 60 },
-            { display: '运行内存(RAM)', name: 'cram', width: 120, minWidth: 100 },
-            { display: '存储内存(ROM)', name: 'crom', width: 120, minWidth: 100 },
-            { display: '处理器(CPU)', name: 'ccpu', width: 120, minWidth: 100 },
-            { display: '摄像头', name: 'ccamera', width: 120, minWidth: 100 },
-            { display: '屏幕', name: 'cscreen', width: 120, minWidth: 100 },
-            { display: '电池', name: 'cbattery', width: 120, minWidth: 100 },
-            { display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120 },
-            { display: '更新日期', name: 'dupdatedateStr', width: 140,minWidth: 120 }
+            { display: '供应商', name: 'csuppliername', width: 120, minWidth: 100, align:'left' },
+            { display: '品牌', name: 'cbrandname', width: 80, minWidth: 60, align:'left' },
+            { display: '型号', name: 'cphonemodelname', width: 120, minWidth: 100, align:'left' },
+            { display: '手机串号(IMEI)', name: 'imei', width: 120, minWidth: 100, align:'left' },
+            { display: '颜色', name: 'ccolorname', width: 80, minWidth: 60, align:'left' },
+            { display: '进货价(元)', name: 'ncostprice', width: 60, minWidth: 60, align:'left' },
+            { display: '销售价(元)', name: 'nretailprice', width: 60, minWidth: 60, align:'left' },
+            { display: '类型', name: 'itypeStr', width: 60,minWidth: 60, align:'left' },
+            { display: '状态', name: 'istatusStr', width: 60,minWidth: 60, align:'left' },
+            { display: '运行内存(RAM)', name: 'cram', width: 120, minWidth: 100, align:'left' },
+            { display: '存储内存(ROM)', name: 'crom', width: 120, minWidth: 100, align:'left' },
+            { display: '处理器(CPU)', name: 'ccpu', width: 120, minWidth: 100, align:'left' },
+            { display: '摄像头', name: 'ccamera', width: 120, minWidth: 100, align:'left' },
+            { display: '屏幕', name: 'cscreen', width: 120, minWidth: 100, align:'left' },
+            { display: '电池', name: 'cbattery', width: 120, minWidth: 100, align:'left' },
+            { display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120, align:'left' },
+            { display: '更新日期', name: 'dupdatedateStr', width: 140,minWidth: 120, align:'left' }
             ],
         toolbar: { items: [
                 { text: '调出', click: outOrder, icon: 'up'},

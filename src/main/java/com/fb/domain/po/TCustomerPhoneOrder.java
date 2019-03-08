@@ -1,6 +1,7 @@
 package com.fb.domain.po;
 
 import java.util.Date;
+import java.util.List;
 
 import com.fb.core.base.domain.BaseDomain;
 import com.fb.core.base.persistence.NotFieldMapper;
@@ -40,71 +41,6 @@ public class TCustomerPhoneOrder extends BaseDomain {
     private String ccustomername;
     
     /**
-     * 手机串号
-     */
-    private String imei;
-    
-    /**
-     * 品牌表外键
-     */
-    @NotFieldMapper
-    private String ubrandid;
-    
-    /**
-     * 品牌名称
-     */
-    @NotFieldMapper
-    private String cbrandname;
-    
-    /**
-     * 手机型号名称
-     */
-    @NotFieldMapper
-    private String cphonemodelname;
-    
-    /**
-     * 运行内存
-     */
-    @NotFieldMapper
-    private String cram;
-    
-    /**
-     * 存储空间
-     */
-    @NotFieldMapper
-    private String crom;
-    
-    /**
-     * 处理器
-     */
-    @NotFieldMapper
-    private String ccpu;
-    
-    /**
-     * 摄像头
-     */
-    @NotFieldMapper
-    private String ccamera;
-    
-    /**
-     * 屏幕
-     */
-    @NotFieldMapper
-    private String cscreen;
-    
-    /**
-     * 电池
-     */
-    @NotFieldMapper
-    private String cbattery;
-    
-    /**
-     * 颜色名称
-     */
-    @NotFieldMapper
-    private String ccolorname;
-    
-    /**
      * 用户表外键
      */
     private String uuserid;
@@ -121,6 +57,11 @@ public class TCustomerPhoneOrder extends BaseDomain {
     private String udeptid;
     
     /**
+     * 单据编号
+     */
+    private String cno;
+    
+    /**
      * 类型
      * {@value 0 = 销售}
      * {@value 1 = 退货}
@@ -134,11 +75,6 @@ public class TCustomerPhoneOrder extends BaseDomain {
      */
     @NotFieldMapper
     private String itypeStr;
-    
-    /**
-     * 金额
-     */
-    private Double namount;
     
     /**
      * 状态
@@ -188,6 +124,24 @@ public class TCustomerPhoneOrder extends BaseDomain {
      */
     @NotFieldMapper
     private String dupdatedateStr;
+    
+    /**
+     * 手机单据明细集合
+     */
+    @NotFieldMapper
+    private List<TCustomerPhoneOrderDetail> orderDetailList;
+    
+    /**
+     * 手机单据应收应付
+     */
+    @NotFieldMapper
+    private TCustomerPhoneOrderReceivable orderReceivable;
+    
+    /**
+     * 手机单据实收实付
+     */
+    @NotFieldMapper
+    private TCustomerPhoneOrderReceipts orderReceipts;
 
     
     /**
@@ -246,186 +200,6 @@ public class TCustomerPhoneOrder extends BaseDomain {
      */
     public void setCcustomername(String ccustomername) {
         this.ccustomername = ccustomername;
-    }
-    
-
-    
-    /**
-     * 获取 品牌名称
-     * @return cbrandname
-     */
-    public String getCbrandname() {
-        return cbrandname;
-    }
-    
-
-    
-    /**
-     * 设置 品牌名称
-     * @param cbrandname 品牌名称
-     */
-    public void setCbrandname(String cbrandname) {
-        this.cbrandname = cbrandname;
-    }
-    
-
-    
-    /**
-     * 获取 手机型号名称
-     * @return cphonemodelname
-     */
-    public String getCphonemodelname() {
-        return cphonemodelname;
-    }
-    
-
-    
-    /**
-     * 设置 手机型号名称
-     * @param cphonemodelname 手机型号名称
-     */
-    public void setCphonemodelname(String cphonemodelname) {
-        this.cphonemodelname = cphonemodelname;
-    }
-    
-
-    
-    /**
-     * 获取 运行内存
-     * @return cram
-     */
-    public String getCram() {
-        return cram;
-    }
-    
-
-    
-    /**
-     * 设置 运行内存
-     * @param cram 运行内存
-     */
-    public void setCram(String cram) {
-        this.cram = cram;
-    }
-    
-
-    
-    /**
-     * 获取 存储空间
-     * @return crom
-     */
-    public String getCrom() {
-        return crom;
-    }
-    
-
-    
-    /**
-     * 设置 存储空间
-     * @param crom 存储空间
-     */
-    public void setCrom(String crom) {
-        this.crom = crom;
-    }
-    
-
-    
-    /**
-     * 获取 处理器
-     * @return ccpu
-     */
-    public String getCcpu() {
-        return ccpu;
-    }
-    
-
-    
-    /**
-     * 设置 处理器
-     * @param ccpu 处理器
-     */
-    public void setCcpu(String ccpu) {
-        this.ccpu = ccpu;
-    }
-    
-
-    
-    /**
-     * 获取 摄像头
-     * @return ccamera
-     */
-    public String getCcamera() {
-        return ccamera;
-    }
-    
-
-    
-    /**
-     * 设置 摄像头
-     * @param ccamera 摄像头
-     */
-    public void setCcamera(String ccamera) {
-        this.ccamera = ccamera;
-    }
-    
-
-    
-    /**
-     * 获取 屏幕
-     * @return cscreen
-     */
-    public String getCscreen() {
-        return cscreen;
-    }
-    
-
-    
-    /**
-     * 设置 屏幕
-     * @param cscreen 屏幕
-     */
-    public void setCscreen(String cscreen) {
-        this.cscreen = cscreen;
-    }
-    
-
-    
-    /**
-     * 获取 电池
-     * @return cbattery
-     */
-    public String getCbattery() {
-        return cbattery;
-    }
-    
-
-    
-    /**
-     * 设置 电池
-     * @param cbattery 电池
-     */
-    public void setCbattery(String cbattery) {
-        this.cbattery = cbattery;
-    }
-    
-
-    
-    /**
-     * 获取 颜色名称
-     * @return ccolorname
-     */
-    public String getCcolorname() {
-        return ccolorname;
-    }
-    
-
-    
-    /**
-     * 设置 颜色名称
-     * @param ccolorname 颜色名称
-     */
-    public void setCcolorname(String ccolorname) {
-        this.ccolorname = ccolorname;
     }
     
 
@@ -723,14 +497,13 @@ public class TCustomerPhoneOrder extends BaseDomain {
     }
 
 
-
     
     /**
-     * 获取 手机串号
-     * @return imei
+     * 获取 单据编号
+     * @return cno
      */
-    public String getImei() {
-        return imei;
+    public String getCno() {
+        return cno;
     }
     
 
@@ -738,45 +511,22 @@ public class TCustomerPhoneOrder extends BaseDomain {
 
     
     /**
-     * 设置 手机串号
-     * @param imei 手机串号
+     * 设置 单据编号
+     * @param cno 单据编号
      */
-    public void setImei(String imei) {
-        this.imei = imei;
+    public void setCno(String cno) {
+        this.cno = cno;
     }
 
 
 
     
     /**
-     * 获取 品牌表外键
-     * @return ubrandid
+     * 获取 手机单据明细集合
+     * @return orderDetailList
      */
-    public String getUbrandid() {
-        return ubrandid;
-    }
-    
-
-
-
-    
-    /**
-     * 设置 品牌表外键
-     * @param ubrandid 品牌表外键
-     */
-    public void setUbrandid(String ubrandid) {
-        this.ubrandid = ubrandid;
-    }
-
-
-
-    
-    /**
-     * 获取 金额
-     * @return namount
-     */
-    public Double getNamount() {
-        return namount;
+    public List<TCustomerPhoneOrderDetail> getOrderDetailList() {
+        return orderDetailList;
     }
     
 
@@ -784,12 +534,62 @@ public class TCustomerPhoneOrder extends BaseDomain {
 
     
     /**
-     * 设置 金额
-     * @param namount 金额
+     * 设置 手机单据明细集合
+     * @param orderDetailList 手机单据明细集合
      */
-    public void setNamount(Double namount) {
-        this.namount = namount;
+    public void setOrderDetailList(List<TCustomerPhoneOrderDetail> orderDetailList) {
+        this.orderDetailList = orderDetailList;
     }
+    
+
+
+
+    
+    /**
+     * 获取 手机单据应收应付
+     * @return orderReceivable
+     */
+    public TCustomerPhoneOrderReceivable getOrderReceivable() {
+        return orderReceivable;
+    }
+    
+
+
+
+    
+    /**
+     * 设置 手机单据应收应付
+     * @param orderReceivable 手机单据应收应付
+     */
+    public void setOrderReceivable(TCustomerPhoneOrderReceivable orderReceivable) {
+        this.orderReceivable = orderReceivable;
+    }
+    
+
+
+
+    
+    /**
+     * 获取 手机单据实收实付
+     * @return orderReceipts
+     */
+    public TCustomerPhoneOrderReceipts getOrderReceipts() {
+        return orderReceipts;
+    }
+    
+
+
+
+    
+    /**
+     * 设置 手机单据实收实付
+     * @param orderReceipts 手机单据实收实付
+     */
+    public void setOrderReceipts(TCustomerPhoneOrderReceipts orderReceipts) {
+        this.orderReceipts = orderReceipts;
+    }
+    
+    
     
     
     

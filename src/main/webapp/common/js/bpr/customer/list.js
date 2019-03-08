@@ -20,8 +20,8 @@ $(function(){
         columns: [
             { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
             { display: '编码', name: 'cno', align: 'left', width: 40, minWidth: 40 },
-            { display: '名称', name: 'cname', width: 120,minWidth: 100 },
-            { display: '账期(天数)', name: 'ipaymentdays', width: 80,minWidth: 60 }
+            { display: '名称', name: 'cname', width: 120,minWidth: 100, align:'left' },
+            { display: '账期(天数)', name: 'ipaymentdays', width: 80,minWidth: 60, align:'left' }
             ],
         toolbar: { items: [
 	            { text: '增加', click: addCustomerType, icon: 'add' },
@@ -58,17 +58,17 @@ $(function(){
             { display: '客户类型外键', name: 'ucustomertypeid', align: 'left', width: 40, minWidth: 40 ,hide: true},
             { display: '用户外键', name: 'uuserid', width: 120,minWidth: 100 ,hide: true},
             { display: '部门外键', name: 'udeptid', width: 120,minWidth: 100 ,hide: true},
-            { display: '客户类型', name: 'ccustomertypename', width: 120,minWidth: 100},
-            { display: '客户名称', name: 'cname', width: 120,minWidth: 100},
-            { display: '性别', name: 'isexStr', width: 120,minWidth: 100},
-            { display: '联系电话', name: 'ccontactnumber', width: 120,minWidth: 100},
-            { display: '地址', name: 'caddress', width: 120,minWidth: 100},
-            { display: '微信', name: 'cwechat', width: 120,minWidth: 100},
-            { display: '生日', name: 'dbirthdayStr', width: 120,minWidth: 100},
-            { display: '积分', name: 'iintegral', width: 120,minWidth: 100},
-            { display: '账期(天数)', name: 'ipaymentdays', width: 120,minWidth: 100},
-            { display: '记录日期', name: 'drecorddateStr', width: 120,minWidth: 100},
-            { display: '更新日期', name: 'dupdatedateStr', width: 120,minWidth: 100}
+            { display: '客户类型', name: 'ccustomertypename', width: 120,minWidth: 100, align:'left'},
+            { display: '客户名称', name: 'cname', width: 120,minWidth: 100, align:'left'},
+            { display: '性别', name: 'isexStr', width: 120,minWidth: 100, align:'left'},
+            { display: '联系电话', name: 'ccontactnumber', width: 120,minWidth: 100, align:'left'},
+            { display: '地址', name: 'caddress', width: 120,minWidth: 100, align:'left'},
+            { display: '微信', name: 'cwechat', width: 120,minWidth: 100, align:'left'},
+            { display: '生日', name: 'dbirthdayStr', width: 120,minWidth: 100, align:'left'},
+            { display: '积分', name: 'iintegral', width: 120,minWidth: 100, align:'left'},
+            { display: '账期(天数)', name: 'ipaymentdays', width: 120,minWidth: 100, align:'left'},
+            { display: '记录日期', name: 'drecorddateStr', width: 120,minWidth: 100, align:'left'},
+            { display: '更新日期', name: 'dupdatedateStr', width: 120,minWidth: 100, align:'left'}
             ],
 		toolbar:{
 			items:[

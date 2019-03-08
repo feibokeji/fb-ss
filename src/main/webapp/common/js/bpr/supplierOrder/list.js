@@ -20,12 +20,12 @@ $(function(){
             { display:'部门表外键', name : 'udeptid', align: 'left', width:100, minWidth: 60,hide: true},
             { display:'单据类型', name : 'itype', align: 'left', width:100, minWidth: 60,hide: true},
             { display:'单据状态', name : 'istatus', align: 'left', width:100, minWidth: 60,hide: true},
-            { display: '单据编号', name: 'cno', width: 140,minWidth: 120 },
-            { display: '供应商', name: 'csuppliername', width: 120, minWidth: 100 },
-            { display: '单据类型', name: 'itypeStr', width: 100,minWidth: 80 },
-            { display: '单据状态', name: 'istatusStr', width: 100,minWidth: 80 },
-            { display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120 },
-            { display: '更新日期', name: 'dupdatedateStr', width: 140,minWidth: 120 }
+            { display: '单据编号', name: 'cno', width: 140,minWidth: 120, align:'left' },
+            { display: '供应商', name: 'csuppliername', width: 120, minWidth: 100, align:'left' },
+            { display: '单据类型', name: 'itypeStr', width: 100,minWidth: 80, align:'left' },
+            { display: '单据状态', name: 'istatusStr', width: 100,minWidth: 80, align:'left' },
+            { display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120, align:'left' },
+            { display: '更新日期', name: 'dupdatedateStr', width: 140,minWidth: 120, align:'left' }
             ],
         toolbar: { items: [
                 { text: '查看', click: viewSupplierOrder, icon: 'view'},
@@ -62,7 +62,7 @@ $(function(){
 		grid:{
 			columns: [
 	            { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
-	            { display: '名称', name: 'cname', width: 120,minWidth: 100 }
+	            { display: '名称', name: 'cname', width: 120,minWidth: 100, align:'left' }
 	        ],
 	        url:contextPath + "/bpr/supplier/getSupplierJSON",
 		    rownumbers:true,usePager:false,isSingleCheck:true,
@@ -106,15 +106,15 @@ function showDetailAndAP(row, detailPanel,callback){
 	$(detailGrid).css('margin',10).ligerGrid({
 		columns:[
 		        	{ display:'主键', name : 'uid', align: 'left', width:60, minWidth: 60,hide: true},
-		        	{ display: '商品类别', name: 'ccategoryname', width: 100,minWidth: 80 },
-		            { display: '商品编号', name: 'cno', width: 100, minWidth: 80},
-		            { display: '商品条形码', name: 'cbarcode', width: 100, minWidth: 80},
-		            { display: '品牌', name: 'cbrandname', width: 100,minWidth: 80 },
-		            { display: '商品名称', name: 'cname', width: 100,minWidth: 80 },
-		            { display: '单位', name: 'cunitname', width: 100,minWidth: 80 },
-		            { display: '数量', name: 'nquantity', width: 100,minWidth: 80 },
-		            { display: '价格', name: 'nprice', width: 100,minWidth: 80 },
-		            { display: '金额', name: 'namount', width: 100,minWidth: 80 }
+		        	{ display: '商品类别', name: 'ccategoryname', width: 100,minWidth: 80, align:'left' },
+		            { display: '商品编号', name: 'cno', width: 100, minWidth: 80, align:'left'},
+		            { display: '商品条形码', name: 'cbarcode', width: 100, minWidth: 80, align:'left'},
+		            { display: '品牌', name: 'cbrandname', width: 100,minWidth: 80, align:'left' },
+		            { display: '商品名称', name: 'cname', width: 100,minWidth: 80, align:'left' },
+		            { display: '单位', name: 'cunitname', width: 100,minWidth: 80, align:'left' },
+		            { display: '数量', name: 'nquantity', width: 100,minWidth: 80, align:'left' },
+		            { display: '价格', name: 'nprice', width: 100,minWidth: 80, align:'left' },
+		            { display: '金额', name: 'namount', width: 100,minWidth: 80, align:'left' }
 		        ], 
 		url:contextPath + "/bpr/supplierOrder/getSupplierOrderDetailJSON?uorderid=" + row.uid,
 		isScroll: false, showToggleColBtn: false, width: '90%',showTitle: false,
@@ -127,16 +127,16 @@ function showDetailAndAP(row, detailPanel,callback){
 	$(apGrid).css('margin',10).ligerGrid({
 		columns:[
 		         { display:'主键', name : 'uid', align: 'left', width:60, minWidth: 60,hide: true},
-		         { display: '供应商', name: 'csuppliername', width: 120,minWidth: 100 },
-		         { display: '单据编号', name: 'corderno', width: 140,minWidth: 120 },
-		         { display: '操作员', name: 'cusername', width: 100,minWidth: 80 },
-		         { display: '类型', name: 'ctypeStr', width: 100,minWidth: 80 },
-		         { display: '原有金额', name: 'nactualamount', width: 100,minWidth: 80 },
-		         { display: '折扣', name: 'ndiscount', width: 100,minWidth: 80 },
-		         { display: '实际金额', name: 'namount', width: 100,minWidth: 80 },
-		         { display: '状态', name: 'istatusStr', width: 100,minWidth: 80 },
-		         { display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120 },
-		         { display: '更新日期', name: 'dupdatedateStr', width: 140,minWidth: 120 },
+		         { display: '供应商', name: 'csuppliername', width: 120,minWidth: 100, align:'left' },
+		         { display: '单据编号', name: 'corderno', width: 140,minWidth: 120, align:'left' },
+		         { display: '操作员', name: 'cusername', width: 100,minWidth: 80, align:'left' },
+		         { display: '类型', name: 'ctypeStr', width: 100,minWidth: 80, align:'left' },
+		         { display: '原有金额', name: 'nactualamount', width: 100,minWidth: 80, align:'left' },
+		         { display: '折扣', name: 'ndiscount', width: 100,minWidth: 80, align:'left' },
+		         { display: '实际金额', name: 'namount', width: 100,minWidth: 80, align:'left' },
+		         { display: '状态', name: 'istatusStr', width: 100,minWidth: 80, align:'left' },
+		         { display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120, align:'left' },
+		         { display: '更新日期', name: 'dupdatedateStr', width: 140,minWidth: 120, align:'left' },
 		         ],
 		url:contextPath + "/bpr/supplierOrder/getSupplierReceivableJSON?uorderid=" + row.uid,
 		isScroll: false, showToggleColBtn: false, width: '90%',showTitle: false,

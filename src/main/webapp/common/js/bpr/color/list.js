@@ -7,7 +7,7 @@ $(function(){
 		height:'100%',
         columns: [
             { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
-            { display: '颜色', name: 'cname', width: 120, minWidth: 100 }
+            { display: '颜色', name: 'cname', width: 120, minWidth: 100, align:'left' }
             ],
         toolbar: { items: [
 	            { text: '增加', click: addColor, icon: 'add' },

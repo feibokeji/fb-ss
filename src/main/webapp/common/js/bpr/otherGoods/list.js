@@ -15,22 +15,22 @@ $(function(){
 		height:'100%',
         columns: [
             { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
-            { display: '类别', name: 'ccategoryname', width: 100, minWidth: 80 },
-            { display: '品牌', name: 'cbrandname', width: 100,minWidth: 80 },
-            { display: '编号', name: 'cno', width: 120,minWidth: 100 },
-            { display: '条形码', name: 'cbarcode', width: 120,minWidth: 100 },
-            { display: '名称', name: 'cname', width: 120,minWidth: 100 },
-            { display: '全称', name: 'cfullname', width: 160,minWidth: 140 },
-            { display: '助记码', name: 'cmnemoniccode', width: 100,minWidth: 80 },
-            { display: '规格', name: 'cspecifications', width: 180,minWidth: 160 },
-            { display: '单位', name: 'cunitname', width: 100,minWidth: 80 },
-            { display: '进货价(元)', name: 'ncostprice', width: 100,minWidth: 80 },
-            { display: '销售价(元)', name: 'nretailprice', width: 100,minWidth: 80 },
-            { display: '保修时间(天)', name: 'iwarrantyday', width: 100,minWidth: 80 },
-            { display: '保修内容', name: 'cwarrantycontent', width: 100,minWidth: 80 },
-            { display: '积分', name: 'iintegral', width: 80,minWidth: 60 },
-            { display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120 },
-            { display: '更新日期', name: 'dupdatedateStr', width: 140,minWidth: 120 }
+            { display: '类别', name: 'ccategoryname', width: 100, minWidth: 80, align:'left' },
+            { display: '品牌', name: 'cbrandname', width: 100,minWidth: 80, align:'left' },
+            { display: '编号', name: 'cno', width: 120,minWidth: 100, align:'left' },
+            { display: '条形码', name: 'cbarcode', width: 120,minWidth: 100, align:'left' },
+            { display: '名称', name: 'cname', width: 120,minWidth: 100, align:'left' },
+            { display: '全称', name: 'cfullname', width: 160,minWidth: 140, align:'left' },
+            { display: '助记码', name: 'cmnemoniccode', width: 100,minWidth: 80, align:'left' },
+            { display: '规格', name: 'cspecifications', width: 180,minWidth: 160, align:'left' },
+            { display: '单位', name: 'cunitname', width: 100,minWidth: 80, align:'left' },
+            { display: '进货价(元)', name: 'ncostprice', width: 100,minWidth: 80, align:'left' },
+            { display: '销售价(元)', name: 'nretailprice', width: 100,minWidth: 80, align:'left' },
+            { display: '保修时间(天)', name: 'iwarrantyday', width: 100,minWidth: 80, align:'left' },
+            { display: '保修内容', name: 'cwarrantycontent', width: 100,minWidth: 80, align:'left' },
+            { display: '积分', name: 'iintegral', width: 80,minWidth: 60, align:'left' },
+            { display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120, align:'left' },
+            { display: '更新日期', name: 'dupdatedateStr', width: 140,minWidth: 120, align:'left' }
             ],
         toolbar: { items: [
 	            { text: '增加', click: addOtherGoods, icon: 'add' },
@@ -63,7 +63,7 @@ $(function(){
 		grid:{
 			columns: [
 	            { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
-	            { display: '名称', name: 'cname', width: 120,minWidth: 100 }
+	            { display: '名称', name: 'cname', width: 120,minWidth: 100, align:'left' }
 	        ],
 	        url:contextPath + "/bpr/lovelysnow/listCategory",
 		    rownumbers:true,usePager:false,isSingleCheck:true,
@@ -80,7 +80,7 @@ $(function(){
 		grid:{
 			columns: [
 	            { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
-	            { display: '名称', name: 'cname', width: 120,minWidth: 100 }
+	            { display: '名称', name: 'cname', width: 120,minWidth: 100, align:'left' }
 	        ],
 	        url:contextPath + "/bpr/brand/getBrandJSON",
 		    rownumbers:true,usePager:false,isSingleCheck:true,
@@ -99,10 +99,10 @@ function f_showPriceRecord(row, detailPanel,callback){
 	$(grid).css('margin',10).ligerGrid({
         columns:[
         	{ display:'主键', name : 'uid', align: 'left', width:60, minWidth: 60,hide: true},
-            { display: '进货价', name: 'ncostprice', width: 100, minWidth: 80 },
-            { display: '零售价', name: 'nretailprice', width: 100, minWidth: 80 },
-            { display: '状态', name: 'istatusStr', width: 100,minWidth: 80 },
-            { display: '用户', name: 'cusername', width: 100,minWidth: 80 },
+            { display: '进货价', name: 'ncostprice', width: 100, minWidth: 80, align:'left' },
+            { display: '零售价', name: 'nretailprice', width: 100, minWidth: 80, align:'left' },
+            { display: '状态', name: 'istatusStr', width: 100,minWidth: 80, align:'left' },
+            { display: '用户', name: 'cusername', width: 100,minWidth: 80, align:'left' },
             { display: '记录日期', name: 'drecorddateStr', align: 'left',width: 120,minWidth: 100 }
         ], 
         url:contextPath + "/bpr/otherGoods/getOtherGoodsPriceRecordJSON?uothergoodsid=" + row.uid,

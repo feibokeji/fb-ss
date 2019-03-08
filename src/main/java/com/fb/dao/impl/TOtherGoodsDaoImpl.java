@@ -40,20 +40,41 @@ public class TOtherGoodsDaoImpl extends SimpMapper<TOtherGoods> implements TOthe
 	}
 
 	public TOtherGoods get(String uid) {
-		StringBuilder sql = new StringBuilder("select og.uid,og.ucategoryid,c.cname as ccategoryname");
-		sql.append(",og.ubrandid,b.cname as cbrandname,og.uunitid,u.cname as cunitname");
-		sql.append(",og.uwarrantyid,w.iday as iwarrantyday,w.ccontent as cwarrantycontent");
-		sql.append(",og.uuserid,og.udeptid,og.cno,og.cbarcode,og.cname,og.cfullname,og.cmnemoniccode");
-		sql.append(",og.cspecifications,og.iintegral,og.drecorddate,og.dupdatedate");
-		sql.append(",(select top 1 ogpr.ncostprice from t_other_goods_price_record as ogpr where ogpr.uothergoodsid = og.uid and ogpr.istatus = 0) as ncostprice");
-		sql.append(",(select top 1 ogpr.nretailprice from t_other_goods_price_record as ogpr where ogpr.uothergoodsid = og.uid and ogpr.istatus = 0) as nretailprice");
-		sql.append(",(select top 1 ogpr.drecorddate from t_other_goods_price_record as ogpr where ogpr.uothergoodsid = og.uid and ogpr.istatus = 0) as priceRecordDate");
-		sql.append(" from t_other_goods as og");
-		sql.append(" left join t_category as c on c.uid = og.ucategoryid");
-		sql.append(" left join t_brand as b on b.uid = og.ubrandid");
-		sql.append(" left join t_unit as u on u.uid = og.uunitid");
-		sql.append(" left join t_warranty as w on w.uid = og.uwarrantyid");
-		sql.append(" where og.uid = :uid");
+	    StringBuilder sql = new StringBuilder("select og.uid,og.ucategoryid,c.cname as ccategoryname");
+        sql.append(",og.ubrandid,b.cname as cbrandname,og.uunitid,u.cname as cunitname");
+        sql.append(",og.uwarrantyid,w.iday as iwarrantyday,w.ccontent as cwarrantycontent");
+        sql.append(",og.uuserid,og.udeptid,og.cno,og.cbarcode,og.cname,og.cfullname,og.cmnemoniccode");
+        sql.append(",og.cspecifications,og.iintegral,og.drecorddate,og.dupdatedate");
+        sql.append(",(select top 1 ogpr.ncostprice from t_other_goods_price_record as ogpr where ogpr.uothergoodsid = og.uid and ogpr.istatus = 0) as ncostprice");
+        sql.append(",(select top 1 ogpr.nretailprice from t_other_goods_price_record as ogpr where ogpr.uothergoodsid = og.uid and ogpr.istatus = 0) as nretailprice");
+        sql.append(",(select top 1 ogpr.drecorddate from t_other_goods_price_record as ogpr where ogpr.uothergoodsid = og.uid and ogpr.istatus = 0) as priceRecordDate");
+        sql.append(",(select ISNULL(SUM(sod.nquantity),0) from t_supplier_order_detail as sod left join t_supplier_order as so");
+        sql.append(" on so.uid = sod.uorderid where so.itype = 0 and so.istatus = 0 and sod.uothergoodsid = og.uid) as inQuantity,");
+        sql.append("(select ISNULL(SUM(sod.nquantity),0) from t_supplier_order_detail as sod left join t_supplier_order as so");
+        sql.append(" on so.uid = sod.uorderid where so.itype = 1 and so.istatus = 0 and sod.uothergoodsid = og.uid) as backQuantity,");
+        sql.append("(select ISNULL(SUM(sod.nquantity),0) from t_supplier_order_detail as sod left join t_supplier_order as so");
+        sql.append(" on so.uid = sod.uorderid where so.itype = 2 and so.istatus = 0 and sod.uothergoodsid = og.uid) as lossQuantity,");
+        sql.append("(select ISNULL(SUM(cod.nquantity),0) from t_customer_order_detail as cod left join t_customer_order as co");
+        sql.append(" on co.uid = cod.uorderid where co.itype = 0 and co.istatus = 1 and cod.uothergoodsid = og.uid) as sellQuantity,");
+        sql.append("(select ISNULL(SUM(cod.nquantity),0) from t_customer_order_detail as cod left join t_customer_order as co");
+        sql.append(" on co.uid = cod.uorderid where co.itype = 1 and co.istatus = 1 and cod.uothergoodsid = og.uid) as returnQuantity,");
+        sql.append("((select ISNULL(SUM(sod.nquantity),0) from t_supplier_order_detail as sod left join t_supplier_order as so");
+        sql.append(" on so.uid = sod.uorderid where so.itype = 0 and so.istatus = 0 and sod.uothergoodsid = og.uid) -");
+        sql.append("(select ISNULL(SUM(sod.nquantity),0) from t_supplier_order_detail as sod left join t_supplier_order as so");
+        sql.append(" on so.uid = sod.uorderid where so.itype = 1 and so.istatus = 0 and sod.uothergoodsid = og.uid) -");
+        sql.append("(select ISNULL(SUM(sod.nquantity),0) from t_supplier_order_detail as sod left join t_supplier_order as so");
+        sql.append(" on so.uid = sod.uorderid where so.itype = 2 and so.istatus = 0 and sod.uothergoodsid = og.uid) -");
+        sql.append("(select ISNULL(SUM(cod.nquantity),0) from t_customer_order_detail as cod left join t_customer_order as co");
+        sql.append(" on co.uid = cod.uorderid where co.itype = 0 and co.istatus = 1 and cod.uothergoodsid = og.uid) +");
+        sql.append("(select ISNULL(SUM(cod.nquantity),0) from t_customer_order_detail as cod left join t_customer_order as co");
+        sql.append(" on co.uid = cod.uorderid where co.itype = 1 and co.istatus = 1 and cod.uothergoodsid = og.uid)");
+        sql.append(") as inventoryQuantity");
+        sql.append(" from t_other_goods as og");
+        sql.append(" left join t_category as c on c.uid = og.ucategoryid");
+        sql.append(" left join t_brand as b on b.uid = og.ubrandid");
+        sql.append(" left join t_unit as u on u.uid = og.uunitid");
+        sql.append(" left join t_warranty as w on w.uid = og.uwarrantyid");
+        sql.append(" where og.uid = :uid");
 		return super.get(sql, new QMap("uid",uid), TOtherGoods.class);
 	}
 

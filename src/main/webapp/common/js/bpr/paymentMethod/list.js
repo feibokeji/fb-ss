@@ -7,9 +7,9 @@ $(function(){
 		height:'100%',
         columns: [
             { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
-            { display: '付款方式', name: 'cname', width: 120, minWidth: 100 },
-            { display: '代码', name: 'ccode', width: 120, minWidth: 100 },
-            { display: '描述', name: 'cdesc', width: 120, minWidth: 100 }
+            { display: '付款方式', name: 'cname', width: 120, minWidth: 100, align:'left' },
+            { display: '代码', name: 'ccode', width: 120, minWidth: 100, align:'left' },
+            { display: '描述', name: 'cdesc', width: 120, minWidth: 100, align:'left' }
             ],
         toolbar: { items: [
 	            { text: '增加', click: addPaymentMethod, icon: 'add' },

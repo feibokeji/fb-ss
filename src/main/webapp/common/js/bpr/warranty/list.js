@@ -7,7 +7,7 @@ $(function(){
 		height:'100%',
         columns: [
             { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
-            { display: '保修天数', name: 'iday', width: 120, minWidth: 100 },
+            { display: '保修天数', name: 'iday', width: 120, minWidth: 100, align:'left' },
             { display: '保修内容', name: 'ccontent', align:'left', width: 300, minWidth: 280 }
             ],
         toolbar: { items: [

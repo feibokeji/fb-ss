@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>商品销售</title>
+<title>手机结账</title>
 <link type="text/css" href="${contextPath}/common/liger/skins/Aqua/css/ligerui-all.css" rel="stylesheet" />
 <link type="text/css" href="${contextPath}/common/liger/skins/ligerui-icons.css" rel="stylesheet" />
 <link type="text/css" href="${contextPath}/common/formValidator2.2.4/validationEngine.jquery.css" rel="stylesheet" />
@@ -15,38 +15,18 @@
 <script type="text/javascript" src="${contextPath}/common/js/base/html5.js"></script>
 <![endif]-->
 </head>
-<!-- /bpr/customerOrder/goodsSell.jsp -->
-<body>
-	<div id="goodsSellMainLayout">
-		<div id="goodsDiv" position="center" title="商品列表">
-			<div style="line-height: 24px;margin-left: 10px;margin-top: 5px;margin-bottom: 5px;">
-				<span>名称：</span><input type="text" class="l-text" id="searchGoodsNameInput"/>
-				<span>助记码：</span><input type="text" class="l-text" id="searchGoodsMnemoniccodeInput"/>
-				<span>条形码：</span><input type="text" class="l-text" id="searchGoodsBarcodeInput"/>
-				<input type="button" class="l-button" value="搜索" onclick="searchGoods()"/>
-				<input type="button" class="l-button" value="结账" onclick="settleAccounts()"/>
-			</div>
-			<div id="goodsMaingrid"></div>
-		</div>
-		<div id="customerDiv" position="right" title="客户信息">
-			<div>
-				<div style="line-height: 24px;margin-left: 10px;margin-top: 5px;margin-bottom: 5px;">
-					<span>客户名称：</span><input type="text" class="l-text" id="searchCustomerNameInput"/><br />
-					<span>联系电话：</span><input type="text" class="l-text" id="searchCustomerContactnumberInput"/>
-					<input type="button" class="l-button" value="搜索" onclick="searchCustomer()"/>
-				</div>
-				<div id="customerMaingrid"></div>
-			</div>
-		</div>
-	</div>
+<!-- /bpr/customerPhoneOrder/checkStand.jsp -->
+<body style="background-color:#EFF5FE;">
 	<!-- javascript文件引用 -->
 	<script type="text/javascript">var contextPath = '${contextPath}';</script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/jquery-1.8.3.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/liger/js/ligerui.all.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/jquery-ui-1.9.2.custom.js"></script>
+	<script type="text/javascript" src="${contextPath}/common/formValidator2.2.4/jquery.validationEngine-zh_CN.js"></script>
+	<script type="text/javascript" src="${contextPath}/common/formValidator2.2.4/jquery.validationEngine.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/jquery.form.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/common.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/js/bpr/base.js"></script>
-	<script type="text/javascript" src="${contextPath}/common/js/bpr/customerOrder/goodsSell.js"></script>
+	<script type="text/javascript" src="${contextPath}/common/js/bpr/customerPhoneOrder/checkStand.js"></script>
 </body>
 </html>

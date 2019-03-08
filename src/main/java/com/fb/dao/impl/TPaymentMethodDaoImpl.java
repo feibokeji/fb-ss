@@ -44,7 +44,7 @@ public class TPaymentMethodDaoImpl extends SimpMapper<TPaymentMethod> implements
 	}
 
 	public List<TPaymentMethod> getList() {
-		String sql = "select uid,cname,ccode,cdesc from t_payment_method order by cname";
+		String sql = "select uid,cname,ccode,cdesc from t_payment_method order by ccode";
 		return super.findList(sql, null);
 	}
 

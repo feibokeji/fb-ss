@@ -33,8 +33,8 @@ $(function(){
         columns: [
             { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
             { display: '编码', name: 'ccode', align: 'left', width: 200, minWidth: 120 },
-            { display: '用户', name: 'cusername', width: 120, minWidth: 60 },
-            { display: '名称', name: 'cname', width: 200,minWidth: 120 }
+            { display: '用户', name: 'cusername', width: 120, minWidth: 60, align:'left' },
+            { display: '名称', name: 'cname', width: 200,minWidth: 120, align:'left' }
             ],
         toolbar: { items: [
 	            { text: '增加', click: _addRole, icon: 'add' },
@@ -244,7 +244,7 @@ function f_showModuleGroup(row, detailPanel,callback){
                     [
                     { dispaly:'主键', name : 'uid', align: 'left', width:60, minWidth: 60,hide: true},
                     { display: '编码', name: 'ccode', align: 'left', width: 120, minWidth: 80 },
-                    { display: '名称', name: 'cname', width: 120,minWidth: 80 }
+                    { display: '名称', name: 'cname', width: 120,minWidth: 80, align:'left' }
                     ], 
                     toolbar: { items: [{ text: '保存',click:_saveModuleGroup, icon: 'save',id:row.uid }]},
                     url:contextPath + "/bpr/role/getRoleModuleGroupListJSON?uroleid=" + row.uid,

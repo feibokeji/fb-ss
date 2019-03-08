@@ -12,8 +12,8 @@ $(function(){
 			columns: [
 	            { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
 	            { display: '编码', name: 'cno', align: 'left', width: 40, minWidth: 40 },
-	            { display: '名称', name: 'cname', width: 120,minWidth: 100 },
-	            { display: '账期(天数)', name: 'ipaymentdays', width: 80,minWidth: 60 }
+	            { display: '名称', name: 'cname', width: 120,minWidth: 100, align:'left' },
+	            { display: '账期(天数)', name: 'ipaymentdays', width: 80,minWidth: 60, align:'left' }
 	        ],
 	        url:contextPath + "/bpr/customer/getCustomerTypeJSON",
 		    rownumbers:true,usePager:false,isSingleCheck:true,

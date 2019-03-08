@@ -8,7 +8,7 @@ $(function(){
 		grid:{
 			columns: [
 	            { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
-	            { display: '名称', name: 'cname', width: 120,minWidth: 100 }
+	            { display: '名称', name: 'cname', width: 120,minWidth: 100, align:'left' }
 	        ],
 	        url:contextPath + "/bpr/supplier/getSupplierJSON",
 		    rownumbers:true,usePager:false,isSingleCheck:true,
@@ -25,7 +25,7 @@ $(function(){
 		grid:{
 			columns: [
 	            { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
-	            { display: '名称', name: 'cname', width: 120,minWidth: 100 }
+	            { display: '名称', name: 'cname', width: 120,minWidth: 100, align:'left' }
 	        ],
 	        url:contextPath + "/bpr/brand/getBrandJSON",
 		    rownumbers:true,usePager:false,isSingleCheck:true,
@@ -55,23 +55,23 @@ $(function(){
 	listTable = window['maingrid'] = $("#maingrid").ligerGrid({
 		height:'100%',
         columns: [
-            { display: '供应商', name: 'csuppliername', width: 120, minWidth: 100 },
-            { display: '品牌', name: 'cbrandname', width: 80, minWidth: 60 },
-            { display: '型号', name: 'cphonemodelname', width: 120, minWidth: 100 },
-            { display: '手机串号(IMEI)', name: 'imei', width: 120, minWidth: 100 },
-            { display: '颜色', name: 'ccolorname', width: 80, minWidth: 60 },
-            { display: '进货价(元)', name: 'ncostprice', width: 60, minWidth: 60 },
-            { display: '销售价(元)', name: 'nretailprice', width: 60, minWidth: 60 },
-            { display: '类型', name: 'itypeStr', width: 60,minWidth: 60 },
-            { display: '状态', name: 'istatusStr', width: 60,minWidth: 60 },
-            { display: '运行内存(RAM)', name: 'cram', width: 120, minWidth: 100 },
-            { display: '存储内存(ROM)', name: 'crom', width: 120, minWidth: 100 },
-            { display: '处理器(CPU)', name: 'ccpu', width: 120, minWidth: 100 },
-            { display: '摄像头', name: 'ccamera', width: 120, minWidth: 100 },
-            { display: '屏幕', name: 'cscreen', width: 120, minWidth: 100 },
-            { display: '电池', name: 'cbattery', width: 120, minWidth: 100 },
-            { display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120 },
-            { display: '更新日期', name: 'dupdatedateStr', width: 140,minWidth: 120 }
+            { display: '供应商', name: 'csuppliername', width: 120, minWidth: 100, align:'left' },
+            { display: '品牌', name: 'cbrandname', width: 80, minWidth: 60, align:'left' },
+            { display: '型号', name: 'cphonemodelname', width: 120, minWidth: 100, align:'left' },
+            { display: '手机串号(IMEI)', name: 'imei', width: 120, minWidth: 100, align:'left' },
+            { display: '颜色', name: 'ccolorname', width: 80, minWidth: 60, align:'left' },
+            { display: '进货价(元)', name: 'ncostprice', width: 60, minWidth: 60, align:'left' },
+            { display: '销售价(元)', name: 'nretailprice', width: 60, minWidth: 60, align:'left' },
+            { display: '类型', name: 'itypeStr', width: 60,minWidth: 60, align:'left' },
+            { display: '状态', name: 'istatusStr', width: 60,minWidth: 60, align:'left' },
+            { display: '运行内存(RAM)', name: 'cram', width: 120, minWidth: 100, align:'left' },
+            { display: '存储内存(ROM)', name: 'crom', width: 120, minWidth: 100, align:'left' },
+            { display: '处理器(CPU)', name: 'ccpu', width: 120, minWidth: 100, align:'left' },
+            { display: '摄像头', name: 'ccamera', width: 120, minWidth: 100, align:'left' },
+            { display: '屏幕', name: 'cscreen', width: 120, minWidth: 100, align:'left' },
+            { display: '电池', name: 'cbattery', width: 120, minWidth: 100, align:'left' },
+            { display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120, align:'left' },
+            { display: '更新日期', name: 'dupdatedateStr', width: 140,minWidth: 120, align:'left' }
             ],
         toolbar: { items: [
                 { text: '退库', click: returnOrder, icon: 'back'},
@@ -153,16 +153,16 @@ function showDetail(row, detailPanel,callback){
 	$(rpGrid).css('margin',10).ligerGrid({
 		columns:[
 		        	{ display:'主键', name : 'uid', align: 'left', width:60, minWidth: 60,hide: true},
-		        	{ display: '供应商', name: 'csuppliername', width: 100,minWidth: 80 },
-		            { display: '手机串号(IMEI)', name: 'imei', width: 100, minWidth: 80},
-		            { display: '操作员', name: 'cusername', width: 100,minWidth: 80 },
-			        { display: '类型', name: 'ctypeStr', width: 100,minWidth: 80 },
-			        { display: '原有金额', name: 'nactualamount', width: 100,minWidth: 80 },
-			        { display: '折扣', name: 'ndiscount', width: 100,minWidth: 80 },
-			        { display: '实际金额', name: 'namount', width: 100,minWidth: 80 },
-			        { display: '状态', name: 'istatusStr', width: 100,minWidth: 80 },
-			        { display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120 },
-			        { display: '更新日期', name: 'dupdatedateStr', width: 140,minWidth: 120 }
+		        	{ display: '供应商', name: 'csuppliername', width: 100,minWidth: 80, align:'left' },
+		            { display: '手机串号(IMEI)', name: 'imei', width: 100, minWidth: 80, align:'left'},
+		            { display: '操作员', name: 'cusername', width: 100,minWidth: 80, align:'left' },
+			        { display: '类型', name: 'ctypeStr', width: 100,minWidth: 80, align:'left' },
+			        { display: '原有金额', name: 'nactualamount', width: 100,minWidth: 80, align:'left' },
+			        { display: '折扣', name: 'ndiscount', width: 100,minWidth: 80, align:'left' },
+			        { display: '实际金额', name: 'namount', width: 100,minWidth: 80, align:'left' },
+			        { display: '状态', name: 'istatusStr', width: 100,minWidth: 80, align:'left' },
+			        { display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120, align:'left' },
+			        { display: '更新日期', name: 'dupdatedateStr', width: 140,minWidth: 120, align:'left' }
 		        ], 
 		url:rpUrl,
 		isScroll: false, showToggleColBtn: false, width: '90%',showTitle: false,
@@ -175,11 +175,11 @@ function showDetail(row, detailPanel,callback){
 	$(statusGrid).css('margin',10).ligerGrid({
 		columns:[
 		        	{ display:'主键', name : 'uid', align: 'left', width:60, minWidth: 60,hide: true},
-		            { display: '手机串号(IMEI)', name: 'imei', width: 100, minWidth: 80},
-			        { display: '类型', name: 'itypeStr', width: 100,minWidth: 80 },
-			        { display: '状态', name: 'istatusStr', width: 100,minWidth: 80 },
-			        { display: '操作员', name: 'cusername', width: 100,minWidth: 80 },
-			        { display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120 }
+		            { display: '手机串号(IMEI)', name: 'imei', width: 100, minWidth: 80, align:'left'},
+			        { display: '类型', name: 'itypeStr', width: 100,minWidth: 80, align:'left' },
+			        { display: '状态', name: 'istatusStr', width: 100,minWidth: 80, align:'left' },
+			        { display: '操作员', name: 'cusername', width: 100,minWidth: 80, align:'left' },
+			        { display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120, align:'left' }
 		        ], 
 		url:statusUrl,
 		isScroll: false, showToggleColBtn: false, width: '90%',showTitle: false,

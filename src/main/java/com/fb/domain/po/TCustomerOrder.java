@@ -90,25 +90,25 @@ public class TCustomerOrder extends BaseDomain {
     /**
      * 记录日期
      */
-    private Date drecroddate;
+    private Date drecorddate;
     
     /**
      * 记录日期
      */
     @NotFieldMapper
-    private String drecroddateStr;
+    private String drecorddateStr;
     
     /**
      * 记录日期最小值
      */
     @NotFieldMapper
-    private String drecroddateStrMin;
+    private String drecorddateStrMin;
     
     /**
      * 记录日期最大值
      */
     @NotFieldMapper
-    private String drecroddateStrMax;
+    private String drecorddateStrMax;
     
     /**
      * 更新日期
@@ -126,6 +126,18 @@ public class TCustomerOrder extends BaseDomain {
      */
     @NotFieldMapper
     private List<TCustomerOrderDetail> orderDetailList;
+    
+    /**
+     * 单据应收应付
+     */
+    @NotFieldMapper
+    private TCustomerReceivable orderReceivable;
+    
+    /**
+     * 单据实收实付
+     */
+    @NotFieldMapper
+    private TCustomerReceipts orderReceipts;
 
     
     /**
@@ -366,81 +378,81 @@ public class TCustomerOrder extends BaseDomain {
     
     /**
      * 获取 记录日期
-     * @return drecroddate
+     * @return drecorddate
      */
-    public Date getDrecroddate() {
-        return drecroddate;
+    public Date getDrecorddate() {
+        return drecorddate;
     }
     
 
     
     /**
      * 设置 记录日期
-     * @param drecroddate 记录日期
+     * @param drecorddate 记录日期
      */
-    public void setDrecroddate(Date drecroddate) {
-        this.drecroddate = drecroddate;
-        this.drecroddateStr = FormatUtils.formatDate(drecroddate, "yyyy-MM-dd HH:mm:ss");
+    public void setDrecorddate(Date drecorddate) {
+        this.drecorddate = drecorddate;
+        this.drecorddateStr = FormatUtils.formatDate(drecorddate, "yyyy-MM-dd HH:mm:ss");
     }
     
 
     
     /**
      * 获取 记录日期
-     * @return drecroddateStr
+     * @return drecorddateStr
      */
-    public String getDrecroddateStr() {
-        return drecroddateStr;
+    public String getDrecorddateStr() {
+        return drecorddateStr;
     }
     
 
     
     /**
      * 设置 记录日期
-     * @param drecroddateStr 记录日期
+     * @param drecorddateStr 记录日期
      */
-    public void setDrecroddateStr(String drecroddateStr) {
-        this.drecroddateStr = drecroddateStr;
+    public void setDrecorddateStr(String drecorddateStr) {
+        this.drecorddateStr = drecorddateStr;
     }
     
 
     
     /**
      * 获取 记录日期最小值
-     * @return drecroddateStrMin
+     * @return drecorddateStrMin
      */
-    public String getDrecroddateStrMin() {
-        return drecroddateStrMin;
+    public String getDrecorddateStrMin() {
+        return drecorddateStrMin;
     }
     
 
     
     /**
      * 设置 记录日期最小值
-     * @param drecroddateStrMin 记录日期最小值
+     * @param drecorddateStrMin 记录日期最小值
      */
-    public void setDrecroddateStrMin(String drecroddateStrMin) {
-        this.drecroddateStrMin = drecroddateStrMin;
+    public void setDrecorddateStrMin(String drecorddateStrMin) {
+        this.drecorddateStrMin = drecorddateStrMin;
     }
     
 
     
     /**
      * 获取 记录日期最大值
-     * @return drecroddateStrMax
+     * @return drecorddateStrMax
      */
-    public String getDrecroddateStrMax() {
-        return drecroddateStrMax;
+    public String getDrecorddateStrMax() {
+        return drecorddateStrMax;
     }
     
 
     
     /**
      * 设置 记录日期最大值
-     * @param drecroddateStrMax 记录日期最大值
+     * @param drecorddateStrMax 记录日期最大值
      */
-    public void setDrecroddateStrMax(String drecroddateStrMax) {
-        this.drecroddateStrMax = drecroddateStrMax;
+    public void setDrecorddateStrMax(String drecorddateStrMax) {
+        this.drecorddateStrMax = drecorddateStrMax;
     }
     
 
@@ -506,6 +518,54 @@ public class TCustomerOrder extends BaseDomain {
     public void setOrderDetailList(List<TCustomerOrderDetail> orderDetailList) {
         this.orderDetailList = orderDetailList;
     }
+
+
+
+    
+    /**
+     * 获取 单据应收应付
+     * @return orderReceivable
+     */
+    public TCustomerReceivable getOrderReceivable() {
+        return orderReceivable;
+    }
+    
+
+
+
+    
+    /**
+     * 设置 单据应收应付
+     * @param orderReceivable 单据应收应付
+     */
+    public void setOrderReceivable(TCustomerReceivable orderReceivable) {
+        this.orderReceivable = orderReceivable;
+    }
+
+
+
+    
+    /**
+     * 获取 单据实收实付
+     * @return orderReceipts
+     */
+    public TCustomerReceipts getOrderReceipts() {
+        return orderReceipts;
+    }
+    
+
+
+
+    
+    /**
+     * 设置 单据实收实付
+     * @param orderReceipts 单据实收实付
+     */
+    public void setOrderReceipts(TCustomerReceipts orderReceipts) {
+        this.orderReceipts = orderReceipts;
+    }
+    
+    
     
     
 }
