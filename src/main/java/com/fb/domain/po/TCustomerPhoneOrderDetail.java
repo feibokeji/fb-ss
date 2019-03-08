@@ -33,6 +33,12 @@ public class TCustomerPhoneOrderDetail extends BaseDomain {
     private String uorderid;
     
     /**
+     * 单据编号
+     */
+    @NotFieldMapper
+    private String cno;
+    
+    /**
      * 手机串号
      */
     private String imei;
@@ -633,5 +639,29 @@ public class TCustomerPhoneOrderDetail extends BaseDomain {
     public void setIsort(Integer isort) {
         this.isort = isort;
     }
+
+
+
+    
+    /**
+     * 获取 单据编号
+     * @return cno
+     */
+    public String getCno() {
+        return cno;
+    }
+    
+
+
+
+    
+    /**
+     * 设置 单据编号
+     * @param cno 单据编号
+     */
+    public void setCno(String cno) {
+        this.cno = cno;
+    }
+    
     
 }

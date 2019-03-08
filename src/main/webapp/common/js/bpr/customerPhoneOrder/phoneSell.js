@@ -103,7 +103,7 @@ function settleAccounts(){
 			phoneIMEI.push(phoneSelectedRows[i].imei);
 		}
 		var ucustomerid = customerSelectedRow.uid;
-		checkStandDialog = $.ligerDialog.open({url:contextPath+"/bpr/customerPhoneOrder/checkStand?phoneIMEI="+JSON.stringify(phoneIMEI)+"&ucustomerid="+ucustomerid,title:"手机销售-收银台",allowClose:true,width:800,height:500,
+		checkStandDialog = $.ligerDialog.open({url:contextPath+"/bpr/customerPhoneOrder/checkStand?phoneIMEI="+JSON.stringify(phoneIMEI)+"&ucustomerid="+ucustomerid,title:"手机销售-收银台",allowClose:true,width:1000,height:500,
 			buttons:[{text:"结账",onclick:function(i,d){
 				checkStandDialog.frame.submitForm();
 			}},{text:"关闭",onclick:function(i,d){

@@ -1,5 +1,5 @@
 /**
- * 商品结账
+ * 商品收银台
  */
 var discountLigerSpinner = null;
 $(function(){

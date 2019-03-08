@@ -1644,3 +1644,827 @@
 2019-03-08 14:17:21,271  INFO [BaseMapperAbstract.java:299] - 执行参数:{array2=5, istatus=1, array1=3, array0=0, udeptid=56A52861-B77E-4670-AAB4-928ABF093D84}
 2019-03-08 14:17:21,301  INFO [BaseMapperAbstract.java:298] - 执行语句:select c.uid,c.ucustomertypeid,ct.cname as ccustomertypename,c.uuserid,c.udeptid,c.cname,c.isex,c.ccontactnumber,c.caddress,c.cwechat,c.dbirthday,c.iintegral,c.ipaymentdays,c.drecorddate,c.dupdatedate from t_customer as c left join t_customer_type as ct on ct.uid = c.ucustomertypeid where 1 = 1 and c.udeptid = :udeptid order by c.ucustomertypeid,c.cname asc
 2019-03-08 14:17:21,302  INFO [BaseMapperAbstract.java:299] - 执行参数:{udeptid=56A52861-B77E-4670-AAB4-928ABF093D84}
+2019-03-08 16:32:14,299  INFO [BaseMapperAbstract.java:329] - 执行语句:select * from t_user t where t.ccode = :ccode
+2019-03-08 16:32:14,306  INFO [BaseMapperAbstract.java:330] - 执行参数:{ccode=1}
+2019-03-08 16:32:14,999  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_role where uuserid = :uuserid
+2019-03-08 16:32:15,000  INFO [BaseMapperAbstract.java:299] - 执行参数:{uuserid=FFAA5D1B-12C8-416C-8D68-513D4E982754}
+2019-03-08 16:32:15,009  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_role_module_group where uroleid = :uroleid
+2019-03-08 16:32:15,010  INFO [BaseMapperAbstract.java:299] - 执行参数:{uroleid=83220890-D1B2-45BB-820F-A9313261415D}
+2019-03-08 16:32:15,024  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_module_group_module where umodulegroupid = :umodulegroupid
+2019-03-08 16:32:15,024  INFO [BaseMapperAbstract.java:299] - 执行参数:{umodulegroupid=5DD35237-1EBB-4433-9282-2F57C55687FB}
+2019-03-08 16:32:15,054  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,055  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=55F36CA0-9165-4C5A-9FE0-9DB0EA3E95FB}
+2019-03-08 16:32:15,070  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,070  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=8EEB9C92-C91D-43B0-AFD7-371E1F6A4567}
+2019-03-08 16:32:15,072  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,073  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=85A341BE-DBC6-42C2-9CF9-B47D7D2AD77F}
+2019-03-08 16:32:15,075  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,076  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=773CF61B-84E7-40AF-AC1E-2AA0E2DCC794}
+2019-03-08 16:32:15,080  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,081  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=94C00969-A15E-43AF-965C-520D96D77A02}
+2019-03-08 16:32:15,084  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,085  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=D452567B-0FC2-4382-84C2-561571B7951F}
+2019-03-08 16:32:15,088  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,088  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=FBB296CF-38B6-4B1D-A7DA-A1A0EF0AE550}
+2019-03-08 16:32:15,090  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,091  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=EA3DB831-9586-449F-9DE7-657E972E35A7}
+2019-03-08 16:32:15,093  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,094  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=6453A3AD-9995-4124-A4E7-D371B8937995}
+2019-03-08 16:32:15,096  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,096  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=9E384F95-2201-417F-A3E9-42B58C8A83AE}
+2019-03-08 16:32:15,098  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,099  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=09EC45B0-CF77-44BD-BF6B-5AC94EB4D5B9}
+2019-03-08 16:32:15,101  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,102  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=91C79376-F679-42EC-8EB6-3A16AF247B57}
+2019-03-08 16:32:15,104  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,104  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=5724F4B4-1E9F-47EE-B50C-10E97EF0D231}
+2019-03-08 16:32:15,106  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,107  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=FA786BF9-926F-4ADD-A024-4F2FD6A43ACA}
+2019-03-08 16:32:15,108  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,109  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=CC900B43-7C8D-4ECD-9F07-FD069BDBD19C}
+2019-03-08 16:32:15,111  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,111  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=50D8DC7E-1F1D-4141-BF49-28C6B9AC17D3}
+2019-03-08 16:32:15,116  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,116  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=0565693D-74FB-48D3-8DD1-1FA3369AB3DE}
+2019-03-08 16:32:15,119  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,119  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=65773438-F5E1-488E-A0A4-13174C9BAFF8}
+2019-03-08 16:32:15,121  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,121  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=655FC50C-51F1-4A88-93C5-2BE9A9F57637}
+2019-03-08 16:32:15,123  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,124  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=AF204B6D-3C7C-4E27-A799-C06079CB57B0}
+2019-03-08 16:32:15,125  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,126  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=6CDF8B41-10CB-42CC-B0AD-4B980DC997DF}
+2019-03-08 16:32:15,166  INFO [BaseMapperAbstract.java:329] - 执行语句:select * from t_user t where t.ccode = :ccode
+2019-03-08 16:32:15,166  INFO [BaseMapperAbstract.java:330] - 执行参数:{ccode=1}
+2019-03-08 16:32:15,172  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CCODEPATH, CTYPE, CPARENTCODE, CNAME, ILEVEL, CCODE, UID, UCORPID FROM t_dept WHERE UID=:UID
+2019-03-08 16:32:15,172  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=56A52861-B77E-4670-AAB4-928ABF093D84}
+2019-03-08 16:32:15,196  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT UID, CCODE, DUPDATETIME, CTELGUARD, DCREATETIME, CWEBSITE, CZIP, CTELGENERAL, CMEMO, CNAMEEN, CPROVINCES, CFAX, CTAXNO, CPRINCIPAL, CCITY, CADDR, CNAME, CEMAIL, CNAMEAB FROM t_corp WHERE UID=:UID
+2019-03-08 16:32:15,196  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=4190F866-5A6D-435C-9CC5-01C85AE6C4AD}
+2019-03-08 16:32:15,219  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_role where uuserid = :uuserid
+2019-03-08 16:32:15,219  INFO [BaseMapperAbstract.java:299] - 执行参数:{uuserid=FFAA5D1B-12C8-416C-8D68-513D4E982754}
+2019-03-08 16:32:15,222  INFO [BaseMapperAbstract.java:80] - 执行语句:INSERT INTO t_login_log (CLOGINURL, UUSERID, CMAC, DLOGINTIME, UID, CLOGINIP, CMEMO, CTYPE) VALUES (:CLOGINURL, :UUSERID, :CMAC, :DLOGINTIME, :UID, :CLOGINIP, :CMEMO, :CTYPE)
+2019-03-08 16:32:15,223  INFO [BaseMapperAbstract.java:81] - 执行参数:{CTYPE=登录, CLOGINURL=http://localhost:8888/fbss/ajax/login, UUSERID=FFAA5D1B-12C8-416C-8D68-513D4E982754, CLOGINIP=0:0:0:0:0:0:0:1|, CMAC=Error!, CMEMO=null, UID=22090793-de9a-4c2e-ad21-8a3fb63df676, DLOGINTIME=Fri Mar 08 16:32:14 CST 2019}
+2019-03-08 16:32:15,271  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_role_module_group where uroleid = :uroleid
+2019-03-08 16:32:15,272  INFO [BaseMapperAbstract.java:299] - 执行参数:{uroleid=83220890-D1B2-45BB-820F-A9313261415D}
+2019-03-08 16:32:15,275  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_module_group_module where umodulegroupid = :umodulegroupid
+2019-03-08 16:32:15,276  INFO [BaseMapperAbstract.java:299] - 执行参数:{umodulegroupid=5DD35237-1EBB-4433-9282-2F57C55687FB}
+2019-03-08 16:32:15,285  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,286  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=55F36CA0-9165-4C5A-9FE0-9DB0EA3E95FB}
+2019-03-08 16:32:15,290  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,291  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=8EEB9C92-C91D-43B0-AFD7-371E1F6A4567}
+2019-03-08 16:32:15,292  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,293  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=85A341BE-DBC6-42C2-9CF9-B47D7D2AD77F}
+2019-03-08 16:32:15,295  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,300  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=773CF61B-84E7-40AF-AC1E-2AA0E2DCC794}
+2019-03-08 16:32:15,303  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,304  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=94C00969-A15E-43AF-965C-520D96D77A02}
+2019-03-08 16:32:15,306  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,306  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=D452567B-0FC2-4382-84C2-561571B7951F}
+2019-03-08 16:32:15,308  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,309  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=FBB296CF-38B6-4B1D-A7DA-A1A0EF0AE550}
+2019-03-08 16:32:15,311  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,312  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=EA3DB831-9586-449F-9DE7-657E972E35A7}
+2019-03-08 16:32:15,315  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,315  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=6453A3AD-9995-4124-A4E7-D371B8937995}
+2019-03-08 16:32:15,318  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,319  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=9E384F95-2201-417F-A3E9-42B58C8A83AE}
+2019-03-08 16:32:15,321  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,322  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=09EC45B0-CF77-44BD-BF6B-5AC94EB4D5B9}
+2019-03-08 16:32:15,324  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,324  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=91C79376-F679-42EC-8EB6-3A16AF247B57}
+2019-03-08 16:32:15,326  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,326  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=5724F4B4-1E9F-47EE-B50C-10E97EF0D231}
+2019-03-08 16:32:15,328  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,329  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=FA786BF9-926F-4ADD-A024-4F2FD6A43ACA}
+2019-03-08 16:32:15,331  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,332  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=CC900B43-7C8D-4ECD-9F07-FD069BDBD19C}
+2019-03-08 16:32:15,334  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,335  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=50D8DC7E-1F1D-4141-BF49-28C6B9AC17D3}
+2019-03-08 16:32:15,337  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,337  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=0565693D-74FB-48D3-8DD1-1FA3369AB3DE}
+2019-03-08 16:32:15,340  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,340  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=65773438-F5E1-488E-A0A4-13174C9BAFF8}
+2019-03-08 16:32:15,343  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,343  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=655FC50C-51F1-4A88-93C5-2BE9A9F57637}
+2019-03-08 16:32:15,346  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,346  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=AF204B6D-3C7C-4E27-A799-C06079CB57B0}
+2019-03-08 16:32:15,349  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:32:15,349  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=6CDF8B41-10CB-42CC-B0AD-4B980DC997DF}
+2019-03-08 16:32:21,470  INFO [BaseMapperAbstract.java:298] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where 1 = 1 and spo.udeptid = :udeptid and spo.istatus = :istatus and (select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) in (:array0,:array1,:array2) order by spo.drecorddate desc
+2019-03-08 16:32:21,471  INFO [BaseMapperAbstract.java:299] - 执行参数:{array2=5, istatus=1, array1=3, array0=0, udeptid=56A52861-B77E-4670-AAB4-928ABF093D84}
+2019-03-08 16:32:21,591  INFO [BaseMapperAbstract.java:298] - 执行语句:select c.uid,c.ucustomertypeid,ct.cname as ccustomertypename,c.uuserid,c.udeptid,c.cname,c.isex,c.ccontactnumber,c.caddress,c.cwechat,c.dbirthday,c.iintegral,c.ipaymentdays,c.drecorddate,c.dupdatedate from t_customer as c left join t_customer_type as ct on ct.uid = c.ucustomertypeid where 1 = 1 and c.udeptid = :udeptid order by c.ucustomertypeid,c.cname asc
+2019-03-08 16:32:21,592  INFO [BaseMapperAbstract.java:299] - 执行参数:{udeptid=56A52861-B77E-4670-AAB4-928ABF093D84}
+2019-03-08 16:39:51,646  INFO [BaseMapperAbstract.java:329] - 执行语句:select * from t_user t where t.ccode = :ccode
+2019-03-08 16:39:51,648  INFO [BaseMapperAbstract.java:330] - 执行参数:{ccode=1}
+2019-03-08 16:39:51,660  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_role where uuserid = :uuserid
+2019-03-08 16:39:51,660  INFO [BaseMapperAbstract.java:299] - 执行参数:{uuserid=FFAA5D1B-12C8-416C-8D68-513D4E982754}
+2019-03-08 16:39:51,663  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_role_module_group where uroleid = :uroleid
+2019-03-08 16:39:51,664  INFO [BaseMapperAbstract.java:299] - 执行参数:{uroleid=83220890-D1B2-45BB-820F-A9313261415D}
+2019-03-08 16:39:51,666  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_module_group_module where umodulegroupid = :umodulegroupid
+2019-03-08 16:39:51,666  INFO [BaseMapperAbstract.java:299] - 执行参数:{umodulegroupid=5DD35237-1EBB-4433-9282-2F57C55687FB}
+2019-03-08 16:39:51,674  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,674  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=55F36CA0-9165-4C5A-9FE0-9DB0EA3E95FB}
+2019-03-08 16:39:51,677  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,677  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=8EEB9C92-C91D-43B0-AFD7-371E1F6A4567}
+2019-03-08 16:39:51,679  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,679  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=85A341BE-DBC6-42C2-9CF9-B47D7D2AD77F}
+2019-03-08 16:39:51,681  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,681  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=773CF61B-84E7-40AF-AC1E-2AA0E2DCC794}
+2019-03-08 16:39:51,683  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,683  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=94C00969-A15E-43AF-965C-520D96D77A02}
+2019-03-08 16:39:51,685  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,685  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=D452567B-0FC2-4382-84C2-561571B7951F}
+2019-03-08 16:39:51,687  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,687  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=FBB296CF-38B6-4B1D-A7DA-A1A0EF0AE550}
+2019-03-08 16:39:51,689  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,689  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=EA3DB831-9586-449F-9DE7-657E972E35A7}
+2019-03-08 16:39:51,692  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,693  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=6453A3AD-9995-4124-A4E7-D371B8937995}
+2019-03-08 16:39:51,695  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,695  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=9E384F95-2201-417F-A3E9-42B58C8A83AE}
+2019-03-08 16:39:51,697  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,697  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=09EC45B0-CF77-44BD-BF6B-5AC94EB4D5B9}
+2019-03-08 16:39:51,699  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,700  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=91C79376-F679-42EC-8EB6-3A16AF247B57}
+2019-03-08 16:39:51,701  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,702  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=5724F4B4-1E9F-47EE-B50C-10E97EF0D231}
+2019-03-08 16:39:51,704  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,704  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=FA786BF9-926F-4ADD-A024-4F2FD6A43ACA}
+2019-03-08 16:39:51,706  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,706  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=CC900B43-7C8D-4ECD-9F07-FD069BDBD19C}
+2019-03-08 16:39:51,708  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,708  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=50D8DC7E-1F1D-4141-BF49-28C6B9AC17D3}
+2019-03-08 16:39:51,710  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,710  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=0565693D-74FB-48D3-8DD1-1FA3369AB3DE}
+2019-03-08 16:39:51,712  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,712  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=65773438-F5E1-488E-A0A4-13174C9BAFF8}
+2019-03-08 16:39:51,713  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,714  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=655FC50C-51F1-4A88-93C5-2BE9A9F57637}
+2019-03-08 16:39:51,715  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,715  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=AF204B6D-3C7C-4E27-A799-C06079CB57B0}
+2019-03-08 16:39:51,716  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,717  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=6CDF8B41-10CB-42CC-B0AD-4B980DC997DF}
+2019-03-08 16:39:51,719  INFO [BaseMapperAbstract.java:329] - 执行语句:select * from t_user t where t.ccode = :ccode
+2019-03-08 16:39:51,719  INFO [BaseMapperAbstract.java:330] - 执行参数:{ccode=1}
+2019-03-08 16:39:51,725  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CCODEPATH, CTYPE, CPARENTCODE, CNAME, ILEVEL, CCODE, UID, UCORPID FROM t_dept WHERE UID=:UID
+2019-03-08 16:39:51,726  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=56A52861-B77E-4670-AAB4-928ABF093D84}
+2019-03-08 16:39:51,730  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT UID, CCODE, DUPDATETIME, CTELGUARD, DCREATETIME, CWEBSITE, CZIP, CTELGENERAL, CMEMO, CNAMEEN, CPROVINCES, CFAX, CTAXNO, CPRINCIPAL, CCITY, CADDR, CNAME, CEMAIL, CNAMEAB FROM t_corp WHERE UID=:UID
+2019-03-08 16:39:51,731  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=4190F866-5A6D-435C-9CC5-01C85AE6C4AD}
+2019-03-08 16:39:51,736  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_role where uuserid = :uuserid
+2019-03-08 16:39:51,737  INFO [BaseMapperAbstract.java:299] - 执行参数:{uuserid=FFAA5D1B-12C8-416C-8D68-513D4E982754}
+2019-03-08 16:39:51,739  INFO [BaseMapperAbstract.java:80] - 执行语句:INSERT INTO t_login_log (CLOGINURL, UUSERID, CMAC, DLOGINTIME, UID, CLOGINIP, CMEMO, CTYPE) VALUES (:CLOGINURL, :UUSERID, :CMAC, :DLOGINTIME, :UID, :CLOGINIP, :CMEMO, :CTYPE)
+2019-03-08 16:39:51,740  INFO [BaseMapperAbstract.java:81] - 执行参数:{CTYPE=登录, CLOGINURL=http://localhost:8888/fbss/ajax/login, UUSERID=FFAA5D1B-12C8-416C-8D68-513D4E982754, CLOGINIP=0:0:0:0:0:0:0:1|, CMAC=Error!, CMEMO=null, UID=486f5e2f-c2d7-450b-89f8-4f5c76b37689, DLOGINTIME=Fri Mar 08 16:39:51 CST 2019}
+2019-03-08 16:39:51,765  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_role_module_group where uroleid = :uroleid
+2019-03-08 16:39:51,766  INFO [BaseMapperAbstract.java:299] - 执行参数:{uroleid=83220890-D1B2-45BB-820F-A9313261415D}
+2019-03-08 16:39:51,770  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_module_group_module where umodulegroupid = :umodulegroupid
+2019-03-08 16:39:51,771  INFO [BaseMapperAbstract.java:299] - 执行参数:{umodulegroupid=5DD35237-1EBB-4433-9282-2F57C55687FB}
+2019-03-08 16:39:51,780  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,780  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=55F36CA0-9165-4C5A-9FE0-9DB0EA3E95FB}
+2019-03-08 16:39:51,783  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,783  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=8EEB9C92-C91D-43B0-AFD7-371E1F6A4567}
+2019-03-08 16:39:51,785  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,785  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=85A341BE-DBC6-42C2-9CF9-B47D7D2AD77F}
+2019-03-08 16:39:51,788  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,789  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=773CF61B-84E7-40AF-AC1E-2AA0E2DCC794}
+2019-03-08 16:39:51,791  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,791  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=94C00969-A15E-43AF-965C-520D96D77A02}
+2019-03-08 16:39:51,798  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,799  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=D452567B-0FC2-4382-84C2-561571B7951F}
+2019-03-08 16:39:51,802  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,802  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=FBB296CF-38B6-4B1D-A7DA-A1A0EF0AE550}
+2019-03-08 16:39:51,806  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,806  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=EA3DB831-9586-449F-9DE7-657E972E35A7}
+2019-03-08 16:39:51,809  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,810  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=6453A3AD-9995-4124-A4E7-D371B8937995}
+2019-03-08 16:39:51,812  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,812  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=9E384F95-2201-417F-A3E9-42B58C8A83AE}
+2019-03-08 16:39:51,815  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,815  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=09EC45B0-CF77-44BD-BF6B-5AC94EB4D5B9}
+2019-03-08 16:39:51,818  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,818  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=91C79376-F679-42EC-8EB6-3A16AF247B57}
+2019-03-08 16:39:51,820  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,821  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=5724F4B4-1E9F-47EE-B50C-10E97EF0D231}
+2019-03-08 16:39:51,823  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,824  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=FA786BF9-926F-4ADD-A024-4F2FD6A43ACA}
+2019-03-08 16:39:51,825  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,826  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=CC900B43-7C8D-4ECD-9F07-FD069BDBD19C}
+2019-03-08 16:39:51,827  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,828  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=50D8DC7E-1F1D-4141-BF49-28C6B9AC17D3}
+2019-03-08 16:39:51,829  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,830  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=0565693D-74FB-48D3-8DD1-1FA3369AB3DE}
+2019-03-08 16:39:51,832  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,832  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=65773438-F5E1-488E-A0A4-13174C9BAFF8}
+2019-03-08 16:39:51,834  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,835  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=655FC50C-51F1-4A88-93C5-2BE9A9F57637}
+2019-03-08 16:39:51,837  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,838  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=AF204B6D-3C7C-4E27-A799-C06079CB57B0}
+2019-03-08 16:39:51,841  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:39:51,841  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=6CDF8B41-10CB-42CC-B0AD-4B980DC997DF}
+2019-03-08 16:39:55,348  INFO [BaseMapperAbstract.java:298] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where 1 = 1 and spo.udeptid = :udeptid and spo.istatus = :istatus and (select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) in (:array0,:array1,:array2) order by spo.drecorddate desc
+2019-03-08 16:39:55,349  INFO [BaseMapperAbstract.java:299] - 执行参数:{array2=5, istatus=1, array1=3, array0=0, udeptid=56A52861-B77E-4670-AAB4-928ABF093D84}
+2019-03-08 16:39:55,393  INFO [BaseMapperAbstract.java:298] - 执行语句:select c.uid,c.ucustomertypeid,ct.cname as ccustomertypename,c.uuserid,c.udeptid,c.cname,c.isex,c.ccontactnumber,c.caddress,c.cwechat,c.dbirthday,c.iintegral,c.ipaymentdays,c.drecorddate,c.dupdatedate from t_customer as c left join t_customer_type as ct on ct.uid = c.ucustomertypeid where 1 = 1 and c.udeptid = :udeptid order by c.ucustomertypeid,c.cname asc
+2019-03-08 16:39:55,394  INFO [BaseMapperAbstract.java:299] - 执行参数:{udeptid=56A52861-B77E-4670-AAB4-928ABF093D84}
+2019-03-08 16:56:07,235  INFO [BaseMapperAbstract.java:329] - 执行语句:select * from t_user t where t.ccode = :ccode
+2019-03-08 16:56:07,242  INFO [BaseMapperAbstract.java:330] - 执行参数:{ccode=1}
+2019-03-08 16:56:07,863  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_role where uuserid = :uuserid
+2019-03-08 16:56:07,863  INFO [BaseMapperAbstract.java:299] - 执行参数:{uuserid=FFAA5D1B-12C8-416C-8D68-513D4E982754}
+2019-03-08 16:56:07,873  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_role_module_group where uroleid = :uroleid
+2019-03-08 16:56:07,874  INFO [BaseMapperAbstract.java:299] - 执行参数:{uroleid=83220890-D1B2-45BB-820F-A9313261415D}
+2019-03-08 16:56:07,887  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_module_group_module where umodulegroupid = :umodulegroupid
+2019-03-08 16:56:07,888  INFO [BaseMapperAbstract.java:299] - 执行参数:{umodulegroupid=5DD35237-1EBB-4433-9282-2F57C55687FB}
+2019-03-08 16:56:07,916  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:07,917  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=55F36CA0-9165-4C5A-9FE0-9DB0EA3E95FB}
+2019-03-08 16:56:07,933  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:07,933  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=8EEB9C92-C91D-43B0-AFD7-371E1F6A4567}
+2019-03-08 16:56:07,936  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:07,936  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=85A341BE-DBC6-42C2-9CF9-B47D7D2AD77F}
+2019-03-08 16:56:07,939  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:07,940  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=773CF61B-84E7-40AF-AC1E-2AA0E2DCC794}
+2019-03-08 16:56:07,944  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:07,945  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=94C00969-A15E-43AF-965C-520D96D77A02}
+2019-03-08 16:56:07,947  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:07,948  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=D452567B-0FC2-4382-84C2-561571B7951F}
+2019-03-08 16:56:07,950  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:07,951  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=FBB296CF-38B6-4B1D-A7DA-A1A0EF0AE550}
+2019-03-08 16:56:07,953  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:07,954  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=EA3DB831-9586-449F-9DE7-657E972E35A7}
+2019-03-08 16:56:07,956  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:07,956  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=6453A3AD-9995-4124-A4E7-D371B8937995}
+2019-03-08 16:56:07,958  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:07,959  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=9E384F95-2201-417F-A3E9-42B58C8A83AE}
+2019-03-08 16:56:07,961  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:07,961  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=09EC45B0-CF77-44BD-BF6B-5AC94EB4D5B9}
+2019-03-08 16:56:07,963  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:07,963  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=91C79376-F679-42EC-8EB6-3A16AF247B57}
+2019-03-08 16:56:07,965  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:07,966  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=5724F4B4-1E9F-47EE-B50C-10E97EF0D231}
+2019-03-08 16:56:07,968  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:07,968  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=FA786BF9-926F-4ADD-A024-4F2FD6A43ACA}
+2019-03-08 16:56:07,970  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:07,970  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=CC900B43-7C8D-4ECD-9F07-FD069BDBD19C}
+2019-03-08 16:56:07,973  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:07,973  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=50D8DC7E-1F1D-4141-BF49-28C6B9AC17D3}
+2019-03-08 16:56:07,978  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:07,979  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=0565693D-74FB-48D3-8DD1-1FA3369AB3DE}
+2019-03-08 16:56:07,981  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:07,982  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=65773438-F5E1-488E-A0A4-13174C9BAFF8}
+2019-03-08 16:56:07,985  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:07,985  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=655FC50C-51F1-4A88-93C5-2BE9A9F57637}
+2019-03-08 16:56:07,988  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:07,988  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=AF204B6D-3C7C-4E27-A799-C06079CB57B0}
+2019-03-08 16:56:07,990  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:07,991  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=6CDF8B41-10CB-42CC-B0AD-4B980DC997DF}
+2019-03-08 16:56:08,026  INFO [BaseMapperAbstract.java:329] - 执行语句:select * from t_user t where t.ccode = :ccode
+2019-03-08 16:56:08,027  INFO [BaseMapperAbstract.java:330] - 执行参数:{ccode=1}
+2019-03-08 16:56:08,030  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CCODEPATH, CTYPE, CPARENTCODE, CNAME, ILEVEL, CCODE, UID, UCORPID FROM t_dept WHERE UID=:UID
+2019-03-08 16:56:08,031  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=56A52861-B77E-4670-AAB4-928ABF093D84}
+2019-03-08 16:56:08,053  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT UID, CCODE, DUPDATETIME, CTELGUARD, DCREATETIME, CWEBSITE, CZIP, CTELGENERAL, CMEMO, CNAMEEN, CPROVINCES, CFAX, CTAXNO, CPRINCIPAL, CCITY, CADDR, CNAME, CEMAIL, CNAMEAB FROM t_corp WHERE UID=:UID
+2019-03-08 16:56:08,053  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=4190F866-5A6D-435C-9CC5-01C85AE6C4AD}
+2019-03-08 16:56:08,076  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_role where uuserid = :uuserid
+2019-03-08 16:56:08,076  INFO [BaseMapperAbstract.java:299] - 执行参数:{uuserid=FFAA5D1B-12C8-416C-8D68-513D4E982754}
+2019-03-08 16:56:08,079  INFO [BaseMapperAbstract.java:80] - 执行语句:INSERT INTO t_login_log (CLOGINURL, UUSERID, CMAC, DLOGINTIME, UID, CLOGINIP, CMEMO, CTYPE) VALUES (:CLOGINURL, :UUSERID, :CMAC, :DLOGINTIME, :UID, :CLOGINIP, :CMEMO, :CTYPE)
+2019-03-08 16:56:08,080  INFO [BaseMapperAbstract.java:81] - 执行参数:{CTYPE=登录, CLOGINURL=http://localhost:8888/fbss/ajax/login, UUSERID=FFAA5D1B-12C8-416C-8D68-513D4E982754, CLOGINIP=0:0:0:0:0:0:0:1|, CMAC=Error!, CMEMO=null, UID=5078e688-179d-47ee-b51a-05ed73c4501f, DLOGINTIME=Fri Mar 08 16:56:07 CST 2019}
+2019-03-08 16:56:08,116  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_role_module_group where uroleid = :uroleid
+2019-03-08 16:56:08,117  INFO [BaseMapperAbstract.java:299] - 执行参数:{uroleid=83220890-D1B2-45BB-820F-A9313261415D}
+2019-03-08 16:56:08,120  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_module_group_module where umodulegroupid = :umodulegroupid
+2019-03-08 16:56:08,120  INFO [BaseMapperAbstract.java:299] - 执行参数:{umodulegroupid=5DD35237-1EBB-4433-9282-2F57C55687FB}
+2019-03-08 16:56:08,127  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:08,127  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=55F36CA0-9165-4C5A-9FE0-9DB0EA3E95FB}
+2019-03-08 16:56:08,131  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:08,132  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=8EEB9C92-C91D-43B0-AFD7-371E1F6A4567}
+2019-03-08 16:56:08,134  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:08,134  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=85A341BE-DBC6-42C2-9CF9-B47D7D2AD77F}
+2019-03-08 16:56:08,137  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:08,138  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=773CF61B-84E7-40AF-AC1E-2AA0E2DCC794}
+2019-03-08 16:56:08,163  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:08,164  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=94C00969-A15E-43AF-965C-520D96D77A02}
+2019-03-08 16:56:08,171  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:08,171  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=D452567B-0FC2-4382-84C2-561571B7951F}
+2019-03-08 16:56:08,174  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:08,175  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=FBB296CF-38B6-4B1D-A7DA-A1A0EF0AE550}
+2019-03-08 16:56:08,177  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:08,177  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=EA3DB831-9586-449F-9DE7-657E972E35A7}
+2019-03-08 16:56:08,179  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:08,180  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=6453A3AD-9995-4124-A4E7-D371B8937995}
+2019-03-08 16:56:08,181  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:08,182  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=9E384F95-2201-417F-A3E9-42B58C8A83AE}
+2019-03-08 16:56:08,184  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:08,184  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=09EC45B0-CF77-44BD-BF6B-5AC94EB4D5B9}
+2019-03-08 16:56:08,186  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:08,186  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=91C79376-F679-42EC-8EB6-3A16AF247B57}
+2019-03-08 16:56:08,190  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:08,190  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=5724F4B4-1E9F-47EE-B50C-10E97EF0D231}
+2019-03-08 16:56:08,192  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:08,193  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=FA786BF9-926F-4ADD-A024-4F2FD6A43ACA}
+2019-03-08 16:56:08,195  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:08,196  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=CC900B43-7C8D-4ECD-9F07-FD069BDBD19C}
+2019-03-08 16:56:08,197  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:08,198  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=50D8DC7E-1F1D-4141-BF49-28C6B9AC17D3}
+2019-03-08 16:56:08,199  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:08,199  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=0565693D-74FB-48D3-8DD1-1FA3369AB3DE}
+2019-03-08 16:56:08,201  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:08,201  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=65773438-F5E1-488E-A0A4-13174C9BAFF8}
+2019-03-08 16:56:08,202  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:08,203  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=655FC50C-51F1-4A88-93C5-2BE9A9F57637}
+2019-03-08 16:56:08,204  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:08,204  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=AF204B6D-3C7C-4E27-A799-C06079CB57B0}
+2019-03-08 16:56:08,207  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 16:56:08,207  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=6CDF8B41-10CB-42CC-B0AD-4B980DC997DF}
+2019-03-08 16:56:12,444  INFO [BaseMapperAbstract.java:298] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where 1 = 1 and spo.udeptid = :udeptid and spo.istatus = :istatus and (select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) in (:array0,:array1,:array2) order by spo.drecorddate desc
+2019-03-08 16:56:12,444  INFO [BaseMapperAbstract.java:299] - 执行参数:{array2=5, istatus=1, array1=3, array0=0, udeptid=56A52861-B77E-4670-AAB4-928ABF093D84}
+2019-03-08 16:56:12,578  INFO [BaseMapperAbstract.java:298] - 执行语句:select c.uid,c.ucustomertypeid,ct.cname as ccustomertypename,c.uuserid,c.udeptid,c.cname,c.isex,c.ccontactnumber,c.caddress,c.cwechat,c.dbirthday,c.iintegral,c.ipaymentdays,c.drecorddate,c.dupdatedate from t_customer as c left join t_customer_type as ct on ct.uid = c.ucustomertypeid where 1 = 1 and c.udeptid = :udeptid order by c.ucustomertypeid,c.cname asc
+2019-03-08 16:56:12,580  INFO [BaseMapperAbstract.java:299] - 执行参数:{udeptid=56A52861-B77E-4670-AAB4-928ABF093D84}
+2019-03-08 16:56:17,298  INFO [BaseMapperAbstract.java:329] - 执行语句:select c.uid,c.ucustomertypeid,c.cname as ccustomertypename,c.uuserid,c.udeptid,c.cname,c.isex,c.ccontactnumber,c.caddress,c.cwechat,c.dbirthday,c.iintegral,c.ipaymentdays,c.drecorddate,c.dupdatedate from t_customer as c left join t_customer_type as ct on ct.uid = c.ucustomertypeid where c.uid = :uid
+2019-03-08 16:56:17,299  INFO [BaseMapperAbstract.java:330] - 执行参数:{uid=08610DBC-188A-4DF4-A890-2E932641D893}
+2019-03-08 16:56:17,348  INFO [BaseMapperAbstract.java:298] - 执行语句:select uid,cname,ccode,cdesc from t_payment_method order by ccode
+2019-03-08 16:56:17,348  INFO [BaseMapperAbstract.java:299] - 执行参数:null
+2019-03-08 16:56:17,365  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 16:56:17,366  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=8888888888888}
+2019-03-08 16:56:17,389  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 16:56:17,389  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=999999999999}
+2019-03-08 16:56:17,405  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 16:56:17,406  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=1111111111111}
+2019-03-08 17:03:50,503  INFO [BaseMapperAbstract.java:329] - 执行语句:select c.uid,c.ucustomertypeid,c.cname as ccustomertypename,c.uuserid,c.udeptid,c.cname,c.isex,c.ccontactnumber,c.caddress,c.cwechat,c.dbirthday,c.iintegral,c.ipaymentdays,c.drecorddate,c.dupdatedate from t_customer as c left join t_customer_type as ct on ct.uid = c.ucustomertypeid where c.uid = :uid
+2019-03-08 17:03:50,503  INFO [BaseMapperAbstract.java:330] - 执行参数:{uid=08610DBC-188A-4DF4-A890-2E932641D893}
+2019-03-08 17:03:50,509  INFO [BaseMapperAbstract.java:298] - 执行语句:select uid,cname,ccode,cdesc from t_payment_method order by ccode
+2019-03-08 17:03:50,509  INFO [BaseMapperAbstract.java:299] - 执行参数:null
+2019-03-08 17:03:50,513  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:03:50,513  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=8888888888888}
+2019-03-08 17:03:50,518  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:03:50,519  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=999999999999}
+2019-03-08 17:03:50,528  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:03:50,529  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=1111111111111}
+2019-03-08 17:04:19,298  INFO [BaseMapperAbstract.java:329] - 执行语句:select c.uid,c.ucustomertypeid,c.cname as ccustomertypename,c.uuserid,c.udeptid,c.cname,c.isex,c.ccontactnumber,c.caddress,c.cwechat,c.dbirthday,c.iintegral,c.ipaymentdays,c.drecorddate,c.dupdatedate from t_customer as c left join t_customer_type as ct on ct.uid = c.ucustomertypeid where c.uid = :uid
+2019-03-08 17:04:19,298  INFO [BaseMapperAbstract.java:330] - 执行参数:{uid=08610DBC-188A-4DF4-A890-2E932641D893}
+2019-03-08 17:04:19,305  INFO [BaseMapperAbstract.java:298] - 执行语句:select uid,cname,ccode,cdesc from t_payment_method order by ccode
+2019-03-08 17:04:19,305  INFO [BaseMapperAbstract.java:299] - 执行参数:null
+2019-03-08 17:04:19,309  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:04:19,310  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=8888888888888}
+2019-03-08 17:04:19,314  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:04:19,314  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=999999999999}
+2019-03-08 17:04:19,322  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:04:19,323  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=1111111111111}
+2019-03-08 17:06:18,250  INFO [BaseMapperAbstract.java:329] - 执行语句:select c.uid,c.ucustomertypeid,c.cname as ccustomertypename,c.uuserid,c.udeptid,c.cname,c.isex,c.ccontactnumber,c.caddress,c.cwechat,c.dbirthday,c.iintegral,c.ipaymentdays,c.drecorddate,c.dupdatedate from t_customer as c left join t_customer_type as ct on ct.uid = c.ucustomertypeid where c.uid = :uid
+2019-03-08 17:06:18,251  INFO [BaseMapperAbstract.java:330] - 执行参数:{uid=08610DBC-188A-4DF4-A890-2E932641D893}
+2019-03-08 17:06:18,257  INFO [BaseMapperAbstract.java:298] - 执行语句:select uid,cname,ccode,cdesc from t_payment_method order by ccode
+2019-03-08 17:06:18,258  INFO [BaseMapperAbstract.java:299] - 执行参数:null
+2019-03-08 17:06:18,265  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:06:18,266  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=8888888888888}
+2019-03-08 17:06:18,274  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:06:18,274  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=999999999999}
+2019-03-08 17:06:18,281  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:06:18,282  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=1111111111111}
+2019-03-08 17:06:38,767  INFO [BaseMapperAbstract.java:329] - 执行语句:select c.uid,c.ucustomertypeid,c.cname as ccustomertypename,c.uuserid,c.udeptid,c.cname,c.isex,c.ccontactnumber,c.caddress,c.cwechat,c.dbirthday,c.iintegral,c.ipaymentdays,c.drecorddate,c.dupdatedate from t_customer as c left join t_customer_type as ct on ct.uid = c.ucustomertypeid where c.uid = :uid
+2019-03-08 17:06:38,768  INFO [BaseMapperAbstract.java:330] - 执行参数:{uid=08610DBC-188A-4DF4-A890-2E932641D893}
+2019-03-08 17:06:38,771  INFO [BaseMapperAbstract.java:298] - 执行语句:select uid,cname,ccode,cdesc from t_payment_method order by ccode
+2019-03-08 17:06:38,772  INFO [BaseMapperAbstract.java:299] - 执行参数:null
+2019-03-08 17:06:38,776  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:06:38,776  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=8888888888888}
+2019-03-08 17:06:38,787  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:06:38,787  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=999999999999}
+2019-03-08 17:06:38,795  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:06:38,796  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=1111111111111}
+2019-03-08 17:06:59,972  INFO [BaseMapperAbstract.java:329] - 执行语句:select c.uid,c.ucustomertypeid,c.cname as ccustomertypename,c.uuserid,c.udeptid,c.cname,c.isex,c.ccontactnumber,c.caddress,c.cwechat,c.dbirthday,c.iintegral,c.ipaymentdays,c.drecorddate,c.dupdatedate from t_customer as c left join t_customer_type as ct on ct.uid = c.ucustomertypeid where c.uid = :uid
+2019-03-08 17:06:59,973  INFO [BaseMapperAbstract.java:330] - 执行参数:{uid=08610DBC-188A-4DF4-A890-2E932641D893}
+2019-03-08 17:06:59,976  INFO [BaseMapperAbstract.java:298] - 执行语句:select uid,cname,ccode,cdesc from t_payment_method order by ccode
+2019-03-08 17:06:59,976  INFO [BaseMapperAbstract.java:299] - 执行参数:null
+2019-03-08 17:06:59,979  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:06:59,979  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=8888888888888}
+2019-03-08 17:06:59,982  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:06:59,983  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=999999999999}
+2019-03-08 17:06:59,990  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:06:59,990  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=1111111111111}
+2019-03-08 17:07:19,482  INFO [BaseMapperAbstract.java:329] - 执行语句:select c.uid,c.ucustomertypeid,c.cname as ccustomertypename,c.uuserid,c.udeptid,c.cname,c.isex,c.ccontactnumber,c.caddress,c.cwechat,c.dbirthday,c.iintegral,c.ipaymentdays,c.drecorddate,c.dupdatedate from t_customer as c left join t_customer_type as ct on ct.uid = c.ucustomertypeid where c.uid = :uid
+2019-03-08 17:07:19,483  INFO [BaseMapperAbstract.java:330] - 执行参数:{uid=08610DBC-188A-4DF4-A890-2E932641D893}
+2019-03-08 17:07:19,486  INFO [BaseMapperAbstract.java:298] - 执行语句:select uid,cname,ccode,cdesc from t_payment_method order by ccode
+2019-03-08 17:07:19,487  INFO [BaseMapperAbstract.java:299] - 执行参数:null
+2019-03-08 17:07:19,490  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:07:19,491  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=8888888888888}
+2019-03-08 17:07:19,495  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:07:19,495  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=999999999999}
+2019-03-08 17:07:19,504  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:07:19,504  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=1111111111111}
+2019-03-08 17:07:44,102  INFO [BaseMapperAbstract.java:329] - 执行语句:select c.uid,c.ucustomertypeid,c.cname as ccustomertypename,c.uuserid,c.udeptid,c.cname,c.isex,c.ccontactnumber,c.caddress,c.cwechat,c.dbirthday,c.iintegral,c.ipaymentdays,c.drecorddate,c.dupdatedate from t_customer as c left join t_customer_type as ct on ct.uid = c.ucustomertypeid where c.uid = :uid
+2019-03-08 17:07:44,103  INFO [BaseMapperAbstract.java:330] - 执行参数:{uid=08610DBC-188A-4DF4-A890-2E932641D893}
+2019-03-08 17:07:44,108  INFO [BaseMapperAbstract.java:298] - 执行语句:select uid,cname,ccode,cdesc from t_payment_method order by ccode
+2019-03-08 17:07:44,108  INFO [BaseMapperAbstract.java:299] - 执行参数:null
+2019-03-08 17:07:44,111  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:07:44,112  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=8888888888888}
+2019-03-08 17:07:44,116  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:07:44,116  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=999999999999}
+2019-03-08 17:07:44,124  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:07:44,124  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=1111111111111}
+2019-03-08 17:09:27,119  INFO [BaseMapperAbstract.java:329] - 执行语句:select c.uid,c.ucustomertypeid,c.cname as ccustomertypename,c.uuserid,c.udeptid,c.cname,c.isex,c.ccontactnumber,c.caddress,c.cwechat,c.dbirthday,c.iintegral,c.ipaymentdays,c.drecorddate,c.dupdatedate from t_customer as c left join t_customer_type as ct on ct.uid = c.ucustomertypeid where c.uid = :uid
+2019-03-08 17:09:27,120  INFO [BaseMapperAbstract.java:330] - 执行参数:{uid=08610DBC-188A-4DF4-A890-2E932641D893}
+2019-03-08 17:09:27,124  INFO [BaseMapperAbstract.java:298] - 执行语句:select uid,cname,ccode,cdesc from t_payment_method order by ccode
+2019-03-08 17:09:27,124  INFO [BaseMapperAbstract.java:299] - 执行参数:null
+2019-03-08 17:09:27,127  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:09:27,127  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=8888888888888}
+2019-03-08 17:09:27,131  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:09:27,131  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=999999999999}
+2019-03-08 17:09:27,138  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:09:27,138  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=1111111111111}
+2019-03-08 17:11:28,741  INFO [BaseMapperAbstract.java:329] - 执行语句:select c.uid,c.ucustomertypeid,c.cname as ccustomertypename,c.uuserid,c.udeptid,c.cname,c.isex,c.ccontactnumber,c.caddress,c.cwechat,c.dbirthday,c.iintegral,c.ipaymentdays,c.drecorddate,c.dupdatedate from t_customer as c left join t_customer_type as ct on ct.uid = c.ucustomertypeid where c.uid = :uid
+2019-03-08 17:11:28,742  INFO [BaseMapperAbstract.java:330] - 执行参数:{uid=08610DBC-188A-4DF4-A890-2E932641D893}
+2019-03-08 17:11:28,746  INFO [BaseMapperAbstract.java:298] - 执行语句:select uid,cname,ccode,cdesc from t_payment_method order by ccode
+2019-03-08 17:11:28,746  INFO [BaseMapperAbstract.java:299] - 执行参数:null
+2019-03-08 17:11:28,749  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:11:28,749  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=8888888888888}
+2019-03-08 17:11:28,753  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:11:28,753  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=999999999999}
+2019-03-08 17:11:28,760  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:11:28,761  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=1111111111111}
+2019-03-08 17:22:29,944  INFO [BaseMapperAbstract.java:329] - 执行语句:select * from t_user t where t.ccode = :ccode
+2019-03-08 17:22:29,951  INFO [BaseMapperAbstract.java:330] - 执行参数:{ccode=1}
+2019-03-08 17:22:30,585  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_role where uuserid = :uuserid
+2019-03-08 17:22:30,586  INFO [BaseMapperAbstract.java:299] - 执行参数:{uuserid=FFAA5D1B-12C8-416C-8D68-513D4E982754}
+2019-03-08 17:22:30,595  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_role_module_group where uroleid = :uroleid
+2019-03-08 17:22:30,596  INFO [BaseMapperAbstract.java:299] - 执行参数:{uroleid=83220890-D1B2-45BB-820F-A9313261415D}
+2019-03-08 17:22:30,614  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_module_group_module where umodulegroupid = :umodulegroupid
+2019-03-08 17:22:30,614  INFO [BaseMapperAbstract.java:299] - 执行参数:{umodulegroupid=5DD35237-1EBB-4433-9282-2F57C55687FB}
+2019-03-08 17:22:30,644  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,645  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=55F36CA0-9165-4C5A-9FE0-9DB0EA3E95FB}
+2019-03-08 17:22:30,660  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,661  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=8EEB9C92-C91D-43B0-AFD7-371E1F6A4567}
+2019-03-08 17:22:30,665  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,665  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=85A341BE-DBC6-42C2-9CF9-B47D7D2AD77F}
+2019-03-08 17:22:30,669  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,670  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=773CF61B-84E7-40AF-AC1E-2AA0E2DCC794}
+2019-03-08 17:22:30,674  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,675  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=94C00969-A15E-43AF-965C-520D96D77A02}
+2019-03-08 17:22:30,677  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,678  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=D452567B-0FC2-4382-84C2-561571B7951F}
+2019-03-08 17:22:30,679  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,680  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=FBB296CF-38B6-4B1D-A7DA-A1A0EF0AE550}
+2019-03-08 17:22:30,682  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,682  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=EA3DB831-9586-449F-9DE7-657E972E35A7}
+2019-03-08 17:22:30,684  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,684  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=6453A3AD-9995-4124-A4E7-D371B8937995}
+2019-03-08 17:22:30,686  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,687  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=9E384F95-2201-417F-A3E9-42B58C8A83AE}
+2019-03-08 17:22:30,690  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,690  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=09EC45B0-CF77-44BD-BF6B-5AC94EB4D5B9}
+2019-03-08 17:22:30,693  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,693  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=91C79376-F679-42EC-8EB6-3A16AF247B57}
+2019-03-08 17:22:30,696  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,696  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=5724F4B4-1E9F-47EE-B50C-10E97EF0D231}
+2019-03-08 17:22:30,699  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,699  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=FA786BF9-926F-4ADD-A024-4F2FD6A43ACA}
+2019-03-08 17:22:30,701  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,701  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=CC900B43-7C8D-4ECD-9F07-FD069BDBD19C}
+2019-03-08 17:22:30,703  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,704  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=50D8DC7E-1F1D-4141-BF49-28C6B9AC17D3}
+2019-03-08 17:22:30,710  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,710  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=0565693D-74FB-48D3-8DD1-1FA3369AB3DE}
+2019-03-08 17:22:30,713  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,714  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=65773438-F5E1-488E-A0A4-13174C9BAFF8}
+2019-03-08 17:22:30,716  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,717  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=655FC50C-51F1-4A88-93C5-2BE9A9F57637}
+2019-03-08 17:22:30,719  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,719  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=AF204B6D-3C7C-4E27-A799-C06079CB57B0}
+2019-03-08 17:22:30,721  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,722  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=6CDF8B41-10CB-42CC-B0AD-4B980DC997DF}
+2019-03-08 17:22:30,759  INFO [BaseMapperAbstract.java:329] - 执行语句:select * from t_user t where t.ccode = :ccode
+2019-03-08 17:22:30,759  INFO [BaseMapperAbstract.java:330] - 执行参数:{ccode=1}
+2019-03-08 17:22:30,764  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CCODEPATH, CTYPE, CPARENTCODE, CNAME, ILEVEL, CCODE, UID, UCORPID FROM t_dept WHERE UID=:UID
+2019-03-08 17:22:30,765  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=56A52861-B77E-4670-AAB4-928ABF093D84}
+2019-03-08 17:22:30,786  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT UID, CCODE, DUPDATETIME, CTELGUARD, DCREATETIME, CWEBSITE, CZIP, CTELGENERAL, CMEMO, CNAMEEN, CPROVINCES, CFAX, CTAXNO, CPRINCIPAL, CCITY, CADDR, CNAME, CEMAIL, CNAMEAB FROM t_corp WHERE UID=:UID
+2019-03-08 17:22:30,787  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=4190F866-5A6D-435C-9CC5-01C85AE6C4AD}
+2019-03-08 17:22:30,817  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_role where uuserid = :uuserid
+2019-03-08 17:22:30,817  INFO [BaseMapperAbstract.java:299] - 执行参数:{uuserid=FFAA5D1B-12C8-416C-8D68-513D4E982754}
+2019-03-08 17:22:30,821  INFO [BaseMapperAbstract.java:80] - 执行语句:INSERT INTO t_login_log (CLOGINURL, UUSERID, CMAC, DLOGINTIME, UID, CLOGINIP, CMEMO, CTYPE) VALUES (:CLOGINURL, :UUSERID, :CMAC, :DLOGINTIME, :UID, :CLOGINIP, :CMEMO, :CTYPE)
+2019-03-08 17:22:30,822  INFO [BaseMapperAbstract.java:81] - 执行参数:{CTYPE=登录, CLOGINURL=http://localhost:8888/fbss/ajax/login, UUSERID=FFAA5D1B-12C8-416C-8D68-513D4E982754, CLOGINIP=0:0:0:0:0:0:0:1|, CMAC=Error!, CMEMO=null, UID=8dda0a88-5379-484e-9c36-5c92d0d8a183, DLOGINTIME=Fri Mar 08 17:22:29 CST 2019}
+2019-03-08 17:22:30,870  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_role_module_group where uroleid = :uroleid
+2019-03-08 17:22:30,871  INFO [BaseMapperAbstract.java:299] - 执行参数:{uroleid=83220890-D1B2-45BB-820F-A9313261415D}
+2019-03-08 17:22:30,875  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_module_group_module where umodulegroupid = :umodulegroupid
+2019-03-08 17:22:30,875  INFO [BaseMapperAbstract.java:299] - 执行参数:{umodulegroupid=5DD35237-1EBB-4433-9282-2F57C55687FB}
+2019-03-08 17:22:30,882  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,883  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=55F36CA0-9165-4C5A-9FE0-9DB0EA3E95FB}
+2019-03-08 17:22:30,886  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,886  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=8EEB9C92-C91D-43B0-AFD7-371E1F6A4567}
+2019-03-08 17:22:30,888  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,889  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=85A341BE-DBC6-42C2-9CF9-B47D7D2AD77F}
+2019-03-08 17:22:30,891  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,891  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=773CF61B-84E7-40AF-AC1E-2AA0E2DCC794}
+2019-03-08 17:22:30,893  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,894  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=94C00969-A15E-43AF-965C-520D96D77A02}
+2019-03-08 17:22:30,896  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,896  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=D452567B-0FC2-4382-84C2-561571B7951F}
+2019-03-08 17:22:30,899  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,899  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=FBB296CF-38B6-4B1D-A7DA-A1A0EF0AE550}
+2019-03-08 17:22:30,902  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,902  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=EA3DB831-9586-449F-9DE7-657E972E35A7}
+2019-03-08 17:22:30,906  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,907  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=6453A3AD-9995-4124-A4E7-D371B8937995}
+2019-03-08 17:22:30,910  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,911  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=9E384F95-2201-417F-A3E9-42B58C8A83AE}
+2019-03-08 17:22:30,914  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,914  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=09EC45B0-CF77-44BD-BF6B-5AC94EB4D5B9}
+2019-03-08 17:22:30,917  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,918  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=91C79376-F679-42EC-8EB6-3A16AF247B57}
+2019-03-08 17:22:30,921  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,922  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=5724F4B4-1E9F-47EE-B50C-10E97EF0D231}
+2019-03-08 17:22:30,925  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,926  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=FA786BF9-926F-4ADD-A024-4F2FD6A43ACA}
+2019-03-08 17:22:30,928  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,929  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=CC900B43-7C8D-4ECD-9F07-FD069BDBD19C}
+2019-03-08 17:22:30,931  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,932  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=50D8DC7E-1F1D-4141-BF49-28C6B9AC17D3}
+2019-03-08 17:22:30,934  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,935  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=0565693D-74FB-48D3-8DD1-1FA3369AB3DE}
+2019-03-08 17:22:30,936  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,937  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=65773438-F5E1-488E-A0A4-13174C9BAFF8}
+2019-03-08 17:22:30,941  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,941  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=655FC50C-51F1-4A88-93C5-2BE9A9F57637}
+2019-03-08 17:22:30,943  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,944  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=AF204B6D-3C7C-4E27-A799-C06079CB57B0}
+2019-03-08 17:22:30,946  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 17:22:30,947  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=6CDF8B41-10CB-42CC-B0AD-4B980DC997DF}
+2019-03-08 17:22:35,439  INFO [BaseMapperAbstract.java:298] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where 1 = 1 and spo.udeptid = :udeptid and spo.istatus = :istatus and (select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) in (:array0,:array1,:array2) order by spo.drecorddate desc
+2019-03-08 17:22:35,440  INFO [BaseMapperAbstract.java:299] - 执行参数:{array2=5, istatus=1, array1=3, array0=0, udeptid=56A52861-B77E-4670-AAB4-928ABF093D84}
+2019-03-08 17:22:35,521  INFO [BaseMapperAbstract.java:298] - 执行语句:select c.uid,c.ucustomertypeid,ct.cname as ccustomertypename,c.uuserid,c.udeptid,c.cname,c.isex,c.ccontactnumber,c.caddress,c.cwechat,c.dbirthday,c.iintegral,c.ipaymentdays,c.drecorddate,c.dupdatedate from t_customer as c left join t_customer_type as ct on ct.uid = c.ucustomertypeid where 1 = 1 and c.udeptid = :udeptid order by c.ucustomertypeid,c.cname asc
+2019-03-08 17:22:35,522  INFO [BaseMapperAbstract.java:299] - 执行参数:{udeptid=56A52861-B77E-4670-AAB4-928ABF093D84}
+2019-03-08 17:22:43,495  INFO [BaseMapperAbstract.java:329] - 执行语句:select c.uid,c.ucustomertypeid,c.cname as ccustomertypename,c.uuserid,c.udeptid,c.cname,c.isex,c.ccontactnumber,c.caddress,c.cwechat,c.dbirthday,c.iintegral,c.ipaymentdays,c.drecorddate,c.dupdatedate from t_customer as c left join t_customer_type as ct on ct.uid = c.ucustomertypeid where c.uid = :uid
+2019-03-08 17:22:43,495  INFO [BaseMapperAbstract.java:330] - 执行参数:{uid=08610DBC-188A-4DF4-A890-2E932641D893}
+2019-03-08 17:22:43,528  INFO [BaseMapperAbstract.java:298] - 执行语句:select uid,cname,ccode,cdesc from t_payment_method order by ccode
+2019-03-08 17:22:43,529  INFO [BaseMapperAbstract.java:299] - 执行参数:null
+2019-03-08 17:22:43,538  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:22:43,539  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=8888888888888}
+2019-03-08 17:22:43,545  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:22:43,545  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=999999999999}
+2019-03-08 17:22:43,562  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:22:43,566  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=1111111111111}
+2019-03-08 17:22:59,645  INFO [BaseMapperAbstract.java:329] - 执行语句:select c.uid,c.ucustomertypeid,c.cname as ccustomertypename,c.uuserid,c.udeptid,c.cname,c.isex,c.ccontactnumber,c.caddress,c.cwechat,c.dbirthday,c.iintegral,c.ipaymentdays,c.drecorddate,c.dupdatedate from t_customer as c left join t_customer_type as ct on ct.uid = c.ucustomertypeid where c.uid = :uid
+2019-03-08 17:22:59,647  INFO [BaseMapperAbstract.java:330] - 执行参数:{uid=08610DBC-188A-4DF4-A890-2E932641D893}
+2019-03-08 17:22:59,654  INFO [BaseMapperAbstract.java:298] - 执行语句:select uid,cname,ccode,cdesc from t_payment_method order by ccode
+2019-03-08 17:22:59,655  INFO [BaseMapperAbstract.java:299] - 执行参数:null
+2019-03-08 17:22:59,659  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:22:59,659  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=8888888888888}
+2019-03-08 17:22:59,664  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:22:59,664  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=999999999999}
+2019-03-08 17:22:59,673  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 17:22:59,673  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=1111111111111}
+2019-03-08 17:23:37,028  INFO [BaseMapperAbstract.java:298] - 执行语句:select uid,cname,clogo,curl,cdesc,isort from t_brand where 1 = 1order by isort
+2019-03-08 17:23:37,029  INFO [BaseMapperAbstract.java:299] - 执行参数:null
+2019-03-08 18:17:08,201  INFO [BaseMapperAbstract.java:329] - 执行语句:select * from t_user t where t.ccode = :ccode
+2019-03-08 18:17:08,208  INFO [BaseMapperAbstract.java:330] - 执行参数:{ccode=1}
+2019-03-08 18:17:08,661  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_role where uuserid = :uuserid
+2019-03-08 18:17:08,662  INFO [BaseMapperAbstract.java:299] - 执行参数:{uuserid=FFAA5D1B-12C8-416C-8D68-513D4E982754}
+2019-03-08 18:17:08,669  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_role_module_group where uroleid = :uroleid
+2019-03-08 18:17:08,670  INFO [BaseMapperAbstract.java:299] - 执行参数:{uroleid=83220890-D1B2-45BB-820F-A9313261415D}
+2019-03-08 18:17:08,682  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_module_group_module where umodulegroupid = :umodulegroupid
+2019-03-08 18:17:08,682  INFO [BaseMapperAbstract.java:299] - 执行参数:{umodulegroupid=5DD35237-1EBB-4433-9282-2F57C55687FB}
+2019-03-08 18:17:08,710  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:08,711  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=55F36CA0-9165-4C5A-9FE0-9DB0EA3E95FB}
+2019-03-08 18:17:08,727  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:08,727  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=8EEB9C92-C91D-43B0-AFD7-371E1F6A4567}
+2019-03-08 18:17:08,730  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:08,731  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=85A341BE-DBC6-42C2-9CF9-B47D7D2AD77F}
+2019-03-08 18:17:08,733  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:08,734  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=773CF61B-84E7-40AF-AC1E-2AA0E2DCC794}
+2019-03-08 18:17:08,738  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:08,739  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=94C00969-A15E-43AF-965C-520D96D77A02}
+2019-03-08 18:17:08,744  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:08,744  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=D452567B-0FC2-4382-84C2-561571B7951F}
+2019-03-08 18:17:08,747  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:08,748  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=FBB296CF-38B6-4B1D-A7DA-A1A0EF0AE550}
+2019-03-08 18:17:08,751  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:08,752  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=EA3DB831-9586-449F-9DE7-657E972E35A7}
+2019-03-08 18:17:08,756  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:08,756  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=6453A3AD-9995-4124-A4E7-D371B8937995}
+2019-03-08 18:17:08,758  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:08,759  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=9E384F95-2201-417F-A3E9-42B58C8A83AE}
+2019-03-08 18:17:08,762  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:08,763  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=09EC45B0-CF77-44BD-BF6B-5AC94EB4D5B9}
+2019-03-08 18:17:08,765  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:08,765  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=91C79376-F679-42EC-8EB6-3A16AF247B57}
+2019-03-08 18:17:08,768  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:08,769  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=5724F4B4-1E9F-47EE-B50C-10E97EF0D231}
+2019-03-08 18:17:08,772  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:08,772  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=FA786BF9-926F-4ADD-A024-4F2FD6A43ACA}
+2019-03-08 18:17:08,775  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:08,775  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=CC900B43-7C8D-4ECD-9F07-FD069BDBD19C}
+2019-03-08 18:17:08,777  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:08,777  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=50D8DC7E-1F1D-4141-BF49-28C6B9AC17D3}
+2019-03-08 18:17:08,782  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:08,783  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=0565693D-74FB-48D3-8DD1-1FA3369AB3DE}
+2019-03-08 18:17:08,785  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:08,785  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=65773438-F5E1-488E-A0A4-13174C9BAFF8}
+2019-03-08 18:17:08,788  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:08,788  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=655FC50C-51F1-4A88-93C5-2BE9A9F57637}
+2019-03-08 18:17:08,790  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:08,791  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=AF204B6D-3C7C-4E27-A799-C06079CB57B0}
+2019-03-08 18:17:08,793  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:08,794  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=6CDF8B41-10CB-42CC-B0AD-4B980DC997DF}
+2019-03-08 18:17:08,855  INFO [BaseMapperAbstract.java:329] - 执行语句:select * from t_user t where t.ccode = :ccode
+2019-03-08 18:17:08,856  INFO [BaseMapperAbstract.java:330] - 执行参数:{ccode=1}
+2019-03-08 18:17:08,860  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CCODEPATH, CTYPE, CPARENTCODE, CNAME, ILEVEL, CCODE, UID, UCORPID FROM t_dept WHERE UID=:UID
+2019-03-08 18:17:08,861  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=56A52861-B77E-4670-AAB4-928ABF093D84}
+2019-03-08 18:17:08,884  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT UID, CCODE, DUPDATETIME, CTELGUARD, DCREATETIME, CWEBSITE, CZIP, CTELGENERAL, CMEMO, CNAMEEN, CPROVINCES, CFAX, CTAXNO, CPRINCIPAL, CCITY, CADDR, CNAME, CEMAIL, CNAMEAB FROM t_corp WHERE UID=:UID
+2019-03-08 18:17:08,885  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=4190F866-5A6D-435C-9CC5-01C85AE6C4AD}
+2019-03-08 18:17:08,910  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_role where uuserid = :uuserid
+2019-03-08 18:17:08,911  INFO [BaseMapperAbstract.java:299] - 执行参数:{uuserid=FFAA5D1B-12C8-416C-8D68-513D4E982754}
+2019-03-08 18:17:08,913  INFO [BaseMapperAbstract.java:80] - 执行语句:INSERT INTO t_login_log (CLOGINURL, UUSERID, CMAC, DLOGINTIME, UID, CLOGINIP, CMEMO, CTYPE) VALUES (:CLOGINURL, :UUSERID, :CMAC, :DLOGINTIME, :UID, :CLOGINIP, :CMEMO, :CTYPE)
+2019-03-08 18:17:08,914  INFO [BaseMapperAbstract.java:81] - 执行参数:{CTYPE=登录, CLOGINURL=http://localhost:8888/fbss/ajax/login, UUSERID=FFAA5D1B-12C8-416C-8D68-513D4E982754, CLOGINIP=0:0:0:0:0:0:0:1|, CMAC=Error!, CMEMO=null, UID=007def65-3d9b-4cd3-aaa9-c75df4373b91, DLOGINTIME=Fri Mar 08 18:17:08 CST 2019}
+2019-03-08 18:17:08,966  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_role_module_group where uroleid = :uroleid
+2019-03-08 18:17:08,967  INFO [BaseMapperAbstract.java:299] - 执行参数:{uroleid=83220890-D1B2-45BB-820F-A9313261415D}
+2019-03-08 18:17:08,969  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_module_group_module where umodulegroupid = :umodulegroupid
+2019-03-08 18:17:08,970  INFO [BaseMapperAbstract.java:299] - 执行参数:{umodulegroupid=5DD35237-1EBB-4433-9282-2F57C55687FB}
+2019-03-08 18:17:08,976  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:08,977  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=55F36CA0-9165-4C5A-9FE0-9DB0EA3E95FB}
+2019-03-08 18:17:08,980  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:08,981  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=8EEB9C92-C91D-43B0-AFD7-371E1F6A4567}
+2019-03-08 18:17:08,982  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:08,983  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=85A341BE-DBC6-42C2-9CF9-B47D7D2AD77F}
+2019-03-08 18:17:08,984  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:08,985  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=773CF61B-84E7-40AF-AC1E-2AA0E2DCC794}
+2019-03-08 18:17:08,987  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:08,988  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=94C00969-A15E-43AF-965C-520D96D77A02}
+2019-03-08 18:17:08,991  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:08,991  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=D452567B-0FC2-4382-84C2-561571B7951F}
+2019-03-08 18:17:08,994  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:08,994  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=FBB296CF-38B6-4B1D-A7DA-A1A0EF0AE550}
+2019-03-08 18:17:08,997  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:08,997  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=EA3DB831-9586-449F-9DE7-657E972E35A7}
+2019-03-08 18:17:09,000  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:09,000  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=6453A3AD-9995-4124-A4E7-D371B8937995}
+2019-03-08 18:17:09,003  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:09,003  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=9E384F95-2201-417F-A3E9-42B58C8A83AE}
+2019-03-08 18:17:09,006  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:09,006  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=09EC45B0-CF77-44BD-BF6B-5AC94EB4D5B9}
+2019-03-08 18:17:09,009  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:09,009  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=91C79376-F679-42EC-8EB6-3A16AF247B57}
+2019-03-08 18:17:09,011  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:09,012  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=5724F4B4-1E9F-47EE-B50C-10E97EF0D231}
+2019-03-08 18:17:09,014  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:09,015  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=FA786BF9-926F-4ADD-A024-4F2FD6A43ACA}
+2019-03-08 18:17:09,017  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:09,017  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=CC900B43-7C8D-4ECD-9F07-FD069BDBD19C}
+2019-03-08 18:17:09,020  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:09,020  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=50D8DC7E-1F1D-4141-BF49-28C6B9AC17D3}
+2019-03-08 18:17:09,023  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:09,024  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=0565693D-74FB-48D3-8DD1-1FA3369AB3DE}
+2019-03-08 18:17:09,026  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:09,026  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=65773438-F5E1-488E-A0A4-13174C9BAFF8}
+2019-03-08 18:17:09,028  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:09,029  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=655FC50C-51F1-4A88-93C5-2BE9A9F57637}
+2019-03-08 18:17:09,031  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:09,031  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=AF204B6D-3C7C-4E27-A799-C06079CB57B0}
+2019-03-08 18:17:09,033  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:17:09,034  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=6CDF8B41-10CB-42CC-B0AD-4B980DC997DF}
+2019-03-08 18:17:15,067  INFO [BaseMapperAbstract.java:298] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where 1 = 1 and spo.udeptid = :udeptid and spo.istatus = :istatus and (select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) in (:array0,:array1,:array2) order by spo.drecorddate desc
+2019-03-08 18:17:15,067  INFO [BaseMapperAbstract.java:299] - 执行参数:{array2=5, istatus=1, array1=3, array0=0, udeptid=56A52861-B77E-4670-AAB4-928ABF093D84}
+2019-03-08 18:17:15,171  INFO [BaseMapperAbstract.java:298] - 执行语句:select c.uid,c.ucustomertypeid,ct.cname as ccustomertypename,c.uuserid,c.udeptid,c.cname,c.isex,c.ccontactnumber,c.caddress,c.cwechat,c.dbirthday,c.iintegral,c.ipaymentdays,c.drecorddate,c.dupdatedate from t_customer as c left join t_customer_type as ct on ct.uid = c.ucustomertypeid where 1 = 1 and c.udeptid = :udeptid order by c.ucustomertypeid,c.cname asc
+2019-03-08 18:17:15,172  INFO [BaseMapperAbstract.java:299] - 执行参数:{udeptid=56A52861-B77E-4670-AAB4-928ABF093D84}
+2019-03-08 18:17:22,996  INFO [BaseMapperAbstract.java:329] - 执行语句:select c.uid,c.ucustomertypeid,c.cname as ccustomertypename,c.uuserid,c.udeptid,c.cname,c.isex,c.ccontactnumber,c.caddress,c.cwechat,c.dbirthday,c.iintegral,c.ipaymentdays,c.drecorddate,c.dupdatedate from t_customer as c left join t_customer_type as ct on ct.uid = c.ucustomertypeid where c.uid = :uid
+2019-03-08 18:17:22,997  INFO [BaseMapperAbstract.java:330] - 执行参数:{uid=08610DBC-188A-4DF4-A890-2E932641D893}
+2019-03-08 18:17:23,022  INFO [BaseMapperAbstract.java:298] - 执行语句:select uid,cname,ccode,cdesc from t_payment_method order by ccode
+2019-03-08 18:17:23,023  INFO [BaseMapperAbstract.java:299] - 执行参数:null
+2019-03-08 18:17:23,032  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 18:17:23,033  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=1111111111111}
+2019-03-08 18:17:27,539  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CDESC, UID, CCODE, CNAME FROM t_payment_method WHERE UID=:UID
+2019-03-08 18:17:27,540  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=8E187EF9-2C68-4891-83EF-E8A6433BF763}
+2019-03-08 18:17:27,544  INFO [BaseMapperAbstract.java:80] - 执行语句:INSERT INTO t_customer_phone_order (ISTATUS, UCUSTOMERID, UID, DUPDATEDATE, UUSERID, DRECORDDATE, CNO, ITYPE, UDEPTID) VALUES (:ISTATUS, :UCUSTOMERID, :UID, :DUPDATEDATE, :UUSERID, :DRECORDDATE, :CNO, :ITYPE, :UDEPTID)
+2019-03-08 18:17:27,545  INFO [BaseMapperAbstract.java:81] - 执行参数:{DRECORDDATE=Fri Mar 08 18:17:27 CST 2019, UUSERID=FFAA5D1B-12C8-416C-8D68-513D4E982754, UID=113b78db-07ee-4e27-b900-b8fa7cbef175, ITYPE=0, DUPDATEDATE=Fri Mar 08 18:17:27 CST 2019, CNO=SL20190308061727, UDEPTID=56A52861-B77E-4670-AAB4-928ABF093D84, ISTATUS=1, UCUSTOMERID=08610DBC-188A-4DF4-A890-2E932641D893}
+2019-03-08 18:17:27,549  INFO [BaseMapperAbstract.java:80] - 执行语句:INSERT INTO t_customer_phone_order_detail (DRECORDDATE, UORDERID, NDISCOUNT, NPRICE, UDEPTID, ISORT, UID, NAMOUNT, DUPDATEDATE, IMEI, UUSERID) VALUES (:DRECORDDATE, :UORDERID, :NDISCOUNT, :NPRICE, :UDEPTID, :ISORT, :UID, :NAMOUNT, :DUPDATEDATE, :IMEI, :UUSERID)
+2019-03-08 18:17:27,549  INFO [BaseMapperAbstract.java:81] - 执行参数:{NDISCOUNT=null, UORDERID=113b78db-07ee-4e27-b900-b8fa7cbef175, DRECORDDATE=Fri Mar 08 18:17:27 CST 2019, ISORT=1, UUSERID=FFAA5D1B-12C8-416C-8D68-513D4E982754, IMEI=1111111111111, UID=973fbbbe-e9ec-4b08-a751-8ba90054485f, DUPDATEDATE=Fri Mar 08 18:17:27 CST 2019, NPRICE=2.0, NAMOUNT=null, UDEPTID=56A52861-B77E-4670-AAB4-928ABF093D84}
+2019-03-08 18:19:33,191  INFO [BaseMapperAbstract.java:329] - 执行语句:select * from t_user t where t.ccode = :ccode
+2019-03-08 18:19:33,197  INFO [BaseMapperAbstract.java:330] - 执行参数:{ccode=1}
+2019-03-08 18:19:33,839  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_role where uuserid = :uuserid
+2019-03-08 18:19:33,840  INFO [BaseMapperAbstract.java:299] - 执行参数:{uuserid=FFAA5D1B-12C8-416C-8D68-513D4E982754}
+2019-03-08 18:19:33,850  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_role_module_group where uroleid = :uroleid
+2019-03-08 18:19:33,851  INFO [BaseMapperAbstract.java:299] - 执行参数:{uroleid=83220890-D1B2-45BB-820F-A9313261415D}
+2019-03-08 18:19:33,862  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_module_group_module where umodulegroupid = :umodulegroupid
+2019-03-08 18:19:33,863  INFO [BaseMapperAbstract.java:299] - 执行参数:{umodulegroupid=5DD35237-1EBB-4433-9282-2F57C55687FB}
+2019-03-08 18:19:33,887  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:33,888  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=55F36CA0-9165-4C5A-9FE0-9DB0EA3E95FB}
+2019-03-08 18:19:33,898  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:33,898  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=8EEB9C92-C91D-43B0-AFD7-371E1F6A4567}
+2019-03-08 18:19:33,901  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:33,901  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=85A341BE-DBC6-42C2-9CF9-B47D7D2AD77F}
+2019-03-08 18:19:33,904  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:33,905  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=773CF61B-84E7-40AF-AC1E-2AA0E2DCC794}
+2019-03-08 18:19:33,909  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:33,909  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=94C00969-A15E-43AF-965C-520D96D77A02}
+2019-03-08 18:19:33,911  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:33,912  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=D452567B-0FC2-4382-84C2-561571B7951F}
+2019-03-08 18:19:33,914  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:33,914  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=FBB296CF-38B6-4B1D-A7DA-A1A0EF0AE550}
+2019-03-08 18:19:33,916  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:33,916  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=EA3DB831-9586-449F-9DE7-657E972E35A7}
+2019-03-08 18:19:33,918  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:33,919  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=6453A3AD-9995-4124-A4E7-D371B8937995}
+2019-03-08 18:19:33,921  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:33,921  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=9E384F95-2201-417F-A3E9-42B58C8A83AE}
+2019-03-08 18:19:33,923  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:33,923  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=09EC45B0-CF77-44BD-BF6B-5AC94EB4D5B9}
+2019-03-08 18:19:33,926  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:33,926  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=91C79376-F679-42EC-8EB6-3A16AF247B57}
+2019-03-08 18:19:33,929  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:33,929  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=5724F4B4-1E9F-47EE-B50C-10E97EF0D231}
+2019-03-08 18:19:33,931  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:33,932  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=FA786BF9-926F-4ADD-A024-4F2FD6A43ACA}
+2019-03-08 18:19:33,934  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:33,935  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=CC900B43-7C8D-4ECD-9F07-FD069BDBD19C}
+2019-03-08 18:19:33,937  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:33,937  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=50D8DC7E-1F1D-4141-BF49-28C6B9AC17D3}
+2019-03-08 18:19:33,943  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:33,944  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=0565693D-74FB-48D3-8DD1-1FA3369AB3DE}
+2019-03-08 18:19:33,946  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:33,947  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=65773438-F5E1-488E-A0A4-13174C9BAFF8}
+2019-03-08 18:19:33,949  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:33,950  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=655FC50C-51F1-4A88-93C5-2BE9A9F57637}
+2019-03-08 18:19:33,952  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:33,952  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=AF204B6D-3C7C-4E27-A799-C06079CB57B0}
+2019-03-08 18:19:33,954  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:33,954  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=6CDF8B41-10CB-42CC-B0AD-4B980DC997DF}
+2019-03-08 18:19:33,992  INFO [BaseMapperAbstract.java:329] - 执行语句:select * from t_user t where t.ccode = :ccode
+2019-03-08 18:19:33,992  INFO [BaseMapperAbstract.java:330] - 执行参数:{ccode=1}
+2019-03-08 18:19:33,997  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CCODEPATH, CTYPE, CPARENTCODE, CNAME, ILEVEL, CCODE, UID, UCORPID FROM t_dept WHERE UID=:UID
+2019-03-08 18:19:33,997  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=56A52861-B77E-4670-AAB4-928ABF093D84}
+2019-03-08 18:19:34,019  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT UID, CCODE, DUPDATETIME, CTELGUARD, DCREATETIME, CWEBSITE, CZIP, CTELGENERAL, CMEMO, CNAMEEN, CPROVINCES, CFAX, CTAXNO, CPRINCIPAL, CCITY, CADDR, CNAME, CEMAIL, CNAMEAB FROM t_corp WHERE UID=:UID
+2019-03-08 18:19:34,020  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=4190F866-5A6D-435C-9CC5-01C85AE6C4AD}
+2019-03-08 18:19:34,048  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_role where uuserid = :uuserid
+2019-03-08 18:19:34,049  INFO [BaseMapperAbstract.java:299] - 执行参数:{uuserid=FFAA5D1B-12C8-416C-8D68-513D4E982754}
+2019-03-08 18:19:34,054  INFO [BaseMapperAbstract.java:80] - 执行语句:INSERT INTO t_login_log (CLOGINURL, UUSERID, CMAC, DLOGINTIME, UID, CLOGINIP, CMEMO, CTYPE) VALUES (:CLOGINURL, :UUSERID, :CMAC, :DLOGINTIME, :UID, :CLOGINIP, :CMEMO, :CTYPE)
+2019-03-08 18:19:34,054  INFO [BaseMapperAbstract.java:81] - 执行参数:{CTYPE=登录, CLOGINURL=http://localhost:8888/fbss/ajax/login, UUSERID=FFAA5D1B-12C8-416C-8D68-513D4E982754, CLOGINIP=0:0:0:0:0:0:0:1|, CMAC=Error!, CMEMO=null, UID=cc40f087-d677-4c10-b5b9-473eda5a7766, DLOGINTIME=Fri Mar 08 18:19:33 CST 2019}
+2019-03-08 18:19:34,115  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_role_module_group where uroleid = :uroleid
+2019-03-08 18:19:34,116  INFO [BaseMapperAbstract.java:299] - 执行参数:{uroleid=83220890-D1B2-45BB-820F-A9313261415D}
+2019-03-08 18:19:34,119  INFO [BaseMapperAbstract.java:298] - 执行语句:select * from t_module_group_module where umodulegroupid = :umodulegroupid
+2019-03-08 18:19:34,119  INFO [BaseMapperAbstract.java:299] - 执行参数:{umodulegroupid=5DD35237-1EBB-4433-9282-2F57C55687FB}
+2019-03-08 18:19:34,129  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:34,130  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=55F36CA0-9165-4C5A-9FE0-9DB0EA3E95FB}
+2019-03-08 18:19:34,134  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:34,134  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=8EEB9C92-C91D-43B0-AFD7-371E1F6A4567}
+2019-03-08 18:19:34,136  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:34,137  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=85A341BE-DBC6-42C2-9CF9-B47D7D2AD77F}
+2019-03-08 18:19:34,139  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:34,140  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=773CF61B-84E7-40AF-AC1E-2AA0E2DCC794}
+2019-03-08 18:19:34,143  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:34,143  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=94C00969-A15E-43AF-965C-520D96D77A02}
+2019-03-08 18:19:34,148  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:34,149  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=D452567B-0FC2-4382-84C2-561571B7951F}
+2019-03-08 18:19:34,152  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:34,152  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=FBB296CF-38B6-4B1D-A7DA-A1A0EF0AE550}
+2019-03-08 18:19:34,155  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:34,156  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=EA3DB831-9586-449F-9DE7-657E972E35A7}
+2019-03-08 18:19:34,160  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:34,161  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=6453A3AD-9995-4124-A4E7-D371B8937995}
+2019-03-08 18:19:34,165  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:34,165  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=9E384F95-2201-417F-A3E9-42B58C8A83AE}
+2019-03-08 18:19:34,172  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:34,172  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=09EC45B0-CF77-44BD-BF6B-5AC94EB4D5B9}
+2019-03-08 18:19:34,177  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:34,179  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=91C79376-F679-42EC-8EB6-3A16AF247B57}
+2019-03-08 18:19:34,182  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:34,182  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=5724F4B4-1E9F-47EE-B50C-10E97EF0D231}
+2019-03-08 18:19:34,187  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:34,188  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=FA786BF9-926F-4ADD-A024-4F2FD6A43ACA}
+2019-03-08 18:19:34,194  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:34,194  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=CC900B43-7C8D-4ECD-9F07-FD069BDBD19C}
+2019-03-08 18:19:34,197  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:34,198  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=50D8DC7E-1F1D-4141-BF49-28C6B9AC17D3}
+2019-03-08 18:19:34,200  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:34,201  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=0565693D-74FB-48D3-8DD1-1FA3369AB3DE}
+2019-03-08 18:19:34,203  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:34,204  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=65773438-F5E1-488E-A0A4-13174C9BAFF8}
+2019-03-08 18:19:34,206  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:34,207  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=655FC50C-51F1-4A88-93C5-2BE9A9F57637}
+2019-03-08 18:19:34,210  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:34,210  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=AF204B6D-3C7C-4E27-A799-C06079CB57B0}
+2019-03-08 18:19:34,213  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CNAME, CADDR, ISORT, CCODEPATH, CPARENT, CTYPE, CCODE, ILEVEL, UID FROM t_module WHERE UID=:UID
+2019-03-08 18:19:34,213  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=6CDF8B41-10CB-42CC-B0AD-4B980DC997DF}
+2019-03-08 18:19:37,830  INFO [BaseMapperAbstract.java:298] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where 1 = 1 and spo.udeptid = :udeptid and spo.istatus = :istatus and (select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) in (:array0,:array1,:array2) order by spo.drecorddate desc
+2019-03-08 18:19:37,831  INFO [BaseMapperAbstract.java:299] - 执行参数:{array2=5, istatus=1, array1=3, array0=0, udeptid=56A52861-B77E-4670-AAB4-928ABF093D84}
+2019-03-08 18:19:37,911  INFO [BaseMapperAbstract.java:298] - 执行语句:select c.uid,c.ucustomertypeid,ct.cname as ccustomertypename,c.uuserid,c.udeptid,c.cname,c.isex,c.ccontactnumber,c.caddress,c.cwechat,c.dbirthday,c.iintegral,c.ipaymentdays,c.drecorddate,c.dupdatedate from t_customer as c left join t_customer_type as ct on ct.uid = c.ucustomertypeid where 1 = 1 and c.udeptid = :udeptid order by c.ucustomertypeid,c.cname asc
+2019-03-08 18:19:37,913  INFO [BaseMapperAbstract.java:299] - 执行参数:{udeptid=56A52861-B77E-4670-AAB4-928ABF093D84}
+2019-03-08 18:19:44,848  INFO [BaseMapperAbstract.java:329] - 执行语句:select c.uid,c.ucustomertypeid,c.cname as ccustomertypename,c.uuserid,c.udeptid,c.cname,c.isex,c.ccontactnumber,c.caddress,c.cwechat,c.dbirthday,c.iintegral,c.ipaymentdays,c.drecorddate,c.dupdatedate from t_customer as c left join t_customer_type as ct on ct.uid = c.ucustomertypeid where c.uid = :uid
+2019-03-08 18:19:44,849  INFO [BaseMapperAbstract.java:330] - 执行参数:{uid=08610DBC-188A-4DF4-A890-2E932641D893}
+2019-03-08 18:19:44,872  INFO [BaseMapperAbstract.java:298] - 执行语句:select uid,cname,ccode,cdesc from t_payment_method order by ccode
+2019-03-08 18:19:44,872  INFO [BaseMapperAbstract.java:299] - 执行参数:null
+2019-03-08 18:19:44,884  INFO [BaseMapperAbstract.java:329] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where spo.imei = :imei
+2019-03-08 18:19:44,885  INFO [BaseMapperAbstract.java:330] - 执行参数:{imei=1111111111111}
+2019-03-08 18:19:47,647  INFO [BaseMapperAbstract.java:251] - 执行语句:SELECT CDESC, UID, CCODE, CNAME FROM t_payment_method WHERE UID=:UID
+2019-03-08 18:19:47,647  INFO [BaseMapperAbstract.java:252] - 执行参数:{UID=8E187EF9-2C68-4891-83EF-E8A6433BF763}
+2019-03-08 18:19:47,653  INFO [BaseMapperAbstract.java:80] - 执行语句:INSERT INTO t_customer_phone_order (ISTATUS, UCUSTOMERID, UID, DUPDATEDATE, UUSERID, DRECORDDATE, CNO, ITYPE, UDEPTID) VALUES (:ISTATUS, :UCUSTOMERID, :UID, :DUPDATEDATE, :UUSERID, :DRECORDDATE, :CNO, :ITYPE, :UDEPTID)
+2019-03-08 18:19:47,654  INFO [BaseMapperAbstract.java:81] - 执行参数:{DRECORDDATE=Fri Mar 08 18:19:47 CST 2019, UUSERID=FFAA5D1B-12C8-416C-8D68-513D4E982754, UID=3b9374be-82a3-4cff-8916-42c09eb45588, ITYPE=0, DUPDATEDATE=Fri Mar 08 18:19:47 CST 2019, CNO=SL20190308061947, UDEPTID=56A52861-B77E-4670-AAB4-928ABF093D84, ISTATUS=1, UCUSTOMERID=08610DBC-188A-4DF4-A890-2E932641D893}
+2019-03-08 18:19:47,659  INFO [BaseMapperAbstract.java:80] - 执行语句:INSERT INTO t_customer_phone_order_detail (DRECORDDATE, UORDERID, NDISCOUNT, NPRICE, UDEPTID, ISORT, UID, NAMOUNT, DUPDATEDATE, IMEI, UUSERID) VALUES (:DRECORDDATE, :UORDERID, :NDISCOUNT, :NPRICE, :UDEPTID, :ISORT, :UID, :NAMOUNT, :DUPDATEDATE, :IMEI, :UUSERID)
+2019-03-08 18:19:47,660  INFO [BaseMapperAbstract.java:81] - 执行参数:{NDISCOUNT=1.0, UORDERID=3b9374be-82a3-4cff-8916-42c09eb45588, DRECORDDATE=Fri Mar 08 18:19:47 CST 2019, ISORT=1, UUSERID=FFAA5D1B-12C8-416C-8D68-513D4E982754, IMEI=1111111111111, UID=43ee9ae2-c364-46e7-a326-ed7d5f3964cb, DUPDATEDATE=Fri Mar 08 18:19:47 CST 2019, NPRICE=2.0, NAMOUNT=2.0, UDEPTID=56A52861-B77E-4670-AAB4-928ABF093D84}
+2019-03-08 18:19:47,673  INFO [BaseMapperAbstract.java:80] - 执行语句:INSERT INTO t_customer_phone_order_receivable (ISTATUS, NAMOUNT, UCUSTOMERID, UID, DUPDATEDATE, UUSERID, DRECORDDATE, UCUSTOMERPHONEORDERID, CTYPE, NDISCOUNT, NACTUALAMOUNT, UDEPTID) VALUES (:ISTATUS, :NAMOUNT, :UCUSTOMERID, :UID, :DUPDATEDATE, :UUSERID, :DRECORDDATE, :UCUSTOMERPHONEORDERID, :CTYPE, :NDISCOUNT, :NACTUALAMOUNT, :UDEPTID)
+2019-03-08 18:19:47,674  INFO [BaseMapperAbstract.java:81] - 执行参数:{NDISCOUNT=1.0, CTYPE=AR, DRECORDDATE=Fri Mar 08 18:19:47 CST 2019, UUSERID=FFAA5D1B-12C8-416C-8D68-513D4E982754, UCUSTOMERPHONEORDERID=3b9374be-82a3-4cff-8916-42c09eb45588, UID=39c0817d-481b-4709-90ff-4e3cc5b08433, NACTUALAMOUNT=2.0, DUPDATEDATE=Fri Mar 08 18:19:47 CST 2019, NAMOUNT=2.0, UDEPTID=56A52861-B77E-4670-AAB4-928ABF093D84, ISTATUS=0, UCUSTOMERID=08610DBC-188A-4DF4-A890-2E932641D893}
+2019-03-08 18:19:47,681  INFO [BaseMapperAbstract.java:80] - 执行语句:INSERT INTO t_customer_phone_order_receipts (UDEPTID, DRECORDDATE, URECEIVABLEID, CTYPE, DUPDATEDATE, UUSERID, ISTATUS, NAMOUNT, UPAYMENTMETHODID, UID) VALUES (:UDEPTID, :DRECORDDATE, :URECEIVABLEID, :CTYPE, :DUPDATEDATE, :UUSERID, :ISTATUS, :NAMOUNT, :UPAYMENTMETHODID, :UID)
+2019-03-08 18:19:47,682  INFO [BaseMapperAbstract.java:81] - 执行参数:{CTYPE=AR, DRECORDDATE=Fri Mar 08 18:19:47 CST 2019, UUSERID=FFAA5D1B-12C8-416C-8D68-513D4E982754, UID=781b62b5-4f5a-4dbc-863f-c64190ebcfd0, DUPDATEDATE=Fri Mar 08 18:19:47 CST 2019, UPAYMENTMETHODID=8E187EF9-2C68-4891-83EF-E8A6433BF763, NAMOUNT=2.0, ISTATUS=1, UDEPTID=56A52861-B77E-4670-AAB4-928ABF093D84, URECEIVABLEID=39c0817d-481b-4709-90ff-4e3cc5b08433}
+2019-03-08 18:19:47,686  INFO [BaseMapperAbstract.java:292] - 执行语句:update t_supplier_phone_order_status set istatus = :istatus where imei = :imei
+2019-03-08 18:19:47,687  INFO [BaseMapperAbstract.java:293] - 执行参数:{istatus=0, imei=1111111111111}
+2019-03-08 18:19:47,691  INFO [BaseMapperAbstract.java:80] - 执行语句:INSERT INTO t_supplier_phone_order_status (ITYPE, DRECORDDATE, IMEI, UUSERID, ISTATUS, UID) VALUES (:ITYPE, :DRECORDDATE, :IMEI, :UUSERID, :ISTATUS, :UID)
+2019-03-08 18:19:47,692  INFO [BaseMapperAbstract.java:81] - 执行参数:{DRECORDDATE=Fri Mar 08 18:19:47 CST 2019, UUSERID=FFAA5D1B-12C8-416C-8D68-513D4E982754, IMEI=1111111111111, UID=2fdc597d-3690-4c3b-8713-9636f8dfc232, ITYPE=2, ISTATUS=1}
+2019-03-08 18:19:47,696  INFO [BaseMapperAbstract.java:80] - 执行语句:INSERT INTO t_operate_log (CCHOICE, UID, CSTATUS, UUSERID, COPERATEURL, DOPERATETIME, CCANCEL, CTYPE, ULINKTABLEID, COPERATEIP, CMEMO, CLINKTABLE) VALUES (:CCHOICE, :UID, :CSTATUS, :UUSERID, :COPERATEURL, :DOPERATETIME, :CCANCEL, :CTYPE, :ULINKTABLEID, :COPERATEIP, :CMEMO, :CLINKTABLE)
+2019-03-08 18:19:47,697  INFO [BaseMapperAbstract.java:81] - 执行参数:{CTYPE=新增, CLINKTABLE=t_customer_phone_order, ULINKTABLEID=3b9374be-82a3-4cff-8916-42c09eb45588, DOPERATETIME=Fri Mar 08 18:19:47 CST 2019, UUSERID=FFAA5D1B-12C8-416C-8D68-513D4E982754, COPERATEIP=0:0:0:0:0:0:0:1|, CMEMO=新增客户手机销售单据！, UID=f0c537d5-6178-4355-9290-485da11b61b9, COPERATEURL=/fbss/bpr/customerPhoneOrder/saveCustomerPhoneOrder, CCANCEL=null, CSTATUS=成功, CCHOICE=null}
+2019-03-08 18:19:47,722  INFO [BaseMapperAbstract.java:298] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where 1 = 1 and spo.udeptid = :udeptid and spo.istatus = :istatus and (select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) in (:array0,:array1,:array2) order by spo.drecorddate desc
+2019-03-08 18:19:47,722  INFO [BaseMapperAbstract.java:299] - 执行参数:{array2=5, istatus=1, array1=3, array0=0, udeptid=56A52861-B77E-4670-AAB4-928ABF093D84}
+2019-03-08 18:19:54,434  INFO [BaseMapperAbstract.java:298] - 执行语句:select spo.imei,spo.usupplierid,s.cname as csuppliername,spo.uphonemodelid,b.cname as cbrandname,pm.cname as cphonemodelname,pm.cram,pm.crom,pm.ccpu,pm.ccamera,pm.cscreen,pm.cbattery,spo.ucolorid,c.cname as ccolorname,spo.uuserid,u.cname as cusername,spo.udeptid,spo.ncostprice,spo.nretailprice,spo.istatus,spo.drecorddate,spo.dupdatedate,(select top 1 spos.itype from t_supplier_phone_order_status as spos where spos.istatus = 1 and spos.IMEI = spo.IMEI) as itype from t_supplier_phone_order as spo left join t_supplier as s on s.uid = spo.usupplierid left join t_phone_model as pm on pm.uid = spo.uphonemodelid left join t_brand as b on b.uid = pm.ubrandid left join t_color as c on c.uid = spo.ucolorid left join t_user as u on u.uid = spo.uuserid where 1 = 1 and spo.udeptid = :udeptid order by spo.drecorddate desc
+2019-03-08 18:19:54,436  INFO [BaseMapperAbstract.java:299] - 执行参数:{udeptid=56A52861-B77E-4670-AAB4-928ABF093D84}
+2019-03-08 18:19:58,893  INFO [BaseMapperAbstract.java:298] - 执行语句:select spor.uid,spor.usupplierid,s.cname as csuppliername,spor.imei,spor.uuserid,u.cname as cusername,spor.udeptid,spor.ctype,spor.nactualamount,spor.ndiscount,spor.namount,spor.istatus,spor.drecorddate,spor.dupdatedate from t_supplier_phone_order_receivable as spor left join t_supplier as s on s.uid = spor.usupplierid left join t_user as u on u.uid = spor.uuserid where spor.imei = :imei
+2019-03-08 18:19:58,894  INFO [BaseMapperAbstract.java:299] - 执行参数:{imei=1111111111111}
+2019-03-08 18:19:58,928  INFO [BaseMapperAbstract.java:298] - 执行语句:select spos.uid,spos.imei,spos.itype,spos.istatus,spos.uuserid,u.cname as cusername,spos.drecorddate from t_supplier_phone_order_status as spos left join t_user as u on u.uid = spos.uuserid where spos.imei = :imei order by spos.drecorddate desc
+2019-03-08 18:19:58,929  INFO [BaseMapperAbstract.java:299] - 执行参数:{imei=1111111111111}
