@@ -128,7 +128,9 @@ public class CustomerPhoneOrderServiceImpl extends SimpServiceAbstract implement
             phoneOrder.getOrderReceivable().setIstatus(0);
             isCREDIT = true;
         }else{
-            if(phoneOrder.getOrderReceivable().getNamount() != phoneOrder.getOrderReceipts().getNamount())
+            double receivableNamount = phoneOrder.getOrderReceivable().getNamount();
+            double receiptsNamount = phoneOrder.getOrderReceipts().getNamount();
+            if(receivableNamount != receiptsNamount)
                 phoneOrder.getOrderReceivable().setIstatus(0);
             else
                 phoneOrder.getOrderReceivable().setIstatus(1);

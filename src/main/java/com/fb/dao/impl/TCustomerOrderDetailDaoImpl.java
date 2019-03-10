@@ -30,7 +30,7 @@ public class TCustomerOrderDetailDaoImpl extends SimpMapper<TCustomerOrderDetail
     public List<TCustomerOrderDetail> getOrderList(String uorderid) {
         StringBuilder sql = new StringBuilder("select cod.uid,cod.uorderid,cod.uothergoodsid,c.cname as ccategoryname");
         sql.append(",b.cname as cbrandname,og.cno as cothergoodsno,og.cbarcode as cothergoodsbarcode");
-        sql.append(",og.cname as cothergoodsname,og.cspecifications,cod.uuserid,cod.udeptid");
+        sql.append(",og.cname as cothergoodsname,og.cfullname as cothergoodsfullname,og.cspecifications,cod.uuserid,cod.udeptid");
         sql.append(",u.cname as cunitname,cod.nprice,cod.nquantity,cod.namount,cod.drecorddate");
         sql.append(",cod.dupdatedate,cod.isort");
         sql.append(" from t_customer_order_detail as cod");

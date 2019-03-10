@@ -2,7 +2,9 @@ package com.fb.web.bpr.controller;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -12,11 +14,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.fb.core.utils.FormatUtils;
 import com.fb.domain.po.TCustomer;
 import com.fb.domain.po.TCustomerOrder;
+import com.fb.domain.po.TCustomerOrderDetail;
+import com.fb.domain.po.TCustomerReceipts;
+import com.fb.domain.po.TCustomerReceivable;
 import com.fb.domain.po.TOtherGoods;
 import com.fb.domain.po.TPaymentMethod;
 import com.fb.web.SimpController;
 
 import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 
 /**
@@ -84,5 +90,55 @@ public class CustomerOrderController extends SimpController {
         if(count > 0)
             return "success";
         return "fail";
+    }
+    
+    /**
+     * 客户手机单据列表页面
+     * @param order
+     * @return
+     * @author Liu bo
+     */
+    @RequestMapping("orderList")
+    public String orderList(TCustomerOrder order,ModelMap map){
+        map.put("itype", order.getItype());
+        return customPage();
+    }
+    
+    /**
+     * 获取客户手机单据列表JSON数据
+     * @param order
+     * @return
+     * @author Liu bo
+     */
+    @RequestMapping("getCustomerOrderListJSON")
+    @ResponseBody
+    public String getCustomerOrderListJSON(TCustomerOrder order){
+        List<TCustomerOrder> list = getService().getCustomerOrderService().getOrder(order);
+        Map<Object, Object> map = new HashMap<Object, Object>();
+        map.put("Rows", list);
+        if(list != null)
+            map.put("Total", list.size());
+        else
+            map.put("Total", 0);
+        return JSONObject.fromObject(map).toString();
+    }
+    
+    /**
+     * 查看客户手机单据明细
+     * @param uid
+     * @return
+     * @author Liu bo
+     */
+    @RequestMapping("view")
+    public String view(String uid,ModelMap map){
+        TCustomerOrder order = getService().getCustomerOrderService().getOrder(uid);
+        List<TCustomerOrderDetail> orderDetailList = getService().getCustomerOrderService().getOrderDetailList(uid);
+        List<TCustomerReceivable> orderReceivableList = getService().getCustomerOrderService().getOrderReceivableList(uid);
+        List<TCustomerReceipts> orderReceiptsList = getService().getCustomerOrderService().getOrderReceiptsListByOrder(uid);
+        map.put("order", order);
+        map.put("orderDetailList", orderDetailList);
+        map.put("orderReceivableList", orderReceivableList);
+        map.put("orderReceiptsList", orderReceiptsList);
+        return customPage();
     }
 }

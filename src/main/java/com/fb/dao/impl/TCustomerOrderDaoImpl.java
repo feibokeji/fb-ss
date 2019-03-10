@@ -40,7 +40,7 @@ public class TCustomerOrderDaoImpl extends SimpMapper<TCustomerOrder> implements
     }
     
     public TCustomerOrder get(String uid) {
-        StringBuilder sql = new StringBuilder("select co.uid,co.ucustomerid,c.cname as ccustomername,co.uuserid,c.cname as cusername");
+        StringBuilder sql = new StringBuilder("select co.uid,co.ucustomerid,c.cname as ccustomername,co.uuserid,u.cname as cusername");
         sql.append(",co.udeptid,co.cno,co.itype,co.istatus,co.drecorddate,co.dupdatedate");
         sql.append(" from t_customer_order as co");
         sql.append(" left join t_customer as c on c.uid = co.ucustomerid");
@@ -51,7 +51,7 @@ public class TCustomerOrderDaoImpl extends SimpMapper<TCustomerOrder> implements
     
     public List<TCustomerOrder> get(TCustomerOrder order) {
         QMap map = new QMap();
-        StringBuilder sql = new StringBuilder("select co.uid,co.ucustomerid,c.cname as ccustomername,co.uuserid,c.cname as cusername");
+        StringBuilder sql = new StringBuilder("select co.uid,co.ucustomerid,c.cname as ccustomername,co.uuserid,u.cname as cusername");
         sql.append(",co.udeptid,co.cno,co.itype,co.istatus,co.drecorddate,co.dupdatedate");
         sql.append(" from t_customer_order as co");
         sql.append(" left join t_customer as c on c.uid = co.ucustomerid");

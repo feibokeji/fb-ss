@@ -69,6 +69,12 @@ public class TCustomerOrderDetail extends BaseDomain {
     private String cothergoodsname;
     
     /**
+     * 商品全称
+     */
+    @NotFieldMapper
+    private String cothergoodsfullname;
+    
+    /**
      * 商品规格
      */
     @NotFieldMapper
@@ -535,6 +541,30 @@ public class TCustomerOrderDetail extends BaseDomain {
     public void setIsort(Integer isort) {
         this.isort = isort;
     }
+
+
+
+    
+    /**
+     * 获取 商品全称
+     * @return cothergoodsfullname
+     */
+    public String getCothergoodsfullname() {
+        return cothergoodsfullname;
+    }
+    
+
+
+
+    
+    /**
+     * 设置 商品全称
+     * @param cothergoodsfullname 商品全称
+     */
+    public void setCothergoodsfullname(String cothergoodsfullname) {
+        this.cothergoodsfullname = cothergoodsfullname;
+    }
+    
     
     
 }

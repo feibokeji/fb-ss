@@ -109,6 +109,7 @@ public class CustomerOrderServiceImpl extends SimpServiceAbstract implements Cus
         order.getOrderReceivable().setUdeptid(user.getUdeptid());
         order.getOrderReceivable().setDrecorddate(date);
         order.getOrderReceivable().setDupdatedate(date);
+        
         order.getOrderReceipts().setUid(DataUtils.newUUID());
         order.getOrderReceipts().setUreceivableid(order.getOrderReceivable().getUid());
         order.getOrderReceipts().setUuserid(user.getUid());
@@ -122,7 +123,9 @@ public class CustomerOrderServiceImpl extends SimpServiceAbstract implements Cus
             order.getOrderReceivable().setIstatus(0);
             isCREDIT = true;
         }else{
-            if(order.getOrderReceivable().getNamount() != order.getOrderReceipts().getNamount())
+            double receivableNamount = order.getOrderReceivable().getNamount();
+            double receiptsNamount = order.getOrderReceipts().getNamount();
+            if(receivableNamount != receiptsNamount)
                 order.getOrderReceivable().setIstatus(0);
             else
                 order.getOrderReceivable().setIstatus(1);
@@ -155,11 +158,15 @@ public class CustomerOrderServiceImpl extends SimpServiceAbstract implements Cus
     }
     
     public TCustomerOrder getOrder(String uid) {
-        return null;
+        return orderDao.get(uid);
     }
     
     public List<TCustomerOrder> getOrder(TCustomerOrder order) {
-        return null;
+        return orderDao.get(order);
+    }
+    
+    public List<TCustomerOrderDetail> getOrderDetailList(String uorderid){
+        return orderDetailDao.getOrderList(uorderid);
     }
     
     public int addOrderReceivable(TCustomerReceivable receivable) {
@@ -179,7 +186,7 @@ public class CustomerOrderServiceImpl extends SimpServiceAbstract implements Cus
     }
     
     public List<TCustomerReceivable> getOrderReceivableList(String uorderid) {
-        return null;
+        return orderReceivableDao.getOrderReceivable(uorderid);
     }
     
     public int addOrderReceipts(TCustomerReceipts receipts) {
@@ -215,7 +222,7 @@ public class CustomerOrderServiceImpl extends SimpServiceAbstract implements Cus
     }
     
     public List<TCustomerReceipts> getOrderReceiptsListByOrder(String uorderid) {
-        return null;
+        return orderReceiptsDao.getReceiptsByOrder(uorderid);
     }
     
     public List<TCustomerReceipts> getOrderReceiptsListByReceivable(String ureceivableid) {

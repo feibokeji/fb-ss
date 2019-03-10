@@ -3,6 +3,7 @@ package com.fb.service;
 import java.util.List;
 
 import com.fb.domain.po.TCustomerOrder;
+import com.fb.domain.po.TCustomerOrderDetail;
 import com.fb.domain.po.TCustomerReceipts;
 import com.fb.domain.po.TCustomerReceivable;
 import com.fb.domain.po.TUser;
@@ -70,6 +71,14 @@ public interface CustomerOrderService {
      * @author Liu bo
      */
     public List<TCustomerOrder> getOrder(TCustomerOrder order);
+    
+    /**
+     * 获取 客户商品单据明细集合
+     * @param uorderid
+     * @return
+     * @author Liu bo
+     */
+    public List<TCustomerOrderDetail> getOrderDetailList(String uorderid);
     
     /**
      * 新增 客户商品单据(应收应付)信息

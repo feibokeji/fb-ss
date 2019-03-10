@@ -142,11 +142,11 @@
 					</li>
 					<!-- 已售商品 -->
 					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerOrder0','已售商品','${contextPath }/bpr/customer/list')">已售商品</a>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerOrder0','已售商品','${contextPath }/bpr/customerOrder/orderList?itype=0')">已售商品</a>
 					</li>
 					<!-- 已退商品 -->
 					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerOrder1','已退商品','${contextPath }/bpr/customer/list')">已退商品</a>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerOrder1','已退商品','${contextPath }/bpr/customerOrder/orderList?itype=1')">已退商品</a>
 					</li>
 					<!-- 手机销售 -->
 					<li>

@@ -6,6 +6,7 @@ import com.fb.core.base.domain.BaseDomain;
 import com.fb.core.base.persistence.NotFieldMapper;
 import com.fb.core.base.persistence.PrimaryKeyMapper;
 import com.fb.core.base.persistence.TableMapper;
+import com.fb.core.utils.FormatUtils;
 
 
 /**
@@ -333,6 +334,10 @@ public class TCustomerReceipts extends BaseDomain {
      */
     public void setCtype(String ctype) {
         this.ctype = ctype;
+        if(ctype.equals("AR"))
+            this.ctypeStr = "实收";
+        else if(ctype.equals("AP"))
+            this.ctypeStr = "实付";
     }
     
 
@@ -393,6 +398,14 @@ public class TCustomerReceipts extends BaseDomain {
      */
     public void setIstatus(Integer istatus) {
         this.istatus = istatus;
+        switch(istatus){
+            case 0:
+                this.istatusStr = "未结算";
+                break;
+            case 1:
+                this.istatusStr = "已结算";
+                break;
+        }
     }
     
 
@@ -433,6 +446,7 @@ public class TCustomerReceipts extends BaseDomain {
      */
     public void setDrecorddate(Date drecorddate) {
         this.drecorddate = drecorddate;
+        this.drecorddateStr = FormatUtils.formatDate(drecorddate, "yyyy-MM-dd HH:mm:ss");
     }
     
 
@@ -513,6 +527,7 @@ public class TCustomerReceipts extends BaseDomain {
      */
     public void setDupdatedate(Date dupdatedate) {
         this.dupdatedate = dupdatedate;
+        this.dupdatedateStr = FormatUtils.formatDate(dupdatedate, "yyyy-MM-dd HH:mm:ss");
     }
     
 
