@@ -1,7 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/include/tags.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" style="overflow: hidden">
 <head>
 <link type="text/css" href="${contextPath}/common/liger/skins/Aqua/css/ligerui-all.css" rel="stylesheet" />
 <link type="text/css" href="${contextPath}/common/liger/skins/ligerui-icons.css" rel="stylesheet" />
@@ -12,11 +13,34 @@
 <script type="text/javascript" src="${contextPath}/common/js/base/html5.js"></script>
 <![endif]-->
 </head>
-<!-- /bpr/paymentMethod/list.jsp -->
+<!-- /bpr/role/add.jsp -->
 <body>
-	<div id="paymentMethodToolBar"></div>
-    <div id="maingrid"></div>
-  	<!-- javascript文件引用 -->
+	<form id="addForm" name="addForm" method="post" action="${contextPath }/bpr/role/save">
+  		<input type="hidden" id="add_uuserid" name="uuserid"/>
+  		<table class="add_update_table">
+		  	<tr>
+		  		<th><span style="color: red;">*</span>编号：</th>
+		  		<td><input type="text" id="add_ccode" name="ccode" class="l-text validate[required,funcCall[ajaxCNo]]"/></td>
+		  	</tr>
+		  	<tr>
+		  		<th><span style="color: red;">*</span>用户：</th>
+		  		<td><input type="text" id="add_cusername" name="cusername" class="l-text validate[required]"/></td>
+		  	</tr>
+		  	<tr>
+		  		<th><span style="color: red;">*</span>名称：</th>
+		  		<td><input type="text" id="add_cname" name="cname" class="l-text validate[required,funcCall[ajaxCName]]"/></td>
+		  	</tr>
+		  	<tr>
+		  		<td></td>
+		  		<td>
+		  			<input type="button" class="l-button" value="保存" onclick="submitForm()"/>
+		  			&nbsp;&nbsp;&nbsp;&nbsp;
+		  			<input type="button" class="l-button" value="关闭" onclick="closeDialog()"/>
+		  		</td>
+		  	</tr>
+  		</table>
+  	</form>
+	<!-- javascript文件引用 -->
 	<script type="text/javascript">var contextPath = '${contextPath}';</script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/jquery-1.8.3.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/liger/js/ligerui.all.js"></script>
@@ -25,6 +49,6 @@
 	<script type="text/javascript" src="${contextPath}/common/formValidator2.2.4/jquery.validationEngine-zh_CN.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/formValidator2.2.4/jquery.validationEngine.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/js/bpr/base.js"></script>
-	<script type="text/javascript" src="${contextPath}/common/js/bpr/paymentMethod/list.js"></script>
+	<script type="text/javascript" src="${contextPath}/common/js/bpr/role/add.js"></script>
 </body>
 </html>

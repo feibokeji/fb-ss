@@ -15,9 +15,8 @@
 </head>
 <!-- /bpr/moduleGroup/list.jsp -->
 <body>
-	<div class="l-clear"></div>
+	<div id="moduleGroupToolBar"></div>
     <div id="maingrid"></div>
-  	<div style="display:none;"></div>
   	<div id="addDiv" style="display: none;">
   		<form id="addForm" name="addForm" method="post" action="${contextPath }/bpr/moduleGroup/save">
   			<table class="add_update_table">

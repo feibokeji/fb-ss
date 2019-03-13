@@ -79,4 +79,12 @@ public interface RoleService {
      * @author Liu bo
      */
     public boolean saveRoleModuleGroup(String uroleid,String umodulegroupids);
+    
+    /**
+     * 获取 角色信息
+     * @param uid
+     * @return
+     * @author Liu bo
+     */
+    public TRole getRole(String uid);
 }

@@ -3,22 +3,22 @@
  */
 var paymentMethodDialog,paymentMethodTable;
 $(function(){
+	$("#paymentMethodToolBar").ligerToolBar({
+		items:[
+		    { text: '增加', click: addPaymentMethod, icon: 'add' },
+	        { line: true },
+	        { text: '修改', click: modifyPaymentMethod, icon: 'modify' },
+	        { line: true },
+	        { text: '删除', click: deletePaymentMethod, icon:'delete' }
+		]
+	});
 	paymentMethodTable = window['maingrid'] = $("#maingrid").ligerGrid({
-		height:'100%',
         columns: [
             { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
             { display: '付款方式', name: 'cname', width: 120, minWidth: 100, align:'left' },
             { display: '代码', name: 'ccode', width: 120, minWidth: 100, align:'left' },
             { display: '描述', name: 'cdesc', width: 120, minWidth: 100, align:'left' }
             ],
-        toolbar: { items: [
-	            { text: '增加', click: addPaymentMethod, icon: 'add' },
-	            { line: true },
-	            { text: '修改', click: modifyPaymentMethod, icon: 'modify' },
-	            { line: true },
-	            { text: '删除', click: deletePaymentMethod, icon:'delete' }
-            ]
-        },
 		url:contextPath + "/bpr/paymentMethod/getPaymentMethodJSON",
 	    pageSize:30 ,rownumbers:true,pageSizeOptions:[10,20,30],
 	    onReload:false,dataAction:"local",checkbox:true,selectRowButtonOnly:true,enabledSort:false,
@@ -38,13 +38,13 @@ $(function(){
 });
 function addPaymentMethod()
 {
-	paymentMethodDialog = $.ligerDialog.open({url:contextPath+"/bpr/paymentMethod/add",title:"新增付款方式",allowClose:true,width:640,height:500});
+	paymentMethodDialog = $.ligerDialog.open({url:contextPath+"/bpr/paymentMethod/add",title:"新增付款方式",allowClose:true,width:540,height:320});
 }
 function modifyPaymentMethod()
 {
 	var rows = paymentMethodTable.getCheckedRows();
 	if(rows != null && rows != ""){
-		paymentMethodDialog = $.ligerDialog.open({url:contextPath+"/bpr/paymentMethod/modify?uid="+rows[0].uid,title:"修改付款方式",allowClose:true,width:640,height:500});
+		paymentMethodDialog = $.ligerDialog.open({url:contextPath+"/bpr/paymentMethod/modify?uid="+rows[0].uid,title:"修改付款方式",allowClose:true,width:540,height:320});
 	}
 	else
 	{

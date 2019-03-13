@@ -25,21 +25,21 @@ var map = {};
  */
 $(function(){
 	$("#addForm,#modifyForm").validationEngine();
+	$("#moduleGroupToolBar").ligerToolBar({
+		items:[
+		    { text: '增加', click: _addModuleGroup, icon: 'add' },
+	        { line: true },
+	        { text: '修改', click: _modifyModuleGroup, icon: 'modify' },
+	        { line: true },
+	        { text: '删除', click: _deleteModuleGroup, icon:'delete' }
+		]
+	});
 	_moduleGroupTable = $("#maingrid").ligerGrid({
-		height:'100%',
         columns: [
             { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
             { display: '编码', name: 'ccode', align: 'left', width: 200, minWidth: 120 },
             { display: '名称', name: 'cname', width: 200,minWidth: 120, align:'left' }
             ],
-        toolbar: { items: [
-	            { text: '增加', click: _addModuleGroup, icon: 'add' },
-	            { line: true },
-	            { text: '修改', click: _modifyModuleGroup, icon: 'modify' },
-	            { line: true },
-	            { text: '删除', click: _deleteModuleGroup, icon:'delete' }
-            ]
-        },
 		url:contextPath + "/bpr/moduleGroup/getModuleGroupJSON",
 	    pageSize:30 ,rownumbers:true,pageSizeOptions:[10,20,30],frozen: false,fixedCellHeight:false,
 	    onReload:false,dataAction:"local",checkbox:true,selectRowButtonOnly:true,enabledSort:false,

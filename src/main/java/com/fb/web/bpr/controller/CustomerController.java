@@ -217,7 +217,8 @@ public class CustomerController extends SimpController {
 	@ResponseBody
 	public String modifyCustomerSave(TCustomer customer)
 	{
-		customer.setDbirthday(FormatUtils.toDate(customer.getDbirthdayStr()));
+	    if(!DataUtils.isNullOrEmpty(customer.getDbirthdayStr()))
+	        customer.setDbirthday(FormatUtils.toDate(customer.getDbirthdayStr()));
 		customer.setDrecorddate(FormatUtils.toDateTime(customer.getDrecorddateStr()));
 		customer.setDupdatedate(new Date());
 		int count = getService().getCustomerService().modifyCustomer(customer);

@@ -33,4 +33,9 @@ public class TRoleDaoImpl extends SimpMapper<TRole>implements TRoleDao {
         return super.findList(sql, null);
     }
 
+    public TRole get(String uid) {
+        String sql = "select r.uid,r.udeptid,r.uuserid,u.cname as cusername,r.ccode,r.cname from t_role as r left join t_user as u on u.uid = r.uuserid where r.uid = :uid";
+        return super.get(sql, new QMap("uid",uid), TRole.class);
+    }
+
 }

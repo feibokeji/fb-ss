@@ -14,7 +14,6 @@
 </head>
 <!-- /bpr/supplierPhoneOrder/list.jsp -->
 <body>
-	<div class="l-clear"></div>
 	<form id="searchTable">
 		<input type="hidden" id="searchUsupplierid"/>
 		<input type="hidden" id="searchUbrandid"/>
@@ -28,6 +27,8 @@
 				<td><input type="text" class="l-text" id="searchIMEI"/></td>
 				<td>品牌：</td>
 				<td><input type="text" class="l-text" id="searchBrand"/></td>
+			</tr>
+			<tr>
 				<td>手机型号：</td>
 				<td><input type="text" class="l-text" id="searchCphonemodelname"/></td>
 				<td>颜色：</td>
@@ -46,8 +47,8 @@
 			</tr>
 		</table>
 	</form>
+	<div id="supplierPhoneOrderToolBar"></div>
     <div id="maingrid"></div>
-  	<div style="display:none;"></div>
   	<!-- javascript文件引用 -->
 	<script type="text/javascript">var contextPath = '${contextPath}';</script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/jquery-1.8.3.js"></script>

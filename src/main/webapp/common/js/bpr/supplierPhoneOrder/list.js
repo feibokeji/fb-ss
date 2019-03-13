@@ -52,8 +52,18 @@ $(function(){
 			{text:'已审核',id:'1'}
 		],valueFieldID:'searchIstatus'
 	});
+	$("#supplierPhoneOrderToolBar").ligerToolBar({
+		items:[
+		    { text: '退库', click: returnOrder, icon: 'back'},
+			{ line: true },
+	        { text: '审核', click: auditOrder, icon: 'ok'},
+	        { line: true },
+	        { text: '反审核', click: reverseAuditOrder, icon: 'refresh'},
+	        { line: true },
+	        { text: '删除', click: deleteOrder, icon:'delete' }
+		]
+	});
 	listTable = window['maingrid'] = $("#maingrid").ligerGrid({
-		height:'100%',
         columns: [
             { display: '供应商', name: 'csuppliername', width: 120, minWidth: 100, align:'left' },
             { display: '品牌', name: 'cbrandname', width: 80, minWidth: 60, align:'left' },
@@ -73,16 +83,6 @@ $(function(){
             { display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120, align:'left' },
             { display: '更新日期', name: 'dupdatedateStr', width: 140,minWidth: 120, align:'left' }
             ],
-        toolbar: { items: [
-                { text: '退库', click: returnOrder, icon: 'back'},
-				{ line: true },
-	            { text: '审核', click: auditOrder, icon: 'ok'},
-	            { line: true },
-	            { text: '反审核', click: reverseAuditOrder, icon: 'refresh'},
-	            { line: true },
-	            { text: '删除', click: deleteOrder, icon:'delete' }
-            ]
-        },
 		url:contextPath + "/bpr/supplierPhoneOrder/getOrderListJSON",
 		pageSize:30 ,rownumbers:true,pageSizeOptions:[10,20,30],frozen: false,fixedCellHeight:false,
 	    onReload:false,dataAction:"local",checkbox:true,selectRowButtonOnly:true,enabledSort:false,

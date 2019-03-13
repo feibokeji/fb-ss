@@ -10,35 +10,35 @@ var searchUbrandId,searchCname,searchCram,searchCrom,searchCcpu,searchCscreen,se
  * @returns
  */
 $(function(){
+	$("#phoneModelToolBar").ligerToolBar({
+		items:[
+		    { text: '增加', click: addPhoneModel, icon: 'add' },
+	        { line: true },
+	        { text: '修改', click: modifyPhoneModel, icon: 'modify' },
+	        { line: true },
+	        { text: '删除', click: deletePhoneModel, icon:'delete' }
+		]
+	});
 	phoneModelTable = window['maingrid'] = $("#maingrid").ligerGrid({
-		height:'100%',
         columns: [
             { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
-            { display: '品牌', name: 'cbrandname', width: 100,minWidth: 80, align:'left' },
+            { display: '品牌', name: 'cbrandname', width: 80,minWidth: 60, align:'left' },
             { display: '型号', name: 'cname', width: 100,minWidth: 80, align:'left' },
-            { display: '运行内存(RAM)', name: 'cram', width: 100,minWidth: 80, align:'left' },
-            { display: '存储内存(ROM)', name: 'crom', width: 100,minWidth: 80, align:'left' },
-            { display: '进货价(元)', name: 'ncostprice', width: 100,minWidth: 80, align:'left' },
-            { display: '销售价(元)', name: 'nretailprice', width: 100,minWidth: 80, align:'left' },
+            { display: '运行内存(RAM)', name: 'cram', width: 60,minWidth: 40, align:'left' },
+            { display: '存储内存(ROM)', name: 'crom', width: 60,minWidth: 40, align:'left' },
+            { display: '进货价(元)', name: 'ncostprice', width: 60,minWidth: 40, align:'left' },
+            { display: '销售价(元)', name: 'nretailprice', width: 60,minWidth: 40, align:'left' },
             { display: '处理器(CPU)', name: 'ccpu', width: 120,minWidth: 100, align:'left' },
             { display: '屏幕', name: 'cscreen', width: 120,minWidth: 100, align:'left' },
             { display: '摄像头', name: 'ccamera', width: 180,minWidth: 160, align:'left' },
             { display: '电池', name: 'cbattery', width: 100,minWidth: 80, align:'left' },
             { display: '网络模式', name: 'cnetwork', width: 100,minWidth: 80, align:'left' },
             { display: '亮点描述', name: 'chighlightdesc', width: 160,minWidth: 140, align:'left' },
-            { display: '保修时间(天)', name: 'iwarrantyday', width: 100,minWidth: 80, align:'left' },
+            { display: '保修时间(天)', name: 'iwarrantyday', width: 70,minWidth: 50, align:'left' },
             { display: '保修内容', name: 'cwarrantycontent', width: 100,minWidth: 80, align:'left' },
             { display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120, align:'left' },
             { display: '更新日期', name: 'dupdatedateStr', width: 140,minWidth: 120, align:'left' }
             ],
-        toolbar: { items: [
-	            { text: '增加', click: addPhoneModel, icon: 'add' },
-	            { line: true },
-	            { text: '修改', click: modifyPhoneModel, icon: 'modify' },
-	            { line: true },
-	            { text: '删除', click: deletePhoneModel, icon:'delete' }
-            ]
-        },
 		url:contextPath + "/bpr/phoneModel/getPhoneModelJSON",
 	    pageSize:30 ,rownumbers:true,pageSizeOptions:[10,20,30],frozen: false,fixedCellHeight:false,
 	    onReload:false,dataAction:"local",checkbox:true,selectRowButtonOnly:true,enabledSort:false,
@@ -148,14 +148,14 @@ function searchPhoneModel()
 //新增手机型号
 function addPhoneModel()
 {
-	phoneModelDialog = $.ligerDialog.open({url:contextPath+"/bpr/phoneModel/add",title:"新增手机型号",allowClose:true,width:840,height:600});
+	phoneModelDialog = $.ligerDialog.open({url:contextPath+"/bpr/phoneModel/add",title:"新增手机型号",allowClose:true,width:840,height:500});
 }
 //修改手机型号
 function modifyPhoneModel()
 {
 	var rows = phoneModelTable.getCheckedRows();
 	if(rows != null && rows != ""){
-		phoneModelDialog = $.ligerDialog.open({url:contextPath+"/bpr/phoneModel/modify?uid="+rows[0].uid,title:"修改手机型号",allowClose:true,width:840,height:600});
+		phoneModelDialog = $.ligerDialog.open({url:contextPath+"/bpr/phoneModel/modify?uid="+rows[0].uid,title:"修改手机型号",allowClose:true,width:840,height:500});
 	}
 	else
 	{
@@ -194,6 +194,6 @@ function deletePhoneModel()
 	}
 	else
 	{
-		$.ligerDialog.warn("请选择需要删除的商品信息!");
+		$.ligerDialog.warn("请选择需要删除的手机型号信息!");
 	}
 }

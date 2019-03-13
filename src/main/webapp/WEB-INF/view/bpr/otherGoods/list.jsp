@@ -14,7 +14,6 @@
 </head>
 <!-- /bpr/otherGoods/list.jsp -->
 <body>
-	<div class="l-clear"></div>
 	<form id="searchTable">
 		<input type="hidden" id="searchUcategoryId"/>
 		<input type="hidden" id="searchUbrandId"/>
@@ -28,12 +27,12 @@
 				<td><input type="text" id="searchCno" class="l-text"/></td>
 				<td>条码：</td>
 				<td><input type="text" id="searchCbarcode" class="l-text"/></td>
+			</tr>
+			<tr>
 				<td>名称：</td>
 				<td><input type="text" id="searchCname" class="l-text"/></td>
 				<td>助记码：</td>
 				<td><input type="text" id="searchCmnemoniccode" class="l-text"/></td>
-			</tr>
-			<tr>
 				<td>记录日期：</td>
 				<td><input type="text" id="searchDrecorddateStrMin"/></td>
 				<td align="center">-</td>
@@ -42,8 +41,8 @@
 			</tr>
 		</table>
 	</form>
+	<div id="otherGoodsToolBar"></div>
     <div id="maingrid"></div>
-  	<div style="display:none;"></div>
   	<!-- javascript文件引用 -->
 	<script type="text/javascript">var contextPath = '${contextPath}';</script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/jquery-1.8.3.js"></script>

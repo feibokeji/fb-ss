@@ -14,7 +14,6 @@
 </head>
 <!-- /bpr/supplierOrder/list.jsp -->
 <body>
-	<div class="l-clear"></div>
 	<form id="searchTable">
 		<input type="hidden" id="searchUsupplierid"/>
 		<input type="hidden" id="searchItype"/>
@@ -39,8 +38,8 @@
 			</tr>
 		</table>
 	</form>
+	<div id="supplierOrderToolBar"></div>
     <div id="maingrid"></div>
-  	<div style="display:none;"></div>
   	<!-- javascript文件引用 -->
 	<script type="text/javascript">var contextPath = '${contextPath}';</script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/jquery-1.8.3.js"></script>

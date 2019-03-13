@@ -8,8 +8,16 @@ $(function(){
 		 promptPosition: 'bottomRight',scroll:false
 	});
 	$("#searchDrecorddateMin,#searchDrecorddateMax").ligerDateEditor();
+	$("#counterPartsToolBar").ligerToolBar({
+		items:[
+		    { text: '增加', click: addCounterParts, icon: 'add' },
+	        { line: true },
+	        { text: '修改', click: modifyCounterParts, icon: 'modify' },
+	        { line: true },
+	        { text: '删除', click: deleteCounterParts, icon:'delete' }
+		]
+	});
 	counterPartsTable = window['maingrid'] = $("#maingrid").ligerGrid({
-		height:'100%',
         columns: [
             { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
             { display:'用户表外键', name : 'uuserid', align: 'left', width:100, minWidth: 60,hide: true},
@@ -25,14 +33,6 @@ $(function(){
             { display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 80, align:'left' },
             { display: '更新日期', name: 'dupdatedateStr', width: 140,minWidth: 80, align:'left' }
             ],
-        toolbar: { items: [
-	            { text: '增加', click: addCounterParts, icon: 'add' },
-	            { line: true },
-	            { text: '修改', click: modifyCounterParts, icon: 'modify' },
-	            { line: true },
-	            { text: '删除', click: deleteCounterParts, icon:'delete' }
-            ]
-        },
 		url:contextPath + "/bpr/counterParts/getCounterPartsJSON",
 	    pageSize:30 ,rownumbers:true,pageSizeOptions:[10,20,30],
 	    onReload:false,dataAction:"local",checkbox:true,selectRowButtonOnly:true,enabledSort:false,
@@ -78,13 +78,13 @@ function searchCounterParts()
 }
 function addCounterParts()
 {
-	counterPartsDialog = $.ligerDialog.open({url:contextPath+"/bpr/counterParts/add",title:"新增同行",allowClose:true,width:640,height:500});
+	counterPartsDialog = $.ligerDialog.open({url:contextPath+"/bpr/counterParts/add",title:"新增同行",allowClose:true,width:640,height:380});
 }
 function modifyCounterParts()
 {
 	var rows = counterPartsTable.getCheckedRows();
 	if(rows != null && rows != ""){
-		counterPartsDialog = $.ligerDialog.open({url:contextPath+"/bpr/counterParts/modify?uid="+rows[0].uid,title:"修改同行",allowClose:true,width:640,height:500});
+		counterPartsDialog = $.ligerDialog.open({url:contextPath+"/bpr/counterParts/modify?uid="+rows[0].uid,title:"修改同行",allowClose:true,width:640,height:380});
 	}
 	else
 	{

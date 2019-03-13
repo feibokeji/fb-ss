@@ -95,5 +95,9 @@ public class RoleServiceImpl extends SimpServiceAbstract implements RoleService 
         }
         return false;
     }
+
+    public TRole getRole(String uid) {
+        return roleDao.get(uid);
+    }
     
 }

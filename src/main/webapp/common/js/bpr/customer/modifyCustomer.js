@@ -1,23 +1,32 @@
 /**
  * 修改客户信息JavaScript
  */
+var customerTypeComboBox = null;
 $(function(){
 	$('input:radio[name="isex"][value='+oldIsex+']').attr("checked",true);
 	$("#modifyForm").validationEngine('attach', { 
 		 promptPosition: 'topRight',scroll:false
 	});
-	$("#modifyCcustomerTypeName").ligerComboBox({
-		url:contextPath+'/bpr/customer/getCustomerTypeComboBoxJSON',
-		valueField:'id',
-		textField:'name',
-		columns:[
-			{header:'id',name:'id'},
-			{header:'编号',name:'cno'},
-			{header:'类型',name:'cname'},
-			{header:'账期(天数)',name:'ipaymentdays'}
-		],
-		autocomplete:true
+	customerTypeComboBox = $("#modifyCcustomerTypeName").ligerComboBox({
+		selectBoxWidth: 280, selectBoxHeight: 200,slide:false,isShowCheckBox:false,autocomplete:true,
+		valueField:'uid',textField:'cname',
+		grid:{
+			columns: [
+	            { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
+	            { display: '编号', name: 'cno', width: 60,minWidth: 40, align:'left' },
+	            { display: '类型', name: 'cname', width: 120,minWidth: 100, align:'left' },
+	            { display: '账期(天数)', name: 'ipaymentdays', width: 60,minWidth: 40, align:'left' }
+	        ],
+	        url:contextPath + "/bpr/customer/getCustomerTypeJSON",
+		    rownumbers:true,usePager:true,isSingleCheck:true,
+		    onReload:false,dataAction:"local",checkbox:false,selectRowButtonOnly:true,enabledSort:false
+		},
+		onSelected: function (value)
+		{
+			$("#ucustomertypeid").val(value);
+		}
 	});
+	$("#modifyCcustomerTypeName").val(oldCustomerTypeName);
 	$("#modifyDbirthdayStr").ligerDateEditor();
 });
 function ajaxCName(field,rules,i,options){

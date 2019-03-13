@@ -14,7 +14,6 @@
 </head>
 <!-- /bpr/phoneModel/list.jsp -->
 <body>
-	<div class="l-clear"></div>
 	<form id="searchTable">
 		<input type="hidden" id="searchUbrandId"/>
 		<table class="search_table">
@@ -25,14 +24,16 @@
 				<td><input type="text" id="searchCname" class="l-text"/></td>
 				<td>运行内存(RAM)：</td>
 				<td><input type="text" id="searchCram" class="l-text"/></td>
+			</tr>
+			<tr>
 				<td>存储内存(ROM)：</td>
 				<td><input type="text" id="searchCrom" class="l-text"/></td>
 				<td>处理器(CPU)：</td>
 				<td><input type="text" id="searchCcpu" class="l-text"/></td>
-			</tr>
-			<tr>
 				<td>屏幕：</td>
 				<td><input type="text" id="searchCscreen" class="l-text"/></td>
+			</tr>
+			<tr>
 				<td>摄像头：</td>
 				<td><input type="text" id="searchCcamera" class="l-text"/></td>
 				<td>电池：</td>
@@ -43,8 +44,8 @@
 			</tr>
 		</table>
 	</form>
+	<div id="phoneModelToolBar"></div>
     <div id="maingrid"></div>
-  	<div style="display:none;"></div>
   	<!-- javascript文件引用 -->
 	<script type="text/javascript">var contextPath = '${contextPath}';</script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/jquery-1.8.3.js"></script>

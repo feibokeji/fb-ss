@@ -11,8 +11,20 @@ var supplierComboBox,itypeComboBox,istatusComboBox;
  */
 $(function(){
 	$("#searchDrecorddateStrMin,#searchDrecorddateStrMax").ligerDateEditor();
+	$("#supplierOrderToolBar").ligerToolBar({
+		items:[
+		    { text: '查看', click: viewSupplierOrder, icon: 'view'},
+            { line: true },
+	        { text: '修改', click: modifySupplierOrder, icon: 'modify' },
+	        { line: true },
+	        { text: '审核', click: auditSupplierOrder, icon: 'ok'},
+	        { line: true },
+	        { text: '反审核', click: reverseAuditSupplierOrder, icon: 'refresh'},
+	        { line: true },
+	        { text: '删除', click: deleteSupplierOrder, icon:'delete' }
+		]
+	});
 	supplierOrderTable = window['maingrid'] = $("#maingrid").ligerGrid({
-		height:'100%',
         columns: [
             { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
             { display:'供应商表外键', name : 'usupplierid', align: 'left', width:100, minWidth: 60,hide: true},
@@ -22,23 +34,11 @@ $(function(){
             { display:'单据状态', name : 'istatus', align: 'left', width:100, minWidth: 60,hide: true},
             { display: '单据编号', name: 'cno', width: 140,minWidth: 120, align:'left' },
             { display: '供应商', name: 'csuppliername', width: 120, minWidth: 100, align:'left' },
-            { display: '单据类型', name: 'itypeStr', width: 100,minWidth: 80, align:'left' },
-            { display: '单据状态', name: 'istatusStr', width: 100,minWidth: 80, align:'left' },
+            { display: '单据类型', name: 'itypeStr', width: 70,minWidth: 50, align:'left' },
+            { display: '单据状态', name: 'istatusStr', width: 70,minWidth: 50, align:'left' },
             { display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120, align:'left' },
             { display: '更新日期', name: 'dupdatedateStr', width: 140,minWidth: 120, align:'left' }
             ],
-        toolbar: { items: [
-                { text: '查看', click: viewSupplierOrder, icon: 'view'},
-                { line: true },
-	            { text: '修改', click: modifySupplierOrder, icon: 'modify' },
-	            { line: true },
-	            { text: '审核', click: auditSupplierOrder, icon: 'ok'},
-	            { line: true },
-	            { text: '反审核', click: reverseAuditSupplierOrder, icon: 'refresh'},
-	            { line: true },
-	            { text: '删除', click: deleteSupplierOrder, icon:'delete' }
-            ]
-        },
 		url:contextPath + "/bpr/supplierOrder/getSupplierOrderJSON",
 		pageSize:30 ,rownumbers:true,pageSizeOptions:[10,20,30],frozen: false,fixedCellHeight:false,
 	    onReload:false,dataAction:"local",checkbox:true,selectRowButtonOnly:true,enabledSort:false,

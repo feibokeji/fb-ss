@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -23,6 +24,18 @@ public class RoleController extends SimpController {
     
     @RequestMapping("list")
     public String list() {
+        return customPage();
+    }
+    
+    @RequestMapping("add")
+    public String add(){
+        return customPage();
+    }
+    
+    @RequestMapping("modify")
+    public String modify(String uid,ModelMap map){
+        TRole role = getService().getRoleService().getRole(uid);
+        map.put("role", role);
         return customPage();
     }
     
@@ -60,9 +73,9 @@ public class RoleController extends SimpController {
         return "fail";
     }
     
-    @RequestMapping("modify")
+    @RequestMapping("modifySave")
     @ResponseBody
-    public String modify(TRole role) {
+    public String modifySave(TRole role) {
         int c = getService().getRoleService().modify(role);
         if (c > 0) return "success";
         return "fail";

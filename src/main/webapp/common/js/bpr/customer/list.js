@@ -14,23 +14,23 @@ $(function(){
 	});
 	//日历控件
 	$("#searchDbirthdayMin,#searchDbirthdayMax,#drecorddateMin,#drecorddateMax").ligerDateEditor();
+	$("#customerTypeToolBar").ligerToolBar({
+		items:[
+		       { text: '增加', click: addCustomerType, icon: 'add' },
+	           { line: true },
+	           { text: '修改', click: modifyCustomerType, icon: 'modify' },
+	           { line: true },
+	           { text: '删除', click: deleteCustomerType, icon:'delete' }
+		]
+	});
 	//客户类型列表
 	customerTypeTable = window['customerTypeMaingrid'] = $("#customerTypeMaingrid").ligerGrid({
-		height:'100%',
         columns: [
             { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
             { display: '编码', name: 'cno', align: 'left', width: 40, minWidth: 40 },
             { display: '名称', name: 'cname', width: 120,minWidth: 100, align:'left' },
             { display: '账期(天数)', name: 'ipaymentdays', width: 80,minWidth: 60, align:'left' }
             ],
-        toolbar: { items: [
-	            { text: '增加', click: addCustomerType, icon: 'add' },
-	            { line: true },
-	            { text: '修改', click: modifyCustomerType, icon: 'modify' },
-	            { line: true },
-	            { text: '删除', click: deleteCustomerType, icon:'delete' }
-            ]
-        },
 		url:contextPath + "/bpr/customer/getCustomerTypeJSON",
 	    rownumbers:true,usePager:false,
 	    onReload:false,dataAction:"local",checkbox:true,selectRowButtonOnly:true,enabledSort:false,
@@ -51,6 +51,15 @@ $(function(){
 	    	}
 	    }
 	});
+	$("#customerToolBar").ligerToolBar({
+		items:[
+		    {text:'增加',click:addCustomer,icon:'add'},
+			{line:true},
+			{text:'修改',click:modifyCustomer,icon:'modify'},
+			{line:true},
+			{text:'删除',click:deleteCustomer,icon:'delete'}
+		]
+	});
 	//客户信息列表
 	customerTable = window['customerMaingrid'] = $("#customerMaingrid").ligerGrid({
 		columns: [
@@ -70,15 +79,6 @@ $(function(){
             { display: '记录日期', name: 'drecorddateStr', width: 120,minWidth: 100, align:'left'},
             { display: '更新日期', name: 'dupdatedateStr', width: 120,minWidth: 100, align:'left'}
             ],
-		toolbar:{
-			items:[
-				{text:'增加',click:addCustomer,icon:'add'},
-				{line:true},
-				{text:'修改',click:modifyCustomer,icon:'modify'},
-				{line:true},
-				{text:'删除',click:deleteCustomer,icon:'delete'}
-			]
-		},
 		url:contextPath + "/bpr/customer/getCustomerJSON",
 	    pageSize:30 ,rownumbers:true,pageSizeOptions:[10,20,30],
 	    onReload:false,dataAction:"local",checkbox:true,selectRowButtonOnly:true,enabledSort:false,
@@ -98,13 +98,13 @@ $(function(){
 });
 //新增客户类型
 function addCustomerType(){
-	customerTypeDialog = $.ligerDialog.open({url:contextPath+"/bpr/customer/addCustomerType",title:"新增客户类型",allowClose:true,width:640,height:500});
+	customerTypeDialog = $.ligerDialog.open({url:contextPath+"/bpr/customer/addCustomerType",title:"新增客户类型",allowClose:true,width:540,height:320});
 }
 //修改客户类型
 function modifyCustomerType(){
 	var rows = customerTypeTable.getCheckedRows();
 	if(rows != null && rows != ""){
-		customerTypeDialog = $.ligerDialog.open({url:contextPath+"/bpr/customer/modifyCustomerType?uid="+rows[0].uid,title:"修改客户类型",allowClose:true,width:640,height:500});
+		customerTypeDialog = $.ligerDialog.open({url:contextPath+"/bpr/customer/modifyCustomerType?uid="+rows[0].uid,title:"修改客户类型",allowClose:true,width:540,height:320});
 	}
 	else
 	{
@@ -146,13 +146,13 @@ function deleteCustomerType(){
 }
 //新增客户信息
 function addCustomer(){
-	customerDialog = $.ligerDialog.open({url:contextPath+"/bpr/customer/addCustomer",title:"新增客户信息",allowClose:true,width:640,height:500});
+	customerDialog = $.ligerDialog.open({url:contextPath+"/bpr/customer/addCustomer",title:"新增客户信息",allowClose:true,width:640,height:400});
 }
 //修改客户信息
 function modifyCustomer(){
 	var rows = customerTable.getCheckedRows();
 	if(rows != null && rows != ""){
-		customerDialog = $.ligerDialog.open({url:contextPath+"/bpr/customer/modifyCustomer?uid="+rows[0].uid,title:"修改客户信息",allowClose:true,width:640,height:500});
+		customerDialog = $.ligerDialog.open({url:contextPath+"/bpr/customer/modifyCustomer?uid="+rows[0].uid,title:"修改客户信息",allowClose:true,width:640,height:400});
 	}
 	else
 	{

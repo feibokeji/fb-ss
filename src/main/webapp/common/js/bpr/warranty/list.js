@@ -3,21 +3,21 @@
  */
 var warrantyDialog,warrantyTable;
 $(function(){
+	$("#warrantyToolBar").ligerToolBar({
+		items:[
+		    { text: '增加', click: addWarranty, icon: 'add' },
+	        { line: true },
+	        { text: '修改', click: modifyWarranty, icon: 'modify' },
+	        { line: true },
+	        { text: '删除', click: deleteWarranty, icon:'delete' }
+		]
+	});
 	warrantyTable = window['maingrid'] = $("#maingrid").ligerGrid({
-		height:'100%',
         columns: [
             { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
             { display: '保修天数', name: 'iday', width: 120, minWidth: 100, align:'left' },
             { display: '保修内容', name: 'ccontent', align:'left', width: 300, minWidth: 280 }
             ],
-        toolbar: { items: [
-	            { text: '增加', click: addWarranty, icon: 'add' },
-	            { line: true },
-	            { text: '修改', click: modifyWarranty, icon: 'modify' },
-	            { line: true },
-	            { text: '删除', click: deleteWarranty, icon:'delete' }
-            ]
-        },
 		url:contextPath + "/bpr/warranty/getWarrantyJSON",
 	    pageSize:30 ,rownumbers:true,pageSizeOptions:[10,20,30],
 	    onReload:false,dataAction:"local",checkbox:true,selectRowButtonOnly:true,enabledSort:false,
@@ -37,13 +37,13 @@ $(function(){
 });
 function addWarranty()
 {
-	warrantyDialog = $.ligerDialog.open({url:contextPath+"/bpr/warranty/add",title:"新增保修政策",allowClose:true,width:640,height:500});
+	warrantyDialog = $.ligerDialog.open({url:contextPath+"/bpr/warranty/add",title:"新增保修政策",allowClose:true,width:540,height:300});
 }
 function modifyWarranty()
 {
 	var rows = warrantyTable.getCheckedRows();
 	if(rows != null && rows != ""){
-		warrantyDialog = $.ligerDialog.open({url:contextPath+"/bpr/warranty/modify?uid="+rows[0].uid,title:"修改保修政策",allowClose:true,width:640,height:500});
+		warrantyDialog = $.ligerDialog.open({url:contextPath+"/bpr/warranty/modify?uid="+rows[0].uid,title:"修改保修政策",allowClose:true,width:540,height:300});
 	}
 	else
 	{

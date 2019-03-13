@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/include/tags.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" style="overflow: hidden">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>修改客户信息</title>
@@ -19,7 +19,7 @@
 <body>
 	<form id="modifyForm" name="modifyForm" method="post" action="${contextPath }/bpr/customer/modifyCustomerSave">
 		<input type="hidden" name="uid" value="${customer.uid }"/>
-		<input type="hidden" name="ucustomertypeid" value="${customer.ucustomertypeid }"/>
+		<input type="hidden" id="ucustomertypeid" name="ucustomertypeid" value="${customer.ucustomertypeid }"/>
 		<input type="hidden" name="uuserid" value="${customer.uuserid }"/>
 		<input type="hidden" name="udeptid" value="${customer.udeptid }"/>
 		<input type="hidden" name="drecorddateStr" value="${customer.drecorddate }"/>
@@ -40,7 +40,7 @@
 				<th>微信：</th>
 				<td><input type="text" id="modifyCwechat" name="cwechat" class="l-text" value="${customer.cwechat }"/></td>
 				<th>生日：</th>
-				<td><input type="text" id="modifyDbirthdayStr" name="dbirthdayStr" value="${customer.birthdayStr }"/></td>
+				<td><input type="text" id="modifyDbirthdayStr" name="dbirthdayStr" value="${customer.dbirthdayStr }"/></td>
 			</tr>
 			<tr>
 				<th>积分：</th>
@@ -68,7 +68,7 @@
 		</table>
 	</form>
 	<!-- javascript文件引用 -->
-	<script type="text/javascript">var contextPath = '${contextPath}';var oldCname = '${customer.cname}';var oldIsex = ${customer.isex};</script>
+	<script type="text/javascript">var contextPath = '${contextPath}';var oldCname = '${customer.cname}';var oldIsex = ${customer.isex};var oldCustomerTypeName = '${customer.ccustomertypename}';</script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/jquery-1.8.3.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/liger/js/ligerui.all.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/jquery-ui-1.9.2.custom.js"></script>

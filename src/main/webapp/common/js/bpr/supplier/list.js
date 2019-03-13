@@ -13,13 +13,21 @@ $(function(){
 		 promptPosition: 'bottomRight',scroll:false
 	});
 	$("#searchDrecorddateMin,#searchDrecorddateMax").ligerDateEditor();
+	$("#supplierToolBar").ligerToolBar({
+		items:[
+		    { text: '增加', click: addSupplier, icon: 'add' },
+	        { line: true },
+	        { text: '修改', click: modifySupplier, icon: 'modify' },
+	        { line: true },
+	        { text: '删除', click: deleteSupplier, icon:'delete' }
+		]
+	});
 	supplierTable = window['maingrid'] = $("#maingrid").ligerGrid({
-		height:'100%',
         columns: [
             { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
             { display:'用户表外键', name : 'uuserid', align: 'left', width:100, minWidth: 60,hide: true},
             { display:'部门表外键', name : 'udeptid', align: 'left', width:100, minWidth: 60,hide: true},
-            { display: '编码', name: 'cno', align: 'left', width: 40, minWidth: 40 },
+            { display: '编码', name: 'cno', align: 'left', width: 60, minWidth: 40 },
             { display: '名称', name: 'cname', width: 120,minWidth: 100, align:'left' },
             { display: '经营范围', name: 'cbusinessscope', width: 200,minWidth: 120, align:'left' },
             { display: '地址', name: 'caddress', width: 200,minWidth: 120, align:'left' },
@@ -30,19 +38,11 @@ $(function(){
             { display: 'QQ', name: 'cqq', width: 100,minWidth: 80, align:'left' },
             { display: '微信', name: 'cwechat', width: 100,minWidth: 80, align:'left' },
             { display: '开户行', name: 'copenbank', width: 100,minWidth: 80, align:'left' },
-            { display: '银行卡号', name: 'cbankcardnumber', width: 100,minWidth: 80, align:'left' },
-            { display: '账期(天数)', name: 'ipaymentdays', width: 80,minWidth: 60, align:'left' },
-            { display: '记录日期', name: 'drecorddateStr', width: 100,minWidth: 80, align:'left' },
-            { display: '更新日期', name: 'dupdatedateStr', width: 100,minWidth: 80, align:'left' }
+            { display: '银行卡号', name: 'cbankcardnumber', width: 120,minWidth: 100, align:'left' },
+            { display: '账期(天数)', name: 'ipaymentdays', width: 60,minWidth: 40, align:'left' },
+            { display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120, align:'left' },
+            { display: '更新日期', name: 'dupdatedateStr', width: 140,minWidth: 120, align:'left' }
             ],
-        toolbar: { items: [
-	            { text: '增加', click: addSupplier, icon: 'add' },
-	            { line: true },
-	            { text: '修改', click: modifySupplier, icon: 'modify' },
-	            { line: true },
-	            { text: '删除', click: deleteSupplier, icon:'delete' }
-            ]
-        },
 		url:contextPath + "/bpr/supplier/getSupplierJSON",
 	    pageSize:30 ,rownumbers:true,pageSizeOptions:[10,20,30],
 	    onReload:false,dataAction:"local",checkbox:true,selectRowButtonOnly:true,enabledSort:false,

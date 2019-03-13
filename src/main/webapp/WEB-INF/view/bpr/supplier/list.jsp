@@ -14,7 +14,6 @@
 </head>
 <!-- /bpr/supplier/list.jsp -->
 <body>
-	<div class="l-clear"></div>
 	<form id="searchTable">
 		<table class="search_table">
 			<tr>
@@ -26,16 +25,18 @@
 				<td><input type="text" class="l-text" id="searchClinkman"/></td>
 				<td>联系电话：</td>
 				<td><input type="text" class="l-text validate[custom[phone]]" id="searchCcontactnumber"/></td>
-				<td>微信：</td>
-				<td><input type="text" class="l-text" id="searchCwechat"/></td>
 			</tr>
 			<tr>
+				<td>微信：</td>
+				<td><input type="text" class="l-text" id="searchCwechat"/></td>
 				<td>银&nbsp;行&nbsp;卡&nbsp;&nbsp;号：</td>
 				<td><input type="text" class="l-text" id="searchCbandcardnumber"/></td>
 				<td>账期(天数)：</td>
 				<td><input type="text" class="l-text validate[custom[integer]]" id="searchIpaymentdaysMin"/></td>
 				<td align="center">-</td>
 				<td><input type="text" class="l-text validate[custom[integer]]" id="searchIpaymentdaysMax"/></td>
+			</tr>
+			<tr>
 				<td>记录日期：</td>
 				<td><input type="text" class="l-text" id="searchDrecorddateMin"/></td>
 				<td align="center">-</td>
@@ -44,8 +45,8 @@
 			</tr>
 		</table>
 	</form>
+	<div id="supplierToolBar"></div>
     <div id="maingrid"></div>
-  	<div style="display:none;"></div>
   	<!-- javascript文件引用 -->
 	<script type="text/javascript">var contextPath = '${contextPath}';</script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/jquery-1.8.3.js"></script>

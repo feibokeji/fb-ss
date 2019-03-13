@@ -3,20 +3,20 @@
  */
 var colorDialog,colorTable;
 $(function(){
+	$("#colorToolBar").ligerToolBar({
+		items:[
+		    { text: '增加', click: addColor, icon: 'add' },
+	        { line: true },
+	        { text: '修改', click: modifyColor, icon: 'modify' },
+	        { line: true },
+	        { text: '删除', click: deleteColor, icon:'delete' }
+		]
+	});
 	colorTable = window['maingrid'] = $("#maingrid").ligerGrid({
-		height:'100%',
         columns: [
             { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
             { display: '颜色', name: 'cname', width: 120, minWidth: 100, align:'left' }
             ],
-        toolbar: { items: [
-	            { text: '增加', click: addColor, icon: 'add' },
-	            { line: true },
-	            { text: '修改', click: modifyColor, icon: 'modify' },
-	            { line: true },
-	            { text: '删除', click: deleteColor, icon:'delete' }
-            ]
-        },
 		url:contextPath + "/bpr/color/getColorJSON",
 	    pageSize:30 ,rownumbers:true,pageSizeOptions:[10,20,30],
 	    onReload:false,dataAction:"local",checkbox:true,selectRowButtonOnly:true,enabledSort:false,
@@ -36,13 +36,13 @@ $(function(){
 });
 function addColor()
 {
-	colorDialog = $.ligerDialog.open({url:contextPath+"/bpr/color/add",title:"新增颜色",allowClose:true,width:640,height:500});
+	colorDialog = $.ligerDialog.open({url:contextPath+"/bpr/color/add",title:"新增颜色",allowClose:true,width:540,height:300});
 }
 function modifyColor()
 {
 	var rows = colorTable.getCheckedRows();
 	if(rows != null && rows != ""){
-		colorDialog = $.ligerDialog.open({url:contextPath+"/bpr/color/modify?uid="+rows[0].uid,title:"修改颜色",allowClose:true,width:640,height:500});
+		colorDialog = $.ligerDialog.open({url:contextPath+"/bpr/color/modify?uid="+rows[0].uid,title:"修改颜色",allowClose:true,width:540,height:300});
 	}
 	else
 	{

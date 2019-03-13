@@ -11,35 +11,35 @@ var searchUcategoryId,searchUbrandId,searchCno,searchCbarcode,searchCname,search
  */
 $(function(){
 	$("#searchDrecorddateStrMin,#searchDrecorddateStrMax").ligerDateEditor();
+	$("#otherGoodsToolBar").ligerToolBar({
+		items:[
+		    { text: '增加', click: addOtherGoods, icon: 'add' },
+	        { line: true },
+	        { text: '修改', click: modifyOtherGoods, icon: 'modify' },
+	        { line: true },
+	        { text: '删除', click: deleteOtherGoods, icon:'delete' }
+		]
+	});
 	otherGoodsTable = window['maingrid'] = $("#maingrid").ligerGrid({
-		height:'100%',
         columns: [
             { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
-            { display: '类别', name: 'ccategoryname', width: 100, minWidth: 80, align:'left' },
-            { display: '品牌', name: 'cbrandname', width: 100,minWidth: 80, align:'left' },
-            { display: '编号', name: 'cno', width: 120,minWidth: 100, align:'left' },
+            { display: '类别', name: 'ccategoryname', width: 80, minWidth: 60, align:'left' },
+            { display: '品牌', name: 'cbrandname', width: 80,minWidth: 60, align:'left' },
+            { display: '编号', name: 'cno', width: 80,minWidth: 60, align:'left' },
             { display: '条形码', name: 'cbarcode', width: 120,minWidth: 100, align:'left' },
             { display: '名称', name: 'cname', width: 120,minWidth: 100, align:'left' },
             { display: '全称', name: 'cfullname', width: 160,minWidth: 140, align:'left' },
             { display: '助记码', name: 'cmnemoniccode', width: 100,minWidth: 80, align:'left' },
             { display: '规格', name: 'cspecifications', width: 180,minWidth: 160, align:'left' },
-            { display: '单位', name: 'cunitname', width: 100,minWidth: 80, align:'left' },
-            { display: '进货价(元)', name: 'ncostprice', width: 100,minWidth: 80, align:'left' },
-            { display: '销售价(元)', name: 'nretailprice', width: 100,minWidth: 80, align:'left' },
-            { display: '保修时间(天)', name: 'iwarrantyday', width: 100,minWidth: 80, align:'left' },
+            { display: '单位', name: 'cunitname', width: 40,minWidth: 30, align:'left' },
+            { display: '进货价(元)', name: 'ncostprice', width: 60,minWidth: 40, align:'left' },
+            { display: '销售价(元)', name: 'nretailprice', width: 60,minWidth: 40, align:'left' },
+            { display: '保修时间(天)', name: 'iwarrantyday', width: 70,minWidth: 50, align:'left' },
             { display: '保修内容', name: 'cwarrantycontent', width: 100,minWidth: 80, align:'left' },
-            { display: '积分', name: 'iintegral', width: 80,minWidth: 60, align:'left' },
+            { display: '积分', name: 'iintegral', width: 40,minWidth: 30, align:'left' },
             { display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120, align:'left' },
             { display: '更新日期', name: 'dupdatedateStr', width: 140,minWidth: 120, align:'left' }
             ],
-        toolbar: { items: [
-	            { text: '增加', click: addOtherGoods, icon: 'add' },
-	            { line: true },
-	            { text: '修改', click: modifyOtherGoods, icon: 'modify' },
-	            { line: true },
-	            { text: '删除', click: deleteOtherGoods, icon:'delete' }
-            ]
-        },
 		url:contextPath + "/bpr/otherGoods/getOtherGoodsJSON",
 	    pageSize:30 ,rownumbers:true,pageSizeOptions:[10,20,30],frozen: false,fixedCellHeight:false,
 	    onReload:false,dataAction:"local",checkbox:true,selectRowButtonOnly:true,enabledSort:false,
@@ -134,14 +134,14 @@ function searchOtherGoods()
 //新增其它商品
 function addOtherGoods()
 {
-	otherGoodsDialog = $.ligerDialog.open({url:contextPath+"/bpr/otherGoods/add",title:"新增商品信息",allowClose:true,width:840,height:600});
+	otherGoodsDialog = $.ligerDialog.open({url:contextPath+"/bpr/otherGoods/add",title:"新增商品信息",allowClose:true,width:840,height:460});
 }
 //修改其它商品
 function modifyOtherGoods()
 {
 	var rows = otherGoodsTable.getCheckedRows();
 	if(rows != null && rows != ""){
-		otherGoodsDialog = $.ligerDialog.open({url:contextPath+"/bpr/otherGoods/modify?uid="+rows[0].uid,title:"修改商品信息",allowClose:true,width:840,height:600});
+		otherGoodsDialog = $.ligerDialog.open({url:contextPath+"/bpr/otherGoods/modify?uid="+rows[0].uid,title:"修改商品信息",allowClose:true,width:840,height:460});
 	}
 	else
 	{

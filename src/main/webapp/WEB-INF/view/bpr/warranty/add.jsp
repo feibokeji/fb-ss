@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/include/tags.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" style="overflow: hidden">
 <head>
 <link type="text/css" href="${contextPath}/common/liger/skins/Aqua/css/ligerui-all.css" rel="stylesheet" />
 <link type="text/css" href="${contextPath}/common/liger/skins/ligerui-icons.css" rel="stylesheet" />
@@ -22,7 +22,7 @@
 			</tr>
 			<tr>
 				<th>保修内容：</th>
-				<td><textarea rows="2" cols="72" id="addCcontent" name="ccontent" class="l-textarea"></textarea></td>
+				<td><textarea rows="2" cols="60" id="addCcontent" name="ccontent" class="l-textarea"></textarea></td>
 			</tr>
 			<tr>
 				<td>&nbsp;</td>

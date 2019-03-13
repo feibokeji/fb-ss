@@ -15,9 +15,8 @@
 </head>
 <!-- /bpr/user/list.jsp -->
 <body>
-	<div class="l-clear"></div>
+	<div id="userToolBar"></div>
     <div id="maingrid"></div>
-  	<div style="display:none;"></div>
   	<div id="addDiv" style="display: none;">
   		<form id="addForm" name="addForm" method="post" action="${contextPath }/bpr/user/save">
   			<input type="hidden" name="udeptid" value="${user.udeptid }"/>

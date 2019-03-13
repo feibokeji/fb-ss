@@ -9,21 +9,21 @@ var _old_cname = null;//原有名称
 $(function(){
 	$("#addForm").validationEngine();
 	$("#modifyForm").validationEngine();
+	$("#categoryToolBar").ligerToolBar({
+		items:[
+		    { text: '增加', click: _addCategory, icon: 'add' },
+	        { line: true },
+	        { text: '修改', click: _modifyCategory, icon: 'modify' },
+	        { line: true },
+	        { text: '删除', click: _deleteCategory, icon:'delete' }
+		]
+	});
 	_categoryTableTr = $("#maingrid").ligerGrid({
-            				height:'100%',
 				            columns: [
 					            { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
 					            { display: '编码', name: 'cno', align: 'left', width: 100, minWidth: 60 },
 					            { display: '名称', name: 'cname', width: 200,minWidth: 120, align:'left' }
 					            ],
-				            toolbar: { items: [
-						            { text: '增加', click: _addCategory, icon: 'add' },
-						            { line: true },
-						            { text: '修改', click: _modifyCategory, icon: 'modify' },
-						            { line: true },
-						            { text: '删除', click: _deleteCategory, img: contextPath + '/common/liger/images/skins/icons/delete.gif' }
-					            ]
-				            },
 							url:contextPath + "/bpr/lovelysnow/listCategory",
 						    pageSize:10 ,rownumbers:true,pageSizeOptions:[10],
 						    onReload:false,dataAction:"local",checkbox:true,selectRowButtonOnly:true,enabledSort:false,

@@ -19,6 +19,7 @@
 <body>
 	<div id="layout1">
 		<div position="left" title="客户类型">
+			<div id="customerTypeToolBar"></div>
 			<div id="customerTypeMaingrid"></div>
 		</div>
 		<div position="center" title="客户信息" style="overflow: scroll;">
@@ -30,6 +31,8 @@
 						<td><input type="text" id="searchCustomerTypeCname" class="l-text" disabled="disabled"/></td>
 						<td>客户名称：</td>
 						<td><input type="text" id="searchCname" class="l-text"/></td>
+					</tr>
+					<tr>
 						<td>性别：</td>
 						<td>
 							<select id="searchIsex" class="l-text">
@@ -44,6 +47,8 @@
 						<td><input type="text" id="searchCcontactnumber" class="l-text validate[custom[phone]]"/></td>
 						<td>微信：</td>
 						<td><input type="text" id="searchCwechat" class="l-text"/></td>
+					</tr>
+					<tr>
 						<td>生日：</td>
 						<td><input type="text" id="searchDbirthdayMin"/></td>
 						<td align="center">-</td>
@@ -54,6 +59,8 @@
 						<td><input type="text" id="iintegralMin" class="l-text validate[custom[integer]]"/></td>
 						<td align="center">-</td>
 						<td><input type="text" id="iintegralMax" class="l-text validate[custom[integer]]"/></td>
+					</tr>
+					<tr>
 						<td>账期(天数)：</td>
 						<td><input type="text" id="ipaymentdaysMin" class="l-text validate[custom[integer]]"/></td>
 						<td align="center">-</td>
@@ -68,6 +75,7 @@
 					</tr>
 				</table>
 			</form>
+			<div id="customerToolBar"></div>
 			<div id="customerMaingrid"></div>
 		</div>
 	</div>

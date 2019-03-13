@@ -17,9 +17,8 @@
 </head>
 <!-- /bpr/lovelysnow/category.jsp -->
 <body>
-	<div class="l-clear"></div>
+	<div id="categoryToolBar"></div>
     <div id="maingrid"></div>
-  	<div style="display:none;"></div>
   	<div id="addDiv" style="display: none;">
   		<form id="addForm" name="addForm" method="post" action="${contextPath }/bpr/lovelysnow/addCategory">
   			<table class="add_update_table">

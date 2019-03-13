@@ -37,9 +37,17 @@ $(function(){
 	});
 	//日历控件
 	$("#drecorddateStrMin,#drecorddateStrMax").ligerDateEditor();
+	$("#hasOutToolBar").ligerToolBar({
+		items:[
+		       { text: '调入', click: inOrder, icon: 'back'},
+		       { line: true },
+		       { text: '审核', click: auditOrder, icon: 'ok'},
+		       { line: true },
+		       { text: '反审核', click: reverseAuditOrder, icon: 'refresh'}
+		]
+	});
 	//已调出手机信息列表信息
 	ligerGrid = window['hasOutMainGrid'] = $("#hasOutMainGrid").ligerGrid({
-		height:'100%',
 		columns: [
 		          { display: 'uid', name: 'uid', width: 120, minWidth: 100 ,hide:true},
 		          { display: 'ucounterpartsid', name: 'ucounterpartsid', width: 120, minWidth: 100 ,hide:true},
@@ -63,14 +71,6 @@ $(function(){
 		          { display: '记录日期', name: 'drecorddateStr', width: 140,minWidth: 120, align:'left' },
 		          { display: '更新日期', name: 'dupdatedateStr', width: 140,minWidth: 120, align:'left' }
 		],
-		toolbar: { items: [
-		                { text: '调入', click: inOrder, icon: 'back'},
-		   				{ line: true },
-		   	            { text: '审核', click: auditOrder, icon: 'ok'},
-		   	            { line: true },
-		   	            { text: '反审核', click: reverseAuditOrder, icon: 'refresh'},
-		               ]
-		},
 		url:contextPath + "/bpr/counterPartsPhoneOrder/getCounterPartsPhoneOrderJSON?itype=4",
 		pageSize:30 ,rownumbers:true,pageSizeOptions:[10,20,30],frozen: false,fixedCellHeight:false,
 	    onReload:false,dataAction:"local",checkbox:true,selectRowButtonOnly:true,enabledSort:false,

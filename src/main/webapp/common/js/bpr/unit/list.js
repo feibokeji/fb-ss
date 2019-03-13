@@ -3,20 +3,20 @@
  */
 var unitDialog,unitTable;
 $(function(){
+	$("#unitToolBar").ligerToolBar({
+		items:[
+		    { text: '增加', click: addUnit, icon: 'add' },
+	        { line: true },
+	        { text: '修改', click: modifyUnit, icon: 'modify' },
+	        { line: true },
+	        { text: '删除', click: deleteUnit, icon:'delete' }
+		]
+	});
 	unitTable = window['maingrid'] = $("#maingrid").ligerGrid({
-		height:'100%',
         columns: [
             { display:'主键', name : 'uid', align: 'left', width:100, minWidth: 60,hide: true},
             { display: '单位名称', name: 'cname', width: 120, minWidth: 100, align:'left' }
             ],
-        toolbar: { items: [
-	            { text: '增加', click: addUnit, icon: 'add' },
-	            { line: true },
-	            { text: '修改', click: modifyUnit, icon: 'modify' },
-	            { line: true },
-	            { text: '删除', click: deleteUnit, icon:'delete' }
-            ]
-        },
 		url:contextPath + "/bpr/unit/getUnitJSON",
 	    pageSize:30 ,rownumbers:true,pageSizeOptions:[10,20,30],
 	    onReload:false,dataAction:"local",checkbox:true,selectRowButtonOnly:true,enabledSort:false,
@@ -36,13 +36,13 @@ $(function(){
 });
 function addUnit()
 {
-	unitDialog = $.ligerDialog.open({url:contextPath+"/bpr/unit/add",title:"新增单位",allowClose:true,width:640,height:500});
+	unitDialog = $.ligerDialog.open({url:contextPath+"/bpr/unit/add",title:"新增单位",allowClose:true,width:540,height:300});
 }
 function modifyUnit()
 {
 	var rows = unitTable.getCheckedRows();
 	if(rows != null && rows != ""){
-		unitDialog = $.ligerDialog.open({url:contextPath+"/bpr/unit/modify?uid="+rows[0].uid,title:"修改单位",allowClose:true,width:640,height:500});
+		unitDialog = $.ligerDialog.open({url:contextPath+"/bpr/unit/modify?uid="+rows[0].uid,title:"修改单位",allowClose:true,width:540,height:300});
 	}
 	else
 	{

@@ -14,7 +14,6 @@
 </head>
 <!-- /bpr/counterParts/list.jsp -->
 <body>
-	<div class="l-clear"></div>
 	<form id="searchTable">
 		<table class="search_table">
 			<tr>
@@ -26,10 +25,10 @@
 				<td><input type="text" id="searchCtelephone" class="l-text"/></td>
 				<td>微信：</td>
 				<td><input type="text" id="searchCwechat" class="l-text"/></td>
-				<td>经营范围：</td>
-				<td><input type="text" id="searchCbusinessscope" class="l-text"/></td>
 			</tr>
 			<tr>
+				<td>经营范围：</td>
+				<td><input type="text" id="searchCbusinessscope" class="l-text"/></td>
 				<td>经营状态：</td>
 				<td>
 					<select id="searchIbusinessstatus" class="l-text">
@@ -42,6 +41,8 @@
 				<td><input type="text" id="searchIpaymentdaysMin" class="l-text validate[custom[integer]]"/></td>
 				<td align="center">-</td>
 				<td><input type="text" id="searchIpaymentdaysMax" class="l-text validate[custom[integer]]"/></td>
+			</tr>
+			<tr>
 				<td>记录日期：</td>
 				<td><input type="text" id="searchDrecorddateMin" class="l-text"/></td>
 				<td align="center">-</td>
@@ -50,8 +51,8 @@
 			</tr>
 		</table>
 	</form>
+	<div id="counterPartsToolBar"></div>
     <div id="maingrid"></div>
-  	<div style="display:none;"></div>
   	<!-- javascript文件引用 -->
 	<script type="text/javascript">var contextPath = '${contextPath}';</script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/jquery-1.8.3.js"></script>

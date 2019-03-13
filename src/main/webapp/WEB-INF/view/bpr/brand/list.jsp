@@ -14,7 +14,6 @@
 </head>
 <!-- /bpr/brand/list.jsp -->
 <body>
-	<div class="l-clear"></div>
 	<form id="searchTable">
 		<table class="search_table">
 			<tr>
@@ -24,8 +23,8 @@
 			</tr>
 		</table>
 	</form>
+	<div id="brandToolBar"></div>
     <div id="maingrid"></div>
-  	<div style="display:none;"></div>
   	<!-- javascript文件引用 -->
 	<script type="text/javascript">var contextPath = '${contextPath}';</script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/jquery-1.8.3.js"></script>

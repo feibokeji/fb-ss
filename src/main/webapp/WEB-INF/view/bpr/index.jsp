@@ -23,7 +23,7 @@
 			<span class="space">[${sessionContainer.user.cname}]您好！欢迎来到飞博科技!</span>
 			<span style="color: white;">|</span><a href="javascript:f_User_Info()" class="l-link2">账户信息</a><span style="color: white;">|</span>
 			<a href="javascript:f_Mode_Password()" class="l-link2">修改密码</a><span style="color: white;">|</span>
-			<a href="javascript:logout()" class="l-link2">退出</a><span style="color: white;">|</span>
+			<a href="javascript:logout()" class="l-link2">退出</a>
 			<!-- <a href="javascript:launchFullScreen()">全屏</a>
 			<a href="javascript:exitFullScreen()">退出全屏</a> -->
 		</div>

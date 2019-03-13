@@ -17,6 +17,14 @@ public interface TRoleDao {
      */
     public int addRole(TRole role);
     
+    /**
+     * 获取 角色
+     * @param uid
+     * @return
+     * @author Liu bo
+     */
+    public TRole get(String uid);
+    
     /////////////// 此功能预留后期多角色管理时使用
     /**
      * 获取账户角色
