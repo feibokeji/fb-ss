@@ -108,19 +108,24 @@ function discount_onChangeValue(value){
 //结账
 function submitForm(){
 	if($("#checkStandForm").validationEngine("validate")){
-		$.ligerDialog.confirm("您确定要结账吗？",function(yes){
-			if(yes){
-				var waitting = $.ligerDialog.waitting('结账中,请稍候...');
-				$("#checkStandForm").ajaxSubmit(function(data){
-					waitting.close();
-					if(data == "fail")
-						$.ligerDialog.error("结账失败!");
-					else{
-						window.parent.goodsTable.loadData();
-						window.parent.checkStandDialog.close();
-					}
-				});
-			}
-		});
+		var quantity = parseFloat($("#goodsQuantityInput").val());
+		if(quantity > 0){
+			$.ligerDialog.confirm("您确定要结账吗？",function(yes){
+				if(yes){
+					var waitting = $.ligerDialog.waitting('结账中,请稍候...');
+					$("#checkStandForm").ajaxSubmit(function(data){
+						waitting.close();
+						if(data == "fail")
+							$.ligerDialog.error("结账失败!");
+						else{
+							window.parent.goodsTable.loadData();
+							window.parent.checkStandDialog.close();
+						}
+					});
+				}
+			});
+		}else{
+			$.ligerDialog.error("销售量不能为零!");
+		}
 	}
 }

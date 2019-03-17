@@ -67,6 +67,64 @@ function exitFullScreen() {
     }
 }
 
+var financialMenuNodes = [
+    {name:"供应商账务",open:true,
+    	children:[
+    	    {name:"商品类",open:true,
+    	    	children:[
+    	    	    {name:"应付款项",title:"/bpr/supplier/financial/goods/receivable?ctype=AP"},
+    	    	    {name:"应收款项",title:"/bpr/supplier/financial/goods/receivable?ctype=AR"}
+    	    	]
+    	    },
+    	    {name:"手机类",open:true,
+    	        children:[
+    	            {name:"应付款项",title:"/bpr/supplier/financial/phone/receivable?ctype=AP"},
+    	            {name:"应收款项",title:"/bpr/supplier/financial/phone/receivable?ctype=AR"}
+    	        ]
+    	    },
+    	]
+    },
+    {name:"同行账务",open:true,
+    	children:[
+            {name:"商品类",open:true,
+    	     	children:[
+    	     	    {name:"应付款项",title:"/bpr/supplier/financial/goods/receivable?ctype=AP"},
+    	    	    {name:"应收款项",title:"/bpr/supplier/financial/goods/receivable?ctype=AR"}
+    	        ]
+    	    },
+    	    {name:"手机类",open:true,
+    	        children:[
+    	    	    {name:"应付款项",title:"/bpr/supplier/financial/phone/receivable?ctype=AP"},
+    	    	    {name:"应收款项",title:"/bpr/supplier/financial/phone/receivable?ctype=AR"}
+    	    	]
+    	    },
+    	]
+    },
+    {name:"客户账务",open:true,
+    	children:[
+    	    {name:"商品类",open:true,
+    	        children:[
+    	    	    {name:"应付款项",title:"/bpr/supplier/financial/goods/receivable?ctype=AP"},
+    	    	    {name:"应收款项",title:"/bpr/supplier/financial/goods/receivable?ctype=AR"}
+    	    	]
+    	    },
+    	    {name:"手机类",open:true,
+    	        children:[
+    	            {name:"应付款项",title:"/bpr/supplier/financial/phone/receivable?ctype=AP"},
+    	            {name:"应收款项",title:"/bpr/supplier/financial/phone/receivable?ctype=AR"}
+    	        ]
+    	    },
+    	]
+    }
+];
+var menuSetting = {callback: {onClick: onFinancialClick}};
+
+function onFinancialClick(event, treeId, treeNode, clickFlag){
+	if(!treeNode.isParent){
+		openPage(treeNode.tId,treeNode.getParentNode().getParentNode().name + "-" + treeNode.getParentNode().name + "-" +treeNode.name,contextPath + treeNode.title);
+	}
+}
+
 $(function() {
 	// 布局
 	$("#layout1").ligerLayout({
@@ -113,6 +171,9 @@ $(function() {
 	tab = liger.get("framecenter");
     accordion = liger.get("accordion1");
 	$("#pageloading").hide();
+	
+	//财务菜单树形结构数据
+	$.fn.zTree.init($("#financialMenu"), menuSetting, financialMenuNodes);
 });
 
 function f_heightChanged(options) {

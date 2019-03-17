@@ -77,3 +77,6 @@ a{text-decoration: none;}
 .checkStandTable{width:99%;border: 1px solid #bbbbbb;border-collapse:collapse;margin: 0 auto;margin-top:5px;line-height: 30px;text-align: center;}
 .checkStandTable tr th{border-right:1px solid #bbbbbb;text-align: center;background: #ececec;font-weight: bold;word-break:keep-all;white-space:nowrap;}
 .checkStandTable tr td{border:1px solid #bbbbbb;word-break:keep-all;white-space:nowrap;}
+/*收付款单据样式*/
+.receipts_table{border-collapse:collapse;width: 100%;margin: 0 auto;line-height: 30px;font-size: 16px;}
+.receipts_table tr td{border:1px solid #000000;word-break:keep-all;white-space:nowrap;}

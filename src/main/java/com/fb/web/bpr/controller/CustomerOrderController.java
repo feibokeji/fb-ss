@@ -11,6 +11,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fb.core.utils.DataUtils;
 import com.fb.core.utils.FormatUtils;
 import com.fb.domain.po.TCustomer;
 import com.fb.domain.po.TCustomerOrder;
@@ -93,7 +94,7 @@ public class CustomerOrderController extends SimpController {
     }
     
     /**
-     * 客户手机单据列表页面
+     * 客户商品单据列表页面
      * @param order
      * @return
      * @author Liu bo
@@ -105,7 +106,7 @@ public class CustomerOrderController extends SimpController {
     }
     
     /**
-     * 获取客户手机单据列表JSON数据
+     * 获取客户商品单据列表JSON数据
      * @param order
      * @return
      * @author Liu bo
@@ -124,7 +125,7 @@ public class CustomerOrderController extends SimpController {
     }
     
     /**
-     * 查看客户手机单据明细
+     * 查看客户商品单据明细
      * @param uid
      * @return
      * @author Liu bo
@@ -139,6 +140,45 @@ public class CustomerOrderController extends SimpController {
         map.put("orderDetailList", orderDetailList);
         map.put("orderReceivableList", orderReceivableList);
         map.put("orderReceiptsList", orderReceiptsList);
+        map.put("dayDiff", DataUtils.dayDiff(new Date(), order.getDrecorddate()));
         return customPage();
+    }
+    
+    /**
+     * 打开 退货页面
+     * @param uorderid 销售单据外键
+     * @return
+     * @author Liu bo
+     */
+    @RequestMapping("returnGoods")
+    public String returnGoods(String uorderid,ModelMap map){
+        TCustomerOrder order = getService().getCustomerOrderService().getOrder(uorderid);
+        List<TCustomerOrderDetail> orderDetailList = getService().getCustomerOrderService().getOrderDetailList(uorderid);
+        List<TPaymentMethod> paymentMethodList = getService().getPaymentMethodService().getPaymentMethodList();
+        map.put("order", order);
+        map.put("orderDetailList", orderDetailList);
+        map.put("paymentMethodList", paymentMethodList);
+        return customPage();
+    }
+    
+    /**
+     * 保存 客户退货单据
+     * @param order
+     * @return
+     * @author Liu bo
+     */
+    @RequestMapping("saveCustomerOrderReturn")
+    @ResponseBody
+    public String saveCustomerOrderReturn(TCustomerOrder order){
+        String cno = "RT" + FormatUtils.formatDate(new Date(), "yyyyMMddhhmmss");
+        order.setCno(cno);
+        order.setItype(1);
+        order.setIstatus(1);
+        order.getOrderReceivable().setCtype("AP");
+        order.getOrderReceipts().setCtype("AP");
+        int count = getService().getCustomerOrderService().addOrder(order, getSessionContainer().getUser(), getIP(), getURL());
+        if(count > 0)
+            return "success";
+        return "fail";
     }
 }

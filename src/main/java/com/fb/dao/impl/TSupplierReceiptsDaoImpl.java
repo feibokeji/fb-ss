@@ -132,5 +132,32 @@ public class TSupplierReceiptsDaoImpl extends SimpMapper<TSupplierReceipts> impl
         }
         return getInt(sql, map);
     }
+
+    public List<TSupplierReceipts> getReceiptsListByOrder(String uorderid) {
+        StringBuilder sql = new StringBuilder("select srp.uid,srp.ureceivableid,s.uid as usupplierid,s.cname as csuppliername");
+        sql.append(",so.cno as corderno,srp.upaymentmethodid,pm.cname as cpaymentmethodname");
+        sql.append(",pm.ccode as cpaymentmethodcode,srp.uuserid,u.cname as cusername");
+        sql.append(",srp.udeptid,d.cname as cdeptname,srp.ctype,srp.namount");
+        sql.append(",srp.istatus,srp.drecorddate,srp.dupdatedate from t_supplier_receipts as srp");
+        sql.append(" left join t_supplier_receivable as srb on srb.uid = srp.ureceivableid");
+        sql.append(" left join t_supplier as s on s.uid = srb.usupplierid");
+        sql.append(" left join t_supplier_order as so on so.uid = srb.uorderid");
+        sql.append(" left join t_payment_method as pm on pm.uid = srp.upaymentmethodid");
+        sql.append(" left join t_user as u on u.uid = srp.uuserid");
+        sql.append(" left join t_dept as d on d.uid = srp.udeptid");
+        sql.append(" where srb.uorderid = :uorderid");
+        return super.findList(sql, new QMap("uorderid",uorderid));
+    }
+
+    public double getNamountByReceivable(String ureceivableid, int istatus) {
+        QMap map = new QMap();
+        StringBuilder sql = new StringBuilder("select isnull(SUM(namount),0) from t_supplier_receipts where ureceivableid = :ureceivableid");
+        map.put("ureceivableid", ureceivableid);
+        if(istatus != -1){
+            sql.append(" and istatus = :istatus");
+            map.put("istatus", istatus);
+        }
+        return super.getColumn(sql, map, Double.class);
+    }
     
 }

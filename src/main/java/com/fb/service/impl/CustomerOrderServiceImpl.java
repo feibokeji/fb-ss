@@ -137,7 +137,7 @@ public class CustomerOrderServiceImpl extends SimpServiceAbstract implements Cus
         count += orderReceivableDao.add(order.getOrderReceivable());
         if(!isCREDIT)
             count += orderReceiptsDao.add(order.getOrderReceipts());
-        saveLog(user, "新增", ip, url, "t_customer_order", order.getUid(), "成功", "新增客户销售单据！");
+        saveLog(user, "新增", ip, url, "t_customer_order", order.getUid(), "成功", "新增客户单据！");
         return count;
     }
     

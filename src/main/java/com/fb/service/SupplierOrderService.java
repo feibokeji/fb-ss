@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.fb.domain.po.TSupplierOrder;
 import com.fb.domain.po.TSupplierOrderDetail;
+import com.fb.domain.po.TSupplierReceipts;
 import com.fb.domain.po.TSupplierReceivable;
 
 /** 
@@ -82,4 +83,12 @@ public interface SupplierOrderService {
 	 * @author Liu bo
 	 */
 	public int unAuditSupplierOrder(String uid,String uuserid,String udeptid);
+	
+	/**
+	 * 获取 供应商单据实收实付信息集合
+	 * @param uorderid 单据表外键
+	 * @return
+	 * @author Liu bo
+	 */
+	public List<TSupplierReceipts> getSupplierOrderReceipts(String uorderid);
 }

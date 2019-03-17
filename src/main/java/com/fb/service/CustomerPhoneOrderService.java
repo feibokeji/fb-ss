@@ -3,6 +3,7 @@ package com.fb.service;
 import java.util.List;
 
 import com.fb.domain.po.TCustomerPhoneOrder;
+import com.fb.domain.po.TCustomerPhoneOrderDetail;
 import com.fb.domain.po.TCustomerPhoneOrderReceipts;
 import com.fb.domain.po.TCustomerPhoneOrderReceivable;
 import com.fb.domain.po.TUser;
@@ -65,6 +66,14 @@ public interface CustomerPhoneOrderService {
     public List<TCustomerPhoneOrder> getPhoneOrderList(TCustomerPhoneOrder phoneOrder);
     
     /**
+     * 获取 客户手机单据明细信息集合
+     * @param uorderid
+     * @return
+     * @author Liu bo
+     */
+    public List<TCustomerPhoneOrderDetail> getPhoneOrderDetailListByOrder(String uorderid);
+    
+    /**
      * 新增 客户手机单据对应的（应收应付）信息
      * @param receivable
      * @return
@@ -96,6 +105,14 @@ public interface CustomerPhoneOrderService {
      * @author Liu bo
      */
     public int delPhoneOrderReceivableByOrder(String uorderid);
+    
+    /**
+     * 获取 客户手机单据对应的（应收应付）信息集合
+     * @param uorderid
+     * @return
+     * @author Liu bo
+     */
+    public List<TCustomerPhoneOrderReceivable> getPhoneOrderReceivableByOrder(String uorderid);
     
     /**
      * 新增 客户手机单据对应的（实收实付）信息

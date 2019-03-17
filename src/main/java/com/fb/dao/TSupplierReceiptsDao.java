@@ -75,4 +75,21 @@ public interface TSupplierReceiptsDao {
      * @author Liu bo
      */
     public int getOrderReceiptsNumber(String uorderid,int istatus);
+    
+    /**
+     * 获取 供应商单据实收实付信息集合
+     * @param uorderid 单据表外键
+     * @return
+     * @author Liu bo
+     */
+    public List<TSupplierReceipts> getReceiptsListByOrder(String uorderid);
+    
+    /**
+     * 获取 实收/实付 金额
+     * @param ureceivableid 应收/应付表外键
+     * @param istatus {@value 0=未结算/1=已结算/-1=全部}
+     * @return
+     * @author Liu bo
+     */
+    public double getNamountByReceivable(String ureceivableid,int istatus);
 }

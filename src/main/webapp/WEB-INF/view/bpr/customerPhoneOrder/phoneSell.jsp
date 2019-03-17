@@ -27,9 +27,9 @@
 						<td align="left"><input type="text" class="l-text" id="searchCphonemodelname"/></td>
 						<td align="right">颜色：</td>
 						<td align="left"><input type="text" class="l-text" id="searchCcolorname"/></td>
-						<td align="center"><input type="button" class="l-button" value="搜索" onclick="searchPhoneOrder()"/></td>
 					</tr>
 					<tr>
+						<td><input type="button" class="l-button" value="搜索" onclick="searchPhoneOrder()"/></td>
 						<td><input type="button" class="l-button" value="结账" onclick="settleAccounts()"/></td>
 					</tr>
 				</table>
@@ -54,7 +54,6 @@
 	<script type="text/javascript" src="${contextPath}/common/js/base/jquery-ui-1.9.2.custom.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/common.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/js/bpr/base.js"></script>
-	<script type="text/javascript" src="${contextPath}/common/js/bpr/main.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/js/bpr/customerPhoneOrder/phoneSell.js"></script>
 </body>
 </html>

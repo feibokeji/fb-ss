@@ -34,10 +34,10 @@ public class TCustomerPhoneOrderReceipts extends BaseDomain {
     private String ureceivableid;
     
     /**
-     * 手机串号
+     * 单据编号
      */
     @NotFieldMapper
-    private String imei;
+    private String corderno;
     
     /**
      * 收付款方式表外键
@@ -554,11 +554,11 @@ public class TCustomerPhoneOrderReceipts extends BaseDomain {
 
     
     /**
-     * 获取 手机串号
-     * @return imei
+     * 获取 单据编号
+     * @return corderno
      */
-    public String getImei() {
-        return imei;
+    public String getCorderno() {
+        return corderno;
     }
     
 
@@ -566,12 +566,12 @@ public class TCustomerPhoneOrderReceipts extends BaseDomain {
 
     
     /**
-     * 设置 手机串号
-     * @param imei 手机串号
+     * 设置 单据编号
+     * @param corderno 单据编号
      */
-    public void setImei(String imei) {
-        this.imei = imei;
+    public void setCorderno(String corderno) {
+        this.corderno = corderno;
     }
     
-    
+
 }

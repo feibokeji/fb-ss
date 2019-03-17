@@ -87,6 +87,7 @@ public class TSupplierReceipts extends BaseDomain {
     /**
      * 部门名称
      */
+    @NotFieldMapper
     private String cdeptname;
     
     /**
@@ -111,15 +112,15 @@ public class TSupplierReceipts extends BaseDomain {
     
     /**
      * 状态
-     * {@value 0=未结算}
-     * {@value 1=已结算}
+     * {@value 0=未审核}
+     * {@value 1=已审核}
      */
     private Integer istatus;
     
     /**
      * 状态字符串
-     * {@value 未结算}
-     * {@value 已结算}
+     * {@value 未审核}
+     * {@value 已审核}
      */
     @NotFieldMapper
     private String istatusStr;
@@ -155,6 +156,7 @@ public class TSupplierReceipts extends BaseDomain {
     /**
      * 更新日期字符串
      */
+    @NotFieldMapper
     private String dupdatedateStr;
 
     /**
@@ -415,7 +417,7 @@ public class TSupplierReceipts extends BaseDomain {
     
     /**
      * 获取：状态
-     * @return {@value 0=未结算}{@value 1=已结算}
+     * @return {@value 0=未审核}{@value 1=已审核}
      * @author Liu bo
      */
     public Integer getIstatus() {
@@ -424,27 +426,27 @@ public class TSupplierReceipts extends BaseDomain {
     
     /**
      * 设置：状态
-     * @param istatus {@value 0=未结算}{@value 1=已结算}
+     * @param istatus {@value 0=未审核}{@value 1=已审核}
      * @author Liu bo
      */
     public void setIstatus(Integer istatus) {
         this.istatus = istatus;
         switch(istatus){
             case 0:
-                this.istatusStr = "未结算";
+                this.istatusStr = "未审核";
                 break;
             case 1:
-                this.istatusStr = "已结算";
+                this.istatusStr = "已审核";
                 break;
             default:
-                this.istatusStr = "未结算";
+                this.istatusStr = "未审核";
                 break;
         }
     }
     
     /**
      * 获取：状态字符串
-     * @return {@value 未结算} {@value 已结算}
+     * @return {@value 未审核} {@value 已审核}
      * @author Liu bo
      */
     public String getIstatusStr() {
@@ -453,7 +455,7 @@ public class TSupplierReceipts extends BaseDomain {
     
     /**
      * 设置：状态字符串
-     * @param istatusStr {@value 未结算} {@value 已结算}
+     * @param istatusStr {@value 未审核} {@value 已审核}
      * @author Liu bo
      */
     public void setIstatusStr(String istatusStr) {

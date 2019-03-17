@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.fb.core.utils.DataUtils;
 import com.fb.domain.po.TSupplierOrder;
 import com.fb.domain.po.TSupplierOrderDetail;
+import com.fb.domain.po.TSupplierReceipts;
 import com.fb.domain.po.TSupplierReceivable;
 import com.fb.web.SimpController;
 
@@ -136,7 +137,11 @@ public class SupplierOrderController extends SimpController {
 	public String view(String uorderid,ModelMap map){
 	    TSupplierOrder order = getService().getSupplierOrderService().getSupplierOrder(uorderid);
 	    order.setOrderDetailList(getService().getSupplierOrderService().getSupplierOrderDetail(uorderid));
+	    List<TSupplierReceivable> orderReceivableList = getService().getSupplierOrderService().getSupplierReceivable(uorderid);
+	    List<TSupplierReceipts> orderReceiptsList = getService().getSupplierOrderService().getSupplierOrderReceipts(uorderid);
 	    map.put("order", order);
+	    map.put("orderReceivableList", orderReceivableList);
+	    map.put("orderReceiptsList", orderReceiptsList);
 	    return customPage();
 	}
 	

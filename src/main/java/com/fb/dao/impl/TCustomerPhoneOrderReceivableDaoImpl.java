@@ -41,7 +41,7 @@ public class TCustomerPhoneOrderReceivableDaoImpl extends SimpMapper<TCustomerPh
     
     public List<TCustomerPhoneOrderReceivable> getByOrder(String uorderid) {
         StringBuilder sql = new StringBuilder("select cpor.uid,cpor.ucustomerid,c.cname as ccustomername,cpor.ucustomerphoneorderid");
-        sql.append(",cpo.imei,cpor.uuserid,u.cname as cusername,cpor.udeptid,cpor.ctype,cpor.nactualamount");
+        sql.append(",cpo.cno as corderno,cpor.uuserid,u.cname as cusername,cpor.udeptid,cpor.ctype,cpor.nactualamount");
         sql.append(",cpor.ndiscount,cpor.namount,cpor.istatus,cpor.drecorddate,cpor.dupdatedate");
         sql.append(" from t_customer_phone_order_receivable as cpor");
         sql.append(" left join t_customer as c on c.uid = cpor.ucustomerid");
@@ -54,7 +54,7 @@ public class TCustomerPhoneOrderReceivableDaoImpl extends SimpMapper<TCustomerPh
     public List<TCustomerPhoneOrderReceivable> get(TCustomerPhoneOrderReceivable receivable) {
         QMap map = new QMap();
         StringBuilder sql = new StringBuilder("select cpor.uid,cpor.ucustomerid,c.cname as ccustomername,cpor.ucustomerphoneorderid");
-        sql.append(",cpo.imei,cpor.uuserid,u.cname as cusername,cpor.udeptid,cpor.ctype,cpor.nactualamount");
+        sql.append(",cpo.cno as corderno,cpor.uuserid,u.cname as cusername,cpor.udeptid,cpor.ctype,cpor.nactualamount");
         sql.append(",cpor.ndiscount,cpor.namount,cpor.istatus,cpor.drecorddate,cpor.dupdatedate");
         sql.append(" from t_customer_phone_order_receivable as cpor");
         sql.append(" left join t_customer as c on c.uid = cpor.ucustomerid");
@@ -72,10 +72,6 @@ public class TCustomerPhoneOrderReceivableDaoImpl extends SimpMapper<TCustomerPh
         if(DataUtils.isUid(receivable.getUcustomerphoneorderid())){
             sql.append(" and cpor.ucustomerphoneorderid = :ucustomerphoneorderid");
             map.put("ucustomerphoneorderid", receivable.getUcustomerphoneorderid());
-        }
-        if(!DataUtils.isNullOrEmpty(receivable.getImei())){
-            sql.append(" and cpo.imei like :imei");
-            map.put("imei", "%" + receivable.getImei() + "%");
         }
         if(DataUtils.isUid(receivable.getUdeptid())){
             sql.append(" and cpor.udeptid = :udeptid");

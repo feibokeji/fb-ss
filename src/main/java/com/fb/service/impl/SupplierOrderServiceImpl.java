@@ -16,6 +16,7 @@ import com.fb.dao.TSupplierReceiptsDao;
 import com.fb.dao.TSupplierReceivableDao;
 import com.fb.domain.po.TSupplierOrder;
 import com.fb.domain.po.TSupplierOrderDetail;
+import com.fb.domain.po.TSupplierReceipts;
 import com.fb.domain.po.TSupplierReceivable;
 import com.fb.service.SimpServiceAbstract;
 import com.fb.service.SupplierOrderService;
@@ -84,6 +85,7 @@ public class SupplierOrderServiceImpl extends SimpServiceAbstract implements Sup
                         break;
                     case 1:
                         receivable.setCtype("AR");
+                        break;
                     default:
                         receivable.setCtype("AP");
                         break;
@@ -239,6 +241,10 @@ public class SupplierOrderServiceImpl extends SimpServiceAbstract implements Sup
             count += supplierReceivableDao.del(uid);
         }
         return count;
+    }
+
+    public List<TSupplierReceipts> getSupplierOrderReceipts(String uorderid) {
+        return supplierReceiptsDao.getReceiptsListByOrder(uorderid);
     }
 
 }

@@ -88,6 +88,7 @@ public class TSupplierReceivableDaoImpl extends SimpMapper<TSupplierReceivable> 
 			sql.append(" and sr.drecorddate <= :drecorddateStrMax");
 			map.put("drecorddateStrMax", supplierReceivable.getDrecorddateStrMax() + " 23:59:59");
 		}
+		sql.append(" order by sr.drecorddate desc");
 		return super.findList(sql, map);
 	}
 
@@ -100,6 +101,7 @@ public class TSupplierReceivableDaoImpl extends SimpMapper<TSupplierReceivable> 
 		sql.append(" left join t_supplier_order as so on so.uid = sr.uorderid");
 		sql.append(" left join t_user as u on u.uid = sr.uuserid");
 		sql.append(" where sr.uorderid = :uorderid");
+		sql.append(" order by sr.drecorddate desc");
 		return super.findList(sql, new QMap("uorderid",uorderid));
 	}
 

@@ -134,10 +134,10 @@ function searchSupplierPhoneOrder(){
 function showDetail(row, detailPanel,callback){
 	var div1 = document.createElement('div');
 	$(div1).attr("tabid","tabDiv1");
-	$(div1).attr("title","应收/应付款")
+	$(div1).attr("title","应收/应付款");
 	var div2 = document.createElement('div');
 	$(div2).attr("tabid","tabDiv2");
-	$(div2).attr("title","状态记录")
+	$(div2).attr("title","状态记录");
 	var tabDiv = document.createElement('div');
 	$(tabDiv).attr("id","navtab");
 	$(tabDiv).append(div1);

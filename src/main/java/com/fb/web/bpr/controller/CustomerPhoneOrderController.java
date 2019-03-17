@@ -11,9 +11,13 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fb.core.utils.DataUtils;
 import com.fb.core.utils.FormatUtils;
 import com.fb.domain.po.TCustomer;
 import com.fb.domain.po.TCustomerPhoneOrder;
+import com.fb.domain.po.TCustomerPhoneOrderDetail;
+import com.fb.domain.po.TCustomerPhoneOrderReceipts;
+import com.fb.domain.po.TCustomerPhoneOrderReceivable;
 import com.fb.domain.po.TPaymentMethod;
 import com.fb.domain.po.TSupplierPhoneOrder;
 import com.fb.web.SimpController;
@@ -107,5 +111,57 @@ public class CustomerPhoneOrderController extends SimpController {
         if(count > 0)
             return "success";
         return "fail";
+    }
+    
+    /**
+     * 打开客户手机单据列表
+     * @param itype {@value 0=销售/1=退货}
+     * @param map
+     * @return
+     * @author Liu bo
+     */
+    @RequestMapping("orderList")
+    public String orderList(int itype,ModelMap map){
+        map.put("itype", itype);
+        return customPage();
+    }
+    
+    /**
+     * 获取客户手机单据列表JSON数据
+     * @param order
+     * @return
+     * @author Liu bo
+     */
+    @RequestMapping("getCustomerPhoneOrderListJSON")
+    @ResponseBody
+    public String getCustomerPhoneOrderListJSON(TCustomerPhoneOrder order){
+        List<TCustomerPhoneOrder> list = getService().getCustomerPhoneOrderService().getPhoneOrderList(order);
+        Map<Object, Object> map = new HashMap<Object, Object>();
+        map.put("Rows", list);
+        if(list != null)
+            map.put("Total", list.size());
+        else
+            map.put("Total", 0);
+        return JSONObject.fromObject(map).toString();
+    }
+    
+    /**
+     * 查看客户手机单据明细
+     * @param uid
+     * @return
+     * @author Liu bo
+     */
+    @RequestMapping("view")
+    public String view(String uid,ModelMap map){
+        TCustomerPhoneOrder order = getService().getCustomerPhoneOrderService().getPhoneOrder(uid);
+        List<TCustomerPhoneOrderDetail> orderDetailList = getService().getCustomerPhoneOrderService().getPhoneOrderDetailListByOrder(uid);
+        List<TCustomerPhoneOrderReceivable> orderReceivableList = getService().getCustomerPhoneOrderService().getPhoneOrderReceivableByOrder(uid);
+        List<TCustomerPhoneOrderReceipts> orderReceiptsList = getService().getCustomerPhoneOrderService().getPhoneOrderReceiptsByOrder(uid);
+        map.put("order", order);
+        map.put("orderDetailList", orderDetailList);
+        map.put("orderReceivableList", orderReceivableList);
+        map.put("orderReceiptsList", orderReceiptsList);
+        map.put("dayDiff", DataUtils.dayDiff(new Date(), order.getDrecorddate()));
+        return customPage();
     }
 }

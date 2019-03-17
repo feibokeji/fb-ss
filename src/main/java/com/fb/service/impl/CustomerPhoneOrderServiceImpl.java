@@ -174,11 +174,15 @@ public class CustomerPhoneOrderServiceImpl extends SimpServiceAbstract implement
     }
     
     public TCustomerPhoneOrder getPhoneOrder(String uid) {
-        return null;
+        return orderDao.get(uid);
     }
     
     public List<TCustomerPhoneOrder> getPhoneOrderList(TCustomerPhoneOrder phoneOrder) {
-        return null;
+        return orderDao.get(phoneOrder);
+    }
+    
+    public List<TCustomerPhoneOrderDetail> getPhoneOrderDetailListByOrder(String uorderid){
+        return orderDetailDao.getByOrder(uorderid);
     }
     
     public int addPhoneOrderReceivable(TCustomerPhoneOrderReceivable receivable) {
@@ -195,6 +199,10 @@ public class CustomerPhoneOrderServiceImpl extends SimpServiceAbstract implement
     
     public int delPhoneOrderReceivableByOrder(String uorderid) {
         return 0;
+    }
+    
+    public List<TCustomerPhoneOrderReceivable> getPhoneOrderReceivableByOrder(String uorderid){
+        return orderReceivableDao.getByOrder(uorderid);
     }
     
     public int addPhoneOrderReceipts(TCustomerPhoneOrderReceipts receipts) {
@@ -226,7 +234,7 @@ public class CustomerPhoneOrderServiceImpl extends SimpServiceAbstract implement
     }
     
     public List<TCustomerPhoneOrderReceipts> getPhoneOrderReceiptsByOrder(String uorderid) {
-        return null;
+        return orderReceiptsDao.getByOrder(uorderid);
     }
     
     public List<TCustomerPhoneOrderReceipts> getPhoneOrderReceipts(TCustomerPhoneOrderReceipts receipts) {

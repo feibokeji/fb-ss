@@ -10,21 +10,11 @@ $(function(){
 		]
 	});
 	$("#searchDrecorddateStrMin,#searchDrecorddateStrMax").ligerDateEditor();
-	if(itype == 0){//已销售单据页面工具栏
-		$("#orderListToolBar").ligerToolBar({
-			items:[
-			    {text:'详细',click:viewOrderDetail,icon:'view'},
-			    {text:'退货',click:returnOrderDetail,icon:'back'}
-			]
-		});
-	}else if(itype == 1){//已退货单据页面工具栏
-		$("#orderListToolBar").ligerToolBar({
-			items:[
-			    {text:'详细',click:viewOrderDetail,icon:'view'},
-			    {text:'审核',click:auditOrderDetail,icon:'ok'}
-			]
-		});
-	}
+	$("#orderListToolBar").ligerToolBar({
+		items:[
+		    {text:'详细',click:viewOrderDetail,icon:'view'}
+		]
+	});
 	loadOrderListGrid();
 });
 //加载单据列表
@@ -79,10 +69,6 @@ function viewOrderDetail(){
 	if(rows.length == 0)
 		$.ligerDialog.warn("请选择需要查看的单据信息!");
 	else{
-		window.parent.openPage('customerOrderView',"查看客户商品单据",contextPath+'/bpr/customerOrder/view?uid='+rows[0].uid);
+		window.parent.openPage('customerOrderView'+rows[0].cno,"查看客户商品"+rows[0].cno+"单据",contextPath+'/bpr/customerOrder/view?uid='+rows[0].uid);
 	}
 }
-//退货
-function returnOrderDetail(){}
-//审核
-function auditOrderDetail(){}

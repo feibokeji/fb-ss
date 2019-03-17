@@ -14,14 +14,14 @@ $(function(){
 	$("#supplierOrderToolBar").ligerToolBar({
 		items:[
 		    { text: '查看', click: viewSupplierOrder, icon: 'view'},
-            { line: true },
-	        { text: '修改', click: modifySupplierOrder, icon: 'modify' },
-	        { line: true },
-	        { text: '审核', click: auditSupplierOrder, icon: 'ok'},
-	        { line: true },
-	        { text: '反审核', click: reverseAuditSupplierOrder, icon: 'refresh'},
-	        { line: true },
-	        { text: '删除', click: deleteSupplierOrder, icon:'delete' }
+//          { line: true },
+//	        { text: '修改', click: modifySupplierOrder, icon: 'modify' },
+//	        { line: true },
+//	        { text: '审核', click: auditSupplierOrder, icon: 'ok'},
+//	        { line: true },
+//	        { text: '反审核', click: reverseAuditSupplierOrder, icon: 'refresh'},
+//	        { line: true },
+//	        { text: '删除', click: deleteSupplierOrder, icon:'delete' }
 		]
 	});
 	supplierOrderTable = window['maingrid'] = $("#maingrid").ligerGrid({
@@ -53,8 +53,8 @@ $(function(){
 	    	}else{
 	    		this.unselect(rowindex);
 	    	}
-	    },
-	    detail:{height:'auto',onShowDetail:showDetailAndAP}
+	    }
+//	    ,detail:{height:'auto',onShowDetail:showDetailAndAP}
 	});
 	supplierComboBox = $("#searchCsuppliername").ligerComboBox({
 		selectBoxWidth: 300, selectBoxHeight: 240,slide:false,isShowCheckBox:false,
@@ -173,10 +173,10 @@ function searchSupplierOrder()
 //查看供应商单据
 function viewSupplierOrder(){
 	var rows = supplierOrderTable.getCheckedRows();
-	if(rows != null && rows != ""){
-		window.parent.openPage('supplierOrderView',"查看供应商单据",contextPath+'/bpr/supplierOrder/view?uorderid='+rows[0].uid);
-	}else{
+	if(rows.length == 0){
 		$.ligerDialog.warn("请选择需要查看的单据信息!");
+	}else{
+		window.parent.openPage('supplierOrderView'+rows[0].cno,"查看供应商"+rows[0].cno+"单据",contextPath+'/bpr/supplierOrder/view?uorderid='+rows[0].uid);
 	}
 }
 //修改供应商单据

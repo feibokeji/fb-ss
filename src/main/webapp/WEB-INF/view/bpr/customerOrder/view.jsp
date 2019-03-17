@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/include/tags.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" style="overflow: hidden">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>查看单据明细页面</title>
@@ -13,7 +13,7 @@
 <script type="text/javascript" src="${contextPath}/common/js/base/html5.js"></script>
 <![endif]-->
 </head>
-<!-- /bpr/customerPhoneOrder/view.jsp -->
+<!-- /bpr/customerOrder/view.jsp -->
 <body>
 	<div>
 		<!-- 标题 -->
@@ -77,6 +77,12 @@
 			</tr>
 		</table>
 		<!-- 应收应付信息 -->
+		<div style="margin: 0 auto;width: 99%;margin-top: 5px;">
+			<h2>
+				<c:if test="${order.itype eq 0 }">应收信息</c:if>
+	    		<c:if test="${order.itype eq 1 }">应付信息</c:if>
+			</h2>
+		</div>
 		<table class="listTable" style="margin-top: 5px;">
 			<tr>
 				<th width="30px">序号</th>
@@ -117,6 +123,12 @@
 			</tr>
 		</table>
 		<!-- 实收实付信息 -->
+		<div style="margin: 0 auto;width: 99%;margin-top: 5px;">
+			<h2>
+				<c:if test="${order.itype eq 0 }">实收信息</c:if>
+	    		<c:if test="${order.itype eq 1 }">实付信息</c:if>
+			</h2>
+		</div>
 		<table class="listTable" style="margin-top: 5px;">
 			<tr>
 				<th width="30px">序号</th>
@@ -153,10 +165,20 @@
 				<td></td>
 			</tr>
 		</table>
+		<!-- 功能按钮 -->
+		<div style="margin-top: 20px;margin-bottom: 20px;text-align: center;">
+			<!-- 超过7天不予退货且不为退货单据 -->
+			<c:if test="${dayDiff < 7 && order.itype eq 0}">
+			<input type="button" class="l-button" value="退货" onclick="returnGoods()"/>
+			</c:if>
+			<input type="button" class="l-button" value="关闭" onclick="closeViewPage()"/>
+		</div>
 	</div>
 	<!-- javascript文件引用 -->
-	<script type="text/javascript">var contextPath = '${contextPath}';</script>
+	<script type="text/javascript">var contextPath = '${contextPath}';var uorderid = '${order.uid}';var istatus = ${order.istatus};var cno = '${order.cno}';</script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/jquery-1.8.3.js"></script>
+	<script type="text/javascript" src="${contextPath}/common/liger/js/ligerui.all.js"></script>
+	<script type="text/javascript" src="${contextPath}/common/js/base/jquery-ui-1.9.2.custom.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/common.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/js/bpr/base.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/js/bpr/customerOrder/view.js"></script>

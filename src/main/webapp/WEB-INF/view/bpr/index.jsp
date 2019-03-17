@@ -9,6 +9,7 @@
 <link type="image/x-icon" href="${contextPath}/common/images/favicon.ico" rel="shortcut icon" />
 <link type="text/css" href="${contextPath}/common/liger/skins/Aqua/css/ligerui-all.css" rel="stylesheet" />
 <link type="text/css" href="${contextPath}/common/liger/skins/ligerui-icons.css" rel="stylesheet" />
+<link type="text/css" href="${contextPath}/common/zTree_v3/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
 <link type="text/css" href="${contextPath}/common/css/bpr/main.css" rel="stylesheet" />
 <!--[if lt IE 9]>
 <script type="text/javascript" src="${contextPath}/common/js/base/html5.js"></script>
@@ -96,7 +97,7 @@
 					<li>
 						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('supplierOrder2','商品报损单','${contextPath }/bpr/supplierOrder/add?itype=2')">商品报损单</a>
 					</li>
-					<!-- 商品报损 -->
+					<!-- 商品单据管理 -->
 					<li>
 						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('supplierOrderList','商品单据管理','${contextPath }/bpr/supplierOrder/list')">商品单据管理</a>
 					</li>
@@ -154,9 +155,56 @@
 					</li>
 					<!-- 已售手机 -->
 					<li>
-						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerPhoneOrder2','已售手机','${contextPath }/bpr/customer/list')">已售手机</a>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerPhoneOrderList0','已售手机','${contextPath }/bpr/customerPhoneOrder/orderList?itype=0')">已售手机</a>
+					</li>
+					<!-- 已退手机 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerPhoneOrderList1','已退手机','${contextPath }/bpr/customerPhoneOrder/orderList?itype=1')">已退手机</a>
 					</li>
 				</ul>
+			</div>
+			<div title="财务管理" class="l-scroll">
+				<ul id="financialMenu" class="ztree"></ul>
+				<%-- <ul class="m-ul">
+					<!-- 供应商应付款 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('supplierReceivableAR','供应商应付款','${contextPath }/bpr/customer/list')">供应商->应付款</a>
+					</li>
+					<!-- 供应商应收款 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('supplierReceivableAP','供应商应收款','${contextPath }/bpr/customer/list')">供应商->应收款</a>
+					</li>
+					<!-- 供应商对账表 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('supplierReceivableReceipts','供应商对账表','${contextPath }/bpr/customer/list')">供应商->对账表</a>
+					</li>
+					
+					<!-- 同行应付款 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('counterPartsReceivableAR','同行应付款','${contextPath }/bpr/customer/list')">同行->应付款</a>
+					</li>
+					<!-- 同行应收款 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('counterPartsReceivableAP','同行应收款','${contextPath }/bpr/customer/list')">同行->应收款</a>
+					</li>
+					<!-- 同行对账表 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('counterPartsReceivableReceipts','同行对账表','${contextPath }/bpr/customer/list')">同行->对账表</a>
+					</li>
+					
+					<!-- 客户应付款 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerReceivableAR','客户应付款','${contextPath }/bpr/customer/list')">客户->应付款</a>
+					</li>
+					<!-- 客户应收款 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerReceivableAP','客户应收款','${contextPath }/bpr/customer/list')">客户->应收款</a>
+					</li>
+					<!-- 客户对账表 -->
+					<li>
+						<img src="${contextPath }/common/images/demo-spindown-closed.gif" alt="" />&nbsp;<a href="javascript:openPage('customerReceivableReceipts','客户对账表','${contextPath }/bpr/customer/list')">客户->对账表</a>
+					</li>
+				</ul> --%>
 			</div>
 			<t:module code="SYSTEMMANAGEMENT">
 			<div title="系统管理" class="l-scroll">
@@ -222,6 +270,7 @@
 	<script type="text/javascript">var contextPath = '${contextPath}';</script>
 	<script type="text/javascript" src="${contextPath}/common/js/base/jquery-1.8.3.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/liger/js/ligerui.all.js"></script>
+	<script type="text/javascript" src="${contextPath}/common/zTree_v3/jquery.ztree.all.min.js"></script>
 	<script type="text/javascript" src="${contextPath}/common/js/bpr/main.js"></script>
 </body>
 </html>
